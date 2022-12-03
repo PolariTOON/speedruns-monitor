@@ -107,21 +107,18 @@ function sortPlayerDates(playerDates) {
 	});
 	return playerDates;
 }
-const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([date, platforms]) => {
+const sortedDates = Object.fromEntries(sortDates(Object.entries(dates)).map(([date, platforms]) => {
 	return [
 		date,
 		Object.fromEntries(sortDatePlatforms(Object.entries(platforms))),
 	];
-})));
-const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).map(([player, {arrival, dates}]) => {
+}));
+const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players)).map(([player, {dates}]) => {
 	return [
 		player,
-		{
-			arrival,
-			dates: Object.fromEntries(sortPlayerDates(Object.entries(dates))),
-		},
+		Object.fromEntries(sortPlayerDates(Object.entries(dates))),
 	];
-})));
+}));
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });

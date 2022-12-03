@@ -89,13 +89,13 @@ const tr = document.createElement("tr");
 const th = document.createElement("th");
 colgroup.append(col);
 tr.append(th);
-for (const [date, platforms] of Object.entries(dates)) {
+for (const [date, datePlatforms] of Object.entries(dates)) {
 	const col = document.createElement("col");
 	const th = document.createElement("th");
 	th.textContent = date;
-	for (const platform of Object.keys(platforms)) {
-		col.setAttribute(`data-${platform}`, platforms[platform]);
-		th.setAttribute(`data-${platform}`, platforms[platform]);
+	for (const platform of Object.keys(datePlatforms)) {
+		col.setAttribute(`data-${platform}`, datePlatforms[platform]);
+		th.setAttribute(`data-${platform}`, datePlatforms[platform]);
 	}
 	colgroup.append(col);
 	tr.append(th);
@@ -104,7 +104,7 @@ thead.append(tr);
 table.append(colgroup);
 table.append(thead);
 const tbody = document.createElement("tbody");
-for (const [player, {dates: playerDates}] of Object.entries(players)) {
+for (const [player, playerDates] of Object.entries(players)) {
 	const tr = document.createElement("tr");
 	const th = document.createElement("th");
 	th.textContent = player;
