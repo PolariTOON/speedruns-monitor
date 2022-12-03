@@ -93,7 +93,7 @@ for (const [date, platforms] of Object.entries(dates)) {
 	const col = document.createElement("col");
 	const th = document.createElement("th");
 	th.textContent = date;
-	for (const platform in platforms) {
+	for (const platform of Object.keys(platforms)) {
 		col.setAttribute(`data-${platform}`, platforms[platform]);
 		th.setAttribute(`data-${platform}`, platforms[platform]);
 	}
@@ -111,14 +111,14 @@ for (const [player, {dates: playerDates}] of Object.entries(players)) {
 	tr.append(th);
 	let span = 0;
 	for (const date of Object.keys(dates)) {
-		if (Object.hasOwn(playerDates, date)) {
+		if (playerDates[date] != null) {
 			if (span > 0) {
 				const td = document.createElement("td");
 				td.colSpan = span;
 				tr.append(td);
 			}
 			const td = document.createElement("td");
-			for (const run of playerDates[date] ?? []) {
+			for (const run of playerDates[date]) {
 				const p = document.createElement("p");
 				const a = document.createElement("a");
 				a.href = run.href;

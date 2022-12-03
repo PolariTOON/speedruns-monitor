@@ -89,14 +89,39 @@ function sortDates(dates) {
 	});
 	return dates;
 }
+function sortDatePlatforms(datePlatforms) {
+	sort(datePlatforms, (datePlatform) => {
+		return datePlatform[0];
+	});
+	return datePlatforms;
+}
 function sortPlayers(players) {
 	sort(players, (player) => {
 		return player[1].arrival;
 	});
 	return players;
 }
-const sortedDates = Object.fromEntries(sortDates(Object.entries(dates)));
-const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players)));
+function sortPlayerDates(playerDates) {
+	sort(playerDates, (playerDate) => {
+		return playerDate[0];
+	});
+	return playerDates;
+}
+const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([date, platforms]) => {
+	return [
+		date,
+		Object.fromEntries(sortDatePlatforms(Object.entries(platforms))),
+	];
+})));
+const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).map(([player, {arrival, dates}]) => {
+	return [
+		player,
+		{
+			arrival,
+			dates: Object.fromEntries(sortPlayerDates(Object.entries(dates))),
+		},
+	];
+})));
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });
