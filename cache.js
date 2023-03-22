@@ -27,25 +27,18 @@ for (const gameId of games) {
 		}
 		for (const run of data) {
 			dates[run.date] ??= Object.create(null);
-			const player = (() => {
+			const playerDates = (() => {
 				const player = run.players[0].rel === "user" ? run.players[0].id : "814p2558";
-				return players[player] ??= {
-					arrival: null,
-					dates: Object.create(null),
-				};
+				return players[player] ??= Object.create(null);
 			})();
-			const date = (() => {
+			const playerDateRuns = (() => {
 				const {date} = run;
-				const {dates} = player;
-				if (player.arrival == null || player.arrival > date) {
-					player.arrival = date;
-				}
-				return dates[date] ??= [];
+				return playerDates[date] ??= [];
 			})();
 			const href = run.weblink;
 			const textContent = version.values.values[run.values[version.id]].label;
 			const platform = platforms[run.system.platform];
-			date.push({
+			playerDateRuns.push({
 				href: href,
 				textContent: textContent !== "< 1.9.6" && textContent !== "Select or add one!" ? textContent : "",
 				platform: platform,
@@ -97,7 +90,7 @@ function sortDatePlatforms(datePlatforms) {
 }
 function sortPlayers(players) {
 	sort(players, (player) => {
-		return player[1].arrival;
+		return Object.keys(player[1])[0];
 	});
 	return players;
 }
@@ -107,18 +100,29 @@ function sortPlayerDates(playerDates) {
 	});
 	return playerDates;
 }
-const sortedDates = Object.fromEntries(sortDates(Object.entries(dates)).map(([date, platforms]) => {
+function sortPlayerDateRuns(playerDateRuns) {
+	sort(playerDateRuns, (playerDateRun) => {
+		return playerDateRun.href;
+	});
+	return playerDateRuns;
+}
+const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([date, platforms]) => {
 	return [
 		date,
 		Object.fromEntries(sortDatePlatforms(Object.entries(platforms))),
 	];
-}));
-const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players)).map(([player, {dates}]) => {
+})));
+const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).map(([player, dates]) => {
 	return [
 		player,
-		Object.fromEntries(sortPlayerDates(Object.entries(dates))),
+		Object.fromEntries(sortPlayerDates(Object.entries(dates).map(([date, runs]) => {
+			return [
+				date,
+				Array.from(sortPlayerDateRuns(Array.from(runs))),
+			];
+		}))),
 	];
-}));
+})));
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });
