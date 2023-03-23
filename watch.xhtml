@@ -1,28 +1,36 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 	<head>
 		<title>Watch</title>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="dark light" />
 		<style>
 			* {
 				box-sizing: border-box;
 			}
+			html {
+				width: min-content;
+				height: min-content;
+			}
 			body {
+				margin: 20px;
 				font: 16px / 1.25 serif;
+				background: var(--canvas-background);
+				color: var(--canvas-foreground);
 			}
 			table {
 				table-layout: fixed;
 				border-collapse: collapse;
-				text-align: center;
-				vertical-align: middle;
+				background: var(--canvas-background);
 			}
 			col {
 				background: repeating-linear-gradient(45deg, var(--android, #0000) 0 2px, var(--ios, #0000) 0 4px);
 			}
 			col[data-android] {
-				--android: #ffc;
+				--android: var(--overlay-yellow);
 			}
 			col[data-ios] {
-				--ios: #ccf;
+				--ios: var(--overlay-blue);
 			}
 			thead {
 				writing-mode: sideways-lr;
@@ -31,39 +39,80 @@
 			td {
 				min-width: 40px;
 				min-height: 40px;
-				padding: 0;
-				border: 1px solid #000;
+				text-align: center;
+				vertical-align: middle;
 			}
 			th {
 				padding: 10px;
 			}
-			th[data-android]::after {
+			th:not(:empty)[data-android]:not([data-ios])::after {
 				content: " (" attr(data-android) ")";
 			}
-			th[data-ios]::after {
+			th:not(:empty):not([data-android])[data-ios]::after {
 				content: " (" attr(data-ios) ")";
 			}
-			th[data-android][data-ios]::after {
+			th:not(:empty)[data-android][data-ios]::after {
 				content: " (" attr(data-android) ", " attr(data-ios) ")";
 			}
-			td:not(:first-of-type:empty, :last-of-type:empty) {
-				background: #3333;
+			td {
+				padding: 0;
+			}
+			th:not(:empty),
+			td:not(:empty) {
+				border: 1px solid var(--canvas-foreground);
+				background: var(--mark);
+			}
+			th:empty,
+			td:empty:is(:first-of-type, :last-of-type) {
+				border: 1px dashed var(--canvas-foreground);
+				background: var(--canvas-background);
+			}
+			td:empty:not(:first-of-type, :last-of-type) {
+				border-left: 1px dashed var(--canvas-foreground);
+				border-right: 1px dashed var(--canvas-foreground);
+				border-top: 1px solid var(--canvas-foreground);
+				border-bottom: 1px solid var(--canvas-foreground);
+				background: var(--mark);
 			}
 			a {
 				display: block;
 				padding: 10px;
-				background: #6f6;
-				color: #000;
+				background: var(--known);
+				color: inherit;
 			}
 			a[data-platform="ios"] {
-				outline: 5px solid #66f;
+				outline: 5px solid var(--highlight);
 				outline-offset: -5px;
 			}
 			a:empty {
-				background: #f66
+				background: var(--unknown);
 			}
 			a:empty::before {
 				content: "?";
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--canvas-background: #000;
+					--canvas-foreground: #ccc;
+					--overlay-yellow: #630;
+					--overlay-blue: #036;
+					--mark: #6663;
+					--highlight: #999c;
+					--known: #363;
+					--unknown: #636;
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				:root {
+					--canvas-background: #fff;
+					--canvas-foreground: #333;
+					--overlay-yellow: #fc9;
+					--overlay-blue: #9cf;
+					--mark: #9993;
+					--highlight: #666c;
+					--known: #9c9;
+					--unknown: #c9c;
+				}
 			}
 		</style>
 	</head>
@@ -71,6 +120,8 @@
 		<table>
 			<colgroup>
 				<col />
+			</colgroup>
+			<colgroup>
 				<col data-android="1.0.0" />
 				<col data-android="1.0.2" />
 				<col data-android="1.1.0" />
@@ -1469,7 +1520,8 @@
 						<p><a href="https://www.speedrun.com/sba/run/z06ev6ez" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zqg6x4xm" data-platform="android"></a></p>
 					</td>
-					<td colspan="2"></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9n74nkz" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yd9qk9jz" data-platform="android"></a></p>
@@ -1544,11 +1596,17 @@
 						<p><a href="https://www.speedrun.com/sba/run/y8vq5jdz" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yv2gwqom" data-platform="android"></a></p>
 					</td>
-					<td colspan="9"></td>
+					<td colspan="6"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zgxn4pem" data-platform="android"></a></p>
 					</td>
-					<td colspan="15"></td>
+					<td colspan="11"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z06evnoz" data-platform="android"></a></p>
 					</td>
@@ -1557,7 +1615,20 @@
 						<p><a href="https://www.speedrun.com/sba/run/me9kre2z" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/ylo9gnxy" data-platform="android"></a></p>
 					</td>
-					<td colspan="28"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="6"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9n748rz" data-platform="android"></a></p>
 					</td>
@@ -1569,7 +1640,9 @@
 						<p><a href="https://www.speedrun.com/sba/run/mk74jqly" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/mr4q328z" data-platform="android"></a></p>
 					</td>
-					<td colspan="4"></td>
+					<td></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me8q8o9m" data-platform="android">1.6.5.2</a></p>
 					</td>
@@ -1581,11 +1654,14 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y425pedm" data-platform="android"></a></p>
 					</td>
-					<td colspan="29"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="27"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m3nde3dy" data-platform="android"></a></p>
 					</td>
-					<td colspan="4"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9n74vez" data-platform="android">1.4.0</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yd9qkdvz" data-platform="android">1.4.0</a></p>
@@ -1594,7 +1670,10 @@
 						<p><a href="https://www.speedrun.com/sba/run/y2v3le5z" data-platform="android">1.4.0</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/y425px3m" data-platform="android">1.4.0</a></p>
 					</td>
-					<td colspan="12"></td>
+					<td colspan="9"></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y2v3lj7z" data-platform="android"></a></p>
 					</td>
@@ -1662,7 +1741,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zno8d77y" data-platform="android"></a></p>
 					</td>
-					<td colspan="6"></td>
+					<td colspan="5"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y425pq3m" data-platform="android">1.4.0</a></p>
 					</td>
@@ -1675,7 +1755,13 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zqg6x9rm" data-platform="android">1.4.0</a></p>
 					</td>
-					<td colspan="21"></td>
+					<td colspan="9"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/mr44o62z" data-platform="android"></a></p>
 					</td>
@@ -1756,7 +1842,8 @@
 						<p><a href="https://www.speedrun.com/sba/run/zp3q72xm" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zx6velez" data-platform="android"></a></p>
 					</td>
-					<td colspan="2"></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y2v3lp5z" data-platform="android">1.4.0</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zqg6x7rm" data-platform="android">1.4.0</a></p>
@@ -1784,11 +1871,19 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y667kx6y" data-platform="android">1.4.0</a></p>
 					</td>
-					<td colspan="20"></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/zx66nlqz" data-platform="android"></a></p>
 					</td>
-					<td colspan="9"></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="6"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yd3e7gwz" data-platform="android">1.6.1</a></p>
 					</td>
@@ -1845,7 +1940,10 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z50o9ejy" data-platform="android"></a></p>
 					</td>
-					<td colspan="5"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y667ko0y" data-platform="android"></a></p>
 					</td>
@@ -1901,14 +1999,31 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yj1kn2oy" data-platform="android">1.6.0</a></p>
 					</td>
-					<td colspan="10"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yj4oe1gy" data-platform="android">1.6.4.2</a></p>
 					</td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yo941n5y" data-platform="android"></a></p>
 					</td>
-					<td colspan="19"></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me98k43z" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/mr48qndz" data-platform="android"></a></p>
@@ -1917,7 +2032,20 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zp30q8gm" data-platform="android"></a></p>
 					</td>
-					<td colspan="32"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="14"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="4"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yd938qwz" data-platform="android">1.8.4</a></p>
 					</td>
@@ -1925,7 +2053,11 @@
 						<p><a href="https://www.speedrun.com/sba/run/yj14k5gy" data-platform="android">1.8.4</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/y9n0drez" data-platform="android">1.8.4</a></p>
 					</td>
-					<td colspan="41"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="37"></td>
+					<td></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mr4q3d4z" data-platform="android"></a></p>
 					</td>
@@ -1942,7 +2074,7 @@
 						<p><a href="https://www.speedrun.com/sba/run/yv2gw7xm" data-platform="android">1.9.0.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z05gg48m" data-platform="android">1.9.0.1</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m78p9dez" data-platform="android">1.9.0.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/y8v9qe1z" data-platform="android"></a></p>
@@ -1959,18 +2091,39 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9n2o7vz" data-platform="android"></a></p>
 					</td>
-					<td colspan="50"></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="11"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8v93q5z" data-platform="android">1.9.5</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9xx52vy" data-platform="android">1.9.5</a></p>
 					</td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zqg36vxm" data-platform="android">1.9.5</a></p>
 					</td>
-					<td colspan="76"></td>
+					<td colspan="47"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="25"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yw0vkj3m" data-platform="android">1.9.6.1</a></p>
 					</td>
@@ -2054,11 +2207,27 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zxkdv6em" data-platform="android">1.6.6.2</a></p>
 					</td>
-					<td colspan="17"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="7"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/znrgr57y" data-platform="android">1.7.2.2</a></p>
 					</td>
-					<td colspan="14"></td>
+					<td colspan="6"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zgwwqley" data-platform="android">1.8.0.3</a></p>
 					</td>
@@ -2066,31 +2235,48 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yw08x93m" data-platform="android">1.8.4</a></p>
 					</td>
-					<td colspan="19"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="17"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mk3ewxxz" data-platform="android">1.8.5.1</a></p>
 					</td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zx28ld5m" data-platform="android">1.8.5.1</a></p>
 					</td>
-					<td colspan="25"></td>
+					<td colspan="18"></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yv6w4l8z" data-platform="android">1.9.0.1</a></p>
 					</td>
-					<td colspan="17"></td>
+					<td colspan="9"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z091qojz" data-platform="android">1.9.1.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z537kkgy" data-platform="android">1.9.1.1</a></p>
 					</td>
-					<td colspan="9"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y4erl6dm" data-platform="android">1.9.4</a></p>
 					</td>
-					<td colspan="15"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="9"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yo3p8rjy" data-platform="android">1.9.4.1</a></p>
 					</td>
-					<td colspan="8"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="6"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m78p110z" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zxd3kvey" data-platform="android">1.9.5</a></p>
@@ -2130,18 +2316,35 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mr4qqq7z" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="33"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="24"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z06n1roz" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="24"></td>
+					<td colspan="11"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zgx0v5em" data-platform="android">1.9.6.1</a></p>
 					</td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/me951w8z" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="44"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="34"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y4rl29dz" data-platform="android">1.9.7.3</a></p>
 					</td>
@@ -2149,7 +2352,14 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y99g6vry" data-platform="android">1.9.8</a></p>
 					</td>
-					<td colspan="266"></td>
+					<td colspan="9"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="238"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yd1pxqqy" data-platform="android">1.9.6.1</a></p>
 					</td>
@@ -2183,11 +2393,52 @@
 						<p><a href="https://www.speedrun.com/sba/run/znpqj89m" data-platform="android">1.7.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zq79e69m" data-platform="android">1.7.1</a></p>
 					</td>
-					<td colspan="9"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="6"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z1pgq1jz" data-platform="android">1.7.2.2</a></p>
 					</td>
-					<td colspan="209"></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="37"></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="9"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="11"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="50"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="30"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yw36vp9m" data-platform="android">1.9.6.1</a></p>
 					</td>
@@ -2197,12 +2448,33 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/zp9dg4rm" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="94"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="34"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="11"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/z1x2ekrm" data-platform="android">1.9.9</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/zqv0lq8m" data-platform="android">1.9.9</a></p>
 					</td>
-					<td colspan="110"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="104"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yl7okpxm" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -2261,12 +2533,18 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m789rn9z" data-platform="android"></a></p>
 					</td>
-					<td colspan="6"></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mr4q3v8z" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z50o98jy" data-platform="android"></a></p>
 					</td>
-					<td colspan="3"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m3nde0gy" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zqg6x81m" data-platform="android"></a></p>
@@ -2278,7 +2556,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8vq5wxz" data-platform="android"></a></p>
 					</td>
-					<td colspan="6"></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yj1kno7y" data-platform="android"></a></p>
 					</td>
@@ -2315,11 +2594,34 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zno8d99y" data-platform="android"></a></p>
 					</td>
-					<td colspan="19"></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9n74w2z" data-platform="android"></a></p>
 					</td>
-					<td colspan="103"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="11"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="50"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zqg37qxm" data-platform="android">1.9.5.1</a></p>
 					</td>
@@ -2425,7 +2727,10 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m789rl5z" data-platform="android">1.8.5.1</a></p>
 					</td>
-					<td colspan="4"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y2v3l8jz" data-platform="android">1.9.0</a></p>
 					</td>
@@ -2445,7 +2750,11 @@
 						<p><a href="https://www.speedrun.com/sba/run/y425p0qm" data-platform="android">1.9.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zqg6x59m" data-platform="android">1.9.1</a></p>
 					</td>
-					<td colspan="7"></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y2v3lrjz" data-platform="android">1.9.1</a></p>
 					</td>
@@ -2453,7 +2762,8 @@
 						<p><a href="https://www.speedrun.com/sba/run/y667k8qy" data-platform="android">1.9.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z06evkjz" data-platform="android">1.9.1</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y2vvj06z" data-platform="android">1.9.3</a></p>
 					</td>
@@ -2470,7 +2780,7 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yj1kn7ny" data-platform="android">1.9.3</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me9krd8z" data-platform="android">1.9.4</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/yv228r4m" data-platform="android">1.9.4</a></p>
@@ -2515,15 +2825,20 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mk8k8vlm" data-platform="android">1.9.4.1</a></p>
 					</td>
-					<td colspan="9"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zp30nn8m" data-platform="android">1.9.5</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me98vk9z" data-platform="android">1.9.5</a></p>
 					</td>
-					<td colspan="5"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m3gj8vgz" data-platform="android">1.9.5.1</a></p>
 					</td>
@@ -2553,7 +2868,11 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m78pvq4z" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="14"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/m3nnll4y" data-platform="android">1.9.6.1</a></p>
 					</td>
@@ -2568,7 +2887,15 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yo96347y" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="46"></td>
+					<td colspan="22"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="7"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zp1qo1vz" data-platform="android">1.9.7.3</a></p>
 					</td>
@@ -2585,7 +2912,9 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me78350y" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="22"></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y99k21ry" data-platform="android">1.9.8</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/zp1p0lvz" data-platform="android">1.9.8</a></p>
@@ -2593,7 +2922,11 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/ydr25pwz" data-platform="android">1.9.8</a></p>
 					</td>
-					<td colspan="10"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="6"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m3r27qqm" data-platform="android">1.9.8</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z0r22doz" data-platform="android">1.9.8</a></p>
@@ -2611,7 +2944,9 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mkgn4oxy" data-platform="android">1.9.8</a></p>
 					</td>
-					<td colspan="14"></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="6"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/mrnevpdy" data-platform="android">1.9.9</a></p>
 					</td>
@@ -2619,7 +2954,12 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zqv4gx9m" data-platform="android">1.6.6.2</a></p>
 					</td>
-					<td colspan="38"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="30"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mkevx6xm" data-platform="android">1.6.6.2</a></p>
 					</td>
@@ -2737,22 +3077,34 @@
 						<p><a href="https://www.speedrun.com/sba/run/y9n74e2z" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z183w6jy" data-platform="android"></a></p>
 					</td>
-					<td colspan="15"></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z183w7jy" data-platform="android"></a></p>
 					</td>
-					<td colspan="6"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z50o96dy" data-platform="android"></a></p>
 					</td>
-					<td colspan="7"></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8vq5nnz" data-platform="android"></a></p>
 					</td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yv2gw5em" data-platform="android"></a></p>
 					</td>
-					<td colspan="4"></td>
+					<td colspan="3"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/ylo9g23y" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zgxn41nm" data-platform="android"></a></p>
@@ -2794,7 +3146,7 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zx6ver8z" data-platform="android">1.9.4.1</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/ylo9g83y" data-platform="android">1.9.4.1</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/zqgge75m" data-platform="android">1.9.4.1</a></p>
@@ -2817,7 +3169,7 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y6r2556y" data-platform="android">1.9.5</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8v9335z" data-platform="android">1.9.5</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yj14jk3y" data-platform="android">1.9.5</a></p>
@@ -2946,7 +3298,9 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yd95l7vz" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="6"></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mr4ee08z" data-platform="android">1.9.6</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/y42117dm" data-platform="android">1.9.6</a></p>
@@ -3025,7 +3379,13 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z50p7ngy" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="18"></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8vljewz" data-platform="android">1.9.7.2</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yv2eqoxm" data-platform="android">1.9.7.2</a></p>
@@ -3040,7 +3400,7 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/znol283y" data-platform="android">1.9.7.2</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/znonk78y" data-platform="android">1.9.7.2</a></p>
 					</td>
@@ -3049,7 +3409,13 @@
 						<p><a href="https://www.speedrun.com/sba/run/m78kr50z" data-platform="android">1.9.7.3</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yw099wnm" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="53"></td>
+					<td colspan="30"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="15"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y6d1k7jm" data-platform="android">1.9.8.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yjg00v7y" data-platform="android">1.9.8.1</a></p>
@@ -3058,7 +3424,14 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zxg1e85y" data-platform="android">1.9.8.1</a></p>
 					</td>
-					<td colspan="149"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="127"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y2pe27wz" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -3085,7 +3458,12 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zp3q7onm" data-platform="android"></a></p>
 					</td>
-					<td colspan="13"></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y66p7npy" data-platform="android"></a></p>
 					</td>
@@ -3109,7 +3487,7 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y667kjqy" data-platform="android"></a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yw01l22m" data-platform="android">1.9.0.1</a></p>
 					</td>
@@ -3128,12 +3506,25 @@
 						<p><a href="https://www.speedrun.com/sba/run/yo941e1y" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zgxn460m" data-platform="android"></a></p>
 					</td>
-					<td colspan="15"></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="4"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y2v3lrwz" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/y8vq5nwz" data-platform="android"></a></p>
 					</td>
-					<td colspan="30"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="11"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m789rkwz" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/mk74j65y" data-platform="android"></a></p>
@@ -3155,15 +3546,21 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y42399nm" data-platform="android"></a></p>
 					</td>
-					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yv2j4j4m" data-platform="android"></a></p>
 					</td>
-					<td colspan="5"></td>
+					<td></td>
+					<td colspan="4"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y9nn6xvz" data-platform="android"></a></p>
 					</td>
-					<td colspan="71"></td>
+					<td colspan="45"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="22"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m78xop5z" data-platform="android">1.9.6.1</a></p>
 					</td>
@@ -3206,7 +3603,7 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/ylodq12y" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me9wq48z" data-platform="android">1.9.7</a></p>
 					</td>
@@ -3214,11 +3611,13 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zx6x88kz" data-platform="android">1.9.7</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zqgpk69m" data-platform="android">1.9.7.1</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y8vnq9wz" data-platform="android">1.9.7.1</a></p>
 					</td>
@@ -3236,7 +3635,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z184qljy" data-platform="android">1.9.7.2</a></p>
 					</td>
-					<td colspan="3"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zp3jk78m" data-platform="android">1.9.7.2</a></p>
 					</td>
@@ -3270,12 +3670,20 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yvqv6nem" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="23"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="14"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/z0rg8o9z" data-platform="android">1.9.8</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/zn1n933m" data-platform="android">1.9.8</a></p>
 					</td>
-					<td colspan="9"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/m37oj5dz" data-platform="android">1.9.9</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/mrn8xegy" data-platform="android">1.9.9</a></p>
@@ -3284,7 +3692,12 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mrnkqd4y" data-platform="android">1.9.9</a></p>
 					</td>
-					<td colspan="14"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="4"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z5d87j5m" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -3412,7 +3825,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zx6ve5gz" data-platform="android"></a></p>
 					</td>
-					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m3nde26y" data-platform="android"></a></p>
 					</td>
@@ -3432,7 +3846,9 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yd99gdwz" data-platform="android">1.9.4</a></p>
 					</td>
-					<td colspan="5"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y9nn6vvz" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/z188qpgy" data-platform="android"></a></p>
@@ -3440,11 +3856,17 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8vq5lnz" data-platform="android"></a></p>
 					</td>
-					<td colspan="11"></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yv22804m" data-platform="android"></a></p>
 					</td>
-					<td colspan="12"></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="4"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/me99e19z" data-platform="android"></a></p>
 					</td>
@@ -3456,7 +3878,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y666ox1y" data-platform="android"></a></p>
 					</td>
-					<td colspan="23"></td>
+					<td colspan="22"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/z188qq9y" data-platform="android">1.9.6</a></p>
 					</td>
@@ -3477,7 +3900,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z183w0ry" data-platform="android"></a></p>
 					</td>
-					<td colspan="4"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yj1knrny" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yv2gweem" data-platform="android"></a></p>
@@ -3511,7 +3935,10 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9n2oovz" data-platform="android"></a></p>
 					</td>
-					<td colspan="10"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="6"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8v9395z" data-platform="android"></a></p>
 					</td>
@@ -3589,11 +4016,13 @@
 						<p><a href="https://www.speedrun.com/sbace/run/yj1188gy" data-platform="android">1.9.5.1</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/yloonnry" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/zgxx22dm" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="4"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/mk77vv1y" data-platform="android">1.9.6.1</a></p>
 					</td>
@@ -3662,7 +4091,13 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z1897l9y" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="17"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me9qwd9z" data-platform="android">1.9.7.2</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/y9nrjqvz" data-platform="android">1.9.7.2</a></p>
@@ -3678,15 +4113,28 @@
 						<p><a href="https://www.speedrun.com/sbace/run/yd9knqjz" data-platform="android">1.9.7.3</a></p>
 						<p><a href="https://www.speedrun.com/sbace/run/zp376qgm" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="50"></td>
+					<td colspan="28"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="14"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y99rjvry" data-platform="android">1.9.8.1</a></p>
 					</td>
-					<td colspan="13"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="7"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/ywk4l00y" data-platform="android">1.9.9</a></p>
 					</td>
-					<td colspan="13"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yde2xovm" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -3706,7 +4154,11 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y667kwjy" data-platform="android"></a></p>
 					</td>
-					<td colspan="19"></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me98v89z" data-platform="android"></a></p>
 					</td>
@@ -3781,7 +4233,8 @@
 						<p><a href="https://www.speedrun.com/sba/run/zno4ww8y" data-platform="android">1.9.4</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zno4ww8y" data-platform="android">1.9.4</a></p>
 					</td>
-					<td colspan="3"></td>
+					<td colspan="2"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m78p190z" data-platform="android">1.9.4</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/mk79l4vy" data-platform="android">1.9.4</a></p>
@@ -3789,7 +4242,8 @@
 						<p><a href="https://www.speedrun.com/sba/run/z5015ogy" data-platform="android">1.9.4</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zx649vqz" data-platform="android">1.9.4</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zp30n08m" data-platform="android">1.9.5</a></p>
 					</td>
@@ -3903,11 +4357,12 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yd9357qz" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9n2q9ez" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mr4e5p2z" data-platform="android">1.9.6</a></p>
 					</td>
@@ -3935,11 +4390,14 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zgxlwenm" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="5"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y42lpqnm" data-platform="android">1.9.7</a></p>
 					</td>
-					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9nexgvz" data-platform="android">1.9.7.1</a></p>
 					</td>
@@ -3952,15 +4410,24 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/zp3eo4gm" data-platform="android">1.9.7.2</a></p>
 					</td>
-					<td colspan="4"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yw0l172m" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="47"></td>
+					<td colspan="30"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="9"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z0r23dez" data-platform="android">1.9.8.1</a></p>
 					</td>
-					<td colspan="16"></td>
+					<td colspan="10"></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y47134qy" data-platform="android">1.9.9</a></p>
 					</td>
@@ -3972,11 +4439,14 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yj5plrnm" data-platform="android">1.9.9</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/ywk6d6ny" data-platform="android">1.9.9</a></p>
 					</td>
-					<td colspan="199"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td></td>
+					<td colspan="196"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yln3olkz" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4013,7 +4483,11 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z181ddgy" data-platform="ios">1.9.4</a></p>
 					</td>
-					<td colspan="7"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m78p1p0z" data-platform="ios"></a></p>
 					</td>
@@ -4040,7 +4514,33 @@
 						<p><a href="https://www.speedrun.com/sba/run/yw0peppm" data-platform="android"></a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zno4w48y" data-platform="android"></a></p>
 					</td>
-					<td colspan="209"></td>
+					<td></td>
+					<td colspan="50"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="36"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="34"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="20"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m77kwkem" data-platform="android">1.9.9.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/ywk9k69y" data-platform="android">1.9.9.1</a></p>
@@ -4157,7 +4657,22 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mk79l2vy" data-platform="ios">1.9.5</a></p>
 					</td>
-					<td colspan="133"></td>
+					<td colspan="36"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="36"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="34"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8dwnj5z" data-platform="ios">1.9.7</a></p>
 					</td>
@@ -4172,11 +4687,21 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/z500exgy" data-platform="android"></a></p>
 					</td>
-					<td colspan="57"></td>
+					<td colspan="33"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="20"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yv2rpe8m" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="25"></td>
+					<td colspan="15"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yv25qgom" data-platform="android">1.9.7.1</a></p>
 					</td>
@@ -4184,11 +4709,19 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/y664oxqy" data-platform="android">1.9.7.2</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/yd97q60z" data-platform="android">1.9.7.2</a></p>
 					</td>
-					<td colspan="64"></td>
+					<td colspan="33"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y937kdny" data-platform="android">1.9.9</a></p>
 					</td>
@@ -4274,7 +4807,10 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zx64g85z" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="25"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="21"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yw06162m" data-platform="android">1.9.6.1</a></p>
 					</td>
@@ -4285,7 +4821,15 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y42ke9dm" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="22"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yv2d796m" data-platform="android">1.9.7.3</a></p>
 					</td>
@@ -4293,15 +4837,27 @@
 						<p><a href="https://www.speedrun.com/sba/run/me9rkx8z" data-platform="android">1.9.7.3</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yw099dpm" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="34"></td>
+					<td colspan="30"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/ywqn6vny" data-platform="android">1.9.8</a></p>
 					</td>
-					<td colspan="28"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="4"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m77pe54m" data-platform="android">1.9.8</a></p>
 					</td>
-					<td colspan="18"></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="5"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y69v0wjy" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4333,11 +4889,29 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zple58xm" data-platform="ios">1.9.5</a></p>
 					</td>
-					<td colspan="84"></td>
+					<td colspan="17"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="36"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="10"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yo74xd1m" data-platform="ios">1.9.7</a></p>
 					</td>
-					<td colspan="42"></td>
+					<td colspan="23"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="11"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m3r8jlgm" data-platform="ios">1.9.8</a></p>
 					</td>
@@ -4363,7 +4937,10 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zx646n5z" data-platform="android">1.9.5.1</a></p>
 					</td>
-					<td colspan="5"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me9ooj3z" data-platform="ios">1.9.6</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/yw088v3m" data-platform="ios">1.9.6</a></p>
@@ -4392,7 +4969,29 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yo9jj4jy" data-platform="android">1.9.6</a></p>
 					</td>
-					<td colspan="174"></td>
+					<td></td>
+					<td colspan="36"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="34"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="39"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y6n6kjjz" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4504,7 +5103,28 @@
 						<p><a href="https://www.speedrun.com/sba/run/m783pl0z" data-platform="android">1.9.6.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/y9nk2evz" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="151"></td>
+					<td colspan="3"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="34"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="50"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zgdqe8dz" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4534,11 +5154,32 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m3nqn4wy" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="25"></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="8"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zp3jggnm" data-platform="android">1.9.7.2</a></p>
 					</td>
-					<td colspan="198"></td>
+					<td colspan="32"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="119"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m7665e9y" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4550,7 +5191,9 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yj120l7y" data-platform="android">1.9.6.1</a></p>
 					</td>
-					<td colspan="8"></td>
+					<td colspan="6"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zx6x488z" data-platform="android">1.9.7</a></p>
 					</td>
@@ -4591,7 +5234,22 @@
 						<p><a href="https://www.speedrun.com/sba/run/yw0258pm" data-platform="ios">1.9.7.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/zp3o5l8m" data-platform="ios">1.9.7</a></p>
 					</td>
-					<td colspan="136"></td>
+					<td colspan="7"></td>
+					<td></td>
+					<td colspan="34"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="47"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m363x0dm" data-platform="ios">1.9.10</a></p>
 					</td>
@@ -4627,7 +5285,15 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zn1w057m" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="57"></td>
+					<td colspan="27"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yvo4708z" data-platform="android">1.9.9</a></p>
 					</td>
@@ -4659,7 +5325,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z5rd1pjy" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="7"></td>
+					<td colspan="6"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zxg3kj8y" data-platform="android">1.9.7.3</a></p>
 					</td>
@@ -4669,7 +5336,10 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/zq1dr55m" data-platform="android">1.9.8</a></p>
 					</td>
-					<td colspan="4"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m7do889m" data-platform="android">1.9.8.1</a></p>
 					</td>
@@ -4696,7 +5366,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zq1xq71m" data-platform="android">1.9.8.1</a></p>
 					</td>
-					<td colspan="7"></td>
+					<td></td>
+					<td colspan="6"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/zp84w0vy" data-platform="android">1.9.9</a></p>
 					</td>
@@ -4705,7 +5376,12 @@
 						<p><a href="https://www.speedrun.com/sba/run/yvo6qk8z" data-platform="android">1.6.6.2</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z5dj245m" data-platform="android">1.6.6.2</a></p>
 					</td>
-					<td colspan="135"></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="126"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/m33xqq4m" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4780,7 +5456,20 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/mr1kpkgz" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="144"></td>
+					<td colspan="14"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="83"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yorwxn5y" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4803,7 +5492,13 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y6dr526m" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="24"></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="3"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y99p7vny" data-platform="android">1.9.8.1</a></p>
 					</td>
@@ -4848,7 +5543,20 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mr1n6k2z" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="202"></td>
+					<td colspan="5"></td>
+					<td></td>
+					<td colspan="4"></td>
+					<td></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td colspan="20"></td>
+					<td></td>
+					<td colspan="13"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td></td>
+					<td colspan="150"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/z1pv70wz" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -4952,7 +5660,8 @@
 						<p><a href="https://www.speedrun.com/sba/run/z1r9lp7m" data-platform="android">1.9.7.3</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z1r9np9m" data-platform="android">1.9.7.3</a></p>
 					</td>
-					<td colspan="3"></td>
+					<td></td>
+					<td colspan="2"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me7gw2qy" data-platform="android">1.9.8.1</a></p>
 					</td>
@@ -4976,7 +5685,8 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y2xlwkjm" data-platform="android">1.9.8.1</a></p>
 					</td>
-					<td colspan="8"></td>
+					<td></td>
+					<td colspan="7"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y9305ony" data-platform="android">1.9.9</a></p>
 					</td>
@@ -5015,11 +5725,15 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mrn6238y" data-platform="android">1.9.9</a></p>
 					</td>
-					<td colspan="3"></td>
+					<td colspan="2"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me416d8y" data-platform="android">1.9.9</a></p>
 					</td>
-					<td colspan="19"></td>
+					<td colspan="1"></td>
+					<td></td>
+					<td></td>
+					<td colspan="16"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/m372nngz" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -6377,7 +7091,7 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sbace/run/mkdnl73y" data-platform="ios">1.9.10</a></p>
 					</td>
-					<td colspan="1"></td>
+					<td></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/zgq0gjny" data-platform="android">1.9.9.1</a></p>
 					</td>
@@ -6592,7 +7306,11 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/znq91qvz" data-platform="android">1.9.9.1</a></p>
 					</td>
-					<td colspan="19"></td>
+					<td colspan="14"></td>
+					<td></td>
+					<td colspan="2"></td>
+					<td></td>
+					<td colspan="1"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/me1r6v0y" data-platform="android">1.9.9.1</a></p>
 					</td>
