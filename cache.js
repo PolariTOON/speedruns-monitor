@@ -17,7 +17,7 @@ for (const gameId of games) {
 	await new Promise((resolve) => {
 		setTimeout(resolve, 800);
 	});
-	const slice = 200;
+	const slice = 20;
 	for (let offset = 0;; offset += slice) {
 		const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&status=verified&orderby=date&direction=asc&offset=${offset}&max=${slice}`);
 		const {data, pagination} = await response.json();
@@ -56,10 +56,10 @@ for (const update of updates) {
 	const {date, name} = update;
 	const {android, ios} = date;
 	if (android != null) {
-		(dates[android] ??= Object.create(null)).android ??= name
+		(dates[android] ??= Object.create(null)).android = name
 	}
 	if (ios != null) {
-		(dates[ios] ??= Object.create(null)).ios ??= name
+		(dates[ios] ??= Object.create(null)).ios = name
 	}
 }
 function sort(array, hash) {
