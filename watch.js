@@ -84,18 +84,40 @@ const {window} = new JSDOM(`\
 			a {
 				display: block;
 				padding: 10px;
-				background: var(--known);
 				color: inherit;
+			}
+			a:empty::before {
+				content: "?";
 			}
 			a[data-platform="ios"] {
 				outline: 5px solid var(--highlight);
 				outline-offset: -5px;
 			}
-			a:empty {
-				background: var(--unknown);
+			a[data-status="verified"] {
+				background: var(--verified);
 			}
-			a:empty::before {
-				content: "?";
+			a[data-status="rejected"] {
+				background: var(--rejected);
+			}
+			a[data-status][data-annotation]:is(:hover, :focus-within) {
+				position: relative;
+			}
+			a[data-status][data-annotation]:is(:hover, :focus-within)::after {
+				content: attr(data-annotation);
+				position: absolute;
+				z-index: 1;
+				left: -20px;
+				top: 100%;
+				width: calc(100% + 40px);
+				padding: 5px;
+				border-radius: 5px;
+				background: var(--canvas-background);
+				box-shadow: 0 0 5px var(--canvas-foreground);
+				pointer-events: none;
+			}
+			a[data-status="rejected"][data-annotation="Automatically moved to the new individual level"]:not(:hover, :focus-within),
+			a[data-status="rejected"][data-annotation="Automatically moved to the new category extensions"]:not(:hover, :focus-within) {
+				opacity: .4;
 			}
 			@media (prefers-color-scheme: dark) {
 				:root {
@@ -105,8 +127,8 @@ const {window} = new JSDOM(`\
 					--overlay-blue: #036;
 					--mark: #6663;
 					--highlight: #999c;
-					--known: #363;
-					--unknown: #636;
+					--verified: #363;
+					--rejected: #636;
 				}
 			}
 			@media (prefers-color-scheme: light) {
@@ -117,8 +139,8 @@ const {window} = new JSDOM(`\
 					--overlay-blue: #9cf;
 					--mark: #9993;
 					--highlight: #666c;
-					--known: #9c9;
-					--unknown: #c9c;
+					--verified: #9c9;
+					--rejected: #c9c;
 				}
 			}
 		</style>
@@ -173,8 +195,18 @@ for (const [player, playerDates] of Object.entries(players)) {
 					const p = document.createElement("p");
 					const a = document.createElement("a");
 					a.href = run.href;
-					a.textContent = run.textContent;
-					a.setAttribute("data-platform", run.platform);
+					if (run.version != null) {
+						a.textContent = run.version;
+					}
+					if (run.platform != null) {
+						a.setAttribute("data-platform", run.platform);
+					}
+					if (run.status != null) {
+						a.setAttribute("data-status", run.status);
+					}
+					if (run.annotation != null) {
+						a.setAttribute("data-annotation", run.annotation);
+					}
 					p.append(a);
 					td.append(p);
 				}

@@ -2,6 +2,7 @@ import fs from "fs";
 import fetch from "node-fetch";
 const dates = Object.create(null);
 const players = Object.create(null);
+const names = Object.create(null);
 const games = ["9d3rrxyd", "w6jl2ned"];
 const platforms = {
 	"lq60nl94": "android",
@@ -10,7 +11,7 @@ const platforms = {
 for (const gameId of games) {
 	const response = await fetch(`https://www.speedrun.com/api/v1/games/${gameId}/variables`);
 	const {data} = await response.json();
-	const version = data.find((variable) => {
+	const versions = data.find((variable) => {
 		return variable.name === "Version";
 	});
 	console.log(`Got versions`);
@@ -19,35 +20,66 @@ for (const gameId of games) {
 	});
 	const slice = 20;
 	for (let offset = 0;; offset += slice) {
-		const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&status=verified&orderby=date&direction=asc&offset=${offset}&max=${slice}`);
+		const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&orderby=date&direction=asc&embed=players&offset=${offset}&max=${slice}`);
 		const {data, pagination} = await response.json();
 		const {size} = pagination;
 		if (size === 0) {
 			break;
 		}
 		for (const run of data) {
+			const status = run.status.status;
+			if (status == null || status === "new") {
+				continue;
+			}
 			dates[run.date] ??= Object.create(null);
 			const playerDates = (() => {
-				const player = run.players[0].rel === "user" ? run.players[0].id : "814p2558";
+				const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+				const name = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+				names[name] ??= player;
 				return players[player] ??= Object.create(null);
 			})();
 			const playerDateRuns = (() => {
-				const {date} = run;
+				const date = run.date;
 				return playerDates[date] ??= [];
 			})();
-			const href = run.weblink;
-			const textContent = version.values.values[run.values[version.id]].label;
-			const platform = platforms[run.system.platform];
+			const gui = run.weblink ?? null;
+			const api = run.links[0].uri ?? null;
+			const version = versions.values.values[run.values[versions.id]].label ?? null;
+			const platform = platforms[run.system.platform] ?? null;
+			const comment = (run.comment ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").split(/\n{2,}/).filter((paragraph) => {
+				return paragraph.startsWith("Moderator's note: ") || paragraph.startsWith("Moderator's note:\n");
+			}).map((paragraph) => {
+				return paragraph.slice(18);
+			}).map((paragraph) => {
+				const characters = [...paragraph];
+				const firstCharacter = characters.slice(0, 1).join("").toUpperCase();
+				const lastCharacters = characters.slice(1).join("");
+				return `${firstCharacter}${lastCharacters}`;
+			}).join("\n\n") || null;
+			const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
 			playerDateRuns.push({
-				href: href,
-				textContent: textContent !== "< 1.9.6" && textContent !== "Select or add one!" ? textContent : "",
+				href: status !== "rejected" ? gui : api,
+				version: version !== "Select or add one!" ? version : null,
 				platform: platform,
+				status: status,
+				annotation: status !== "rejected" ? comment : reason,
 			});
 		}
 		console.log(`Got runs ${offset}-${offset + size - 1}`);
 		await new Promise((resolve) => {
 			setTimeout(resolve, 800);
 		});
+	}
+}
+for (const playerDates of Object.values(players)) {
+	for (const dateRuns of Object.values(playerDates)) {
+		for (const run of dateRuns) {
+			if (run.annotation != null) {
+				run.annotation = run.annotation.replaceAll(/@[-.0-9A-Z_a-z]+/g, (mention) => {
+					return `@${names[mention.slice(1)] ?? "814p2558"}`;
+				});
+			}
+		}
 	}
 }
 const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/updates.json`);
