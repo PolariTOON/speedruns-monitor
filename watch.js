@@ -31,13 +31,13 @@ const {window} = new JSDOM(`\
 				background: var(--canvas-background);
 			}
 			col {
-				background: repeating-linear-gradient(45deg, var(--android, #0000) 0 2px, var(--ios, #0000) 0 4px);
+				background: repeating-linear-gradient(45deg, var(--first-platform, #0000) 0 2px, var(--last-platform, #0000) 0 4px);
 			}
 			col[data-android] {
-				--android: var(--overlay-yellow);
+				--first-platform: var(--android);
 			}
 			col[data-ios] {
-				--ios: var(--overlay-blue);
+				--last-platform: var(--ios);
 			}
 			thead {
 				writing-mode: sideways-lr;
@@ -67,7 +67,7 @@ const {window} = new JSDOM(`\
 			th:not(:empty),
 			td:not(:empty) {
 				border: 1px solid var(--canvas-foreground);
-				background: var(--mark);
+				background: var(--highlighted);
 			}
 			th:empty,
 			td:empty:is(:first-of-type, :last-of-type) {
@@ -79,33 +79,49 @@ const {window} = new JSDOM(`\
 				border-right: 1px dashed var(--canvas-foreground);
 				border-top: 1px solid var(--canvas-foreground);
 				border-bottom: 1px solid var(--canvas-foreground);
-				background: var(--mark);
+				background: var(--highlighted);
 			}
 			a {
+				position: relative;
 				display: block;
 				padding: 10px;
+				background: var(--status);
 				color: inherit;
 			}
-			a:empty::before {
-				content: "?";
-			}
-			a[data-platform="ios"] {
-				outline: 5px solid var(--highlight);
-				outline-offset: -5px;
-			}
 			a[data-status="verified"] {
-				background: var(--verified);
+				--status: var(--verified);
 			}
 			a[data-status="rejected"] {
-				background: var(--rejected);
+				--status: var(--rejected);
 			}
-			a[data-status][data-annotation]:is(:hover, :focus-within) {
-				position: relative;
+			a[data-status="rejected"]:is([data-annotation="Old run that was obsoleted by a tons of updates now"], [data-annotation="Old run that was obsoleted by a tons of updates now\\0A Moreover, the video is not available anymore"], [data-annotation="Obsolete"], [data-annotation="Obsolete post-update"], [data-annotation="Old run that was obsoleted by a ton of updates now"], [data-annotation="Runs exploiting the bugs affecting Viper in version 1.9.4 are now invalid"], [data-annotation="To preserve the competition, the current rules state you must not use version 1.9.4 to speedrun Viper"], [data-annotation="The bug, on which the exploit used in this speedrun is based, has been quickly fixed in the next version, 1.9.9\\0A This run is thus rejected to keep the competition going"], [data-annotation="Runs should be made in the last version allowed by the subcategory, that is to say 1.9.7.3. Older versions, even if they are faster, should not be used for new submissions."]) {
+				--status: var(--contentious);
 			}
-			a[data-status][data-annotation]:is(:hover, :focus-within)::after {
-				content: attr(data-annotation);
+			a[data-status="rejected"]:is([data-annotation="Automatically moved to the new individual level"], [data-annotation="Automatically moved to the new category extensions"]) {
+				--status: var(--faded);
+			}
+			a::before {
+				content: "";
 				position: absolute;
 				z-index: 1;
+				left: calc(100% - 5px);
+				top: -5px;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				border: 1px solid var(--canvas-foreground);
+				background: var(--platform, #0000);
+			}
+			a[data-platform="android"]::before {
+				--platform: var(--android);
+			}
+			a[data-platform="ios"]::before {
+				--platform: var(--ios);
+			}
+			a[data-annotation]:is(:hover, :focus-within)::after {
+				content: attr(data-annotation);
+				position: absolute;
+				z-index: 2;
 				left: -20px;
 				top: 100%;
 				width: calc(100% + 40px);
@@ -115,32 +131,30 @@ const {window} = new JSDOM(`\
 				box-shadow: 0 0 5px var(--canvas-foreground);
 				pointer-events: none;
 			}
-			a[data-status="rejected"][data-annotation="Automatically moved to the new individual level"]:not(:hover, :focus-within),
-			a[data-status="rejected"][data-annotation="Automatically moved to the new category extensions"]:not(:hover, :focus-within) {
-				opacity: .4;
-			}
 			@media (prefers-color-scheme: dark) {
 				:root {
 					--canvas-background: #000;
 					--canvas-foreground: #ccc;
-					--overlay-yellow: #630;
-					--overlay-blue: #036;
-					--mark: #6663;
-					--highlight: #999c;
+					--android: #630;
+					--ios: #036;
+					--highlighted: #6663;
+					--faded: #9993;
 					--verified: #363;
 					--rejected: #636;
+					--contentious: #666;
 				}
 			}
 			@media (prefers-color-scheme: light) {
 				:root {
 					--canvas-background: #fff;
 					--canvas-foreground: #333;
-					--overlay-yellow: #fc9;
-					--overlay-blue: #9cf;
-					--mark: #9993;
-					--highlight: #666c;
+					--android: #fc9;
+					--ios: #9cf;
+					--highlighted: #9993;
+					--faded: #6663;
 					--verified: #9c9;
 					--rejected: #c9c;
+					--contentious: #999;
 				}
 			}
 		</style>
@@ -195,9 +209,7 @@ for (const [player, playerDates] of Object.entries(players)) {
 					const p = document.createElement("p");
 					const a = document.createElement("a");
 					a.href = run.href;
-					if (run.version != null) {
-						a.textContent = run.version;
-					}
+					a.textContent = run.version != null ? run.version : "?";
 					if (run.platform != null) {
 						a.setAttribute("data-platform", run.platform);
 					}

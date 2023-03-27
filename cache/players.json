@@ -16695,11 +16695,11 @@
 	"xkm0k06j": {
 		"2021-11-05": [
 			{
-				"href": "https://www.speedrun.com/api/v1/runs/ydeoodjm",
+				"href": "https://www.speedrun.com/sba/run/ydeoodjm",
 				"version": "1.9.10",
 				"platform": "ios",
-				"status": "rejected",
-				"annotation": "Unfortunately, this does not fit in any category at the moment.\nThe \"Barry\" subcategory is only for runs that start at the entrance of the Turtle Village, and end when opening Barry's cage.\nA speedrun file is not needed for individual level categories like this one since we only use the level timer (you can enable it in the settings)."
+				"status": "verified",
+				"annotation": null
 			}
 		],
 		"2021-11-07": [
@@ -16781,7 +16781,7 @@
 				"version": null,
 				"platform": "ios",
 				"status": "rejected",
-				"annotation": null
+				"annotation": "The site does not support direct upload. Please upload your video on a dedicated hosting platform and resubmit with a link leading to it."
 			}
 		]
 	},
@@ -19982,6 +19982,15 @@
 				"annotation": null
 			}
 		],
+		"2023-01-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y6odvvjy",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
 		"2023-01-10": [
 			{
 				"href": "https://www.speedrun.com/sba/run/y2jx226z",
@@ -19989,15 +19998,6 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
-			}
-		],
-		"2023-01-15": [
-			{
-				"href": "https://www.speedrun.com/api/v1/runs/y6odvvjy",
-				"version": "1.9.9.1",
-				"platform": "android",
-				"status": "rejected",
-				"annotation": "Runs should be made in the latest version available"
 			}
 		],
 		"2023-01-24": [
