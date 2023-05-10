@@ -12,7 +12,9 @@ const {window} = new JSDOM(`\
 		<meta name="viewport" content="width=device-width" />
 		<meta name="color-scheme" content="dark light" />
 		<style>
-			* {
+			*,
+			::before,
+			::after {
 				box-sizing: border-box;
 			}
 			html {
@@ -44,8 +46,8 @@ const {window} = new JSDOM(`\
 			}
 			th,
 			td {
-				min-width: 40px;
-				min-height: 40px;
+				min-width: 42px;
+				min-height: 42px;
 				text-align: center;
 				vertical-align: middle;
 			}
@@ -106,9 +108,10 @@ const {window} = new JSDOM(`\
 				z-index: 1;
 				left: calc(100% - 5px);
 				top: -5px;
-				width: 10px;
-				height: 10px;
-				border-radius: 5px;
+				width: 12px;
+				height: 12px;
+				padding: 5px;
+				border-radius: 6px;
 				border: 1px solid var(--canvas-foreground);
 				background: var(--platform, #0000);
 			}
