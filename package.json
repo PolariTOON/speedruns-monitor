@@ -1,8 +1,12 @@
 {
-  "type": "module",
   "dependencies": {
-    "jsdom": "^20.0.3",
-    "node-fetch": "^3.3.0",
+    "jsdom": "^22.1.0",
+    "node-fetch": "^3.3.2",
     "w3c-xmlserializer": "^4.0.0"
-  }
+  },
+  "scripts": {
+    "cache": "node cache.js",
+    "watch": "node watch.js"
+  },
+  "type": "module"
 }
