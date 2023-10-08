@@ -18,7 +18,7 @@ for (const gameId of games) {
 	await new Promise((resolve) => {
 		setTimeout(resolve, 800);
 	});
-	const slice = 20;
+	const slice = 200;
 	for (let offset = 0;; offset += slice) {
 		const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&orderby=date&direction=asc&embed=players&offset=${offset}&max=${slice}`);
 		const {data, pagination} = await response.json();
