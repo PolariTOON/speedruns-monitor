@@ -9,66 +9,77 @@ const platforms = {
 	"gde3xgek": "ios",
 };
 for (const gameId of games) {
-	const response = await fetch(`https://www.speedrun.com/api/v1/games/${gameId}/variables`);
-	const {data} = await response.json();
-	const versions = data.find((variable) => {
-		return variable.name === "Version";
-	});
-	console.log(`Got versions`);
-	await new Promise((resolve) => {
-		setTimeout(resolve, 800);
-	});
-	const slice = 200;
-	for (let offset = 0;; offset += slice) {
-		const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&orderby=date&direction=asc&embed=players&offset=${offset}&max=${slice}`);
-		const {data, pagination} = await response.json();
-		const {size} = pagination;
-		if (size === 0) {
-			break;
+	try {
+		const response = await fetch(`https://www.speedrun.com/api/v1/games/${gameId}/variables`);
+		if (!response.ok) {
+			throw new Error(response.statusText);
 		}
-		for (const run of data) {
-			const status = run.status.status;
-			if (status == null || status === "new") {
-				continue;
-			}
-			dates[run.date] ??= Object.create(null);
-			const playerDates = (() => {
-				const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-				const name = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
-				names[name] ??= player;
-				return players[player] ??= Object.create(null);
-			})();
-			const playerDateRuns = (() => {
-				const date = run.date;
-				return playerDates[date] ??= [];
-			})();
-			const gui = run.weblink ?? null;
-			const api = run.links[0].uri ?? null;
-			const version = versions.values.values[run.values[versions.id]].label ?? null;
-			const platform = platforms[run.system.platform] ?? null;
-			const comment = (run.comment ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").split(/\n{2,}/).filter((paragraph) => {
-				return paragraph.startsWith("Moderator's note: ") || paragraph.startsWith("Moderator's note:\n");
-			}).map((paragraph) => {
-				return paragraph.slice(18);
-			}).map((paragraph) => {
-				const characters = [...paragraph];
-				const firstCharacter = characters.slice(0, 1).join("").toUpperCase();
-				const lastCharacters = characters.slice(1).join("");
-				return `${firstCharacter}${lastCharacters}`;
-			}).join("\n\n") || null;
-			const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
-			playerDateRuns.push({
-				href: status !== "rejected" ? gui : api,
-				version: version !== "Select or add one!" ? version : null,
-				platform: platform,
-				status: status,
-				annotation: status !== "rejected" ? comment : reason,
-			});
-		}
-		console.log(`Got runs ${offset}-${offset + size - 1}`);
+		const {data} = await response.json();
+		const versions = data.find((variable) => {
+			return variable.name === "Version";
+		});
+		console.log(`Got versions`);
 		await new Promise((resolve) => {
 			setTimeout(resolve, 800);
 		});
+		const slice = 200;
+		for (let offset = 0;; offset += slice) {
+			const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&orderby=date&direction=asc&embed=players&offset=${offset}&max=${slice}`);
+			if (!response.ok) {
+				throw new Error(response.statusText);
+			}
+			const {data, pagination} = await response.json();
+			const {size} = pagination;
+			if (size === 0) {
+				break;
+			}
+			for (const run of data) {
+				const status = run.status.status;
+				if (status == null || status === "new") {
+					continue;
+				}
+				dates[run.date] ??= Object.create(null);
+				const playerDates = (() => {
+					const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+					const name = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+					names[name] ??= player;
+					return players[player] ??= Object.create(null);
+				})();
+				const playerDateRuns = (() => {
+					const date = run.date;
+					return playerDates[date] ??= [];
+				})();
+				const gui = run.weblink ?? null;
+				const api = run.links[0].uri ?? null;
+				const version = versions.values.values[run.values[versions.id]].label ?? null;
+				const platform = platforms[run.system.platform] ?? null;
+				const comment = (run.comment ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").split(/\n{2,}/).filter((paragraph) => {
+					return paragraph.startsWith("Moderator's note: ") || paragraph.startsWith("Moderator's note:\n");
+				}).map((paragraph) => {
+					return paragraph.slice(18);
+				}).map((paragraph) => {
+					const characters = [...paragraph];
+					const firstCharacter = characters.slice(0, 1).join("").toUpperCase();
+					const lastCharacters = characters.slice(1).join("");
+					return `${firstCharacter}${lastCharacters}`;
+				}).join("\n\n") || null;
+				const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
+				playerDateRuns.push({
+					href: status !== "rejected" ? gui : api,
+					version: version !== "Select or add one!" ? version : null,
+					platform: platform,
+					status: status,
+					annotation: status !== "rejected" ? comment : reason,
+				});
+			}
+			console.log(`Got runs ${offset}-${offset + size - 1}`);
+			await new Promise((resolve) => {
+				setTimeout(resolve, 800);
+			});
+		}
+	} catch (error) {
+		console.warn(`Error while getting game ${gameId}`);
+		throw error;
 	}
 }
 for (const playerDates of Object.values(players)) {
@@ -82,17 +93,29 @@ for (const playerDates of Object.values(players)) {
 		}
 	}
 }
-const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/updates.json`);
-const updates = await response.json();
-for (const update of updates) {
-	const {date, name} = update;
-	const {android, ios} = date;
-	if (android != null) {
-		(dates[android] ??= Object.create(null)).android = name
+try {
+	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/updates.json`);
+	if (!response.ok) {
+		throw new Error(response.statusText);
 	}
-	if (ios != null) {
-		(dates[ios] ??= Object.create(null)).ios = name
+	const updates = await response.json();
+	for (const update of updates) {
+		const {date, name} = update;
+		const {android, ios} = date;
+		if (android != null) {
+			(dates[android] ??= Object.create(null)).android = name
+		}
+		if (ios != null) {
+			(dates[ios] ??= Object.create(null)).ios = name
+		}
 	}
+	console.log(`Got updates`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+} catch (error) {
+	console.warn(`Error while getting updates`);
+	throw error;
 }
 function sort(array, hash) {
 	array.sort((a, b) => {
