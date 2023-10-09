@@ -65,16 +65,19 @@
 				background: var(--highlighted);
 			}
 			th:empty,
-			td:empty:is(:first-of-type, :last-of-type) {
+			td:empty:is(:not(:nth-child(1 of td:not(:empty)) ~ *), :nth-last-child(1 of td:not(:empty)) ~ *) {
 				border: 1px dashed var(--canvas-foreground);
 				background: var(--canvas-background);
 			}
-			td:empty:not(:first-of-type, :last-of-type) {
+			td:empty:not(:not(:nth-child(1 of td:not(:empty)) ~ *), :nth-last-child(1 of td:not(:empty)) ~ *) {
 				border-left: 1px dashed var(--canvas-foreground);
 				border-right: 1px dashed var(--canvas-foreground);
 				border-top: 1px solid var(--canvas-foreground);
 				border-bottom: 1px solid var(--canvas-foreground);
 				background: var(--highlighted);
+			}
+			td:empty[colspan] + td:empty[colspan] {
+				border-left-style: hidden;
 			}
 			a {
 				position: relative;

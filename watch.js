@@ -72,16 +72,19 @@ const {window} = new JSDOM(`\
 				background: var(--highlighted);
 			}
 			th:empty,
-			td:empty:is(:first-of-type, :last-of-type) {
+			td:empty:is(:not(:nth-child(1 of td:not(:empty)) ~ *), :nth-last-child(1 of td:not(:empty)) ~ *) {
 				border: 1px dashed var(--canvas-foreground);
 				background: var(--canvas-background);
 			}
-			td:empty:not(:first-of-type, :last-of-type) {
+			td:empty:not(:not(:nth-child(1 of td:not(:empty)) ~ *), :nth-last-child(1 of td:not(:empty)) ~ *) {
 				border-left: 1px dashed var(--canvas-foreground);
 				border-right: 1px dashed var(--canvas-foreground);
 				border-top: 1px solid var(--canvas-foreground);
 				border-bottom: 1px solid var(--canvas-foreground);
 				background: var(--highlighted);
+			}
+			td:empty[colspan] + td:empty[colspan] {
+				border-left-style: hidden;
 			}
 			a {
 				position: relative;
@@ -201,10 +204,11 @@ for (const [player, playerDates] of Object.entries(players)) {
 	const departure = Object.keys(playerDates)[Object.keys(playerDates).length - 1];
 	for (const date of Object.keys(dates)) {
 		if (date >= arrival && date <= departure && (playerDates[date] != null || Object.keys(dates[date]).length !== 0)) {
-			if (span > 0) {
+			while (span > 0) {
 				const td = document.createElement("td");
-				td.colSpan = span;
+				td.colSpan = Math.min(span, 1000);
 				tr.append(td);
+				span -= 1000;
 			}
 			const td = document.createElement("td");
 			if (playerDates[date] != null) {
@@ -232,10 +236,11 @@ for (const [player, playerDates] of Object.entries(players)) {
 			++span;
 		}
 	}
-	if (span > 0) {
+	while (span > 0) {
 		const td = document.createElement("td");
-		td.colSpan = span;
+		td.colSpan = Math.min(span, 1000);
 		tr.append(td);
+		span -= 1000;
 	}
 	tbody.append(tr);
 }
