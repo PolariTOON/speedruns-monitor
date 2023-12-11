@@ -7,6 +7,7 @@ const games = ["9d3rrxyd", "w6jl2ned"];
 const platforms = {
 	"lq60nl94": "android",
 	"gde3xgek": "ios",
+	"7m6ylw9p": "switch"
 };
 for (const gameId of games) {
 	try {
