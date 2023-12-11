@@ -33,13 +33,16 @@ const {window} = new JSDOM(`\
 				background: var(--canvas-background);
 			}
 			col {
-				background: repeating-linear-gradient(45deg, var(--first-platform, #0000) 0 2px, var(--last-platform, #0000) 0 4px);
+				background: repeating-linear-gradient(45deg, var(--first-platform, #0000) 0 2px, var(--second-platform, #0000) 0 4px, var(--third-platform, #0000) 0 6px);
 			}
 			col[data-android] {
 				--first-platform: var(--android);
 			}
 			col[data-ios] {
-				--last-platform: var(--ios);
+				--second-platform: var(--ios);
+			}
+			col[data-switch] {
+				--third-platform: var(--switch);
 			}
 			thead {
 				writing-mode: sideways-lr;
@@ -54,14 +57,26 @@ const {window} = new JSDOM(`\
 			th {
 				padding: 10px;
 			}
-			th:not(:empty)[data-android]:not([data-ios])::after {
+			th:not(:empty)[data-android]:not([data-ios]):not([data-switch])::after {
 				content: " (" attr(data-android) ")";
 			}
-			th:not(:empty):not([data-android])[data-ios]::after {
+			th:not(:empty):not([data-android])[data-ios]:not([data-switch])::after {
 				content: " (" attr(data-ios) ")";
 			}
-			th:not(:empty)[data-android][data-ios]::after {
+			th:not(:empty):not([data-android]):not([data-ios])[data-switch]::after {
+				content: " (" attr(data-switch) ")";
+			}
+			th:not(:empty)[data-android][data-ios]:not([data-switch])::after {
 				content: " (" attr(data-android) ", " attr(data-ios) ")";
+			}
+			th:not(:empty)[data-android]:not([data-ios])[data-switch]::after {
+				content: " (" attr(data-android) ", " attr(data-switch) ")";
+			}
+			th:not(:empty):not([data-android])[data-ios][data-switch]::after {
+				content: " (" attr(data-ios) ", " attr(data-switch) ")";
+			}
+			th:not(:empty)[data-android][data-ios][data-switch]::after {
+				content: " (" attr(data-android) ", " attr(data-ios) ", " attr(data-switch) ")";
 			}
 			td {
 				padding: 0;
@@ -124,6 +139,9 @@ const {window} = new JSDOM(`\
 			a[data-platform="ios"]::before {
 				--platform: var(--ios);
 			}
+			a[data-platform="switch"]::before {
+				--platform: var(--switch);
+			}
 			a[data-annotation]:is(:hover, :focus-within)::after {
 				content: attr(data-annotation);
 				position: absolute;
@@ -143,6 +161,7 @@ const {window} = new JSDOM(`\
 					--canvas-foreground: #ccc;
 					--android: #630;
 					--ios: #036;
+					--switch: #666;
 					--highlighted: #6663;
 					--faded: #9993;
 					--verified: #363;
@@ -156,6 +175,7 @@ const {window} = new JSDOM(`\
 					--canvas-foreground: #333;
 					--android: #fc9;
 					--ios: #9cf;
+					--switch: #999;
 					--highlighted: #9993;
 					--faded: #6663;
 					--verified: #9c9;
