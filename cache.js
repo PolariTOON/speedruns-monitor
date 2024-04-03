@@ -102,12 +102,15 @@ try {
 	const updates = await response.json();
 	for (const update of updates) {
 		const {date, name} = update;
-		const {android, ios} = date;
+		const {android, ios, switch: _switch} = date;
 		if (android != null) {
 			(dates[android] ??= Object.create(null)).android = name
 		}
 		if (ios != null) {
 			(dates[ios] ??= Object.create(null)).ios = name
+		}
+		if (_switch != null) {
+			(dates[_switch] ??= Object.create(null)).switch = name
 		}
 	}
 	console.log(`Got updates`);
