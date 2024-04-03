@@ -2,7 +2,9 @@ import fs from "fs";
 import fetch from "node-fetch";
 const dates = Object.create(null);
 const players = Object.create(null);
-const names = Object.create(null);
+const playersByName = Object.create(null);
+const leaderboards = Object.create(null);
+const leaderboardsByName = Object.create(null);
 const games = ["9d3rrxyd", "w6jl2ned"];
 const platforms = {
 	"lq60nl94": "android",
@@ -11,15 +13,24 @@ const platforms = {
 };
 for (const gameId of games) {
 	try {
-		const response = await fetch(`https://www.speedrun.com/api/v1/games/${gameId}/variables`);
+		const response = await fetch(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`);
 		if (!response.ok) {
 			throw new Error(response.statusText);
 		}
 		const {data} = await response.json();
-		const versions = data.find((variable) => {
+		const versions = data.variables.data.find((variable) => {
 			return variable.name === "Version";
 		});
-		console.log(`Got versions`);
+		const levels = Object.fromEntries(data.levels.data.map((level) => {
+			return [level.id, level];
+		}));
+		const categories = Object.fromEntries(data.categories.data.map((category) => {
+			return [category.id, category];
+		}));
+		const variables = Object.fromEntries(data.variables.data.map((variable) => {
+			return [variable.id, variable];
+		}));
+		console.log(`Got game`);
 		await new Promise((resolve) => {
 			setTimeout(resolve, 800);
 		});
@@ -39,21 +50,42 @@ for (const gameId of games) {
 				if (status == null || status === "new") {
 					continue;
 				}
-				dates[run.date] ??= Object.create(null);
-				const playerDates = (() => {
+				const date = run.date;
+				dates[date] ??= Object.create(null);
+				const [player, playerDates] = (() => {
 					const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-					const name = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
-					names[name] ??= player;
-					return players[player] ??= Object.create(null);
+					const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+					playersByName[playerName] ??= player;
+					return [player, players[player] ??= Object.create(null)];
 				})();
-				const playerDateRuns = (() => {
-					const date = run.date;
-					return playerDates[date] ??= [];
-				})();
+				const playerDateRuns = playerDates[date] ??= [];
 				const gui = run.weblink ?? null;
 				const api = run.links[0].uri ?? null;
 				const version = versions.values.values[run.values[versions.id]].label ?? null;
 				const platform = platforms[run.system.platform] ?? null;
+				const [leaderboard, leaderboardDates] = (() => {
+					const level = run.level;
+					const category = run.category;
+					const values = Object.entries(run.values).filter(([variable]) => {
+						return variables[variable]?.["is-subcategory"] ?? false;
+					}).map(([variable, value]) => {
+						return `-${variable}.${value}`;
+					});
+					const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+					const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+					const categoryName = categories[run.category]?.name ?? null;
+					const valueNames = Object.entries(run.values).filter(([variable]) => {
+						return variables[variable]?.["is-subcategory"] ?? false;
+					}).map(([variable, value]) => {
+						return variables[variable]?.values.values[value]?.label ?? null;
+					}).filter((valueName) => {
+						return valueName != null;
+					});
+					const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+					leaderboardsByName[leaderboardName] ??= leaderboard;
+					return [leaderboard, leaderboards[leaderboard] ??= Object.create(null)];
+				})();
+				const leaderboardDateRuns = leaderboardDates[date] ??= [];
 				const comment = (run.comment ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").split(/\n{2,}/).filter((paragraph) => {
 					return paragraph.startsWith("Moderator's note: ") || paragraph.startsWith("Moderator's note:\n");
 				}).map((paragraph) => {
@@ -65,13 +97,24 @@ for (const gameId of games) {
 					return `${firstCharacter}${lastCharacters}`;
 				}).join("\n\n") || null;
 				const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
-				playerDateRuns.push({
+				const playerDateRun = {
 					href: status !== "rejected" ? gui : api,
-					version: version !== "Select or add one!" ? version : null,
+					leaderboard: leaderboard,
+					version: version != null && version !== "Select or add one!" ? version : "?",
 					platform: platform,
 					status: status,
 					annotation: status !== "rejected" ? comment : reason,
-				});
+				};
+				playerDateRuns.push(playerDateRun);
+				const leaderboardDateRun = {
+					href: status !== "rejected" ? gui : api,
+					player: player,
+					version: version != null && version !== "Select or add one!" ? version : "?",
+					platform: platform,
+					status: status,
+					annotation: status !== "rejected" ? comment : reason,
+				};
+				leaderboardDateRuns.push(leaderboardDateRun);
 			}
 			console.log(`Got runs ${offset}-${offset + size - 1}`);
 			await new Promise((resolve) => {
@@ -88,7 +131,18 @@ for (const playerDates of Object.values(players)) {
 		for (const run of dateRuns) {
 			if (run.annotation != null) {
 				run.annotation = run.annotation.replaceAll(/@[-.0-9A-Z_a-z]+/g, (mention) => {
-					return `@${names[mention.slice(1)] ?? "814p2558"}`;
+					return `@${playersByName[mention.slice(1)] ?? "814p2558"}`;
+				});
+			}
+		}
+	}
+}
+for (const leaderboardDates of Object.values(leaderboards)) {
+	for (const dateRuns of Object.values(leaderboardDates)) {
+		for (const run of dateRuns) {
+			if (run.annotation != null) {
+				run.annotation = run.annotation.replaceAll(/@[-.0-9A-Z_a-z]+/g, (mention) => {
+					return `@${playersByName[mention.slice(1)] ?? "814p2558"}`;
 				});
 			}
 		}
@@ -165,6 +219,24 @@ function sortPlayerDateRuns(playerDateRuns) {
 	});
 	return playerDateRuns;
 }
+function sortLeaderboards(leaderboards) {
+	sort(leaderboards, (leaderboard) => {
+		return Object.keys(leaderboard[1])[0];
+	});
+	return leaderboards;
+}
+function sortLeaderboardDates(leaderboardDates) {
+	sort(leaderboardDates, (leaderboardDate) => {
+		return leaderboardDate[0];
+	});
+	return leaderboardDates;
+}
+function sortLeaderboardDateRuns(leaderboardDateRuns) {
+	sort(leaderboardDateRuns, (leaderboardDateRun) => {
+		return leaderboardDateRun.href;
+	});
+	return leaderboardDateRuns;
+}
 const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([date, platforms]) => {
 	return [
 		date,
@@ -182,8 +254,22 @@ const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).map
 		}))),
 	];
 })));
+const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(leaderboards).map(([leaderboard, dates]) => {
+	return [
+		leaderboard,
+		Object.fromEntries(sortLeaderboardDates(Object.entries(dates).map(([date, runs]) => {
+			return [
+				date,
+				Array.from(sortLeaderboardDateRuns(Array.from(runs))),
+			];
+		}))),
+	];
+})));
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });
 await fs.promises.writeFile(`cache/dates.json`, `${JSON.stringify(sortedDates, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/players.json`, `${JSON.stringify(sortedPlayers, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/players-by-name.json`, `${JSON.stringify(playersByName, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);

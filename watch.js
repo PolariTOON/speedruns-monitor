@@ -4,10 +4,50 @@ import serialize from "w3c-xmlserializer";
 const {JSDOM} = jsdom;
 const dates = JSON.parse(await fs.promises.readFile("cache/dates.json"));
 const players = JSON.parse(await fs.promises.readFile("cache/players.json"));
-const {window} = new JSDOM(`\
+const leaderboards = JSON.parse(await fs.promises.readFile("cache/leaderboards.json"));
+const blocks = ["body", "table", "colgroup", "thead", "tbody", "tr", "td"];
+function indent(element, level, block) {
+	if (element == null) {
+		return;
+	}
+	const nextSibling = element.nextElementSibling;
+	const stack = [block];
+	while (element != null && element !== nextSibling) {
+		const block = stack[stack.length - 1];
+		if (block) {
+			element.before("\t".repeat(level));
+			element.after("\n");
+		}
+		while (element.firstElementChild != null) {
+			const block = blocks.includes(element.tagName);
+			if (block) {
+				++level;
+				element.prepend("\n");
+			}
+			stack.push(block);
+			element = element.firstElementChild;
+			if (block) {
+				element.before("\t".repeat(level));
+				element.after("\n");
+			}
+		}
+		while (stack.length !== 1 && element.nextElementSibling == null) {
+			element = element.parentElement;
+			const block = stack[stack.length - 1];
+			if (block) {
+				--level;
+				element.append("\t".repeat(level));
+			}
+			stack.pop();
+		}
+		element = element.nextElementSibling;
+	}
+}
+function watch(title, data) {
+	const {window} = new JSDOM(`\
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 	<head>
-		<title>Watch</title>
+		<title>${title}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="color-scheme" content="dark light" />
@@ -187,128 +227,99 @@ const {window} = new JSDOM(`\
 	</head>
 </html>
 `, {
-	contentType: "application/xhtml+xml",
-});
-const {document} = window;
-const html = document.documentElement;
-const body = document.createElement("body");
-const table = document.createElement("table");
-const colhead = document.createElement("colgroup");
-const colbody = document.createElement("colgroup");
-const thead = document.createElement("thead");
-const tbody = document.createElement("tbody");
-const col = document.createElement("col");
-const tr = document.createElement("tr");
-const th = document.createElement("th");
-colhead.append(col);
-tr.append(th);
-for (const [date, datePlatforms] of Object.entries(dates)) {
+		contentType: "application/xhtml+xml",
+	});
+	const {document} = window;
+	const html = document.documentElement;
+	const body = document.createElement("body");
+	const table = document.createElement("table");
+	const colhead = document.createElement("colgroup");
+	const colbody = document.createElement("colgroup");
+	const thead = document.createElement("thead");
+	const tbody = document.createElement("tbody");
 	const col = document.createElement("col");
-	const th = document.createElement("th");
-	th.textContent = date;
-	for (const platform of Object.keys(datePlatforms)) {
-		col.setAttribute(`data-${platform}`, datePlatforms[platform]);
-		th.setAttribute(`data-${platform}`, datePlatforms[platform]);
-	}
-	colbody.append(col);
-	tr.append(th);
-}
-thead.append(tr);
-for (const [player, playerDates] of Object.entries(players)) {
 	const tr = document.createElement("tr");
 	const th = document.createElement("th");
-	th.textContent = player;
+	colhead.append(col);
 	tr.append(th);
-	let span = 0;
-	const arrival = Object.keys(playerDates)[0];
-	const departure = Object.keys(playerDates)[Object.keys(playerDates).length - 1];
-	for (const date of Object.keys(dates)) {
-		if (date >= arrival && date <= departure && (playerDates[date] != null || Object.keys(dates[date]).length !== 0)) {
-			while (span > 0) {
-				const td = document.createElement("td");
-				td.colSpan = Math.min(span, 1000);
-				tr.append(td);
-				span -= 1000;
-			}
-			const td = document.createElement("td");
-			if (playerDates[date] != null) {
-				for (const run of playerDates[date]) {
-					const p = document.createElement("p");
-					const a = document.createElement("a");
-					a.href = run.href;
-					a.textContent = run.version != null ? run.version : "?";
-					if (run.platform != null) {
-						a.setAttribute("data-platform", run.platform);
-					}
-					if (run.status != null) {
-						a.setAttribute("data-status", run.status);
-					}
-					if (run.annotation != null) {
-						a.setAttribute("data-annotation", run.annotation);
-					}
-					p.append(a);
-					td.append(p);
+	for (const [date, datePlatforms] of Object.entries(dates)) {
+		const col = document.createElement("col");
+		const th = document.createElement("th");
+		th.textContent = date;
+		for (const platform of Object.keys(datePlatforms)) {
+			col.setAttribute(`data-${platform}`, datePlatforms[platform]);
+			th.setAttribute(`data-${platform}`, datePlatforms[platform]);
+		}
+		colbody.append(col);
+		tr.append(th);
+	}
+	thead.append(tr);
+	for (const [datum, datumDates] of Object.entries(data)) {
+		const tr = document.createElement("tr");
+		const th = document.createElement("th");
+		th.textContent = datum;
+		tr.append(th);
+		let span = 0;
+		const arrival = Object.keys(datumDates)[0];
+		const departure = Object.keys(datumDates)[Object.keys(datumDates).length - 1];
+		for (const date of Object.keys(dates)) {
+			if (date >= arrival && date <= departure && (datumDates[date] != null || Object.keys(dates[date]).length !== 0)) {
+				while (span > 0) {
+					const td = document.createElement("td");
+					td.colSpan = Math.min(span, 1000);
+					tr.append(td);
+					span -= 1000;
 				}
+				const td = document.createElement("td");
+				if (datumDates[date] != null) {
+					for (const run of datumDates[date]) {
+						const p = document.createElement("p");
+						const a = document.createElement("a");
+						a.href = run.href;
+						a.textContent = run.version;
+						if (run.platform != null) {
+							a.setAttribute("data-platform", run.platform);
+						}
+						if (run.status != null) {
+							a.setAttribute("data-status", run.status);
+						}
+						if (run.annotation != null) {
+							a.setAttribute("data-annotation", run.annotation);
+						}
+						p.append(a);
+						td.append(p);
+					}
+				}
+				tr.append(td);
+				span = 0;
+			} else {
+				++span;
 			}
+		}
+		while (span > 0) {
+			const td = document.createElement("td");
+			td.colSpan = Math.min(span, 1000);
 			tr.append(td);
-			span = 0;
-		} else {
-			++span;
+			span -= 1000;
 		}
+		tbody.append(tr);
 	}
-	while (span > 0) {
-		const td = document.createElement("td");
-		td.colSpan = Math.min(span, 1000);
-		tr.append(td);
-		span -= 1000;
-	}
-	tbody.append(tr);
+	table.append(colhead);
+	table.append(colbody);
+	table.append(thead);
+	table.append(tbody);
+	body.append(table);
+	html.append(body);
+	indent(body, 1, true);
+	const formattedData = serialize(html, {
+		requireWellFormed: true,
+	});
+	return formattedData;
 }
-table.append(colhead);
-table.append(colbody);
-table.append(thead);
-table.append(tbody);
-body.append(table);
-html.append(body);
-const blocks = ["body", "table", "colgroup", "thead", "tbody", "tr", "td"];
-function indent(element, level, block) {
-	if (element == null) {
-		return;
-	}
-	const nextSibling = element.nextElementSibling;
-	const stack = [block];
-	while (element != null && element !== nextSibling) {
-		const block = stack[stack.length - 1];
-		if (block) {
-			element.before("\t".repeat(level));
-			element.after("\n");
-		}
-		while (element.firstElementChild != null) {
-			const block = blocks.includes(element.tagName);
-			if (block) {
-				++level;
-				element.prepend("\n");
-			}
-			stack.push(block);
-			element = element.firstElementChild;
-			if (block) {
-				element.before("\t".repeat(level));
-				element.after("\n");
-			}
-		}
-		while (stack.length !== 1 && element.nextElementSibling == null) {
-			element = element.parentElement;
-			const block = stack[stack.length - 1];
-			if (block) {
-				--level;
-				element.append("\t".repeat(level));
-			}
-			stack.pop();
-		}
-		element = element.nextElementSibling;
-	}
-}
-indent(body, 1, true);
-await fs.promises.writeFile("watch.xhtml", `${serialize(html, {
-	requireWellFormed: true,
-})}\n`);
+const formattedPlayers = watch("Players", players);
+const formattedLeaderboards = watch("Leaderboards", leaderboards);
+await fs.promises.mkdir("watch", {
+	recursive: true,
+});
+await fs.promises.writeFile("watch/players.xhtml", `${formattedPlayers}\n`);
+await fs.promises.writeFile("watch/leaderboards.xhtml", `${formattedLeaderboards}\n`);

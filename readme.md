@@ -10,6 +10,6 @@ Tool used by the community to visualize the chronology of Super Bear Adventure s
 
 ### `watch`
 
-- Generates a XHTML table including all the speedruns with dates as columns and players as rows based on the cache
-- Displays the activity period for each player
+- Generates XHTML tables including all the speedruns with dates as columns and players or leaderboards as rows based on the cache
+- Displays the activity period for each player or leaderboard
 - Displays the moderator notes for both verified and rejected speedruns
