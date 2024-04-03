@@ -61,6 +61,10 @@ for (const gameId of games) {
 				const playerDateRuns = playerDates[date] ??= [];
 				const gui = run.weblink ?? null;
 				const api = run.links[0].uri ?? null;
+				const minutes = run.times.primary_t != null ? `${run.times.primary_t / 60 | 0}`.padStart(2, "0") : null;
+				const seconds = run.times.primary_t != null ? `${run.times.primary_t % 60 | 0}`.padStart(2, "0") : null;
+				const centiseconds = run.times.primary_t != null ? `${run.times.primary_t * 100 % 100 | 0}`.padStart(2, "0") : null;
+				const time = `${minutes ?? "--"}:${seconds ?? "--"}.${centiseconds ?? "--"}`;
 				const version = versions.values.values[run.values[versions.id]].label ?? null;
 				const platform = platforms[run.system.platform] ?? null;
 				const [leaderboard, leaderboardDates] = (() => {
@@ -99,6 +103,7 @@ for (const gameId of games) {
 				const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
 				const playerDateRun = {
 					href: status !== "rejected" ? gui : api,
+					time: time,
 					leaderboard: leaderboard,
 					version: version != null && version !== "Select or add one!" ? version : "?",
 					platform: platform,
@@ -108,6 +113,7 @@ for (const gameId of games) {
 				playerDateRuns.push(playerDateRun);
 				const leaderboardDateRun = {
 					href: status !== "rejected" ? gui : api,
+					time: time,
 					player: player,
 					version: version != null && version !== "Select or add one!" ? version : "?",
 					platform: platform,
