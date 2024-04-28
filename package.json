@@ -6,6 +6,7 @@
   },
   "scripts": {
     "cache": "node cache.js",
+    "plot": "node plot.js",
     "watch": "node watch.js"
   },
   "type": "module"

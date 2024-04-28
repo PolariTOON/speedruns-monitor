@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585 25587" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+		<title>Time by player for leaderboard l_rdqo542w-xd144xzd-38dz6v1n.814y45w1</title>
+		<style>
+			svg {
+				background: var(--canvas-background);
+				fill: var(--canvas-background);
+				stroke: var(--canvas-foreground);
+				stroke-linejoin: round;
+				stroke-linecap: round;
+			}
+			g &gt; path[tabindex] {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+				cursor: help;
+			}
+			g:is(:hover, :focus-within) &gt; path[tabindex] {
+				stroke: var(--canvas-foreground);
+			}
+			g &gt; path[tabindex]:is(:hover, :focus-within) {
+				outline: 0;
+			}
+			g &gt; path[tabindex]:first-of-type {
+				stroke-width: 2;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+				stroke-width: 4;
+			}
+			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+				stroke-dasharray: 4 8;
+			}
+			g &gt; rect {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+				fill: var(--highlighted);
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+				stroke-width: 8;
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+				stroke-width: 16;
+			}
+			g &gt; line {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				stroke-width: 2;
+				stroke-dasharray: 4 8;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+				stroke: var(--faded);
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--canvas-background: #000;
+					--canvas-foreground: #ccc;
+					--highlighted: #6663;
+					--faded: #9993;
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				:root {
+					--canvas-background: #fff;
+					--canvas-foreground: #333;
+					--highlighted: #9993;
+					--faded: #6663;
+				}
+			}
+		</style>
+		<g style="--count: 4;">
+		<g style="--index: 0;">
+			<path d="M0,1850L68,1850L68,2809" tabindex="0">
+				<title>xkon93k8</title>
+			</path>
+			<rect x="0" y="1850" width="68" height="959"/>
+			<path d="M0,1850L0,1850" tabindex="0">
+				<title>03:57.37 on 2020-11-03</title>
+			</path>
+			<line x1="0" y1="1850" x2="585" y2="1850"/>
+			<line x1="0" y1="25587" x2="0" y2="0"/>
+			<path d="M68,2809L68,2809" tabindex="0">
+				<title>03:47.78 on 2021-01-10</title>
+			</path>
+			<line x1="0" y1="2809" x2="585" y2="2809"/>
+			<line x1="68" y1="25587" x2="68" y2="0"/>
+		</g>
+		<g style="--index: 1;">
+			<path d="M67,2386" tabindex="0">
+				<title>x356nrej</title>
+			</path>
+			<rect x="67" y="2386" width="0" height="0"/>
+			<path d="M67,2386L67,2386" tabindex="0">
+				<title>03:52.01 on 2021-01-09</title>
+			</path>
+			<line x1="0" y1="2386" x2="585" y2="2386"/>
+			<line x1="67" y1="25587" x2="67" y2="0"/>
+		</g>
+		<g style="--index: 2;">
+			<path d="M70,0" tabindex="0">
+				<title>j0np7or8</title>
+			</path>
+			<rect x="70" y="0" width="0" height="0"/>
+			<path d="M70,0L70,0" tabindex="0">
+				<title>04:15.87 on 2021-01-12</title>
+			</path>
+			<line x1="0" y1="0" x2="585" y2="0"/>
+			<line x1="70" y1="25587" x2="70" y2="0"/>
+		</g>
+		<g style="--index: 3;">
+			<path d="M585,2936" tabindex="0">
+				<title>xk3m6d68</title>
+			</path>
+			<rect x="585" y="2936" width="0" height="0"/>
+			<path d="M585,2936L585,2936" tabindex="0">
+				<title>03:46.51 on 2022-06-11</title>
+			</path>
+			<line x1="0" y1="2936" x2="585" y2="2936"/>
+			<line x1="585" y1="25587" x2="585" y2="0"/>
+		</g>
+	</g>
+</svg>
