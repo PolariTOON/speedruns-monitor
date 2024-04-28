@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91 1537" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+		<title>Time by player for leaderboard l_ldykv1zw-rkl3znrk-wl3059ol.q5vog5ml</title>
+		<style>
+			svg {
+				background: var(--canvas-background);
+				fill: var(--canvas-background);
+				stroke: var(--canvas-foreground);
+				stroke-linejoin: round;
+				stroke-linecap: round;
+			}
+			g &gt; path[tabindex] {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+				cursor: help;
+			}
+			g:is(:hover, :focus-within) &gt; path[tabindex] {
+				stroke: var(--canvas-foreground);
+			}
+			g &gt; path[tabindex]:is(:hover, :focus-within) {
+				outline: 0;
+			}
+			g &gt; path[tabindex]:first-of-type {
+				stroke-width: 2;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+				stroke-width: 4;
+			}
+			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+				stroke-dasharray: 4 8;
+			}
+			g &gt; rect {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+				fill: var(--highlighted);
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+				stroke-width: 8;
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+				stroke-width: 16;
+			}
+			g &gt; line {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				stroke-width: 2;
+				stroke-dasharray: 4 8;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+				stroke: var(--faded);
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--canvas-background: #000;
+					--canvas-foreground: #ccc;
+					--highlighted: #6663;
+					--faded: #9993;
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				:root {
+					--canvas-background: #fff;
+					--canvas-foreground: #333;
+					--highlighted: #9993;
+					--faded: #6663;
+				}
+			}
+		</style>
+		<g style="--count: 2;">
+		<g style="--index: 0;">
+			<path d="M0,0L22,0L22,72" tabindex="0">
+				<title>8w3l21qj</title>
+			</path>
+			<rect x="0" y="0" width="22" height="72"/>
+			<path d="M0,0L0,0" tabindex="0">
+				<title>00:15.37 on 2023-12-15</title>
+			</path>
+			<line x1="0" y1="0" x2="91" y2="0"/>
+			<line x1="0" y1="1537" x2="0" y2="0"/>
+			<path d="M22,72L22,72" tabindex="0">
+				<title>00:14.65 on 2024-01-06</title>
+			</path>
+			<line x1="0" y1="72" x2="91" y2="72"/>
+			<line x1="22" y1="1537" x2="22" y2="0"/>
+		</g>
+		<g style="--index: 1;">
+			<path d="M91,104" tabindex="0">
+				<title>8rme6wwj</title>
+			</path>
+			<rect x="91" y="104" width="0" height="0"/>
+			<path d="M91,104L91,104" tabindex="0">
+				<title>00:14.33 on 2024-03-15</title>
+			</path>
+			<line x1="0" y1="104" x2="91" y2="104"/>
+			<line x1="91" y1="1537" x2="91" y2="0"/>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 345 159933" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+		<title>Time by leaderboard for player j5v07yg8</title>
+		<style>
+			svg {
+				background: var(--canvas-background);
+				fill: var(--canvas-background);
+				stroke: var(--canvas-foreground);
+				stroke-linejoin: round;
+				stroke-linecap: round;
+			}
+			g &gt; path[tabindex] {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+				cursor: help;
+			}
+			g:is(:hover, :focus-within) &gt; path[tabindex] {
+				stroke: var(--canvas-foreground);
+			}
+			g &gt; path[tabindex]:is(:hover, :focus-within) {
+				outline: 0;
+			}
+			g &gt; path[tabindex]:first-of-type {
+				stroke-width: 2;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+				stroke-width: 4;
+			}
+			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+				stroke-dasharray: 4 8;
+			}
+			g &gt; rect {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+				fill: var(--highlighted);
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+				stroke-width: 8;
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+				stroke-width: 16;
+			}
+			g &gt; line {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				stroke-width: 2;
+				stroke-dasharray: 4 8;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+				stroke: var(--faded);
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--canvas-background: #000;
+					--canvas-foreground: #ccc;
+					--highlighted: #6663;
+					--faded: #9993;
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				:root {
+					--canvas-background: #fff;
+					--canvas-foreground: #333;
+					--highlighted: #9993;
+					--faded: #6663;
+				}
+			}
+		</style>
+		<g style="--count: 2;">
+		<g style="--index: 0;">
+			<path d="M0,0L2,0L2,31676" tabindex="0">
+				<title>xd17x94d-9l71pv4l.zqo20y2l</title>
+			</path>
+			<rect x="0" y="0" width="2" height="31676"/>
+			<path d="M0,0L0,0" tabindex="0">
+				<title>26:39.33 on 2021-12-26</title>
+			</path>
+			<line x1="0" y1="0" x2="345" y2="0"/>
+			<line x1="0" y1="159933" x2="0" y2="0"/>
+			<path d="M2,31676L2,31676" tabindex="0">
+				<title>21:22.57 on 2021-12-28</title>
+			</path>
+			<line x1="0" y1="31676" x2="345" y2="31676"/>
+			<line x1="2" y1="159933" x2="2" y2="0"/>
+		</g>
+		<g style="--index: 1;">
+			<path d="M336,45264L343,45264L343,47025L345,47025L345,63046" tabindex="0">
+				<title>xd17x94d-9l71pv4l.21gpn081</title>
+			</path>
+			<rect x="336" y="45264" width="9" height="17782"/>
+			<path d="M336,45264L336,45264" tabindex="0">
+				<title>19:06.69 on 2022-11-27</title>
+			</path>
+			<line x1="0" y1="45264" x2="345" y2="45264"/>
+			<line x1="336" y1="159933" x2="336" y2="0"/>
+			<path d="M343,47025L343,47025" tabindex="0">
+				<title>18:49.08 on 2022-12-04</title>
+			</path>
+			<line x1="0" y1="47025" x2="345" y2="47025"/>
+			<line x1="343" y1="159933" x2="343" y2="0"/>
+			<path d="M345,63046L345,63046" tabindex="0">
+				<title>16:08.87 on 2022-12-06</title>
+			</path>
+			<line x1="0" y1="63046" x2="345" y2="63046"/>
+			<line x1="345" y1="159933" x2="345" y2="0"/>
+		</g>
+	</g>
+</svg>

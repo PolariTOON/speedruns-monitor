@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 92951" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+		<title>Time by leaderboard for player 86rz9rw8</title>
+		<style>
+			svg {
+				background: var(--canvas-background);
+				fill: var(--canvas-background);
+				stroke: var(--canvas-foreground);
+				stroke-linejoin: round;
+				stroke-linecap: round;
+			}
+			g &gt; path[tabindex] {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+				cursor: help;
+			}
+			g:is(:hover, :focus-within) &gt; path[tabindex] {
+				stroke: var(--canvas-foreground);
+			}
+			g &gt; path[tabindex]:is(:hover, :focus-within) {
+				outline: 0;
+			}
+			g &gt; path[tabindex]:first-of-type {
+				stroke-width: 2;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+				stroke-width: 4;
+			}
+			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+				stroke-dasharray: 4 8;
+			}
+			g &gt; rect {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+				fill: var(--highlighted);
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+				stroke-width: 8;
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+				stroke-width: 16;
+			}
+			g &gt; line {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				stroke-width: 2;
+				stroke-dasharray: 4 8;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+				stroke: var(--faded);
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--canvas-background: #000;
+					--canvas-foreground: #ccc;
+					--highlighted: #6663;
+					--faded: #9993;
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				:root {
+					--canvas-background: #fff;
+					--canvas-foreground: #333;
+					--highlighted: #9993;
+					--faded: #6663;
+				}
+			}
+		</style>
+		<g style="--count: 4;">
+		<g style="--index: 0;">
+			<path d="M0,91615" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
+			</path>
+			<rect x="0" y="91615" width="0" height="0"/>
+			<path d="M0,91615L0,91615" tabindex="0">
+				<title>00:13.36 on 2024-03-19</title>
+			</path>
+			<line x1="0" y1="91615" x2="3" y2="91615"/>
+			<line x1="0" y1="92951" x2="0" y2="0"/>
+		</g>
+		<g style="--index: 1;">
+			<path d="M0,90563" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21g82pnl</title>
+			</path>
+			<rect x="0" y="90563" width="0" height="0"/>
+			<path d="M0,90563L0,90563" tabindex="0">
+				<title>00:23.88 on 2024-03-19</title>
+			</path>
+			<line x1="0" y1="90563" x2="3" y2="90563"/>
+			<line x1="0" y1="92951" x2="0" y2="0"/>
+		</g>
+		<g style="--index: 2;">
+			<path d="M0,91751" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
+			</path>
+			<rect x="0" y="91751" width="0" height="0"/>
+			<path d="M0,91751L0,91751" tabindex="0">
+				<title>00:12.00 on 2024-03-19</title>
+			</path>
+			<line x1="0" y1="91751" x2="3" y2="91751"/>
+			<line x1="0" y1="92951" x2="0" y2="0"/>
+		</g>
+		<g style="--index: 3;">
+			<path d="M3,0" tabindex="0">
+				<title>xd17x94d-9l71pv4l.21gpn081</title>
+			</path>
+			<rect x="3" y="0" width="0" height="0"/>
+			<path d="M3,0L3,0" tabindex="0">
+				<title>15:29.51 on 2024-03-22</title>
+			</path>
+			<line x1="0" y1="0" x2="3" y2="0"/>
+			<line x1="3" y1="92951" x2="3" y2="0"/>
+		</g>
+	</g>
+</svg>

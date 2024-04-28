@@ -1,0 +1,663 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2093 120548" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+		<title>Time by leaderboard for player y8dgoe98</title>
+		<style>
+			svg {
+				background: var(--canvas-background);
+				fill: var(--canvas-background);
+				stroke: var(--canvas-foreground);
+				stroke-linejoin: round;
+				stroke-linecap: round;
+			}
+			g &gt; path[tabindex] {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+				cursor: help;
+			}
+			g:is(:hover, :focus-within) &gt; path[tabindex] {
+				stroke: var(--canvas-foreground);
+			}
+			g &gt; path[tabindex]:is(:hover, :focus-within) {
+				outline: 0;
+			}
+			g &gt; path[tabindex]:first-of-type {
+				stroke-width: 2;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+				stroke-width: 4;
+			}
+			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+				stroke-dasharray: 4 8;
+			}
+			g &gt; rect {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+				fill: var(--highlighted);
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+				stroke-width: 8;
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+				stroke-width: 16;
+			}
+			g &gt; line {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				stroke-width: 2;
+				stroke-dasharray: 4 8;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+				stroke: var(--faded);
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--canvas-background: #000;
+					--canvas-foreground: #ccc;
+					--highlighted: #6663;
+					--faded: #9993;
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				:root {
+					--canvas-background: #fff;
+					--canvas-foreground: #333;
+					--highlighted: #9993;
+					--faded: #6663;
+				}
+			}
+		</style>
+		<g style="--count: 36;">
+		<g style="--index: 0;">
+			<path d="M0,118713L6,118713L6,118781" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
+			</path>
+			<rect x="0" y="118713" width="6" height="68"/>
+			<path d="M0,118713L0,118713" tabindex="0">
+				<title>00:18.35 on 2018-04-17</title>
+			</path>
+			<line x1="0" y1="118713" x2="2093" y2="118713"/>
+			<line x1="0" y1="120548" x2="0" y2="0"/>
+			<path d="M6,118781L6,118781" tabindex="0">
+				<title>00:17.67 on 2018-04-23</title>
+			</path>
+			<line x1="0" y1="118781" x2="2093" y2="118781"/>
+			<line x1="6" y1="120548" x2="6" y2="0"/>
+		</g>
+		<g style="--index: 1;">
+			<path d="M0,119367L88,119367L88,119496L154,119496L154,119564L858,119564L858,119630L1047,119630L1047,119670L2093,119670L2093,119722" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
+			</path>
+			<rect x="0" y="119367" width="2093" height="355"/>
+			<path d="M0,119367L0,119367" tabindex="0">
+				<title>00:11.81 on 2018-04-17</title>
+			</path>
+			<line x1="0" y1="119367" x2="2093" y2="119367"/>
+			<line x1="0" y1="120548" x2="0" y2="0"/>
+			<path d="M88,119496L88,119496" tabindex="0">
+				<title>00:10.52 on 2018-07-14</title>
+			</path>
+			<line x1="0" y1="119496" x2="2093" y2="119496"/>
+			<line x1="88" y1="120548" x2="88" y2="0"/>
+			<path d="M154,119564L154,119564" tabindex="0">
+				<title>00:09.84 on 2018-09-18</title>
+			</path>
+			<line x1="0" y1="119564" x2="2093" y2="119564"/>
+			<line x1="154" y1="120548" x2="154" y2="0"/>
+			<path d="M858,119630L858,119630" tabindex="0">
+				<title>00:09.18 on 2020-08-22</title>
+			</path>
+			<line x1="0" y1="119630" x2="2093" y2="119630"/>
+			<line x1="858" y1="120548" x2="858" y2="0"/>
+			<path d="M1047,119670L1047,119670" tabindex="0">
+				<title>00:08.78 on 2021-02-27</title>
+			</path>
+			<line x1="0" y1="119670" x2="2093" y2="119670"/>
+			<line x1="1047" y1="120548" x2="1047" y2="0"/>
+			<path d="M2093,119722L2093,119722" tabindex="0">
+				<title>00:08.26 on 2024-01-09</title>
+			</path>
+			<line x1="0" y1="119722" x2="2093" y2="119722"/>
+			<line x1="2093" y1="120548" x2="2093" y2="0"/>
+		</g>
+		<g style="--index: 2;">
+			<path d="M0,118905L745,118905L745,119387" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21g82pnl</title>
+			</path>
+			<rect x="0" y="118905" width="745" height="482"/>
+			<path d="M0,118905L0,118905" tabindex="0">
+				<title>00:16.43 on 2018-04-17</title>
+			</path>
+			<line x1="0" y1="118905" x2="2093" y2="118905"/>
+			<line x1="0" y1="120548" x2="0" y2="0"/>
+			<path d="M745,119387L745,119387" tabindex="0">
+				<title>00:11.61 on 2020-05-01</title>
+			</path>
+			<line x1="0" y1="119387" x2="2093" y2="119387"/>
+			<line x1="745" y1="120548" x2="745" y2="0"/>
+		</g>
+		<g style="--index: 3;">
+			<path d="M0,118664L6,118664L6,118753L82,118753L82,118834L152,118834L152,118859L868,118859L868,118954" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21dz3e4l</title>
+			</path>
+			<rect x="0" y="118664" width="868" height="290"/>
+			<path d="M0,118664L0,118664" tabindex="0">
+				<title>00:18.84 on 2018-04-17</title>
+			</path>
+			<line x1="0" y1="118664" x2="2093" y2="118664"/>
+			<line x1="0" y1="120548" x2="0" y2="0"/>
+			<path d="M6,118753L6,118753" tabindex="0">
+				<title>00:17.95 on 2018-04-23</title>
+			</path>
+			<line x1="0" y1="118753" x2="2093" y2="118753"/>
+			<line x1="6" y1="120548" x2="6" y2="0"/>
+			<path d="M82,118834L82,118834" tabindex="0">
+				<title>00:17.14 on 2018-07-08</title>
+			</path>
+			<line x1="0" y1="118834" x2="2093" y2="118834"/>
+			<line x1="82" y1="120548" x2="82" y2="0"/>
+			<path d="M152,118859L152,118859" tabindex="0">
+				<title>00:16.89 on 2018-09-16</title>
+			</path>
+			<line x1="0" y1="118859" x2="2093" y2="118859"/>
+			<line x1="152" y1="120548" x2="152" y2="0"/>
+			<path d="M868,118954L868,118954" tabindex="0">
+				<title>00:15.94 on 2020-09-01</title>
+			</path>
+			<line x1="0" y1="118954" x2="2093" y2="118954"/>
+			<line x1="868" y1="120548" x2="868" y2="0"/>
+		</g>
+		<g style="--index: 4;">
+			<path d="M1,118563" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.gq7jzvvq</title>
+			</path>
+			<rect x="1" y="118563" width="0" height="0"/>
+			<path d="M1,118563L1,118563" tabindex="0">
+				<title>00:19.85 on 2018-04-18</title>
+			</path>
+			<line x1="0" y1="118563" x2="2093" y2="118563"/>
+			<line x1="1" y1="120548" x2="1" y2="0"/>
+		</g>
+		<g style="--index: 5;">
+			<path d="M1,117315L153,117315L153,117987" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.xqkjmnnl</title>
+			</path>
+			<rect x="1" y="117315" width="152" height="672"/>
+			<path d="M1,117315L1,117315" tabindex="0">
+				<title>00:32.33 on 2018-04-18</title>
+			</path>
+			<line x1="0" y1="117315" x2="2093" y2="117315"/>
+			<line x1="1" y1="120548" x2="1" y2="0"/>
+			<path d="M153,117987L153,117987" tabindex="0">
+				<title>00:25.61 on 2018-09-17</title>
+			</path>
+			<line x1="0" y1="117987" x2="2093" y2="117987"/>
+			<line x1="153" y1="120548" x2="153" y2="0"/>
+		</g>
+		<g style="--index: 6;">
+			<path d="M2,89407" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.gq7jrxvq</title>
+			</path>
+			<rect x="2" y="89407" width="0" height="0"/>
+			<path d="M2,89407L2,89407" tabindex="0">
+				<title>05:11.41 on 2018-04-19</title>
+			</path>
+			<line x1="0" y1="89407" x2="2093" y2="89407"/>
+			<line x1="2" y1="120548" x2="2" y2="0"/>
+		</g>
+		<g style="--index: 7;">
+			<path d="M2,118094L83,118094L83,118632L864,118632L864,119065L960,119065L960,119164" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+			</path>
+			<rect x="2" y="118094" width="958" height="1070"/>
+			<path d="M2,118094L2,118094" tabindex="0">
+				<title>00:24.54 on 2018-04-19</title>
+			</path>
+			<line x1="0" y1="118094" x2="2093" y2="118094"/>
+			<line x1="2" y1="120548" x2="2" y2="0"/>
+			<path d="M83,118632L83,118632" tabindex="0">
+				<title>00:19.16 on 2018-07-09</title>
+			</path>
+			<line x1="0" y1="118632" x2="2093" y2="118632"/>
+			<line x1="83" y1="120548" x2="83" y2="0"/>
+			<path d="M864,119065L864,119065" tabindex="0">
+				<title>00:14.83 on 2020-08-28</title>
+			</path>
+			<line x1="0" y1="119065" x2="2093" y2="119065"/>
+			<line x1="864" y1="120548" x2="864" y2="0"/>
+			<path d="M960,119164L960,119164" tabindex="0">
+				<title>00:13.84 on 2020-12-02</title>
+			</path>
+			<line x1="0" y1="119164" x2="2093" y2="119164"/>
+			<line x1="960" y1="120548" x2="960" y2="0"/>
+		</g>
+		<g style="--index: 8;">
+			<path d="M2,118770L860,118770L860,119155L956,119155L956,119172" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
+			</path>
+			<rect x="2" y="118770" width="954" height="402"/>
+			<path d="M2,118770L2,118770" tabindex="0">
+				<title>00:17.78 on 2018-04-19</title>
+			</path>
+			<line x1="0" y1="118770" x2="2093" y2="118770"/>
+			<line x1="2" y1="120548" x2="2" y2="0"/>
+			<path d="M860,119155L860,119155" tabindex="0">
+				<title>00:13.93 on 2020-08-24</title>
+			</path>
+			<line x1="0" y1="119155" x2="2093" y2="119155"/>
+			<line x1="860" y1="120548" x2="860" y2="0"/>
+			<path d="M956,119172L956,119172" tabindex="0">
+				<title>00:13.76 on 2020-11-28</title>
+			</path>
+			<line x1="0" y1="119172" x2="2093" y2="119172"/>
+			<line x1="956" y1="120548" x2="956" y2="0"/>
+		</g>
+		<g style="--index: 9;">
+			<path d="M2,119563L868,119563L868,119625" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
+			</path>
+			<rect x="2" y="119563" width="866" height="62"/>
+			<path d="M2,119563L2,119563" tabindex="0">
+				<title>00:09.85 on 2018-04-19</title>
+			</path>
+			<line x1="0" y1="119563" x2="2093" y2="119563"/>
+			<line x1="2" y1="120548" x2="2" y2="0"/>
+			<path d="M868,119625L868,119625" tabindex="0">
+				<title>00:09.23 on 2020-09-01</title>
+			</path>
+			<line x1="0" y1="119625" x2="2093" y2="119625"/>
+			<line x1="868" y1="120548" x2="868" y2="0"/>
+		</g>
+		<g style="--index: 10;">
+			<path d="M4,115468L8,115468L8,115586L81,115586L81,115680L82,115680L82,115773" tabindex="0">
+				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
+			</path>
+			<rect x="4" y="115468" width="78" height="305"/>
+			<path d="M4,115468L4,115468" tabindex="0">
+				<title>00:50.80 on 2018-04-21</title>
+			</path>
+			<line x1="0" y1="115468" x2="2093" y2="115468"/>
+			<line x1="4" y1="120548" x2="4" y2="0"/>
+			<path d="M8,115586L8,115586" tabindex="0">
+				<title>00:49.62 on 2018-04-25</title>
+			</path>
+			<line x1="0" y1="115586" x2="2093" y2="115586"/>
+			<line x1="8" y1="120548" x2="8" y2="0"/>
+			<path d="M81,115680L81,115680" tabindex="0">
+				<title>00:48.68 on 2018-07-07</title>
+			</path>
+			<line x1="0" y1="115680" x2="2093" y2="115680"/>
+			<line x1="81" y1="120548" x2="81" y2="0"/>
+			<path d="M82,115773L82,115773" tabindex="0">
+				<title>00:47.75 on 2018-07-08</title>
+			</path>
+			<line x1="0" y1="115773" x2="2093" y2="115773"/>
+			<line x1="82" y1="120548" x2="82" y2="0"/>
+		</g>
+		<g style="--index: 11;">
+			<path d="M4,118909L866,118909L866,119562" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.jq60ze3q</title>
+			</path>
+			<rect x="4" y="118909" width="862" height="653"/>
+			<path d="M4,118909L4,118909" tabindex="0">
+				<title>00:16.39 on 2018-04-21</title>
+			</path>
+			<line x1="0" y1="118909" x2="2093" y2="118909"/>
+			<line x1="4" y1="120548" x2="4" y2="0"/>
+			<path d="M866,119562L866,119562" tabindex="0">
+				<title>00:09.86 on 2020-08-30</title>
+			</path>
+			<line x1="0" y1="119562" x2="2093" y2="119562"/>
+			<line x1="866" y1="120548" x2="866" y2="0"/>
+		</g>
+		<g style="--index: 12;">
+			<path d="M5,118566L866,118566L866,118897L871,118897L871,119092" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+			</path>
+			<rect x="5" y="118566" width="866" height="526"/>
+			<path d="M5,118566L5,118566" tabindex="0">
+				<title>00:19.82 on 2018-04-22</title>
+			</path>
+			<line x1="0" y1="118566" x2="2093" y2="118566"/>
+			<line x1="5" y1="120548" x2="5" y2="0"/>
+			<path d="M866,118897L866,118897" tabindex="0">
+				<title>00:16.51 on 2020-08-30</title>
+			</path>
+			<line x1="0" y1="118897" x2="2093" y2="118897"/>
+			<line x1="866" y1="120548" x2="866" y2="0"/>
+			<path d="M871,119092L871,119092" tabindex="0">
+				<title>00:14.56 on 2020-09-04</title>
+			</path>
+			<line x1="0" y1="119092" x2="2093" y2="119092"/>
+			<line x1="871" y1="120548" x2="871" y2="0"/>
+		</g>
+		<g style="--index: 13;">
+			<path d="M5,119668L866,119668L866,119707L1044,119707L1044,119752" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
+			</path>
+			<rect x="5" y="119668" width="1039" height="84"/>
+			<path d="M5,119668L5,119668" tabindex="0">
+				<title>00:08.80 on 2018-04-22</title>
+			</path>
+			<line x1="0" y1="119668" x2="2093" y2="119668"/>
+			<line x1="5" y1="120548" x2="5" y2="0"/>
+			<path d="M866,119707L866,119707" tabindex="0">
+				<title>00:08.41 on 2020-08-30</title>
+			</path>
+			<line x1="0" y1="119707" x2="2093" y2="119707"/>
+			<line x1="866" y1="120548" x2="866" y2="0"/>
+			<path d="M1044,119752L1044,119752" tabindex="0">
+				<title>00:07.96 on 2021-02-24</title>
+			</path>
+			<line x1="0" y1="119752" x2="2093" y2="119752"/>
+			<line x1="1044" y1="120548" x2="1044" y2="0"/>
+		</g>
+		<g style="--index: 14;">
+			<path d="M7,119082" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.rqvpey7q</title>
+			</path>
+			<rect x="7" y="119082" width="0" height="0"/>
+			<path d="M7,119082L7,119082" tabindex="0">
+				<title>00:14.66 on 2018-04-24</title>
+			</path>
+			<line x1="0" y1="119082" x2="2093" y2="119082"/>
+			<line x1="7" y1="120548" x2="7" y2="0"/>
+		</g>
+		<g style="--index: 15;">
+			<path d="M7,118187L747,118187L747,118616" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.5lermx5q</title>
+			</path>
+			<rect x="7" y="118187" width="740" height="429"/>
+			<path d="M7,118187L7,118187" tabindex="0">
+				<title>00:23.61 on 2018-04-24</title>
+			</path>
+			<line x1="0" y1="118187" x2="2093" y2="118187"/>
+			<line x1="7" y1="120548" x2="7" y2="0"/>
+			<path d="M747,118616L747,118616" tabindex="0">
+				<title>00:19.32 on 2020-05-03</title>
+			</path>
+			<line x1="0" y1="118616" x2="2093" y2="118616"/>
+			<line x1="747" y1="120548" x2="747" y2="0"/>
+		</g>
+		<g style="--index: 16;">
+			<path d="M7,118746L864,118746L864,119150" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
+			</path>
+			<rect x="7" y="118746" width="857" height="404"/>
+			<path d="M7,118746L7,118746" tabindex="0">
+				<title>00:18.02 on 2018-04-24</title>
+			</path>
+			<line x1="0" y1="118746" x2="2093" y2="118746"/>
+			<line x1="7" y1="120548" x2="7" y2="0"/>
+			<path d="M864,119150L864,119150" tabindex="0">
+				<title>00:13.98 on 2020-08-28</title>
+			</path>
+			<line x1="0" y1="119150" x2="2093" y2="119150"/>
+			<line x1="864" y1="120548" x2="864" y2="0"/>
+		</g>
+		<g style="--index: 17;">
+			<path d="M83,117678" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.81ppd5g1</title>
+			</path>
+			<rect x="83" y="117678" width="0" height="0"/>
+			<path d="M83,117678L83,117678" tabindex="0">
+				<title>00:28.70 on 2018-07-09</title>
+			</path>
+			<line x1="0" y1="117678" x2="2093" y2="117678"/>
+			<line x1="83" y1="120548" x2="83" y2="0"/>
+		</g>
+		<g style="--index: 18;">
+			<path d="M84,66448L156,66448L156,71752L161,71752L161,80484L290,80484L290,85400" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.p12dx07q</title>
+			</path>
+			<rect x="84" y="66448" width="206" height="18952"/>
+			<path d="M84,66448L84,66448" tabindex="0">
+				<title>09:01.00 on 2018-07-10</title>
+			</path>
+			<line x1="0" y1="66448" x2="2093" y2="66448"/>
+			<line x1="84" y1="120548" x2="84" y2="0"/>
+			<path d="M156,71752L156,71752" tabindex="0">
+				<title>08:07.96 on 2018-09-20</title>
+			</path>
+			<line x1="0" y1="71752" x2="2093" y2="71752"/>
+			<line x1="156" y1="120548" x2="156" y2="0"/>
+			<path d="M161,80484L161,80484" tabindex="0">
+				<title>06:40.64 on 2018-09-25</title>
+			</path>
+			<line x1="0" y1="80484" x2="2093" y2="80484"/>
+			<line x1="161" y1="120548" x2="161" y2="0"/>
+			<path d="M290,85400L290,85400" tabindex="0">
+				<title>05:51.48 on 2019-02-01</title>
+			</path>
+			<line x1="0" y1="85400" x2="2093" y2="85400"/>
+			<line x1="290" y1="120548" x2="290" y2="0"/>
+		</g>
+		<g style="--index: 19;">
+			<path d="M84,116998" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.21g8ownl</title>
+			</path>
+			<rect x="84" y="116998" width="0" height="0"/>
+			<path d="M84,116998L84,116998" tabindex="0">
+				<title>00:35.50 on 2018-07-10</title>
+			</path>
+			<line x1="0" y1="116998" x2="2093" y2="116998"/>
+			<line x1="84" y1="120548" x2="84" y2="0"/>
+		</g>
+		<g style="--index: 20;">
+			<path d="M84,119053" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
+			</path>
+			<rect x="84" y="119053" width="0" height="0"/>
+			<path d="M84,119053L84,119053" tabindex="0">
+				<title>00:14.95 on 2018-07-10</title>
+			</path>
+			<line x1="0" y1="119053" x2="2093" y2="119053"/>
+			<line x1="84" y1="120548" x2="84" y2="0"/>
+		</g>
+		<g style="--index: 21;">
+			<path d="M84,110581L164,110581L164,113400" tabindex="0">
+				<title>l_495zlx39-9d8eewld-2lgr793n.4lxpe62q</title>
+			</path>
+			<rect x="84" y="110581" width="80" height="2819"/>
+			<path d="M84,110581L84,110581" tabindex="0">
+				<title>01:39.67 on 2018-07-10</title>
+			</path>
+			<line x1="0" y1="110581" x2="2093" y2="110581"/>
+			<line x1="84" y1="120548" x2="84" y2="0"/>
+			<path d="M164,113400L164,113400" tabindex="0">
+				<title>01:11.48 on 2018-09-28</title>
+			</path>
+			<line x1="0" y1="113400" x2="2093" y2="113400"/>
+			<line x1="164" y1="120548" x2="164" y2="0"/>
+		</g>
+		<g style="--index: 22;">
+			<path d="M87,85021L154,85021L154,92065" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.5lmkgmjq</title>
+			</path>
+			<rect x="87" y="85021" width="67" height="7044"/>
+			<path d="M87,85021L87,85021" tabindex="0">
+				<title>05:55.27 on 2018-07-13</title>
+			</path>
+			<line x1="0" y1="85021" x2="2093" y2="85021"/>
+			<line x1="87" y1="120548" x2="87" y2="0"/>
+			<path d="M154,92065L154,92065" tabindex="0">
+				<title>04:44.83 on 2018-09-18</title>
+			</path>
+			<line x1="0" y1="92065" x2="2093" y2="92065"/>
+			<line x1="154" y1="120548" x2="154" y2="0"/>
+		</g>
+		<g style="--index: 23;">
+			<path d="M87,111158" tabindex="0">
+				<title>l_o9xo3rp9-9d8eewld-7896y468.810zwdwq</title>
+			</path>
+			<rect x="87" y="111158" width="0" height="0"/>
+			<path d="M87,111158L87,111158" tabindex="0">
+				<title>01:33.90 on 2018-07-13</title>
+			</path>
+			<line x1="0" y1="111158" x2="2093" y2="111158"/>
+			<line x1="87" y1="120548" x2="87" y2="0"/>
+		</g>
+		<g style="--index: 24;">
+			<path d="M87,111765" tabindex="0">
+				<title>l_r9gn1qpd-xd144xzd-38dz6v1n.814y45w1</title>
+			</path>
+			<rect x="87" y="111765" width="0" height="0"/>
+			<path d="M87,111765L87,111765" tabindex="0">
+				<title>01:27.83 on 2018-07-13</title>
+			</path>
+			<line x1="0" y1="111765" x2="2093" y2="111765"/>
+			<line x1="87" y1="120548" x2="87" y2="0"/>
+		</g>
+		<g style="--index: 25;">
+			<path d="M88,80408" tabindex="0">
+				<title>l_r9gn1qpd-xd144xzd-38dz6v1n.z19md2jl</title>
+			</path>
+			<rect x="88" y="80408" width="0" height="0"/>
+			<path d="M88,80408L88,80408" tabindex="0">
+				<title>06:41.40 on 2018-07-14</title>
+			</path>
+			<line x1="0" y1="80408" x2="2093" y2="80408"/>
+			<line x1="88" y1="120548" x2="88" y2="0"/>
+		</g>
+		<g style="--index: 26;">
+			<path d="M89,103746" tabindex="0">
+				<title>l_o9xo3rp9-xd144xzd-38dz6v1n.814y45w1</title>
+			</path>
+			<rect x="89" y="103746" width="0" height="0"/>
+			<path d="M89,103746L89,103746" tabindex="0">
+				<title>02:48.02 on 2018-07-15</title>
+			</path>
+			<line x1="0" y1="103746" x2="2093" y2="103746"/>
+			<line x1="89" y1="120548" x2="89" y2="0"/>
+		</g>
+		<g style="--index: 27;">
+			<path d="M149,117875L151,117875L151,117904" tabindex="0">
+				<title>l_ldykv1zw-rkl3znrk-wl3059ol.4qypgj4q</title>
+			</path>
+			<rect x="149" y="117875" width="2" height="29"/>
+			<path d="M149,117875L149,117875" tabindex="0">
+				<title>00:26.73 on 2018-09-13</title>
+			</path>
+			<line x1="0" y1="117875" x2="2093" y2="117875"/>
+			<line x1="149" y1="120548" x2="149" y2="0"/>
+			<path d="M151,117904L151,117904" tabindex="0">
+				<title>00:26.44 on 2018-09-15</title>
+			</path>
+			<line x1="0" y1="117904" x2="2093" y2="117904"/>
+			<line x1="151" y1="120548" x2="151" y2="0"/>
+		</g>
+		<g style="--index: 28;">
+			<path d="M275,7693" tabindex="0">
+				<title>xd17x94d-9l71pv4l.81wrgm5l</title>
+			</path>
+			<rect x="275" y="7693" width="0" height="0"/>
+			<path d="M275,7693L275,7693" tabindex="0">
+				<title>18:48.55 on 2019-01-17</title>
+			</path>
+			<line x1="0" y1="7693" x2="2093" y2="7693"/>
+			<line x1="275" y1="120548" x2="275" y2="0"/>
+		</g>
+		<g style="--index: 29;">
+			<path d="M475,112743L860,112743L860,114630" tabindex="0">
+				<title>l_rdqo542w-9d8eewld-wl30kw9l.klrp6ejq</title>
+			</path>
+			<rect x="475" y="112743" width="385" height="1887"/>
+			<path d="M475,112743L475,112743" tabindex="0">
+				<title>01:18.05 on 2019-08-05</title>
+			</path>
+			<line x1="0" y1="112743" x2="2093" y2="112743"/>
+			<line x1="475" y1="120548" x2="475" y2="0"/>
+			<path d="M860,114630L860,114630" tabindex="0">
+				<title>00:59.18 on 2020-08-24</title>
+			</path>
+			<line x1="0" y1="114630" x2="2093" y2="114630"/>
+			<line x1="860" y1="120548" x2="860" y2="0"/>
+		</g>
+		<g style="--index: 30;">
+			<path d="M475,118309" tabindex="0">
+				<title>l_rdqo542w-9d8eewld-wl30kw9l.21dzoj3l</title>
+			</path>
+			<rect x="475" y="118309" width="0" height="0"/>
+			<path d="M475,118309L475,118309" tabindex="0">
+				<title>00:22.39 on 2019-08-05</title>
+			</path>
+			<line x1="0" y1="118309" x2="2093" y2="118309"/>
+			<line x1="475" y1="120548" x2="475" y2="0"/>
+		</g>
+		<g style="--index: 31;">
+			<path d="M475,117893" tabindex="0">
+				<title>l_rdqo542w-9d8eewld-wl30kw9l.jqzpyr4l</title>
+			</path>
+			<rect x="475" y="117893" width="0" height="0"/>
+			<path d="M475,117893L475,117893" tabindex="0">
+				<title>00:26.55 on 2019-08-05</title>
+			</path>
+			<line x1="0" y1="117893" x2="2093" y2="117893"/>
+			<line x1="475" y1="120548" x2="475" y2="0"/>
+		</g>
+		<g style="--index: 32;">
+			<path d="M479,81798" tabindex="0">
+				<title>l_rdqo542w-9d8eewld-wl30kw9l.21g8owxl</title>
+			</path>
+			<rect x="479" y="81798" width="0" height="0"/>
+			<path d="M479,81798L479,81798" tabindex="0">
+				<title>06:27.50 on 2019-08-09</title>
+			</path>
+			<line x1="0" y1="81798" x2="2093" y2="81798"/>
+			<line x1="479" y1="120548" x2="479" y2="0"/>
+		</g>
+		<g style="--index: 33;">
+			<path d="M747,118844" tabindex="0">
+				<title>9kv6l5e2-ql6rezjl.jq6d86v1</title>
+			</path>
+			<rect x="747" y="118844" width="0" height="0"/>
+			<path d="M747,118844L747,118844" tabindex="0">
+				<title>00:17.04 on 2020-05-03</title>
+			</path>
+			<line x1="0" y1="118844" x2="2093" y2="118844"/>
+			<line x1="747" y1="120548" x2="747" y2="0"/>
+		</g>
+		<g style="--index: 34;">
+			<path d="M862,107062" tabindex="0">
+				<title>l_r9gn1qpd-9kv66g32-onv7r45n.9qj08g7l</title>
+			</path>
+			<rect x="862" y="107062" width="0" height="0"/>
+			<path d="M862,107062L862,107062" tabindex="0">
+				<title>02:14.86 on 2020-08-26</title>
+			</path>
+			<line x1="0" y1="107062" x2="2093" y2="107062"/>
+			<line x1="862" y1="120548" x2="862" y2="0"/>
+		</g>
+		<g style="--index: 35;">
+			<path d="M864,0L867,0L867,8671L959,8671L959,23089" tabindex="0">
+				<title>xd17x94d-9l71pv4l.zqo20y2l</title>
+			</path>
+			<rect x="864" y="0" width="95" height="23089"/>
+			<path d="M864,0L864,0" tabindex="0">
+				<title>20:05.48 on 2020-08-28</title>
+			</path>
+			<line x1="0" y1="0" x2="2093" y2="0"/>
+			<line x1="864" y1="120548" x2="864" y2="0"/>
+			<path d="M867,8671L867,8671" tabindex="0">
+				<title>18:38.77 on 2020-08-31</title>
+			</path>
+			<line x1="0" y1="8671" x2="2093" y2="8671"/>
+			<line x1="867" y1="120548" x2="867" y2="0"/>
+			<path d="M959,23089L959,23089" tabindex="0">
+				<title>16:14.59 on 2020-12-01</title>
+			</path>
+			<line x1="0" y1="23089" x2="2093" y2="23089"/>
+			<line x1="959" y1="120548" x2="959" y2="0"/>
+		</g>
+	</g>
+</svg>

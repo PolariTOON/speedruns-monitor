@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1107 5172" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+		<title>Time by player for leaderboard l_rdqo542w-9d8eewld-wl30kw9l.5q86rxr1</title>
+		<style>
+			svg {
+				background: var(--canvas-background);
+				fill: var(--canvas-background);
+				stroke: var(--canvas-foreground);
+				stroke-linejoin: round;
+				stroke-linecap: round;
+			}
+			g &gt; path[tabindex] {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+				cursor: help;
+			}
+			g:is(:hover, :focus-within) &gt; path[tabindex] {
+				stroke: var(--canvas-foreground);
+			}
+			g &gt; path[tabindex]:is(:hover, :focus-within) {
+				outline: 0;
+			}
+			g &gt; path[tabindex]:first-of-type {
+				stroke-width: 2;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+				stroke-width: 4;
+			}
+			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+				stroke-dasharray: 4 8;
+			}
+			g &gt; rect {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+				fill: var(--highlighted);
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+				stroke-width: 8;
+			}
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+				stroke-width: 16;
+			}
+			g &gt; line {
+				vector-effect: non-scaling-stroke;
+				fill: none;
+				stroke: none;
+				stroke-width: 2;
+				stroke-dasharray: 4 8;
+				pointer-events: none;
+			}
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+				stroke: var(--faded);
+			}
+			@media (prefers-color-scheme: dark) {
+				:root {
+					--canvas-background: #000;
+					--canvas-foreground: #ccc;
+					--highlighted: #6663;
+					--faded: #9993;
+				}
+			}
+			@media (prefers-color-scheme: light) {
+				:root {
+					--canvas-background: #fff;
+					--canvas-foreground: #333;
+					--highlighted: #9993;
+					--faded: #6663;
+				}
+			}
+		</style>
+		<g style="--count: 11;">
+		<g style="--index: 0;">
+			<path d="M0,2209" tabindex="0">
+				<title>x356nrej</title>
+			</path>
+			<rect x="0" y="2209" width="0" height="0"/>
+			<path d="M0,2209L0,2209" tabindex="0">
+				<title>00:29.63 on 2020-05-12</title>
+			</path>
+			<line x1="0" y1="2209" x2="1107" y2="2209"/>
+			<line x1="0" y1="5172" x2="0" y2="0"/>
+		</g>
+		<g style="--index: 1;">
+			<path d="M178,1952" tabindex="0">
+				<title>xz9wodr8</title>
+			</path>
+			<rect x="178" y="1952" width="0" height="0"/>
+			<path d="M178,1952L178,1952" tabindex="0">
+				<title>00:32.20 on 2020-11-06</title>
+			</path>
+			<line x1="0" y1="1952" x2="1107" y2="1952"/>
+			<line x1="178" y1="5172" x2="178" y2="0"/>
+		</g>
+		<g style="--index: 2;">
+			<path d="M178,2253" tabindex="0">
+				<title>8e94kq6j</title>
+			</path>
+			<rect x="178" y="2253" width="0" height="0"/>
+			<path d="M178,2253L178,2253" tabindex="0">
+				<title>00:29.19 on 2020-11-06</title>
+			</path>
+			<line x1="0" y1="2253" x2="1107" y2="2253"/>
+			<line x1="178" y1="5172" x2="178" y2="0"/>
+		</g>
+		<g style="--index: 3;">
+			<path d="M192,2519L290,2519L290,2582L659,2582L659,2795" tabindex="0">
+				<title>j2yr9lp8</title>
+			</path>
+			<rect x="192" y="2519" width="467" height="276"/>
+			<path d="M192,2519L192,2519" tabindex="0">
+				<title>00:26.53 on 2020-11-20</title>
+			</path>
+			<line x1="0" y1="2519" x2="1107" y2="2519"/>
+			<line x1="192" y1="5172" x2="192" y2="0"/>
+			<path d="M290,2582L290,2582" tabindex="0">
+				<title>00:25.90 on 2021-02-26</title>
+			</path>
+			<line x1="0" y1="2582" x2="1107" y2="2582"/>
+			<line x1="290" y1="5172" x2="290" y2="0"/>
+			<path d="M659,2795L659,2795" tabindex="0">
+				<title>00:23.77 on 2022-03-02</title>
+			</path>
+			<line x1="0" y1="2795" x2="1107" y2="2795"/>
+			<line x1="659" y1="5172" x2="659" y2="0"/>
+		</g>
+		<g style="--index: 4;">
+			<path d="M193,2227L250,2227L250,2483" tabindex="0">
+				<title>x7q00668</title>
+			</path>
+			<rect x="193" y="2227" width="57" height="256"/>
+			<path d="M193,2227L193,2227" tabindex="0">
+				<title>00:29.45 on 2020-11-21</title>
+			</path>
+			<line x1="0" y1="2227" x2="1107" y2="2227"/>
+			<line x1="193" y1="5172" x2="193" y2="0"/>
+			<path d="M250,2483L250,2483" tabindex="0">
+				<title>00:26.89 on 2021-01-17</title>
+			</path>
+			<line x1="0" y1="2483" x2="1107" y2="2483"/>
+			<line x1="250" y1="5172" x2="250" y2="0"/>
+		</g>
+		<g style="--index: 5;">
+			<path d="M197,2073" tabindex="0">
+				<title>jn3kw0wx</title>
+			</path>
+			<rect x="197" y="2073" width="0" height="0"/>
+			<path d="M197,2073L197,2073" tabindex="0">
+				<title>00:30.99 on 2020-11-25</title>
+			</path>
+			<line x1="0" y1="2073" x2="1107" y2="2073"/>
+			<line x1="197" y1="5172" x2="197" y2="0"/>
+		</g>
+		<g style="--index: 6;">
+			<path d="M233,2553" tabindex="0">
+				<title>xkon93k8</title>
+			</path>
+			<rect x="233" y="2553" width="0" height="0"/>
+			<path d="M233,2553L233,2553" tabindex="0">
+				<title>00:26.19 on 2020-12-31</title>
+			</path>
+			<line x1="0" y1="2553" x2="1107" y2="2553"/>
+			<line x1="233" y1="5172" x2="233" y2="0"/>
+		</g>
+		<g style="--index: 7;">
+			<path d="M300,2222" tabindex="0">
+				<title>j0np7or8</title>
+			</path>
+			<rect x="300" y="2222" width="0" height="0"/>
+			<path d="M300,2222L300,2222" tabindex="0">
+				<title>00:29.50 on 2021-03-08</title>
+			</path>
+			<line x1="0" y1="2222" x2="1107" y2="2222"/>
+			<line x1="300" y1="5172" x2="300" y2="0"/>
+		</g>
+		<g style="--index: 8;">
+			<path d="M777,2625" tabindex="0">
+				<title>xk3m6d68</title>
+			</path>
+			<rect x="777" y="2625" width="0" height="0"/>
+			<path d="M777,2625L777,2625" tabindex="0">
+				<title>00:25.47 on 2022-06-28</title>
+			</path>
+			<line x1="0" y1="2625" x2="1107" y2="2625"/>
+			<line x1="777" y1="5172" x2="777" y2="0"/>
+		</g>
+		<g style="--index: 9;">
+			<path d="M1059,2840L1076,2840L1076,2905" tabindex="0">
+				<title>jn2m23wj</title>
+			</path>
+			<rect x="1059" y="2840" width="17" height="65"/>
+			<path d="M1059,2840L1059,2840" tabindex="0">
+				<title>00:23.32 on 2023-04-06</title>
+			</path>
+			<line x1="0" y1="2840" x2="1107" y2="2840"/>
+			<line x1="1059" y1="5172" x2="1059" y2="0"/>
+			<path d="M1076,2905L1076,2905" tabindex="0">
+				<title>00:22.67 on 2023-04-23</title>
+			</path>
+			<line x1="0" y1="2905" x2="1107" y2="2905"/>
+			<line x1="1076" y1="5172" x2="1076" y2="0"/>
+		</g>
+		<g style="--index: 10;">
+			<path d="M1107,0" tabindex="0">
+				<title>xz0rz3r8</title>
+			</path>
+			<rect x="1107" y="0" width="0" height="0"/>
+			<path d="M1107,0L1107,0" tabindex="0">
+				<title>00:51.72 on 2023-05-24</title>
+			</path>
+			<line x1="0" y1="0" x2="1107" y2="0"/>
+			<line x1="1107" y1="5172" x2="1107" y2="0"/>
+		</g>
+	</g>
+</svg>
