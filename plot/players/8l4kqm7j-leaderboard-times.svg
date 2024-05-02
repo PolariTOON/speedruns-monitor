@@ -77,44 +77,44 @@
 				}
 			}
 		</style>
-		<g style="--count: 3;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 3;">
 		<g style="--index: 0;">
-			<path d="M0,0L1,0L1,2402" tabindex="0">
+			<path d="M0,9492L1,9492L1,7090" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
 			</path>
-			<rect x="0" y="0" width="1" height="2402"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="7090" width="1" height="2402"/>
+			<path d="M0,9492L0,9492" tabindex="0">
 				<title>01:34.92 on 2021-02-10</title>
 			</path>
-			<line x1="0" y1="0" x2="2" y2="0"/>
-			<line x1="0" y1="9492" x2="0" y2="0"/>
-			<path d="M1,2402L1,2402" tabindex="0">
+			<line x1="0" y1="9492" x2="2" y2="9492"/>
+			<line x1="0" y1="0" x2="0" y2="9492"/>
+			<path d="M1,7090L1,7090" tabindex="0">
 				<title>01:10.90 on 2021-02-11</title>
 			</path>
-			<line x1="0" y1="2402" x2="2" y2="2402"/>
-			<line x1="1" y1="9492" x2="1" y2="0"/>
+			<line x1="0" y1="7090" x2="2" y2="7090"/>
+			<line x1="1" y1="0" x2="1" y2="9492"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M1,7576" tabindex="0">
+			<path d="M1,1916" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
 			</path>
-			<rect x="1" y="7576" width="0" height="0"/>
-			<path d="M1,7576L1,7576" tabindex="0">
+			<rect x="1" y="1916" width="0" height="0"/>
+			<path d="M1,1916L1,1916" tabindex="0">
 				<title>00:19.16 on 2021-02-11</title>
 			</path>
-			<line x1="0" y1="7576" x2="2" y2="7576"/>
-			<line x1="1" y1="9492" x2="1" y2="0"/>
+			<line x1="0" y1="1916" x2="2" y2="1916"/>
+			<line x1="1" y1="0" x2="1" y2="9492"/>
 		</g>
 		<g style="--index: 2;">
-			<path d="M2,7578" tabindex="0">
+			<path d="M2,1914" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 			</path>
-			<rect x="2" y="7578" width="0" height="0"/>
-			<path d="M2,7578L2,7578" tabindex="0">
+			<rect x="2" y="1914" width="0" height="0"/>
+			<path d="M2,1914L2,1914" tabindex="0">
 				<title>00:19.14 on 2021-02-12</title>
 			</path>
-			<line x1="0" y1="7578" x2="2" y2="7578"/>
-			<line x1="2" y1="9492" x2="2" y2="0"/>
+			<line x1="0" y1="1914" x2="2" y2="1914"/>
+			<line x1="2" y1="0" x2="2" y2="9492"/>
 		</g>
 	</g>
 </svg>

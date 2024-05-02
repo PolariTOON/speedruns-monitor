@@ -77,28 +77,28 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,11345" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.4qywn341</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="11345" width="0" height="0"/>
+			<path d="M0,11345L0,11345" tabindex="0">
 				<title>01:53.45 on 2024-03-16</title>
 			</path>
-			<line x1="0" y1="0" x2="13" y2="0"/>
-			<line x1="0" y1="11345" x2="0" y2="0"/>
+			<line x1="0" y1="11345" x2="13" y2="11345"/>
+			<line x1="0" y1="0" x2="0" y2="11345"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M13,8378" tabindex="0">
+			<path d="M13,2967" tabindex="0">
 				<title>l_495zlx39-9d8eewld-2lgr793n.21gp48n1</title>
 			</path>
-			<rect x="13" y="8378" width="0" height="0"/>
-			<path d="M13,8378L13,8378" tabindex="0">
+			<rect x="13" y="2967" width="0" height="0"/>
+			<path d="M13,2967L13,2967" tabindex="0">
 				<title>00:29.67 on 2024-03-29</title>
 			</path>
-			<line x1="0" y1="8378" x2="13" y2="8378"/>
-			<line x1="13" y1="11345" x2="13" y2="0"/>
+			<line x1="0" y1="2967" x2="13" y2="2967"/>
+			<line x1="13" y1="0" x2="13" y2="11345"/>
 		</g>
 	</g>
 </svg>

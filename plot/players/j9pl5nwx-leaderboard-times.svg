@@ -77,38 +77,38 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0L69,0L69,77L70,77L70,305" tabindex="0">
+			<path d="M0,1789L69,1789L69,1712L70,1712L70,1484" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
 			</path>
-			<rect x="0" y="0" width="70" height="305"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="1484" width="70" height="305"/>
+			<path d="M0,1789L0,1789" tabindex="0">
 				<title>00:17.89 on 2022-11-02</title>
 			</path>
-			<line x1="0" y1="0" x2="171" y2="0"/>
-			<line x1="0" y1="1789" x2="0" y2="0"/>
-			<path d="M69,77L69,77" tabindex="0">
+			<line x1="0" y1="1789" x2="171" y2="1789"/>
+			<line x1="0" y1="0" x2="0" y2="1789"/>
+			<path d="M69,1712L69,1712" tabindex="0">
 				<title>00:17.12 on 2023-01-10</title>
 			</path>
-			<line x1="0" y1="77" x2="171" y2="77"/>
-			<line x1="69" y1="1789" x2="69" y2="0"/>
-			<path d="M70,305L70,305" tabindex="0">
+			<line x1="0" y1="1712" x2="171" y2="1712"/>
+			<line x1="69" y1="0" x2="69" y2="1789"/>
+			<path d="M70,1484L70,1484" tabindex="0">
 				<title>00:14.84 on 2023-01-11</title>
 			</path>
-			<line x1="0" y1="305" x2="171" y2="305"/>
-			<line x1="70" y1="1789" x2="70" y2="0"/>
+			<line x1="0" y1="1484" x2="171" y2="1484"/>
+			<line x1="70" y1="0" x2="70" y2="1789"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M171,500" tabindex="0">
+			<path d="M171,1289" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 			</path>
-			<rect x="171" y="500" width="0" height="0"/>
-			<path d="M171,500L171,500" tabindex="0">
+			<rect x="171" y="1289" width="0" height="0"/>
+			<path d="M171,1289L171,1289" tabindex="0">
 				<title>00:12.89 on 2023-04-22</title>
 			</path>
-			<line x1="0" y1="500" x2="171" y2="500"/>
-			<line x1="171" y1="1789" x2="171" y2="0"/>
+			<line x1="0" y1="1289" x2="171" y2="1289"/>
+			<line x1="171" y1="0" x2="171" y2="1789"/>
 		</g>
 	</g>
 </svg>

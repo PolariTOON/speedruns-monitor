@@ -77,39 +77,39 @@
 				}
 			}
 		</style>
-		<g style="--count: 3;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 3;">
 		<g style="--index: 0;">
-			<path d="M0,2065" tabindex="0">
+			<path d="M0,1013" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
 			</path>
-			<rect x="0" y="2065" width="0" height="0"/>
-			<path d="M0,2065L0,2065" tabindex="0">
+			<rect x="0" y="1013" width="0" height="0"/>
+			<path d="M0,1013L0,1013" tabindex="0">
 				<title>00:10.13 on 2023-10-28</title>
 			</path>
-			<line x1="0" y1="2065" x2="0" y2="2065"/>
-			<line x1="0" y1="3078" x2="0" y2="0"/>
+			<line x1="0" y1="1013" x2="0" y2="1013"/>
+			<line x1="0" y1="0" x2="0" y2="3078"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,3078" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.5lermx5q</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="3078" width="0" height="0"/>
+			<path d="M0,3078L0,3078" tabindex="0">
 				<title>00:30.78 on 2023-10-28</title>
 			</path>
-			<line x1="0" y1="0" x2="0" y2="0"/>
-			<line x1="0" y1="3078" x2="0" y2="0"/>
+			<line x1="0" y1="3078" x2="0" y2="3078"/>
+			<line x1="0" y1="0" x2="0" y2="3078"/>
 		</g>
 		<g style="--index: 2;">
-			<path d="M0,1435" tabindex="0">
+			<path d="M0,1643" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.jq60ze3q</title>
 			</path>
-			<rect x="0" y="1435" width="0" height="0"/>
-			<path d="M0,1435L0,1435" tabindex="0">
+			<rect x="0" y="1643" width="0" height="0"/>
+			<path d="M0,1643L0,1643" tabindex="0">
 				<title>00:16.43 on 2023-10-28</title>
 			</path>
-			<line x1="0" y1="1435" x2="0" y2="1435"/>
-			<line x1="0" y1="3078" x2="0" y2="0"/>
+			<line x1="0" y1="1643" x2="0" y2="1643"/>
+			<line x1="0" y1="0" x2="0" y2="3078"/>
 		</g>
 	</g>
 </svg>

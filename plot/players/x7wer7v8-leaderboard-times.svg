@@ -77,22 +77,22 @@
 				}
 			}
 		</style>
-		<g style="--count: 1;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
 		<g style="--index: 0;">
-			<path d="M0,0L54,0L54,74" tabindex="0">
+			<path d="M0,2110L54,2110L54,2036" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21g82pnl</title>
 			</path>
-			<rect x="0" y="0" width="54" height="74"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="2036" width="54" height="74"/>
+			<path d="M0,2110L0,2110" tabindex="0">
 				<title>00:21.10 on 2022-06-17</title>
 			</path>
-			<line x1="0" y1="0" x2="54" y2="0"/>
-			<line x1="0" y1="2110" x2="0" y2="0"/>
-			<path d="M54,74L54,74" tabindex="0">
+			<line x1="0" y1="2110" x2="54" y2="2110"/>
+			<line x1="0" y1="0" x2="0" y2="2110"/>
+			<path d="M54,2036L54,2036" tabindex="0">
 				<title>00:20.36 on 2022-08-10</title>
 			</path>
-			<line x1="0" y1="74" x2="54" y2="74"/>
-			<line x1="54" y1="2110" x2="54" y2="0"/>
+			<line x1="0" y1="2036" x2="54" y2="2036"/>
+			<line x1="54" y1="0" x2="54" y2="2110"/>
 		</g>
 	</g>
 </svg>

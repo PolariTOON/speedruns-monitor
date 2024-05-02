@@ -77,28 +77,28 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,53799" tabindex="0">
 				<title>xkon93k8</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="53799" width="0" height="0"/>
+			<path d="M0,53799L0,53799" tabindex="0">
 				<title>08:57.99 on 2020-11-22</title>
 			</path>
-			<line x1="0" y1="0" x2="145" y2="0"/>
-			<line x1="0" y1="53799" x2="0" y2="0"/>
+			<line x1="0" y1="53799" x2="145" y2="53799"/>
+			<line x1="0" y1="0" x2="0" y2="53799"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M145,15800" tabindex="0">
+			<path d="M145,37999" tabindex="0">
 				<title>x356nrej</title>
 			</path>
-			<rect x="145" y="15800" width="0" height="0"/>
-			<path d="M145,15800L145,15800" tabindex="0">
+			<rect x="145" y="37999" width="0" height="0"/>
+			<path d="M145,37999L145,37999" tabindex="0">
 				<title>06:19.99 on 2021-04-16</title>
 			</path>
-			<line x1="0" y1="15800" x2="145" y2="15800"/>
-			<line x1="145" y1="53799" x2="145" y2="0"/>
+			<line x1="0" y1="37999" x2="145" y2="37999"/>
+			<line x1="145" y1="0" x2="145" y2="53799"/>
 		</g>
 	</g>
 </svg>

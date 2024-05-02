@@ -77,27 +77,27 @@
 				}
 			}
 		</style>
-		<g style="--count: 1;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
 		<g style="--index: 0;">
-			<path d="M0,0L1,0L1,26L4,26L4,42" tabindex="0">
+			<path d="M0,1454L1,1454L1,1428L4,1428L4,1412" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.rqvpey7q</title>
 			</path>
-			<rect x="0" y="0" width="4" height="42"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="1412" width="4" height="42"/>
+			<path d="M0,1454L0,1454" tabindex="0">
 				<title>00:14.54 on 2022-03-27</title>
 			</path>
-			<line x1="0" y1="0" x2="4" y2="0"/>
-			<line x1="0" y1="1454" x2="0" y2="0"/>
-			<path d="M1,26L1,26" tabindex="0">
+			<line x1="0" y1="1454" x2="4" y2="1454"/>
+			<line x1="0" y1="0" x2="0" y2="1454"/>
+			<path d="M1,1428L1,1428" tabindex="0">
 				<title>00:14.28 on 2022-03-28</title>
 			</path>
-			<line x1="0" y1="26" x2="4" y2="26"/>
-			<line x1="1" y1="1454" x2="1" y2="0"/>
-			<path d="M4,42L4,42" tabindex="0">
+			<line x1="0" y1="1428" x2="4" y2="1428"/>
+			<line x1="1" y1="0" x2="1" y2="1454"/>
+			<path d="M4,1412L4,1412" tabindex="0">
 				<title>00:14.12 on 2022-03-31</title>
 			</path>
-			<line x1="0" y1="42" x2="4" y2="42"/>
-			<line x1="4" y1="1454" x2="4" y2="0"/>
+			<line x1="0" y1="1412" x2="4" y2="1412"/>
+			<line x1="4" y1="0" x2="4" y2="1454"/>
 		</g>
 	</g>
 </svg>

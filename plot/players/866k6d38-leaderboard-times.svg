@@ -77,38 +77,38 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0L2,0L2,322" tabindex="0">
+			<path d="M0,1697L2,1697L2,1375" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
 			</path>
-			<rect x="0" y="0" width="2" height="322"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="1375" width="2" height="322"/>
+			<path d="M0,1697L0,1697" tabindex="0">
 				<title>00:16.97 on 2022-06-02</title>
 			</path>
-			<line x1="0" y1="0" x2="2" y2="0"/>
-			<line x1="0" y1="1697" x2="0" y2="0"/>
-			<path d="M2,322L2,322" tabindex="0">
+			<line x1="0" y1="1697" x2="2" y2="1697"/>
+			<line x1="0" y1="0" x2="0" y2="1697"/>
+			<path d="M2,1375L2,1375" tabindex="0">
 				<title>00:13.75 on 2022-06-04</title>
 			</path>
-			<line x1="0" y1="322" x2="2" y2="322"/>
-			<line x1="2" y1="1697" x2="2" y2="0"/>
+			<line x1="0" y1="1375" x2="2" y2="1375"/>
+			<line x1="2" y1="0" x2="2" y2="1697"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M1,106L2,106L2,228" tabindex="0">
+			<path d="M1,1591L2,1591L2,1469" tabindex="0">
 				<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
 			</path>
-			<rect x="1" y="106" width="1" height="122"/>
-			<path d="M1,106L1,106" tabindex="0">
+			<rect x="1" y="1469" width="1" height="122"/>
+			<path d="M1,1591L1,1591" tabindex="0">
 				<title>00:15.91 on 2022-06-03</title>
 			</path>
-			<line x1="0" y1="106" x2="2" y2="106"/>
-			<line x1="1" y1="1697" x2="1" y2="0"/>
-			<path d="M2,228L2,228" tabindex="0">
+			<line x1="0" y1="1591" x2="2" y2="1591"/>
+			<line x1="1" y1="0" x2="1" y2="1697"/>
+			<path d="M2,1469L2,1469" tabindex="0">
 				<title>00:14.69 on 2022-06-04</title>
 			</path>
-			<line x1="0" y1="228" x2="2" y2="228"/>
-			<line x1="2" y1="1697" x2="2" y2="0"/>
+			<line x1="0" y1="1469" x2="2" y2="1469"/>
+			<line x1="2" y1="0" x2="2" y2="1697"/>
 		</g>
 	</g>
 </svg>

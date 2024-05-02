@@ -77,22 +77,22 @@
 				}
 			}
 		</style>
-		<g style="--count: 1;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
 		<g style="--index: 0;">
-			<path d="M0,0L8,0L8,58" tabindex="0">
+			<path d="M0,985L8,985L8,927" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 			</path>
-			<rect x="0" y="0" width="8" height="58"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="927" width="8" height="58"/>
+			<path d="M0,985L0,985" tabindex="0">
 				<title>00:09.85 on 2020-11-24</title>
 			</path>
-			<line x1="0" y1="0" x2="8" y2="0"/>
-			<line x1="0" y1="985" x2="0" y2="0"/>
-			<path d="M8,58L8,58" tabindex="0">
+			<line x1="0" y1="985" x2="8" y2="985"/>
+			<line x1="0" y1="0" x2="0" y2="985"/>
+			<path d="M8,927L8,927" tabindex="0">
 				<title>00:09.27 on 2020-12-02</title>
 			</path>
-			<line x1="0" y1="58" x2="8" y2="58"/>
-			<line x1="8" y1="985" x2="8" y2="0"/>
+			<line x1="0" y1="927" x2="8" y2="927"/>
+			<line x1="8" y1="0" x2="8" y2="985"/>
 		</g>
 	</g>
 </svg>

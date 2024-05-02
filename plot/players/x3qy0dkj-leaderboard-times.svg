@@ -77,28 +77,28 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,19761" tabindex="0">
 				<title>l_r9gn1qpd-xd144xzd-38dz6v1n.814y45w1</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="19761" width="0" height="0"/>
+			<path d="M0,19761L0,19761" tabindex="0">
 				<title>03:17.61 on 2021-05-07</title>
 			</path>
-			<line x1="0" y1="0" x2="0" y2="0"/>
-			<line x1="0" y1="19761" x2="0" y2="0"/>
+			<line x1="0" y1="19761" x2="0" y2="19761"/>
+			<line x1="0" y1="0" x2="0" y2="19761"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M0,16177" tabindex="0">
+			<path d="M0,3584" tabindex="0">
 				<title>l_ldykv1zw-rkl3znrk-wl3059ol.4qypgj4q</title>
 			</path>
-			<rect x="0" y="16177" width="0" height="0"/>
-			<path d="M0,16177L0,16177" tabindex="0">
+			<rect x="0" y="3584" width="0" height="0"/>
+			<path d="M0,3584L0,3584" tabindex="0">
 				<title>00:35.84 on 2021-05-07</title>
 			</path>
-			<line x1="0" y1="16177" x2="0" y2="16177"/>
-			<line x1="0" y1="19761" x2="0" y2="0"/>
+			<line x1="0" y1="3584" x2="0" y2="3584"/>
+			<line x1="0" y1="0" x2="0" y2="19761"/>
 		</g>
 	</g>
 </svg>

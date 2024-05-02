@@ -77,49 +77,49 @@
 				}
 			}
 		</style>
-		<g style="--count: 3;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 3;">
 		<g style="--index: 0;">
-			<path d="M0,0L44,0L44,47" tabindex="0">
+			<path d="M0,2316L44,2316L44,2269" tabindex="0">
 				<title>l_rdqo542w-9d8eewld-wl30kw9l.klrp6e0q</title>
 			</path>
-			<rect x="0" y="0" width="44" height="47"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="2269" width="44" height="47"/>
+			<path d="M0,2316L0,2316" tabindex="0">
 				<title>00:23.16 on 2020-07-18</title>
 			</path>
-			<line x1="0" y1="0" x2="44" y2="0"/>
-			<line x1="0" y1="2316" x2="0" y2="0"/>
-			<path d="M44,47L44,47" tabindex="0">
+			<line x1="0" y1="2316" x2="44" y2="2316"/>
+			<line x1="0" y1="0" x2="0" y2="2316"/>
+			<path d="M44,2269L44,2269" tabindex="0">
 				<title>00:22.69 on 2020-08-31</title>
 			</path>
-			<line x1="0" y1="47" x2="44" y2="47"/>
-			<line x1="44" y1="2316" x2="44" y2="0"/>
+			<line x1="0" y1="2269" x2="44" y2="2269"/>
+			<line x1="44" y1="0" x2="44" y2="2316"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M0,723" tabindex="0">
+			<path d="M0,1593" tabindex="0">
 				<title>l_ldykv1zw-rkl3znrk-wl3059ol.810zkwwq</title>
 			</path>
-			<rect x="0" y="723" width="0" height="0"/>
-			<path d="M0,723L0,723" tabindex="0">
+			<rect x="0" y="1593" width="0" height="0"/>
+			<path d="M0,1593L0,1593" tabindex="0">
 				<title>00:15.93 on 2020-07-18</title>
 			</path>
-			<line x1="0" y1="723" x2="44" y2="723"/>
-			<line x1="0" y1="2316" x2="0" y2="0"/>
+			<line x1="0" y1="1593" x2="44" y2="1593"/>
+			<line x1="0" y1="0" x2="0" y2="2316"/>
 		</g>
 		<g style="--index: 2;">
-			<path d="M1,550L3,550L3,853" tabindex="0">
+			<path d="M1,1766L3,1766L3,1463" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
 			</path>
-			<rect x="1" y="550" width="2" height="303"/>
-			<path d="M1,550L1,550" tabindex="0">
+			<rect x="1" y="1463" width="2" height="303"/>
+			<path d="M1,1766L1,1766" tabindex="0">
 				<title>00:17.66 on 2020-07-19</title>
 			</path>
-			<line x1="0" y1="550" x2="44" y2="550"/>
-			<line x1="1" y1="2316" x2="1" y2="0"/>
-			<path d="M3,853L3,853" tabindex="0">
+			<line x1="0" y1="1766" x2="44" y2="1766"/>
+			<line x1="1" y1="0" x2="1" y2="2316"/>
+			<path d="M3,1463L3,1463" tabindex="0">
 				<title>00:14.63 on 2020-07-21</title>
 			</path>
-			<line x1="0" y1="853" x2="44" y2="853"/>
-			<line x1="3" y1="2316" x2="3" y2="0"/>
+			<line x1="0" y1="1463" x2="44" y2="1463"/>
+			<line x1="3" y1="0" x2="3" y2="2316"/>
 		</g>
 	</g>
 </svg>

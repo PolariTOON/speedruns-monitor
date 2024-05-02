@@ -189,6 +189,8 @@ function plot(title, data, cumulative, extended, timed) {
 	const svg = document.documentElement;
 	const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
 	const gCount = Object.keys(sortedData).length;
+	g.setAttribute("transform", `scale(1 -1)`);
+	g.setAttribute("transform-origin", `center center`);
 	g.setAttribute("style", `--count: ${gCount};`);
 	let gIndex = 0;
 	for (const [datum, datumDates] of Object.entries(sortedData)) {
@@ -199,22 +201,22 @@ function plot(title, data, cumulative, extended, timed) {
 		let currentValue = null;
 		if (extended) {
 			currentValue = 0;
-			d.push(`M0,${maxValue - currentValue}`);
+			d.push(`M0,${currentValue}`);
 		}
 		const subPaths = [];
 		for (const [date, dateValue] of Object.entries(datumDates)) {
 			const duration = Math.round((Date.parse(date) - Date.parse(minDate)) / 86400000);
 			if (currentValue != null) {
-				d.push(`L${duration},${maxValue - currentValue}`);
+				d.push(`L${duration},${currentValue}`);
 				currentValue = dateValue;
-				d.push(`L${duration},${maxValue - currentValue}`);
+				d.push(`L${duration},${currentValue}`);
 			} else {
 				currentValue = dateValue;
-				d.push(`M${duration},${maxValue - currentValue}`);
+				d.push(`M${duration},${currentValue}`);
 			}
 			if (timed) {
 				const subPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-				subPath.setAttribute("d", `M${duration},${maxValue - currentValue}L${duration},${maxValue - currentValue}`);
+				subPath.setAttribute("d", `M${duration},${currentValue}L${duration},${currentValue}`);
 				subPath.setAttribute("tabindex", "0");
 				const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
 				const minutes = `${(currentValue - currentValue % 6000) / 6000}`.padStart(2, "0");
@@ -226,20 +228,20 @@ function plot(title, data, cumulative, extended, timed) {
 				subPaths.push(subPath);
 				const horizontalLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
 				horizontalLine.setAttribute("x1", "0");
-				horizontalLine.setAttribute("y1", `${maxValue - currentValue}`);
+				horizontalLine.setAttribute("y1", `${currentValue}`);
 				horizontalLine.setAttribute("x2", `${maxDuration}`);
-				horizontalLine.setAttribute("y2", `${maxValue - currentValue}`);
+				horizontalLine.setAttribute("y2", `${currentValue}`);
 				subPaths.push(horizontalLine);
 				const verticalLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
 				verticalLine.setAttribute("x1", `${duration}`);
-				verticalLine.setAttribute("y1", `${maxValue}`);
+				verticalLine.setAttribute("y1", "0");
 				verticalLine.setAttribute("x2", `${duration}`);
-				verticalLine.setAttribute("y2", "0");
+				verticalLine.setAttribute("y2", `${maxValue}`);
 				subPaths.push(verticalLine);
 			}
 		}
 		if (extended) {
-			d.push(`L${maxDuration},${maxValue - currentValue}`);
+			d.push(`L${maxDuration},${currentValue}`);
 		}
 		path.setAttribute("d", d.join(""));
 		path.setAttribute("tabindex", "0");
@@ -255,7 +257,7 @@ function plot(title, data, cumulative, extended, timed) {
 			const lastDuration = Math.round((Date.parse(lastDate) - Date.parse(minDate)) / 86400000);
 			const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 			rect.setAttribute("x", `${Math.min(firstDuration, lastDuration)}`);
-			rect.setAttribute("y", `${maxValue - Math.max(firstValue, lastValue)}`);
+			rect.setAttribute("y", `${Math.min(firstValue, lastValue)}`);
 			rect.setAttribute("width", `${Math.abs(lastDuration - firstDuration)}`);
 			rect.setAttribute("height", `${Math.abs(lastValue - firstValue)}`);
 			subG.append(rect);

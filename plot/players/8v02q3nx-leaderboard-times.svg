@@ -77,44 +77,44 @@
 				}
 			}
 		</style>
-		<g style="--count: 3;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 3;">
 		<g style="--index: 0;">
-			<path d="M0,9244L8,9244L8,9423" tabindex="0">
+			<path d="M0,1963L8,1963L8,1784" tabindex="0">
 				<title>l_495zlx39-9d8eewld-2lgr793n.jqz35pg1</title>
 			</path>
-			<rect x="0" y="9244" width="8" height="179"/>
-			<path d="M0,9244L0,9244" tabindex="0">
+			<rect x="0" y="1784" width="8" height="179"/>
+			<path d="M0,1963L0,1963" tabindex="0">
 				<title>00:19.63 on 2023-09-17</title>
 			</path>
-			<line x1="0" y1="9244" x2="16" y2="9244"/>
-			<line x1="0" y1="11207" x2="0" y2="0"/>
-			<path d="M8,9423L8,9423" tabindex="0">
+			<line x1="0" y1="1963" x2="16" y2="1963"/>
+			<line x1="0" y1="0" x2="0" y2="11207"/>
+			<path d="M8,1784L8,1784" tabindex="0">
 				<title>00:17.84 on 2023-09-25</title>
 			</path>
-			<line x1="0" y1="9423" x2="16" y2="9423"/>
-			<line x1="8" y1="11207" x2="8" y2="0"/>
+			<line x1="0" y1="1784" x2="16" y2="1784"/>
+			<line x1="8" y1="0" x2="8" y2="11207"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M8,6331" tabindex="0">
+			<path d="M8,4876" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
 			</path>
-			<rect x="8" y="6331" width="0" height="0"/>
-			<path d="M8,6331L8,6331" tabindex="0">
+			<rect x="8" y="4876" width="0" height="0"/>
+			<path d="M8,4876L8,4876" tabindex="0">
 				<title>00:48.76 on 2023-09-25</title>
 			</path>
-			<line x1="0" y1="6331" x2="16" y2="6331"/>
-			<line x1="8" y1="11207" x2="8" y2="0"/>
+			<line x1="0" y1="4876" x2="16" y2="4876"/>
+			<line x1="8" y1="0" x2="8" y2="11207"/>
 		</g>
 		<g style="--index: 2;">
-			<path d="M16,0" tabindex="0">
+			<path d="M16,11207" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.4qywn341</title>
 			</path>
-			<rect x="16" y="0" width="0" height="0"/>
-			<path d="M16,0L16,0" tabindex="0">
+			<rect x="16" y="11207" width="0" height="0"/>
+			<path d="M16,11207L16,11207" tabindex="0">
 				<title>01:52.07 on 2023-10-03</title>
 			</path>
-			<line x1="0" y1="0" x2="16" y2="0"/>
-			<line x1="16" y1="11207" x2="16" y2="0"/>
+			<line x1="0" y1="11207" x2="16" y2="11207"/>
+			<line x1="16" y1="0" x2="16" y2="11207"/>
 		</g>
 	</g>
 </svg>

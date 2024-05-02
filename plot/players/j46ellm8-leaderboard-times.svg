@@ -77,17 +77,17 @@
 				}
 			}
 		</style>
-		<g style="--count: 1;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
 		<g style="--index: 0;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,1132" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="1132" width="0" height="0"/>
+			<path d="M0,1132L0,1132" tabindex="0">
 				<title>00:11.32 on 2023-12-02</title>
 			</path>
-			<line x1="0" y1="0" x2="0" y2="0"/>
-			<line x1="0" y1="1132" x2="0" y2="0"/>
+			<line x1="0" y1="1132" x2="0" y2="1132"/>
+			<line x1="0" y1="0" x2="0" y2="1132"/>
 		</g>
 	</g>
 </svg>

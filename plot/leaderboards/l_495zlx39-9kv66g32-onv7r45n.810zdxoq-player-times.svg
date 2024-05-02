@@ -77,28 +77,28 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,31710" tabindex="0">
 				<title>x356nrej</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="31710" width="0" height="0"/>
+			<path d="M0,31710L0,31710" tabindex="0">
 				<title>05:17.10 on 2021-02-04</title>
 			</path>
-			<line x1="0" y1="0" x2="472" y2="0"/>
-			<line x1="0" y1="31710" x2="0" y2="0"/>
+			<line x1="0" y1="31710" x2="472" y2="31710"/>
+			<line x1="0" y1="0" x2="0" y2="31710"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M472,2097" tabindex="0">
+			<path d="M472,29613" tabindex="0">
 				<title>xk3m6d68</title>
 			</path>
-			<rect x="472" y="2097" width="0" height="0"/>
-			<path d="M472,2097L472,2097" tabindex="0">
+			<rect x="472" y="29613" width="0" height="0"/>
+			<path d="M472,29613L472,29613" tabindex="0">
 				<title>04:56.13 on 2022-05-22</title>
 			</path>
-			<line x1="0" y1="2097" x2="472" y2="2097"/>
-			<line x1="472" y1="31710" x2="472" y2="0"/>
+			<line x1="0" y1="29613" x2="472" y2="29613"/>
+			<line x1="472" y1="0" x2="472" y2="31710"/>
 		</g>
 	</g>
 </svg>

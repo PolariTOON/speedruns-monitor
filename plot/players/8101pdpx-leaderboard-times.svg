@@ -77,28 +77,28 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,3092" tabindex="0">
+			<path d="M0,5723" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
 			</path>
-			<rect x="0" y="3092" width="0" height="0"/>
-			<path d="M0,3092L0,3092" tabindex="0">
+			<rect x="0" y="5723" width="0" height="0"/>
+			<path d="M0,5723L0,5723" tabindex="0">
 				<title>00:57.23 on 2023-05-21</title>
 			</path>
-			<line x1="0" y1="3092" x2="4" y2="3092"/>
-			<line x1="0" y1="8815" x2="0" y2="0"/>
+			<line x1="0" y1="5723" x2="4" y2="5723"/>
+			<line x1="0" y1="0" x2="0" y2="8815"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M4,0" tabindex="0">
+			<path d="M4,8815" tabindex="0">
 				<title>l_495zlx39-9d8eewld-2lgr793n.mlno5r0q</title>
 			</path>
-			<rect x="4" y="0" width="0" height="0"/>
-			<path d="M4,0L4,0" tabindex="0">
+			<rect x="4" y="8815" width="0" height="0"/>
+			<path d="M4,8815L4,8815" tabindex="0">
 				<title>01:28.15 on 2023-05-25</title>
 			</path>
-			<line x1="0" y1="0" x2="4" y2="0"/>
-			<line x1="4" y1="8815" x2="4" y2="0"/>
+			<line x1="0" y1="8815" x2="4" y2="8815"/>
+			<line x1="4" y1="0" x2="4" y2="8815"/>
 		</g>
 	</g>
 </svg>

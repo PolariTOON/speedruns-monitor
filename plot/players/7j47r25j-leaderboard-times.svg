@@ -77,28 +77,28 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,963" tabindex="0">
+			<path d="M0,942" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
 			</path>
-			<rect x="0" y="963" width="0" height="0"/>
-			<path d="M0,963L0,963" tabindex="0">
+			<rect x="0" y="942" width="0" height="0"/>
+			<path d="M0,942L0,942" tabindex="0">
 				<title>00:09.42 on 2018-01-09</title>
 			</path>
-			<line x1="0" y1="963" x2="0" y2="963"/>
-			<line x1="0" y1="1905" x2="0" y2="0"/>
+			<line x1="0" y1="942" x2="0" y2="942"/>
+			<line x1="0" y1="0" x2="0" y2="1905"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,1905" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="1905" width="0" height="0"/>
+			<path d="M0,1905L0,1905" tabindex="0">
 				<title>00:19.05 on 2018-01-09</title>
 			</path>
-			<line x1="0" y1="0" x2="0" y2="0"/>
-			<line x1="0" y1="1905" x2="0" y2="0"/>
+			<line x1="0" y1="1905" x2="0" y2="1905"/>
+			<line x1="0" y1="0" x2="0" y2="1905"/>
 		</g>
 	</g>
 </svg>

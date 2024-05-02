@@ -77,33 +77,33 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,19542" tabindex="0">
 				<title>j40p60d8</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="19542" width="0" height="0"/>
+			<path d="M0,19542L0,19542" tabindex="0">
 				<title>03:15.42 on 2023-09-07</title>
 			</path>
-			<line x1="0" y1="0" x2="62" y2="0"/>
-			<line x1="0" y1="19542" x2="0" y2="0"/>
+			<line x1="0" y1="19542" x2="62" y2="19542"/>
+			<line x1="0" y1="0" x2="0" y2="19542"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M0,4691L62,4691L62,6002" tabindex="0">
+			<path d="M0,14851L62,14851L62,13540" tabindex="0">
 				<title>x3wdlvkj</title>
 			</path>
-			<rect x="0" y="4691" width="62" height="1311"/>
-			<path d="M0,4691L0,4691" tabindex="0">
+			<rect x="0" y="13540" width="62" height="1311"/>
+			<path d="M0,14851L0,14851" tabindex="0">
 				<title>02:28.51 on 2023-09-07</title>
 			</path>
-			<line x1="0" y1="4691" x2="62" y2="4691"/>
-			<line x1="0" y1="19542" x2="0" y2="0"/>
-			<path d="M62,6002L62,6002" tabindex="0">
+			<line x1="0" y1="14851" x2="62" y2="14851"/>
+			<line x1="0" y1="0" x2="0" y2="19542"/>
+			<path d="M62,13540L62,13540" tabindex="0">
 				<title>02:15.40 on 2023-11-08</title>
 			</path>
-			<line x1="0" y1="6002" x2="62" y2="6002"/>
-			<line x1="62" y1="19542" x2="62" y2="0"/>
+			<line x1="0" y1="13540" x2="62" y2="13540"/>
+			<line x1="62" y1="0" x2="62" y2="19542"/>
 		</g>
 	</g>
 </svg>

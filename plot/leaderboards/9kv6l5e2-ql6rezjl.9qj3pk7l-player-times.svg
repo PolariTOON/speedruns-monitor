@@ -77,28 +77,28 @@
 				}
 			}
 		</style>
-		<g style="--count: 2;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 		<g style="--index: 0;">
-			<path d="M0,0" tabindex="0">
+			<path d="M0,1980" tabindex="0">
 				<title>x356nrej</title>
 			</path>
-			<rect x="0" y="0" width="0" height="0"/>
-			<path d="M0,0L0,0" tabindex="0">
+			<rect x="0" y="1980" width="0" height="0"/>
+			<path d="M0,1980L0,1980" tabindex="0">
 				<title>00:19.80 on 2021-12-14</title>
 			</path>
-			<line x1="0" y1="0" x2="293" y2="0"/>
-			<line x1="0" y1="1980" x2="0" y2="0"/>
+			<line x1="0" y1="1980" x2="293" y2="1980"/>
+			<line x1="0" y1="0" x2="0" y2="1980"/>
 		</g>
 		<g style="--index: 1;">
-			<path d="M293,8" tabindex="0">
+			<path d="M293,1972" tabindex="0">
 				<title>jnzen32j</title>
 			</path>
-			<rect x="293" y="8" width="0" height="0"/>
-			<path d="M293,8L293,8" tabindex="0">
+			<rect x="293" y="1972" width="0" height="0"/>
+			<path d="M293,1972L293,1972" tabindex="0">
 				<title>00:19.72 on 2022-10-03</title>
 			</path>
-			<line x1="0" y1="8" x2="293" y2="8"/>
-			<line x1="293" y1="1980" x2="293" y2="0"/>
+			<line x1="0" y1="1972" x2="293" y2="1972"/>
+			<line x1="293" y1="0" x2="293" y2="1980"/>
 		</g>
 	</g>
 </svg>
