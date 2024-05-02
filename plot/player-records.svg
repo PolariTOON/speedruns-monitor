@@ -1,83 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2286 52" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
-		<title>Record count by player</title>
-		<style>
-			svg {
-				background: var(--canvas-background);
-				fill: var(--canvas-background);
-				stroke: var(--canvas-foreground);
-				stroke-linejoin: round;
-				stroke-linecap: round;
+	<title>Record count by player</title>
+	<style>
+		svg {
+			background: var(--canvas-background);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--highlighted: #6663;
+				--faded: #9993;
 			}
-			g &gt; path[tabindex] {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
-				cursor: help;
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--highlighted: #9993;
+				--faded: #6663;
 			}
-			g:is(:hover, :focus-within) &gt; path[tabindex] {
-				stroke: var(--canvas-foreground);
-			}
-			g &gt; path[tabindex]:is(:hover, :focus-within) {
-				outline: 0;
-			}
-			g &gt; path[tabindex]:first-of-type {
-				stroke-width: 2;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
-				stroke-width: 4;
-			}
-			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
-				stroke-dasharray: 4 8;
-			}
-			g &gt; rect {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: none;
-				pointer-events: none;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
-				fill: var(--highlighted);
-			}
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
-				stroke-width: 8;
-			}
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
-				stroke-width: 16;
-			}
-			g &gt; line {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: none;
-				stroke-width: 2;
-				stroke-dasharray: 4 8;
-				pointer-events: none;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
-				stroke: var(--faded);
-			}
-			@media (prefers-color-scheme: dark) {
-				:root {
-					--canvas-background: #000;
-					--canvas-foreground: #ccc;
-					--highlighted: #6663;
-					--faded: #9993;
-				}
-			}
-			@media (prefers-color-scheme: light) {
-				:root {
-					--canvas-background: #fff;
-					--canvas-foreground: #333;
-					--highlighted: #9993;
-					--faded: #6663;
-				}
-			}
-		</style>
-		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 65;">
+		}
+	</style>
+	<g transform="scale(1 -1)" transform-origin="center center" style="--count: 65;">
 		<g style="--index: 0;">
 			<path d="M0,0L0,0L0,1L1,1L1,4L5,4L5,1L7,1L7,3L9,3L9,8L10,8L10,5L11,5L11,6L14,6L14,5L16,5L16,6L17,6L17,6L18,6L18,6L19,6L19,6L23,6L23,6L24,6L24,5L25,5L25,5L26,5L26,4L28,4L28,3L30,3L30,5L31,5L31,7L32,7L32,8L57,8L57,10L59,10L59,11L60,11L60,13L66,13L66,12L69,12L69,11L70,11L70,10L71,10L71,9L93,9L93,10L94,10L94,9L95,9L95,8L99,8L99,7L101,7L101,6L103,6L103,5L104,5L104,4L178,4L178,5L181,5L181,7L182,7L182,5L183,5L183,4L186,4L186,2L187,2L187,1L188,1L188,0L416,0L416,1L417,1L417,1L418,1L418,4L464,4L464,5L556,5L556,4L759,4L759,3L842,3L842,2L895,2L895,1L995,1L995,0L2286,0" tabindex="0">
 				<title>qj2pq1p8</title>

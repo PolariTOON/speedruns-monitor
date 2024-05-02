@@ -102,87 +102,88 @@ function plot(title, data, cumulative, extended, timed) {
 		}
 	}
 	const maxDuration = Math.round((Date.parse(maxDate) - Date.parse(minDate)) / 86400000);
-	const {window} = new JSDOM(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxDuration} ${maxValue}" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
-		<title>${title}</title>
-		<style>
-			svg {
-				background: var(--canvas-background);
-				fill: var(--canvas-background);
-				stroke: var(--canvas-foreground);
-				stroke-linejoin: round;
-				stroke-linecap: round;
+	const {window} = new JSDOM(`\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxDuration} ${maxValue}" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+	<title>${title}</title>
+	<style>
+		svg {
+			background: var(--canvas-background);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--highlighted: #6663;
+				--faded: #9993;
 			}
-			g &gt; path[tabindex] {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
-				cursor: help;
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--highlighted: #9993;
+				--faded: #6663;
 			}
-			g:is(:hover, :focus-within) &gt; path[tabindex] {
-				stroke: var(--canvas-foreground);
-			}
-			g &gt; path[tabindex]:is(:hover, :focus-within) {
-				outline: 0;
-			}
-			g &gt; path[tabindex]:first-of-type {
-				stroke-width: 2;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
-				stroke-width: 4;
-			}
-			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
-				stroke-dasharray: 4 8;
-			}
-			g &gt; rect {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: none;
-				pointer-events: none;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
-				fill: var(--highlighted);
-			}
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
-				stroke-width: 8;
-			}
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
-				stroke-width: 16;
-			}
-			g &gt; line {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: none;
-				stroke-width: 2;
-				stroke-dasharray: 4 8;
-				pointer-events: none;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
-				stroke: var(--faded);
-			}
-			@media (prefers-color-scheme: dark) {
-				:root {
-					--canvas-background: #000;
-					--canvas-foreground: #ccc;
-					--highlighted: #6663;
-					--faded: #9993;
-				}
-			}
-			@media (prefers-color-scheme: light) {
-				:root {
-					--canvas-background: #fff;
-					--canvas-foreground: #333;
-					--highlighted: #9993;
-					--faded: #6663;
-				}
-			}
-		</style>
-	</svg>
-	`, {
+		}
+	</style>
+</svg>
+`, {
 		contentType: "image/svg+xml",
 	});
 	const {document} = window;

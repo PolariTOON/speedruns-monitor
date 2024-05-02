@@ -1,83 +1,83 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2297 187" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
-		<title>Run count by leaderboard</title>
-		<style>
-			svg {
-				background: var(--canvas-background);
-				fill: var(--canvas-background);
-				stroke: var(--canvas-foreground);
-				stroke-linejoin: round;
-				stroke-linecap: round;
+	<title>Run count by leaderboard</title>
+	<style>
+		svg {
+			background: var(--canvas-background);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--highlighted: #6663;
+				--faded: #9993;
 			}
-			g &gt; path[tabindex] {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
-				cursor: help;
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--highlighted: #9993;
+				--faded: #6663;
 			}
-			g:is(:hover, :focus-within) &gt; path[tabindex] {
-				stroke: var(--canvas-foreground);
-			}
-			g &gt; path[tabindex]:is(:hover, :focus-within) {
-				outline: 0;
-			}
-			g &gt; path[tabindex]:first-of-type {
-				stroke-width: 2;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
-				stroke-width: 4;
-			}
-			g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
-				stroke-dasharray: 4 8;
-			}
-			g &gt; rect {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: none;
-				pointer-events: none;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
-				fill: var(--highlighted);
-			}
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
-				stroke-width: 8;
-			}
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
-				stroke-width: 16;
-			}
-			g &gt; line {
-				vector-effect: non-scaling-stroke;
-				fill: none;
-				stroke: none;
-				stroke-width: 2;
-				stroke-dasharray: 4 8;
-				pointer-events: none;
-			}
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
-			g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
-			g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
-				stroke: var(--faded);
-			}
-			@media (prefers-color-scheme: dark) {
-				:root {
-					--canvas-background: #000;
-					--canvas-foreground: #ccc;
-					--highlighted: #6663;
-					--faded: #9993;
-				}
-			}
-			@media (prefers-color-scheme: light) {
-				:root {
-					--canvas-background: #fff;
-					--canvas-foreground: #333;
-					--highlighted: #9993;
-					--faded: #6663;
-				}
-			}
-		</style>
-		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 105;">
+		}
+	</style>
+	<g transform="scale(1 -1)" transform-origin="center center" style="--count: 105;">
 		<g style="--index: 0;">
 			<path d="M0,0L0,0L0,2L1,2L1,4L5,4L5,5L14,5L14,6L71,6L71,7L104,7L104,8L595,8L595,9L870,9L870,10L965,10L965,11L1029,11L1029,12L1047,12L1047,14L1054,14L1054,15L1077,15L1077,16L1104,16L1104,17L1140,17L1140,18L1143,18L1143,20L1144,20L1144,22L1145,22L1145,23L1147,23L1147,24L1148,24L1148,25L1151,25L1151,26L1173,26L1173,28L1182,28L1182,29L1478,29L1478,30L1479,30L1479,31L1516,31L1516,32L1548,32L1548,33L1574,33L1574,34L1601,34L1601,35L1602,35L1602,36L1643,36L1643,37L1661,37L1661,38L1663,38L1663,39L1667,39L1667,40L1669,40L1669,41L1701,41L1701,42L1702,42L1702,43L1705,43L1705,44L1731,44L1731,46L1778,46L1778,47L1785,47L1785,48L1797,48L1797,49L1849,49L1849,50L1861,50L1861,51L1902,51L1902,52L1908,52L1908,53L1911,53L1911,54L1914,54L1914,55L1918,55L1918,56L1927,56L1927,57L1940,57L1940,58L1969,58L1969,59L1981,59L1981,60L2050,60L2050,61L2074,61L2074,62L2083,62L2083,63L2106,63L2106,64L2119,64L2119,65L2122,65L2122,66L2124,66L2124,67L2165,67L2165,68L2247,68L2247,69L2274,69L2274,70L2276,70L2276,71L2290,71L2290,72L2297,72" tabindex="0">
 				<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
