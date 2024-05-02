@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 2674" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119 2674" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
 		<title>Time by player for leaderboard l_ldykv1zw-rkl3znrk-wl3059ol.qvv4er7q</title>
 		<style>
 			svg {
@@ -77,7 +77,7 @@
 				}
 			}
 		</style>
-		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 4;">
+		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 5;">
 		<g style="--index: 0;">
 			<path d="M0,2674L23,2674L23,2359" tabindex="0">
 				<title>8w3l21qj</title>
@@ -86,12 +86,12 @@
 			<path d="M0,2674L0,2674" tabindex="0">
 				<title>00:26.74 on 2023-12-14</title>
 			</path>
-			<line x1="0" y1="2674" x2="50" y2="2674"/>
+			<line x1="0" y1="2674" x2="119" y2="2674"/>
 			<line x1="0" y1="0" x2="0" y2="2674"/>
 			<path d="M23,2359L23,2359" tabindex="0">
 				<title>00:23.59 on 2024-01-06</title>
 			</path>
-			<line x1="0" y1="2359" x2="50" y2="2359"/>
+			<line x1="0" y1="2359" x2="119" y2="2359"/>
 			<line x1="23" y1="0" x2="23" y2="2674"/>
 		</g>
 		<g style="--index: 1;">
@@ -102,7 +102,7 @@
 			<path d="M19,2333L19,2333" tabindex="0">
 				<title>00:23.33 on 2024-01-02</title>
 			</path>
-			<line x1="0" y1="2333" x2="50" y2="2333"/>
+			<line x1="0" y1="2333" x2="119" y2="2333"/>
 			<line x1="19" y1="0" x2="19" y2="2674"/>
 		</g>
 		<g style="--index: 2;">
@@ -113,7 +113,7 @@
 			<path d="M20,2475L20,2475" tabindex="0">
 				<title>00:24.75 on 2024-01-03</title>
 			</path>
-			<line x1="0" y1="2475" x2="50" y2="2475"/>
+			<line x1="0" y1="2475" x2="119" y2="2475"/>
 			<line x1="20" y1="0" x2="20" y2="2674"/>
 		</g>
 		<g style="--index: 3;">
@@ -124,8 +124,19 @@
 			<path d="M50,2277L50,2277" tabindex="0">
 				<title>00:22.77 on 2024-02-02</title>
 			</path>
-			<line x1="0" y1="2277" x2="50" y2="2277"/>
+			<line x1="0" y1="2277" x2="119" y2="2277"/>
 			<line x1="50" y1="0" x2="50" y2="2674"/>
+		</g>
+		<g style="--index: 4;">
+			<path d="M119,2225" tabindex="0">
+				<title>8rme6wwj</title>
+			</path>
+			<rect x="119" y="2225" width="0" height="0"/>
+			<path d="M119,2225L119,2225" tabindex="0">
+				<title>00:22.25 on 2024-04-11</title>
+			</path>
+			<line x1="0" y1="2225" x2="119" y2="2225"/>
+			<line x1="119" y1="0" x2="119" y2="2674"/>
 		</g>
 	</g>
 </svg>

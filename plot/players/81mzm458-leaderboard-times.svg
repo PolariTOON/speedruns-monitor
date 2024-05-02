@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 5796" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 5796" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
 		<title>Time by leaderboard for player 81mzm458</title>
 		<style>
 			svg {
@@ -79,15 +79,20 @@
 		</style>
 		<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
 		<g style="--index: 0;">
-			<path d="M0,5796" tabindex="0">
+			<path d="M0,5796L33,5796L33,5238" tabindex="0">
 				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
 			</path>
-			<rect x="0" y="5796" width="0" height="0"/>
+			<rect x="0" y="5238" width="33" height="558"/>
 			<path d="M0,5796L0,5796" tabindex="0">
 				<title>00:57.96 on 2024-03-14</title>
 			</path>
-			<line x1="0" y1="5796" x2="0" y2="5796"/>
+			<line x1="0" y1="5796" x2="33" y2="5796"/>
 			<line x1="0" y1="0" x2="0" y2="5796"/>
+			<path d="M33,5238L33,5238" tabindex="0">
+				<title>00:52.38 on 2024-04-16</title>
+			</path>
+			<line x1="0" y1="5238" x2="33" y2="5238"/>
+			<line x1="33" y1="0" x2="33" y2="5796"/>
 		</g>
 	</g>
 </svg>
