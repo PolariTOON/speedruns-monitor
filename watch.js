@@ -43,7 +43,7 @@ function indent(element, level, block) {
 		element = element.nextElementSibling;
 	}
 }
-function watch(title, data) {
+function watch(scope, title, data) {
 	const {window} = new JSDOM(`\
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 	<head>
@@ -57,7 +57,7 @@ function watch(title, data) {
 			::after {
 				box-sizing: border-box;
 			}
-			html {
+			:root {
 				width: min-content;
 				height: min-content;
 			}
@@ -67,7 +67,46 @@ function watch(title, data) {
 				background: var(--canvas-background);
 				color: var(--canvas-foreground);
 			}
-			table {
+			body &gt; div {
+				position: fixed;
+				inset: 0 auto auto 0;
+				margin: 20px;
+				border: 1px solid var(--canvas-foreground);
+				background: var(--highlighted);
+				font: 16px / 1.25 serif;
+				transition: opacity 1s;
+				pointer-events: auto;
+			}
+			body:is(:hover, :focus-within) div:not(:hover, :focus-within) {
+				opacity: 0;
+				pointer-events: none;
+			}
+			body &gt; div &gt; p {
+				margin: 0;
+			}
+			label {
+				display: table;
+				border-collapse: separate;
+				border-spacing: 10px;
+			}
+			progress,
+			input[type="checkbox"] {
+				display: table-cell;
+				width: 16px;
+				height: 16px;
+				margin: 2px;
+				accent-color: var(--canvas-foreground);
+				vertical-align: top;
+			}
+			progress + span,
+			input[type="checkbox"] + span {
+				display: table-cell;
+				vertical-align: top;
+			}
+			input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+				text-decoration: underline;
+			}
+			body &gt; table {
 				table-layout: fixed;
 				border-collapse: collapse;
 				background: var(--canvas-background);
@@ -140,6 +179,12 @@ function watch(title, data) {
 			}
 			td:empty[colspan] + td:empty[colspan] {
 				border-left-style: hidden;
+			}
+			p {
+				margin: 0;
+			}
+			p + p {
+				margin-top: 10px;
 			}
 			a {
 				position: relative;
@@ -224,13 +269,237 @@ function watch(title, data) {
 				}
 			}
 		</style>
+		<script>
+			"use strict";
+			{
+				const script = document.currentScript;
+				const documentUrl = location.href;
+				const scope = new URL("${scope}", documentUrl).pathname;
+				const playersKey = \`\${scope}#players\`;
+				const leaderboardsKey = \`\${scope}#leaderboards\`;
+				async function importDataScript(dataScriptUrl) {
+					if (documentUrl.protocol !== "file:") {
+						const response = await fetch(dataScriptUrl);
+						if (!response.ok) {
+							throw new Error(response.statusText);
+						}
+						const data = await response.json();
+						return data;
+					}
+					return await new Promise((resolve, reject) =&gt; {
+						const name = \`callback\${Math.random() * 2 ** 53}\`;
+						let called = false;
+						let data = null;
+						function callback(value) {
+							if (!called) {
+								called = true;
+								data = value;
+							}
+						}
+						window[name] = callback;
+						const dataScript = document.createElement("script");
+						dataScript.src = \`\${dataScriptUrl}&amp;callback=\${name}\`;
+						function handleError(event) {
+							delete window[name];
+							dataScript.removeEventListener("load", handleLoad);
+							dataScript.remove();
+							const error = event.error;
+							reject(error);
+						}
+						function handleLoad(event) {
+							delete window[name];
+							dataScript.removeEventListener("error", handleError);
+							dataScript.remove();
+							resolve(data);
+						}
+						dataScript.addEventListener("error", handleError, {
+							once: true,
+						});
+						dataScript.addEventListener("load", handleLoad, {
+							once: true,
+						});
+						script.after(dataScript);
+					});
+				}
+				document.addEventListener("DOMContentLoaded", async (event) =&gt; {
+					const titleElement = document.querySelector("title");
+					const titleContent = titleElement.textContent;
+					const thElements = Array.from(document.querySelectorAll("tbody &gt; tr &gt; th:first-of-type"));
+					const thContents = thElements.map((thElement) =&gt; {
+						const thContent = thElement.textContent;
+						return thContent;
+					});
+					const aElements = Array.from(document.querySelectorAll("a[data-annotation]"));
+					const aContents = aElements.map((aElement) =&gt; {
+						const aContent = aElement.dataset.annotation;
+						return aContent;
+					});
+					const body = document.querySelector("body");
+					const div = document.createElement("div");
+					const p = document.createElement("p");
+					const label = document.createElement("label");
+					const progress = document.createElement("progress");
+					label.append(progress);
+					const span = document.createElement("span");
+					span.textContent = "Loading names";
+					label.append(span);
+					p.append(label);
+					div.prepend(p);
+					body.prepend(div);
+					const {players, leaderboards} = await (async () =&gt; {
+						try {
+							const cachedPlayers = sessionStorage.getItem(playersKey);
+							const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+							if (cachedPlayers == null || cachedLeaderboards == null) {
+								throw new Error();
+							}
+							const players = JSON.parse(cachedPlayers);
+							const leaderboards = JSON.parse(cachedLeaderboards);
+							return {players, leaderboards};
+						} catch {}
+						try {
+							const players = Object.create(null);
+							const leaderboards = Object.create(null);
+							const games = ["9d3rrxyd", "w6jl2ned"];
+							for (const gameId of games) {
+								const {data} = await importDataScript(\`https://www.speedrun.com/api/v1/games/\${gameId}?embed=categories,levels,variables\`);
+								const versions = data.variables.data.find((variable) =&gt; {
+									return variable.name === "Version";
+								});
+								const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+									return [level.id, level];
+								}));
+								const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+									return [category.id, category];
+								}));
+								const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+									return [variable.id, variable];
+								}));
+								console.log(\`Got game\`);
+								await new Promise((resolve) =&gt; {
+									setTimeout(resolve, 800);
+								});
+								const slice = 200;
+								for (let offset = 0;; offset += slice) {
+									const {data, pagination} = await importDataScript(\`https://www.speedrun.com/api/v1/runs?game=\${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=\${offset}&amp;max=\${slice}\`);
+									const {size} = pagination;
+									if (size === 0) {
+										break;
+									}
+									for (const run of data) {
+										const status = run.status.status;
+										if (status == null || status === "new") {
+											continue;
+										}
+										const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+										const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+										players[player] ??= playerName;
+										const level = run.level;
+										const category = run.category;
+										const values = Object.entries(run.values).filter(([variable]) =&gt; {
+											return variables[variable]?.["is-subcategory"] ?? false;
+										}).map(([variable, value]) =&gt; {
+											return \`-\${variable}.\${value}\`;
+										});
+										const leaderboard = \`\${level != null ? \`l_\${level}-\` : ""}\${category}\${values.join("")}\`;
+										const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+										const categoryName = categories[run.category]?.name ?? null;
+										const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+											return variables[variable]?.["is-subcategory"] ?? false;
+										}).map(([variable, value]) =&gt; {
+											return variables[variable]?.values.values[value]?.label ?? null;
+										}).filter((valueName) =&gt; {
+											return valueName != null;
+										});
+										const leaderboardName = \`\${levelName != null ? \`\${levelName}: \` : ""}\${categoryName ?? ""}\${values.length !== 0 ? \` - \${valueNames.join(", ")}\` : ""}\`;
+										leaderboards[leaderboard] ??= leaderboardName;
+									}
+									console.log(\`Got runs \${offset}-\${offset + size - 1}\`);
+									await new Promise((resolve) =&gt; {
+										setTimeout(resolve, 800);
+									});
+								}
+							}
+							try {
+								const cachedPlayers = JSON.stringify(players);
+								const cachedLeaderboards = JSON.stringify(leaderboards);
+								sessionStorage.setItem(playersKey, cachedPlayers);
+								sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+							} catch {}
+							return {players, leaderboards};
+						} catch {}
+						const players = null;
+						const leaderboards = null;
+						return {players, leaderboards};
+					})();
+					if (players == null || leaderboards == null) {
+						const input = document.createElement("input");
+						input.type = "checkbox";
+						input.autocomplete = "off";
+						input.disabled = true;
+						input.indeterminate = true;
+						progress.replaceWith(input);
+						span.textContent = "Unavailable names";
+						return;
+					}
+					const hasPlayerThs = titleContent === "Players";
+					const hasLeaderboardThs = titleContent === "Leaderboards";
+					const ths = thElements.map((thElement, k) =&gt; {
+						const thContent = thContents[k];
+						const th = {
+							element: thElement,
+							contentWithIds: thContent,
+							contentWithNames: hasPlayerThs ? players[thContent] ?? thContent : hasLeaderboardThs ? leaderboards[thContent] ?? thContent : thContent,
+						};
+						return th;
+					});
+					const as = aElements.map((aElement, k) =&gt; {
+						const aContent = aContents[k];
+						const a = {
+							element: aElement,
+							contentWithIds: aContent,
+							contentWithNames: aContent.replaceAll(/@([0-9_a-z]+)/g, ($0, $1) =&gt; {
+								return \`@\${players[$1] ?? $1}\`;
+							}),
+						};
+						return a;
+					});
+					const input = document.createElement("input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.addEventListener("change", () =&gt; {
+						input.disabled = true;
+						if (input.checked) {
+							for (const th of ths) {
+								th.element.textContent = th.contentWithNames;
+							}
+							for (const a of as) {
+								a.element.dataset.annotation = a.contentWithNames;
+							}
+						} else {
+							for (const th of ths) {
+								th.element.textContent = th.contentWithIds;
+							}
+							for (const a of as) {
+								a.element.dataset.annotation = a.contentWithIds;
+							}
+						}
+						input.disabled = false;
+					});
+					progress.replaceWith(input);
+					span.textContent = "Reveal names";
+				}, {
+					once: true,
+				});
+			}
+		</script>
 	</head>
 </html>
 `, {
 		contentType: "application/xhtml+xml",
 	});
 	const {document} = window;
-	const html = document.documentElement;
+	const root = document.documentElement;
 	const body = document.createElement("body");
 	const table = document.createElement("table");
 	const colhead = document.createElement("colgroup");
@@ -309,15 +578,15 @@ function watch(title, data) {
 	table.append(thead);
 	table.append(tbody);
 	body.append(table);
-	html.append(body);
+	root.append(body);
 	indent(body, 1, true);
-	const formattedData = serialize(html, {
+	const formattedData = serialize(root, {
 		requireWellFormed: true,
 	});
 	return formattedData;
 }
-const formattedPlayers = watch("Players", players);
-const formattedLeaderboards = watch("Leaderboards", leaderboards);
+const formattedPlayers = watch("../", "Players", players);
+const formattedLeaderboards = watch("../", "Leaderboards", leaderboards);
 await fs.promises.mkdir("watch", {
 	recursive: true,
 });

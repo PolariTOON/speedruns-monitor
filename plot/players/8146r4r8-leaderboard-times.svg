@@ -1,12 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351 137537" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
 	<title>Time by leaderboard for player 8146r4r8</title>
 	<style>
-		svg {
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
 			background: var(--canvas-background);
+			color: var(--canvas-foreground);
 			fill: var(--canvas-background);
 			stroke: var(--canvas-foreground);
 			stroke-linejoin: round;
 			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			inset: 0 auto auto 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg {
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+			padding: 10px;
+			border: 1px dashed var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
 		}
 		g &gt; path[tabindex] {
 			vector-effect: non-scaling-stroke;
@@ -77,203 +134,423 @@
 			}
 		}
 	</style>
-	<g transform="scale(1 -1)" transform-origin="center center" style="--count: 12;">
-		<g style="--index: 0;">
-			<path d="M0,9831" tabindex="0">
-				<title>l_o9xo3rp9-9d8eewld-7896y468.810zwdwq</title>
-			</path>
-			<rect x="0" y="9831" width="0" height="0"/>
-			<path d="M0,9831L0,9831" tabindex="0">
-				<title>01:38.31 on 2020-02-05</title>
-			</path>
-			<line x1="0" y1="9831" x2="351" y2="9831"/>
-			<line x1="0" y1="0" x2="0" y2="137537"/>
-		</g>
-		<g style="--index: 1;">
-			<path d="M0,31620L1,31620L1,26816L8,26816L8,23923L11,23923L11,22950L19,22950L19,22945L65,22945L65,22001L138,22001L138,16336" tabindex="0">
-				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.gq7jrxvq</title>
-			</path>
-			<rect x="0" y="16336" width="138" height="15284"/>
-			<path d="M0,31620L0,31620" tabindex="0">
-				<title>05:16.20 on 2020-02-05</title>
-			</path>
-			<line x1="0" y1="31620" x2="351" y2="31620"/>
-			<line x1="0" y1="0" x2="0" y2="137537"/>
-			<path d="M1,26816L1,26816" tabindex="0">
-				<title>04:28.16 on 2020-02-06</title>
-			</path>
-			<line x1="0" y1="26816" x2="351" y2="26816"/>
-			<line x1="1" y1="0" x2="1" y2="137537"/>
-			<path d="M8,23923L8,23923" tabindex="0">
-				<title>03:59.23 on 2020-02-13</title>
-			</path>
-			<line x1="0" y1="23923" x2="351" y2="23923"/>
-			<line x1="8" y1="0" x2="8" y2="137537"/>
-			<path d="M11,22950L11,22950" tabindex="0">
-				<title>03:49.50 on 2020-02-16</title>
-			</path>
-			<line x1="0" y1="22950" x2="351" y2="22950"/>
-			<line x1="11" y1="0" x2="11" y2="137537"/>
-			<path d="M19,22945L19,22945" tabindex="0">
-				<title>03:49.45 on 2020-02-24</title>
-			</path>
-			<line x1="0" y1="22945" x2="351" y2="22945"/>
-			<line x1="19" y1="0" x2="19" y2="137537"/>
-			<path d="M65,22001L65,22001" tabindex="0">
-				<title>03:40.01 on 2020-04-10</title>
-			</path>
-			<line x1="0" y1="22001" x2="351" y2="22001"/>
-			<line x1="65" y1="0" x2="65" y2="137537"/>
-			<path d="M138,16336L138,16336" tabindex="0">
-				<title>02:43.36 on 2020-06-22</title>
-			</path>
-			<line x1="0" y1="16336" x2="351" y2="16336"/>
-			<line x1="138" y1="0" x2="138" y2="137537"/>
-		</g>
-		<g style="--index: 2;">
-			<path d="M0,6956" tabindex="0">
-				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
-			</path>
-			<rect x="0" y="6956" width="0" height="0"/>
-			<path d="M0,6956L0,6956" tabindex="0">
-				<title>01:09.56 on 2020-02-05</title>
-			</path>
-			<line x1="0" y1="6956" x2="351" y2="6956"/>
-			<line x1="0" y1="0" x2="0" y2="137537"/>
-		</g>
-		<g style="--index: 3;">
-			<path d="M84,1936L210,1936L210,1623" tabindex="0">
-				<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
-			</path>
-			<rect x="84" y="1623" width="126" height="313"/>
-			<path d="M84,1936L84,1936" tabindex="0">
-				<title>00:19.36 on 2020-04-29</title>
-			</path>
-			<line x1="0" y1="1936" x2="351" y2="1936"/>
-			<line x1="84" y1="0" x2="84" y2="137537"/>
-			<path d="M210,1623L210,1623" tabindex="0">
-				<title>00:16.23 on 2020-09-02</title>
-			</path>
-			<line x1="0" y1="1623" x2="351" y2="1623"/>
-			<line x1="210" y1="0" x2="210" y2="137537"/>
-		</g>
-		<g style="--index: 4;">
-			<path d="M84,1630L89,1630L89,1481" tabindex="0">
-				<title>l_o9xo3rp9-9d8eewld-7896y468.jq60ze3q</title>
-			</path>
-			<rect x="84" y="1481" width="5" height="149"/>
-			<path d="M84,1630L84,1630" tabindex="0">
-				<title>00:16.30 on 2020-04-29</title>
-			</path>
-			<line x1="0" y1="1630" x2="351" y2="1630"/>
-			<line x1="84" y1="0" x2="84" y2="137537"/>
-			<path d="M89,1481L89,1481" tabindex="0">
-				<title>00:14.81 on 2020-05-04</title>
-			</path>
-			<line x1="0" y1="1481" x2="351" y2="1481"/>
-			<line x1="89" y1="0" x2="89" y2="137537"/>
-		</g>
-		<g style="--index: 5;">
-			<path d="M85,1573" tabindex="0">
-				<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
-			</path>
-			<rect x="85" y="1573" width="0" height="0"/>
-			<path d="M85,1573L85,1573" tabindex="0">
-				<title>00:15.73 on 2020-04-30</title>
-			</path>
-			<line x1="0" y1="1573" x2="351" y2="1573"/>
-			<line x1="85" y1="0" x2="85" y2="137537"/>
-		</g>
-		<g style="--index: 6;">
-			<path d="M104,1701" tabindex="0">
-				<title>l_495zlx39-9d8eewld-2lgr793n.gq7jzvvq</title>
-			</path>
-			<rect x="104" y="1701" width="0" height="0"/>
-			<path d="M104,1701L104,1701" tabindex="0">
-				<title>00:17.01 on 2020-05-19</title>
-			</path>
-			<line x1="0" y1="1701" x2="351" y2="1701"/>
-			<line x1="104" y1="0" x2="104" y2="137537"/>
-		</g>
-		<g style="--index: 7;">
-			<path d="M112,50899" tabindex="0">
-				<title>l_rdqo542w-9kv66g32-onv7r45n.9qj08g7l</title>
-			</path>
-			<rect x="112" y="50899" width="0" height="0"/>
-			<path d="M112,50899L112,50899" tabindex="0">
-				<title>08:28.99 on 2020-05-27</title>
-			</path>
-			<line x1="0" y1="50899" x2="351" y2="50899"/>
-			<line x1="112" y1="0" x2="112" y2="137537"/>
-		</g>
-		<g style="--index: 8;">
-			<path d="M132,137537L135,137537L135,133583L136,133583L136,124318L139,124318L139,123821L148,123821L148,122777L351,122777L351,105507" tabindex="0">
-				<title>xd17x94d-9l71pv4l.zqo20y2l</title>
-			</path>
-			<rect x="132" y="105507" width="219" height="32030"/>
-			<path d="M132,137537L132,137537" tabindex="0">
-				<title>22:55.37 on 2020-06-16</title>
-			</path>
-			<line x1="0" y1="137537" x2="351" y2="137537"/>
-			<line x1="132" y1="0" x2="132" y2="137537"/>
-			<path d="M135,133583L135,133583" tabindex="0">
-				<title>22:15.83 on 2020-06-19</title>
-			</path>
-			<line x1="0" y1="133583" x2="351" y2="133583"/>
-			<line x1="135" y1="0" x2="135" y2="137537"/>
-			<path d="M136,124318L136,124318" tabindex="0">
-				<title>20:43.18 on 2020-06-20</title>
-			</path>
-			<line x1="0" y1="124318" x2="351" y2="124318"/>
-			<line x1="136" y1="0" x2="136" y2="137537"/>
-			<path d="M139,123821L139,123821" tabindex="0">
-				<title>20:38.21 on 2020-06-23</title>
-			</path>
-			<line x1="0" y1="123821" x2="351" y2="123821"/>
-			<line x1="139" y1="0" x2="139" y2="137537"/>
-			<path d="M148,122777L148,122777" tabindex="0">
-				<title>20:27.77 on 2020-07-02</title>
-			</path>
-			<line x1="0" y1="122777" x2="351" y2="122777"/>
-			<line x1="148" y1="0" x2="148" y2="137537"/>
-			<path d="M351,105507L351,105507" tabindex="0">
-				<title>17:35.07 on 2021-01-21</title>
-			</path>
-			<line x1="0" y1="105507" x2="351" y2="105507"/>
-			<line x1="351" y1="0" x2="351" y2="137537"/>
-		</g>
-		<g style="--index: 9;">
-			<path d="M134,34878" tabindex="0">
-				<title>l_o9xo3rp9-xd144xwd</title>
-			</path>
-			<rect x="134" y="34878" width="0" height="0"/>
-			<path d="M134,34878L134,34878" tabindex="0">
-				<title>05:48.78 on 2020-06-18</title>
-			</path>
-			<line x1="0" y1="34878" x2="351" y2="34878"/>
-			<line x1="134" y1="0" x2="134" y2="137537"/>
-		</g>
-		<g style="--index: 10;">
-			<path d="M137,13911" tabindex="0">
-				<title>l_r9gn1qpd-9kv66g32-onv7r45n.9qj08g7l</title>
-			</path>
-			<rect x="137" y="13911" width="0" height="0"/>
-			<path d="M137,13911L137,13911" tabindex="0">
-				<title>02:19.11 on 2020-06-21</title>
-			</path>
-			<line x1="0" y1="13911" x2="351" y2="13911"/>
-			<line x1="137" y1="0" x2="137" y2="137537"/>
-		</g>
-		<g style="--index: 11;">
-			<path d="M153,2177" tabindex="0">
-				<title>l_o9xo3rp9-9d8eewld-7896y468.5lermx5q</title>
-			</path>
-			<rect x="153" y="2177" width="0" height="0"/>
-			<path d="M153,2177L153,2177" tabindex="0">
-				<title>00:21.77 on 2020-07-07</title>
-			</path>
-			<line x1="0" y1="2177" x2="351" y2="2177"/>
-			<line x1="153" y1="0" x2="153" y2="137537"/>
-		</g>
-	</g>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			async function importDataScript(dataScriptUrl) {
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl);
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleError(event) {
+						delete window[name];
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			document.addEventListener("DOMContentLoaded", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				const {players, leaderboards} = await (async () =&gt; {
+					try {
+						const cachedPlayers = sessionStorage.getItem(playersKey);
+						const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+						if (cachedPlayers == null || cachedLeaderboards == null) {
+							throw new Error();
+						}
+						const players = JSON.parse(cachedPlayers);
+						const leaderboards = JSON.parse(cachedLeaderboards);
+						return {players, leaderboards};
+					} catch {}
+					try {
+						const players = Object.create(null);
+						const leaderboards = Object.create(null);
+						const games = ["9d3rrxyd", "w6jl2ned"];
+						for (const gameId of games) {
+							const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`);
+							const versions = data.variables.data.find((variable) =&gt; {
+								return variable.name === "Version";
+							});
+							const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+								return [level.id, level];
+							}));
+							const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+								return [category.id, category];
+							}));
+							const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+								return [variable.id, variable];
+							}));
+							console.log(`Got game`);
+							await new Promise((resolve) =&gt; {
+								setTimeout(resolve, 800);
+							});
+							const slice = 200;
+							for (let offset = 0;; offset += slice) {
+								const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`);
+								const {size} = pagination;
+								if (size === 0) {
+									break;
+								}
+								for (const run of data) {
+									const status = run.status.status;
+									if (status == null || status === "new") {
+										continue;
+									}
+									const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+									const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+									players[player] ??= playerName;
+									const level = run.level;
+									const category = run.category;
+									const values = Object.entries(run.values).filter(([variable]) =&gt; {
+										return variables[variable]?.["is-subcategory"] ?? false;
+									}).map(([variable, value]) =&gt; {
+										return `-${variable}.${value}`;
+									});
+									const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+									const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+									const categoryName = categories[run.category]?.name ?? null;
+									const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+										return variables[variable]?.["is-subcategory"] ?? false;
+									}).map(([variable, value]) =&gt; {
+										return variables[variable]?.values.values[value]?.label ?? null;
+									}).filter((valueName) =&gt; {
+										return valueName != null;
+									});
+									const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+									leaderboards[leaderboard] ??= leaderboardName;
+								}
+								console.log(`Got runs ${offset}-${offset + size - 1}`);
+								await new Promise((resolve) =&gt; {
+									setTimeout(resolve, 800);
+								});
+							}
+						}
+						try {
+							const cachedPlayers = JSON.stringify(players);
+							const cachedLeaderboards = JSON.stringify(leaderboards);
+							sessionStorage.setItem(playersKey, cachedPlayers);
+							sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+						} catch {}
+						return {players, leaderboards};
+					} catch {}
+					const players = null;
+					const leaderboards = null;
+					return {players, leaderboards};
+				})();
+				if (players == null || leaderboards == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%">
+		<svg viewBox="0 0 351 137537" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 12;">
+				<g style="--index: 0;">
+					<path d="M0,9831" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.810zwdwq</title>
+					</path>
+					<rect x="0" y="9831" width="0" height="0"/>
+					<path d="M0,9831L0,9831" tabindex="0">
+						<title>01:38.31 on 2020-02-05</title>
+					</path>
+					<line x1="0" y1="9831" x2="351" y2="9831"/>
+					<line x1="0" y1="0" x2="0" y2="137537"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,31620L1,31620L1,26816L8,26816L8,23923L11,23923L11,22950L19,22950L19,22945L65,22945L65,22001L138,22001L138,16336" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.gq7jrxvq</title>
+					</path>
+					<rect x="0" y="16336" width="138" height="15284"/>
+					<path d="M0,31620L0,31620" tabindex="0">
+						<title>05:16.20 on 2020-02-05</title>
+					</path>
+					<line x1="0" y1="31620" x2="351" y2="31620"/>
+					<line x1="0" y1="0" x2="0" y2="137537"/>
+					<path d="M1,26816L1,26816" tabindex="0">
+						<title>04:28.16 on 2020-02-06</title>
+					</path>
+					<line x1="0" y1="26816" x2="351" y2="26816"/>
+					<line x1="1" y1="0" x2="1" y2="137537"/>
+					<path d="M8,23923L8,23923" tabindex="0">
+						<title>03:59.23 on 2020-02-13</title>
+					</path>
+					<line x1="0" y1="23923" x2="351" y2="23923"/>
+					<line x1="8" y1="0" x2="8" y2="137537"/>
+					<path d="M11,22950L11,22950" tabindex="0">
+						<title>03:49.50 on 2020-02-16</title>
+					</path>
+					<line x1="0" y1="22950" x2="351" y2="22950"/>
+					<line x1="11" y1="0" x2="11" y2="137537"/>
+					<path d="M19,22945L19,22945" tabindex="0">
+						<title>03:49.45 on 2020-02-24</title>
+					</path>
+					<line x1="0" y1="22945" x2="351" y2="22945"/>
+					<line x1="19" y1="0" x2="19" y2="137537"/>
+					<path d="M65,22001L65,22001" tabindex="0">
+						<title>03:40.01 on 2020-04-10</title>
+					</path>
+					<line x1="0" y1="22001" x2="351" y2="22001"/>
+					<line x1="65" y1="0" x2="65" y2="137537"/>
+					<path d="M138,16336L138,16336" tabindex="0">
+						<title>02:43.36 on 2020-06-22</title>
+					</path>
+					<line x1="0" y1="16336" x2="351" y2="16336"/>
+					<line x1="138" y1="0" x2="138" y2="137537"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,6956" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
+					</path>
+					<rect x="0" y="6956" width="0" height="0"/>
+					<path d="M0,6956L0,6956" tabindex="0">
+						<title>01:09.56 on 2020-02-05</title>
+					</path>
+					<line x1="0" y1="6956" x2="351" y2="6956"/>
+					<line x1="0" y1="0" x2="0" y2="137537"/>
+				</g>
+				<g style="--index: 3;">
+					<path d="M84,1936L210,1936L210,1623" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+					</path>
+					<rect x="84" y="1623" width="126" height="313"/>
+					<path d="M84,1936L84,1936" tabindex="0">
+						<title>00:19.36 on 2020-04-29</title>
+					</path>
+					<line x1="0" y1="1936" x2="351" y2="1936"/>
+					<line x1="84" y1="0" x2="84" y2="137537"/>
+					<path d="M210,1623L210,1623" tabindex="0">
+						<title>00:16.23 on 2020-09-02</title>
+					</path>
+					<line x1="0" y1="1623" x2="351" y2="1623"/>
+					<line x1="210" y1="0" x2="210" y2="137537"/>
+				</g>
+				<g style="--index: 4;">
+					<path d="M84,1630L89,1630L89,1481" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.jq60ze3q</title>
+					</path>
+					<rect x="84" y="1481" width="5" height="149"/>
+					<path d="M84,1630L84,1630" tabindex="0">
+						<title>00:16.30 on 2020-04-29</title>
+					</path>
+					<line x1="0" y1="1630" x2="351" y2="1630"/>
+					<line x1="84" y1="0" x2="84" y2="137537"/>
+					<path d="M89,1481L89,1481" tabindex="0">
+						<title>00:14.81 on 2020-05-04</title>
+					</path>
+					<line x1="0" y1="1481" x2="351" y2="1481"/>
+					<line x1="89" y1="0" x2="89" y2="137537"/>
+				</g>
+				<g style="--index: 5;">
+					<path d="M85,1573" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
+					</path>
+					<rect x="85" y="1573" width="0" height="0"/>
+					<path d="M85,1573L85,1573" tabindex="0">
+						<title>00:15.73 on 2020-04-30</title>
+					</path>
+					<line x1="0" y1="1573" x2="351" y2="1573"/>
+					<line x1="85" y1="0" x2="85" y2="137537"/>
+				</g>
+				<g style="--index: 6;">
+					<path d="M104,1701" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.gq7jzvvq</title>
+					</path>
+					<rect x="104" y="1701" width="0" height="0"/>
+					<path d="M104,1701L104,1701" tabindex="0">
+						<title>00:17.01 on 2020-05-19</title>
+					</path>
+					<line x1="0" y1="1701" x2="351" y2="1701"/>
+					<line x1="104" y1="0" x2="104" y2="137537"/>
+				</g>
+				<g style="--index: 7;">
+					<path d="M112,50899" tabindex="0">
+						<title>l_rdqo542w-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+					<rect x="112" y="50899" width="0" height="0"/>
+					<path d="M112,50899L112,50899" tabindex="0">
+						<title>08:28.99 on 2020-05-27</title>
+					</path>
+					<line x1="0" y1="50899" x2="351" y2="50899"/>
+					<line x1="112" y1="0" x2="112" y2="137537"/>
+				</g>
+				<g style="--index: 8;">
+					<path d="M132,137537L135,137537L135,133583L136,133583L136,124318L139,124318L139,123821L148,123821L148,122777L351,122777L351,105507" tabindex="0">
+						<title>xd17x94d-9l71pv4l.zqo20y2l</title>
+					</path>
+					<rect x="132" y="105507" width="219" height="32030"/>
+					<path d="M132,137537L132,137537" tabindex="0">
+						<title>22:55.37 on 2020-06-16</title>
+					</path>
+					<line x1="0" y1="137537" x2="351" y2="137537"/>
+					<line x1="132" y1="0" x2="132" y2="137537"/>
+					<path d="M135,133583L135,133583" tabindex="0">
+						<title>22:15.83 on 2020-06-19</title>
+					</path>
+					<line x1="0" y1="133583" x2="351" y2="133583"/>
+					<line x1="135" y1="0" x2="135" y2="137537"/>
+					<path d="M136,124318L136,124318" tabindex="0">
+						<title>20:43.18 on 2020-06-20</title>
+					</path>
+					<line x1="0" y1="124318" x2="351" y2="124318"/>
+					<line x1="136" y1="0" x2="136" y2="137537"/>
+					<path d="M139,123821L139,123821" tabindex="0">
+						<title>20:38.21 on 2020-06-23</title>
+					</path>
+					<line x1="0" y1="123821" x2="351" y2="123821"/>
+					<line x1="139" y1="0" x2="139" y2="137537"/>
+					<path d="M148,122777L148,122777" tabindex="0">
+						<title>20:27.77 on 2020-07-02</title>
+					</path>
+					<line x1="0" y1="122777" x2="351" y2="122777"/>
+					<line x1="148" y1="0" x2="148" y2="137537"/>
+					<path d="M351,105507L351,105507" tabindex="0">
+						<title>17:35.07 on 2021-01-21</title>
+					</path>
+					<line x1="0" y1="105507" x2="351" y2="105507"/>
+					<line x1="351" y1="0" x2="351" y2="137537"/>
+				</g>
+				<g style="--index: 9;">
+					<path d="M134,34878" tabindex="0">
+						<title>l_o9xo3rp9-xd144xwd</title>
+					</path>
+					<rect x="134" y="34878" width="0" height="0"/>
+					<path d="M134,34878L134,34878" tabindex="0">
+						<title>05:48.78 on 2020-06-18</title>
+					</path>
+					<line x1="0" y1="34878" x2="351" y2="34878"/>
+					<line x1="134" y1="0" x2="134" y2="137537"/>
+				</g>
+				<g style="--index: 10;">
+					<path d="M137,13911" tabindex="0">
+						<title>l_r9gn1qpd-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+					<rect x="137" y="13911" width="0" height="0"/>
+					<path d="M137,13911L137,13911" tabindex="0">
+						<title>02:19.11 on 2020-06-21</title>
+					</path>
+					<line x1="0" y1="13911" x2="351" y2="13911"/>
+					<line x1="137" y1="0" x2="137" y2="137537"/>
+				</g>
+				<g style="--index: 11;">
+					<path d="M153,2177" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.5lermx5q</title>
+					</path>
+					<rect x="153" y="2177" width="0" height="0"/>
+					<path d="M153,2177L153,2177" tabindex="0">
+						<title>00:21.77 on 2020-07-07</title>
+					</path>
+					<line x1="0" y1="2177" x2="351" y2="2177"/>
+					<line x1="153" y1="0" x2="153" y2="137537"/>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
 </svg>

@@ -2,8 +2,10 @@ import fs from "fs";
 import fetch from "node-fetch";
 const dates = Object.create(null);
 const players = Object.create(null);
+const playersById = Object.create(null);
 const playersByName = Object.create(null);
 const leaderboards = Object.create(null);
+const leaderboardsById = Object.create(null);
 const leaderboardsByName = Object.create(null);
 const games = ["9d3rrxyd", "w6jl2ned"];
 const platforms = {
@@ -55,6 +57,7 @@ for (const gameId of games) {
 				const [player, playerDates] = (() => {
 					const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
 					const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+					playersById[player] ??= playerName;
 					playersByName[playerName] ??= player;
 					return [player, players[player] ??= Object.create(null)];
 				})();
@@ -86,6 +89,7 @@ for (const gameId of games) {
 						return valueName != null;
 					});
 					const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+					leaderboardsById[leaderboard] ??= leaderboardName;
 					leaderboardsByName[leaderboardName] ??= leaderboard;
 					return [leaderboard, leaderboards[leaderboard] ??= Object.create(null)];
 				})();
@@ -276,6 +280,8 @@ await fs.promises.mkdir("cache", {
 });
 await fs.promises.writeFile(`cache/dates.json`, `${JSON.stringify(sortedDates, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/players.json`, `${JSON.stringify(sortedPlayers, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/players-by-id.json`, `${JSON.stringify(playersById, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/players-by-name.json`, `${JSON.stringify(playersByName, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/leaderboards-by-id.json`, `${JSON.stringify(leaderboardsById, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);
