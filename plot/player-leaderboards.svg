@@ -142,9 +142,14 @@
 			const scope = new URL("../", documentUrl).pathname;
 			const playersKey = `${scope}#players`;
 			const leaderboardsKey = `${scope}#leaderboards`;
-			async function importDataScript(dataScriptUrl) {
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
 				if (documentUrl.protocol !== "file:") {
-					const response = await fetch(dataScriptUrl);
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
 					if (!response.ok) {
 						throw new Error(response.statusText);
 					}
@@ -164,8 +169,17 @@
 					window[name] = callback;
 					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
 					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
 					function handleError(event) {
 						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
 						dataScript.removeEventListener("load", handleLoad);
 						dataScript.remove();
 						const error = event.error;
@@ -173,10 +187,14 @@
 					}
 					function handleLoad(event) {
 						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
 						dataScript.removeEventListener("error", handleError);
 						dataScript.remove();
 						resolve(data);
 					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
 					dataScript.addEventListener("error", handleError, {
 						once: true,
 					});
@@ -186,7 +204,40 @@
 					script.after(dataScript);
 				});
 			}
-			document.addEventListener("DOMContentLoaded", async (event) =&gt; {
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
 				const rootTitleElement = document.querySelector("title");
 				const rootTitleContent = rootTitleElement.textContent;
 				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
@@ -207,93 +258,196 @@
 				p.append(label);
 				div.append(p);
 				foreignObject.prepend(div);
-				const {players, leaderboards} = await (async () =&gt; {
-					try {
-						const cachedPlayers = sessionStorage.getItem(playersKey);
-						const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
-						if (cachedPlayers == null || cachedLeaderboards == null) {
-							throw new Error();
-						}
-						const players = JSON.parse(cachedPlayers);
-						const leaderboards = JSON.parse(cachedLeaderboards);
-						return {players, leaderboards};
-					} catch {}
-					try {
-						const players = Object.create(null);
-						const leaderboards = Object.create(null);
-						const games = ["9d3rrxyd", "w6jl2ned"];
-						for (const gameId of games) {
-							const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`);
-							const versions = data.variables.data.find((variable) =&gt; {
-								return variable.name === "Version";
-							});
-							const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
-								return [level.id, level];
-							}));
-							const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
-								return [category.id, category];
-							}));
-							const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
-								return [variable.id, variable];
-							}));
-							console.log(`Got game`);
-							await new Promise((resolve) =&gt; {
-								setTimeout(resolve, 800);
-							});
-							const slice = 200;
-							for (let offset = 0;; offset += slice) {
-								const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`);
-								const {size} = pagination;
-								if (size === 0) {
-									break;
-								}
-								for (const run of data) {
-									const status = run.status.status;
-									if (status == null || status === "new") {
-										continue;
-									}
-									const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-									const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
-									players[player] ??= playerName;
-									const level = run.level;
-									const category = run.category;
-									const values = Object.entries(run.values).filter(([variable]) =&gt; {
-										return variables[variable]?.["is-subcategory"] ?? false;
-									}).map(([variable, value]) =&gt; {
-										return `-${variable}.${value}`;
-									});
-									const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
-									const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
-									const categoryName = categories[run.category]?.name ?? null;
-									const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
-										return variables[variable]?.["is-subcategory"] ?? false;
-									}).map(([variable, value]) =&gt; {
-										return variables[variable]?.values.values[value]?.label ?? null;
-									}).filter((valueName) =&gt; {
-										return valueName != null;
-									});
-									const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
-									leaderboards[leaderboard] ??= leaderboardName;
-								}
-								console.log(`Got runs ${offset}-${offset + size - 1}`);
-								await new Promise((resolve) =&gt; {
-									setTimeout(resolve, 800);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
 								});
 							}
+							break;
 						}
-						try {
-							const cachedPlayers = JSON.stringify(players);
-							const cachedLeaderboards = JSON.stringify(leaderboards);
-							sessionStorage.setItem(playersKey, cachedPlayers);
-							sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
-						} catch {}
-						return {players, leaderboards};
-					} catch {}
-					const players = null;
-					const leaderboards = null;
-					return {players, leaderboards};
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
 				})();
-				if (players == null || leaderboards == null) {
+				await promise;
+				if (session == null) {
 					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
 					input.type = "checkbox";
 					input.autocomplete = "off";
@@ -303,6 +457,7 @@
 					span.textContent = "Unavailable names";
 					return;
 				}
+				const {players, leaderboards} = session;
 				const hasPlayerRoot = rootTitleContent.includes(" for player");
 				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
 				const rootTitle = {
