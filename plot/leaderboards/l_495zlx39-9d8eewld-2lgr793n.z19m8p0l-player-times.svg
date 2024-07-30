@@ -1,12 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2071 3451" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
 	<title>Time by player for leaderboard l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
 	<style>
-		svg {
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
 			background: var(--canvas-background);
+			color: var(--canvas-foreground);
 			fill: var(--canvas-background);
 			stroke: var(--canvas-foreground);
 			stroke-linejoin: round;
 			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			inset: 0 auto auto 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg {
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+			padding: 10px;
+			border: 1px dashed var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
 		}
 		g &gt; path[tabindex] {
 			vector-effect: non-scaling-stroke;
@@ -77,296 +134,516 @@
 			}
 		}
 	</style>
-	<g transform="scale(1 -1)" transform-origin="center center" style="--count: 20;">
-		<g style="--index: 0;">
-			<path d="M0,3451" tabindex="0">
-				<title>18qg9ndx</title>
-			</path>
-			<rect x="0" y="3451" width="0" height="0"/>
-			<path d="M0,3451L0,3451" tabindex="0">
-				<title>00:34.51 on 2018-04-09</title>
-			</path>
-			<line x1="0" y1="3451" x2="2071" y2="3451"/>
-			<line x1="0" y1="0" x2="0" y2="3451"/>
-		</g>
-		<g style="--index: 1;">
-			<path d="M92,1495" tabindex="0">
-				<title>y8dgoe98</title>
-			</path>
-			<rect x="92" y="1495" width="0" height="0"/>
-			<path d="M92,1495L92,1495" tabindex="0">
-				<title>00:14.95 on 2018-07-10</title>
-			</path>
-			<line x1="0" y1="1495" x2="2071" y2="1495"/>
-			<line x1="92" y1="0" x2="92" y2="3451"/>
-		</g>
-		<g style="--index: 2;">
-			<path d="M773,1630L858,1630L858,1599L928,1599L928,1436" tabindex="0">
-				<title>x356nrej</title>
-			</path>
-			<rect x="773" y="1436" width="155" height="194"/>
-			<path d="M773,1630L773,1630" tabindex="0">
-				<title>00:16.30 on 2020-05-21</title>
-			</path>
-			<line x1="0" y1="1630" x2="2071" y2="1630"/>
-			<line x1="773" y1="0" x2="773" y2="3451"/>
-			<path d="M858,1599L858,1599" tabindex="0">
-				<title>00:15.99 on 2020-08-14</title>
-			</path>
-			<line x1="0" y1="1599" x2="2071" y2="1599"/>
-			<line x1="858" y1="0" x2="858" y2="3451"/>
-			<path d="M928,1436L928,1436" tabindex="0">
-				<title>00:14.36 on 2020-10-23</title>
-			</path>
-			<line x1="0" y1="1436" x2="2071" y2="1436"/>
-			<line x1="928" y1="0" x2="928" y2="3451"/>
-		</g>
-		<g style="--index: 3;">
-			<path d="M956,1400L1425,1400L1425,1255L1509,1255L1509,1227L1540,1227L1540,1219" tabindex="0">
-				<title>j2yr9lp8</title>
-			</path>
-			<rect x="956" y="1219" width="584" height="181"/>
-			<path d="M956,1400L956,1400" tabindex="0">
-				<title>00:14.00 on 2020-11-20</title>
-			</path>
-			<line x1="0" y1="1400" x2="2071" y2="1400"/>
-			<line x1="956" y1="0" x2="956" y2="3451"/>
-			<path d="M1425,1255L1425,1255" tabindex="0">
-				<title>00:12.55 on 2022-03-04</title>
-			</path>
-			<line x1="0" y1="1255" x2="2071" y2="1255"/>
-			<line x1="1425" y1="0" x2="1425" y2="3451"/>
-			<path d="M1509,1227L1509,1227" tabindex="0">
-				<title>00:12.27 on 2022-05-27</title>
-			</path>
-			<line x1="0" y1="1227" x2="2071" y2="1227"/>
-			<line x1="1509" y1="0" x2="1509" y2="3451"/>
-			<path d="M1540,1219L1540,1219" tabindex="0">
-				<title>00:12.19 on 2022-06-27</title>
-			</path>
-			<line x1="0" y1="1219" x2="2071" y2="1219"/>
-			<line x1="1540" y1="0" x2="1540" y2="3451"/>
-		</g>
-		<g style="--index: 4;">
-			<path d="M959,1786L987,1786L987,1389" tabindex="0">
-				<title>x7q00668</title>
-			</path>
-			<rect x="959" y="1389" width="28" height="397"/>
-			<path d="M959,1786L959,1786" tabindex="0">
-				<title>00:17.86 on 2020-11-23</title>
-			</path>
-			<line x1="0" y1="1786" x2="2071" y2="1786"/>
-			<line x1="959" y1="0" x2="959" y2="3451"/>
-			<path d="M987,1389L987,1389" tabindex="0">
-				<title>00:13.89 on 2020-12-21</title>
-			</path>
-			<line x1="0" y1="1389" x2="2071" y2="1389"/>
-			<line x1="987" y1="0" x2="987" y2="3451"/>
-		</g>
-		<g style="--index: 5;">
-			<path d="M979,1782L1016,1782L1016,1568" tabindex="0">
-				<title>j0np7or8</title>
-			</path>
-			<rect x="979" y="1568" width="37" height="214"/>
-			<path d="M979,1782L979,1782" tabindex="0">
-				<title>00:17.82 on 2020-12-13</title>
-			</path>
-			<line x1="0" y1="1782" x2="2071" y2="1782"/>
-			<line x1="979" y1="0" x2="979" y2="3451"/>
-			<path d="M1016,1568L1016,1568" tabindex="0">
-				<title>00:15.68 on 2021-01-19</title>
-			</path>
-			<line x1="0" y1="1568" x2="2071" y2="1568"/>
-			<line x1="1016" y1="0" x2="1016" y2="3451"/>
-		</g>
-		<g style="--index: 6;">
-			<path d="M983,1558L988,1558L988,1399L1013,1399L1013,1359" tabindex="0">
-				<title>814zn7l8</title>
-			</path>
-			<rect x="983" y="1359" width="30" height="199"/>
-			<path d="M983,1558L983,1558" tabindex="0">
-				<title>00:15.58 on 2020-12-17</title>
-			</path>
-			<line x1="0" y1="1558" x2="2071" y2="1558"/>
-			<line x1="983" y1="0" x2="983" y2="3451"/>
-			<path d="M988,1399L988,1399" tabindex="0">
-				<title>00:13.99 on 2020-12-22</title>
-			</path>
-			<line x1="0" y1="1399" x2="2071" y2="1399"/>
-			<line x1="988" y1="0" x2="988" y2="3451"/>
-			<path d="M1013,1359L1013,1359" tabindex="0">
-				<title>00:13.59 on 2021-01-16</title>
-			</path>
-			<line x1="0" y1="1359" x2="2071" y2="1359"/>
-			<line x1="1013" y1="0" x2="1013" y2="3451"/>
-		</g>
-		<g style="--index: 7;">
-			<path d="M988,1377L998,1377L998,1373L1021,1373L1021,1293" tabindex="0">
-				<title>xkon93k8</title>
-			</path>
-			<rect x="988" y="1293" width="33" height="84"/>
-			<path d="M988,1377L988,1377" tabindex="0">
-				<title>00:13.77 on 2020-12-22</title>
-			</path>
-			<line x1="0" y1="1377" x2="2071" y2="1377"/>
-			<line x1="988" y1="0" x2="988" y2="3451"/>
-			<path d="M998,1373L998,1373" tabindex="0">
-				<title>00:13.73 on 2021-01-01</title>
-			</path>
-			<line x1="0" y1="1373" x2="2071" y2="1373"/>
-			<line x1="998" y1="0" x2="998" y2="3451"/>
-			<path d="M1021,1293L1021,1293" tabindex="0">
-				<title>00:12.93 on 2021-01-24</title>
-			</path>
-			<line x1="0" y1="1293" x2="2071" y2="1293"/>
-			<line x1="1021" y1="0" x2="1021" y2="3451"/>
-		</g>
-		<g style="--index: 8;">
-			<path d="M1436,2644" tabindex="0">
-				<title>jpo31408</title>
-			</path>
-			<rect x="1436" y="2644" width="0" height="0"/>
-			<path d="M1436,2644L1436,2644" tabindex="0">
-				<title>00:26.44 on 2022-03-15</title>
-			</path>
-			<line x1="0" y1="2644" x2="2071" y2="2644"/>
-			<line x1="1436" y1="0" x2="1436" y2="3451"/>
-		</g>
-		<g style="--index: 9;">
-			<path d="M1507,1278L1508,1278L1508,1254L1538,1254L1538,1224" tabindex="0">
-				<title>xk3m6d68</title>
-			</path>
-			<rect x="1507" y="1224" width="31" height="54"/>
-			<path d="M1507,1278L1507,1278" tabindex="0">
-				<title>00:12.78 on 2022-05-25</title>
-			</path>
-			<line x1="0" y1="1278" x2="2071" y2="1278"/>
-			<line x1="1507" y1="0" x2="1507" y2="3451"/>
-			<path d="M1508,1254L1508,1254" tabindex="0">
-				<title>00:12.54 on 2022-05-26</title>
-			</path>
-			<line x1="0" y1="1254" x2="2071" y2="1254"/>
-			<line x1="1508" y1="0" x2="1508" y2="3451"/>
-			<path d="M1538,1224L1538,1224" tabindex="0">
-				<title>00:12.24 on 2022-06-25</title>
-			</path>
-			<line x1="0" y1="1224" x2="2071" y2="1224"/>
-			<line x1="1538" y1="0" x2="1538" y2="3451"/>
-		</g>
-		<g style="--index: 10;">
-			<path d="M1516,1591L1517,1591L1517,1469" tabindex="0">
-				<title>866k6d38</title>
-			</path>
-			<rect x="1516" y="1469" width="1" height="122"/>
-			<path d="M1516,1591L1516,1591" tabindex="0">
-				<title>00:15.91 on 2022-06-03</title>
-			</path>
-			<line x1="0" y1="1591" x2="2071" y2="1591"/>
-			<line x1="1516" y1="0" x2="1516" y2="3451"/>
-			<path d="M1517,1469L1517,1469" tabindex="0">
-				<title>00:14.69 on 2022-06-04</title>
-			</path>
-			<line x1="0" y1="1469" x2="2071" y2="1469"/>
-			<line x1="1517" y1="0" x2="1517" y2="3451"/>
-		</g>
-		<g style="--index: 11;">
-			<path d="M1581,3079" tabindex="0">
-				<title>j0gyekmx</title>
-			</path>
-			<rect x="1581" y="3079" width="0" height="0"/>
-			<path d="M1581,3079L1581,3079" tabindex="0">
-				<title>00:30.79 on 2022-08-07</title>
-			</path>
-			<line x1="0" y1="3079" x2="2071" y2="3079"/>
-			<line x1="1581" y1="0" x2="1581" y2="3451"/>
-		</g>
-		<g style="--index: 12;">
-			<path d="M1706,2130" tabindex="0">
-				<title>8g0ezgyx</title>
-			</path>
-			<rect x="1706" y="2130" width="0" height="0"/>
-			<path d="M1706,2130L1706,2130" tabindex="0">
-				<title>00:21.30 on 2022-12-10</title>
-			</path>
-			<line x1="0" y1="2130" x2="2071" y2="2130"/>
-			<line x1="1706" y1="0" x2="1706" y2="3451"/>
-		</g>
-		<g style="--index: 13;">
-			<path d="M1707,2104" tabindex="0">
-				<title>8lonqn28</title>
-			</path>
-			<rect x="1707" y="2104" width="0" height="0"/>
-			<path d="M1707,2104L1707,2104" tabindex="0">
-				<title>00:21.04 on 2022-12-11</title>
-			</path>
-			<line x1="0" y1="2104" x2="2071" y2="2104"/>
-			<line x1="1707" y1="0" x2="1707" y2="3451"/>
-		</g>
-		<g style="--index: 14;">
-			<path d="M1710,1909" tabindex="0">
-				<title>8qoz5eoj</title>
-			</path>
-			<rect x="1710" y="1909" width="0" height="0"/>
-			<path d="M1710,1909L1710,1909" tabindex="0">
-				<title>00:19.09 on 2022-12-14</title>
-			</path>
-			<line x1="0" y1="1909" x2="2071" y2="1909"/>
-			<line x1="1710" y1="0" x2="1710" y2="3451"/>
-		</g>
-		<g style="--index: 15;">
-			<path d="M1714,1787" tabindex="0">
-				<title>8w02wmvj</title>
-			</path>
-			<rect x="1714" y="1787" width="0" height="0"/>
-			<path d="M1714,1787L1714,1787" tabindex="0">
-				<title>00:17.87 on 2022-12-18</title>
-			</path>
-			<line x1="0" y1="1787" x2="2071" y2="1787"/>
-			<line x1="1714" y1="0" x2="1714" y2="3451"/>
-		</g>
-		<g style="--index: 16;">
-			<path d="M1801,1916" tabindex="0">
-				<title>8rle6yd8</title>
-			</path>
-			<rect x="1801" y="1916" width="0" height="0"/>
-			<path d="M1801,1916L1801,1916" tabindex="0">
-				<title>00:19.16 on 2023-03-15</title>
-			</path>
-			<line x1="0" y1="1916" x2="2071" y2="1916"/>
-			<line x1="1801" y1="0" x2="1801" y2="3451"/>
-		</g>
-		<g style="--index: 17;">
-			<path d="M1808,1213" tabindex="0">
-				<title>jn2m23wj</title>
-			</path>
-			<rect x="1808" y="1213" width="0" height="0"/>
-			<path d="M1808,1213L1808,1213" tabindex="0">
-				<title>00:12.13 on 2023-03-22</title>
-			</path>
-			<line x1="0" y1="1213" x2="2071" y2="1213"/>
-			<line x1="1808" y1="0" x2="1808" y2="3451"/>
-		</g>
-		<g style="--index: 18;">
-			<path d="M1954,2332" tabindex="0">
-				<title>jng9el48</title>
-			</path>
-			<rect x="1954" y="2332" width="0" height="0"/>
-			<path d="M1954,2332L1954,2332" tabindex="0">
-				<title>00:23.32 on 2023-08-15</title>
-			</path>
-			<line x1="0" y1="2332" x2="2071" y2="2332"/>
-			<line x1="1954" y1="0" x2="1954" y2="3451"/>
-		</g>
-		<g style="--index: 19;">
-			<path d="M2071,3371" tabindex="0">
-				<title>x77ee56x</title>
-			</path>
-			<rect x="2071" y="3371" width="0" height="0"/>
-			<path d="M2071,3371L2071,3371" tabindex="0">
-				<title>00:33.71 on 2023-12-10</title>
-			</path>
-			<line x1="0" y1="3371" x2="2071" y2="3371"/>
-			<line x1="2071" y1="0" x2="2071" y2="3451"/>
-		</g>
-	</g>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			async function importDataScript(dataScriptUrl) {
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl);
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleError(event) {
+						delete window[name];
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			document.addEventListener("DOMContentLoaded", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				const {players, leaderboards} = await (async () =&gt; {
+					try {
+						const cachedPlayers = sessionStorage.getItem(playersKey);
+						const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+						if (cachedPlayers == null || cachedLeaderboards == null) {
+							throw new Error();
+						}
+						const players = JSON.parse(cachedPlayers);
+						const leaderboards = JSON.parse(cachedLeaderboards);
+						return {players, leaderboards};
+					} catch {}
+					try {
+						const players = Object.create(null);
+						const leaderboards = Object.create(null);
+						const games = ["9d3rrxyd", "w6jl2ned"];
+						for (const gameId of games) {
+							const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`);
+							const versions = data.variables.data.find((variable) =&gt; {
+								return variable.name === "Version";
+							});
+							const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+								return [level.id, level];
+							}));
+							const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+								return [category.id, category];
+							}));
+							const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+								return [variable.id, variable];
+							}));
+							console.log(`Got game`);
+							await new Promise((resolve) =&gt; {
+								setTimeout(resolve, 800);
+							});
+							const slice = 200;
+							for (let offset = 0;; offset += slice) {
+								const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`);
+								const {size} = pagination;
+								if (size === 0) {
+									break;
+								}
+								for (const run of data) {
+									const status = run.status.status;
+									if (status == null || status === "new") {
+										continue;
+									}
+									const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+									const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+									players[player] ??= playerName;
+									const level = run.level;
+									const category = run.category;
+									const values = Object.entries(run.values).filter(([variable]) =&gt; {
+										return variables[variable]?.["is-subcategory"] ?? false;
+									}).map(([variable, value]) =&gt; {
+										return `-${variable}.${value}`;
+									});
+									const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+									const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+									const categoryName = categories[run.category]?.name ?? null;
+									const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+										return variables[variable]?.["is-subcategory"] ?? false;
+									}).map(([variable, value]) =&gt; {
+										return variables[variable]?.values.values[value]?.label ?? null;
+									}).filter((valueName) =&gt; {
+										return valueName != null;
+									});
+									const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+									leaderboards[leaderboard] ??= leaderboardName;
+								}
+								console.log(`Got runs ${offset}-${offset + size - 1}`);
+								await new Promise((resolve) =&gt; {
+									setTimeout(resolve, 800);
+								});
+							}
+						}
+						try {
+							const cachedPlayers = JSON.stringify(players);
+							const cachedLeaderboards = JSON.stringify(leaderboards);
+							sessionStorage.setItem(playersKey, cachedPlayers);
+							sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+						} catch {}
+						return {players, leaderboards};
+					} catch {}
+					const players = null;
+					const leaderboards = null;
+					return {players, leaderboards};
+				})();
+				if (players == null || leaderboards == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%">
+		<svg viewBox="0 0 2071 3451" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 20;">
+				<g style="--index: 0;">
+					<path d="M0,3451" tabindex="0">
+						<title>18qg9ndx</title>
+					</path>
+					<rect x="0" y="3451" width="0" height="0"/>
+					<path d="M0,3451L0,3451" tabindex="0">
+						<title>00:34.51 on 2018-04-09</title>
+					</path>
+					<line x1="0" y1="3451" x2="2071" y2="3451"/>
+					<line x1="0" y1="0" x2="0" y2="3451"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M92,1495" tabindex="0">
+						<title>y8dgoe98</title>
+					</path>
+					<rect x="92" y="1495" width="0" height="0"/>
+					<path d="M92,1495L92,1495" tabindex="0">
+						<title>00:14.95 on 2018-07-10</title>
+					</path>
+					<line x1="0" y1="1495" x2="2071" y2="1495"/>
+					<line x1="92" y1="0" x2="92" y2="3451"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M773,1630L858,1630L858,1599L928,1599L928,1436" tabindex="0">
+						<title>x356nrej</title>
+					</path>
+					<rect x="773" y="1436" width="155" height="194"/>
+					<path d="M773,1630L773,1630" tabindex="0">
+						<title>00:16.30 on 2020-05-21</title>
+					</path>
+					<line x1="0" y1="1630" x2="2071" y2="1630"/>
+					<line x1="773" y1="0" x2="773" y2="3451"/>
+					<path d="M858,1599L858,1599" tabindex="0">
+						<title>00:15.99 on 2020-08-14</title>
+					</path>
+					<line x1="0" y1="1599" x2="2071" y2="1599"/>
+					<line x1="858" y1="0" x2="858" y2="3451"/>
+					<path d="M928,1436L928,1436" tabindex="0">
+						<title>00:14.36 on 2020-10-23</title>
+					</path>
+					<line x1="0" y1="1436" x2="2071" y2="1436"/>
+					<line x1="928" y1="0" x2="928" y2="3451"/>
+				</g>
+				<g style="--index: 3;">
+					<path d="M956,1400L1425,1400L1425,1255L1509,1255L1509,1227L1540,1227L1540,1219" tabindex="0">
+						<title>j2yr9lp8</title>
+					</path>
+					<rect x="956" y="1219" width="584" height="181"/>
+					<path d="M956,1400L956,1400" tabindex="0">
+						<title>00:14.00 on 2020-11-20</title>
+					</path>
+					<line x1="0" y1="1400" x2="2071" y2="1400"/>
+					<line x1="956" y1="0" x2="956" y2="3451"/>
+					<path d="M1425,1255L1425,1255" tabindex="0">
+						<title>00:12.55 on 2022-03-04</title>
+					</path>
+					<line x1="0" y1="1255" x2="2071" y2="1255"/>
+					<line x1="1425" y1="0" x2="1425" y2="3451"/>
+					<path d="M1509,1227L1509,1227" tabindex="0">
+						<title>00:12.27 on 2022-05-27</title>
+					</path>
+					<line x1="0" y1="1227" x2="2071" y2="1227"/>
+					<line x1="1509" y1="0" x2="1509" y2="3451"/>
+					<path d="M1540,1219L1540,1219" tabindex="0">
+						<title>00:12.19 on 2022-06-27</title>
+					</path>
+					<line x1="0" y1="1219" x2="2071" y2="1219"/>
+					<line x1="1540" y1="0" x2="1540" y2="3451"/>
+				</g>
+				<g style="--index: 4;">
+					<path d="M959,1786L987,1786L987,1389" tabindex="0">
+						<title>x7q00668</title>
+					</path>
+					<rect x="959" y="1389" width="28" height="397"/>
+					<path d="M959,1786L959,1786" tabindex="0">
+						<title>00:17.86 on 2020-11-23</title>
+					</path>
+					<line x1="0" y1="1786" x2="2071" y2="1786"/>
+					<line x1="959" y1="0" x2="959" y2="3451"/>
+					<path d="M987,1389L987,1389" tabindex="0">
+						<title>00:13.89 on 2020-12-21</title>
+					</path>
+					<line x1="0" y1="1389" x2="2071" y2="1389"/>
+					<line x1="987" y1="0" x2="987" y2="3451"/>
+				</g>
+				<g style="--index: 5;">
+					<path d="M979,1782L1016,1782L1016,1568" tabindex="0">
+						<title>j0np7or8</title>
+					</path>
+					<rect x="979" y="1568" width="37" height="214"/>
+					<path d="M979,1782L979,1782" tabindex="0">
+						<title>00:17.82 on 2020-12-13</title>
+					</path>
+					<line x1="0" y1="1782" x2="2071" y2="1782"/>
+					<line x1="979" y1="0" x2="979" y2="3451"/>
+					<path d="M1016,1568L1016,1568" tabindex="0">
+						<title>00:15.68 on 2021-01-19</title>
+					</path>
+					<line x1="0" y1="1568" x2="2071" y2="1568"/>
+					<line x1="1016" y1="0" x2="1016" y2="3451"/>
+				</g>
+				<g style="--index: 6;">
+					<path d="M983,1558L988,1558L988,1399L1013,1399L1013,1359" tabindex="0">
+						<title>814zn7l8</title>
+					</path>
+					<rect x="983" y="1359" width="30" height="199"/>
+					<path d="M983,1558L983,1558" tabindex="0">
+						<title>00:15.58 on 2020-12-17</title>
+					</path>
+					<line x1="0" y1="1558" x2="2071" y2="1558"/>
+					<line x1="983" y1="0" x2="983" y2="3451"/>
+					<path d="M988,1399L988,1399" tabindex="0">
+						<title>00:13.99 on 2020-12-22</title>
+					</path>
+					<line x1="0" y1="1399" x2="2071" y2="1399"/>
+					<line x1="988" y1="0" x2="988" y2="3451"/>
+					<path d="M1013,1359L1013,1359" tabindex="0">
+						<title>00:13.59 on 2021-01-16</title>
+					</path>
+					<line x1="0" y1="1359" x2="2071" y2="1359"/>
+					<line x1="1013" y1="0" x2="1013" y2="3451"/>
+				</g>
+				<g style="--index: 7;">
+					<path d="M988,1377L998,1377L998,1373L1021,1373L1021,1293" tabindex="0">
+						<title>xkon93k8</title>
+					</path>
+					<rect x="988" y="1293" width="33" height="84"/>
+					<path d="M988,1377L988,1377" tabindex="0">
+						<title>00:13.77 on 2020-12-22</title>
+					</path>
+					<line x1="0" y1="1377" x2="2071" y2="1377"/>
+					<line x1="988" y1="0" x2="988" y2="3451"/>
+					<path d="M998,1373L998,1373" tabindex="0">
+						<title>00:13.73 on 2021-01-01</title>
+					</path>
+					<line x1="0" y1="1373" x2="2071" y2="1373"/>
+					<line x1="998" y1="0" x2="998" y2="3451"/>
+					<path d="M1021,1293L1021,1293" tabindex="0">
+						<title>00:12.93 on 2021-01-24</title>
+					</path>
+					<line x1="0" y1="1293" x2="2071" y2="1293"/>
+					<line x1="1021" y1="0" x2="1021" y2="3451"/>
+				</g>
+				<g style="--index: 8;">
+					<path d="M1436,2644" tabindex="0">
+						<title>jpo31408</title>
+					</path>
+					<rect x="1436" y="2644" width="0" height="0"/>
+					<path d="M1436,2644L1436,2644" tabindex="0">
+						<title>00:26.44 on 2022-03-15</title>
+					</path>
+					<line x1="0" y1="2644" x2="2071" y2="2644"/>
+					<line x1="1436" y1="0" x2="1436" y2="3451"/>
+				</g>
+				<g style="--index: 9;">
+					<path d="M1507,1278L1508,1278L1508,1254L1538,1254L1538,1224" tabindex="0">
+						<title>xk3m6d68</title>
+					</path>
+					<rect x="1507" y="1224" width="31" height="54"/>
+					<path d="M1507,1278L1507,1278" tabindex="0">
+						<title>00:12.78 on 2022-05-25</title>
+					</path>
+					<line x1="0" y1="1278" x2="2071" y2="1278"/>
+					<line x1="1507" y1="0" x2="1507" y2="3451"/>
+					<path d="M1508,1254L1508,1254" tabindex="0">
+						<title>00:12.54 on 2022-05-26</title>
+					</path>
+					<line x1="0" y1="1254" x2="2071" y2="1254"/>
+					<line x1="1508" y1="0" x2="1508" y2="3451"/>
+					<path d="M1538,1224L1538,1224" tabindex="0">
+						<title>00:12.24 on 2022-06-25</title>
+					</path>
+					<line x1="0" y1="1224" x2="2071" y2="1224"/>
+					<line x1="1538" y1="0" x2="1538" y2="3451"/>
+				</g>
+				<g style="--index: 10;">
+					<path d="M1516,1591L1517,1591L1517,1469" tabindex="0">
+						<title>866k6d38</title>
+					</path>
+					<rect x="1516" y="1469" width="1" height="122"/>
+					<path d="M1516,1591L1516,1591" tabindex="0">
+						<title>00:15.91 on 2022-06-03</title>
+					</path>
+					<line x1="0" y1="1591" x2="2071" y2="1591"/>
+					<line x1="1516" y1="0" x2="1516" y2="3451"/>
+					<path d="M1517,1469L1517,1469" tabindex="0">
+						<title>00:14.69 on 2022-06-04</title>
+					</path>
+					<line x1="0" y1="1469" x2="2071" y2="1469"/>
+					<line x1="1517" y1="0" x2="1517" y2="3451"/>
+				</g>
+				<g style="--index: 11;">
+					<path d="M1581,3079" tabindex="0">
+						<title>j0gyekmx</title>
+					</path>
+					<rect x="1581" y="3079" width="0" height="0"/>
+					<path d="M1581,3079L1581,3079" tabindex="0">
+						<title>00:30.79 on 2022-08-07</title>
+					</path>
+					<line x1="0" y1="3079" x2="2071" y2="3079"/>
+					<line x1="1581" y1="0" x2="1581" y2="3451"/>
+				</g>
+				<g style="--index: 12;">
+					<path d="M1706,2130" tabindex="0">
+						<title>8g0ezgyx</title>
+					</path>
+					<rect x="1706" y="2130" width="0" height="0"/>
+					<path d="M1706,2130L1706,2130" tabindex="0">
+						<title>00:21.30 on 2022-12-10</title>
+					</path>
+					<line x1="0" y1="2130" x2="2071" y2="2130"/>
+					<line x1="1706" y1="0" x2="1706" y2="3451"/>
+				</g>
+				<g style="--index: 13;">
+					<path d="M1707,2104" tabindex="0">
+						<title>8lonqn28</title>
+					</path>
+					<rect x="1707" y="2104" width="0" height="0"/>
+					<path d="M1707,2104L1707,2104" tabindex="0">
+						<title>00:21.04 on 2022-12-11</title>
+					</path>
+					<line x1="0" y1="2104" x2="2071" y2="2104"/>
+					<line x1="1707" y1="0" x2="1707" y2="3451"/>
+				</g>
+				<g style="--index: 14;">
+					<path d="M1710,1909" tabindex="0">
+						<title>8qoz5eoj</title>
+					</path>
+					<rect x="1710" y="1909" width="0" height="0"/>
+					<path d="M1710,1909L1710,1909" tabindex="0">
+						<title>00:19.09 on 2022-12-14</title>
+					</path>
+					<line x1="0" y1="1909" x2="2071" y2="1909"/>
+					<line x1="1710" y1="0" x2="1710" y2="3451"/>
+				</g>
+				<g style="--index: 15;">
+					<path d="M1714,1787" tabindex="0">
+						<title>8w02wmvj</title>
+					</path>
+					<rect x="1714" y="1787" width="0" height="0"/>
+					<path d="M1714,1787L1714,1787" tabindex="0">
+						<title>00:17.87 on 2022-12-18</title>
+					</path>
+					<line x1="0" y1="1787" x2="2071" y2="1787"/>
+					<line x1="1714" y1="0" x2="1714" y2="3451"/>
+				</g>
+				<g style="--index: 16;">
+					<path d="M1801,1916" tabindex="0">
+						<title>8rle6yd8</title>
+					</path>
+					<rect x="1801" y="1916" width="0" height="0"/>
+					<path d="M1801,1916L1801,1916" tabindex="0">
+						<title>00:19.16 on 2023-03-15</title>
+					</path>
+					<line x1="0" y1="1916" x2="2071" y2="1916"/>
+					<line x1="1801" y1="0" x2="1801" y2="3451"/>
+				</g>
+				<g style="--index: 17;">
+					<path d="M1808,1213" tabindex="0">
+						<title>jn2m23wj</title>
+					</path>
+					<rect x="1808" y="1213" width="0" height="0"/>
+					<path d="M1808,1213L1808,1213" tabindex="0">
+						<title>00:12.13 on 2023-03-22</title>
+					</path>
+					<line x1="0" y1="1213" x2="2071" y2="1213"/>
+					<line x1="1808" y1="0" x2="1808" y2="3451"/>
+				</g>
+				<g style="--index: 18;">
+					<path d="M1954,2332" tabindex="0">
+						<title>jng9el48</title>
+					</path>
+					<rect x="1954" y="2332" width="0" height="0"/>
+					<path d="M1954,2332L1954,2332" tabindex="0">
+						<title>00:23.32 on 2023-08-15</title>
+					</path>
+					<line x1="0" y1="2332" x2="2071" y2="2332"/>
+					<line x1="1954" y1="0" x2="1954" y2="3451"/>
+				</g>
+				<g style="--index: 19;">
+					<path d="M2071,3371" tabindex="0">
+						<title>x77ee56x</title>
+					</path>
+					<rect x="2071" y="3371" width="0" height="0"/>
+					<path d="M2071,3371L2071,3371" tabindex="0">
+						<title>00:33.71 on 2023-12-10</title>
+					</path>
+					<line x1="0" y1="3371" x2="2071" y2="3371"/>
+					<line x1="2071" y1="0" x2="2071" y2="3451"/>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
 </svg>

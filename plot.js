@@ -4,7 +4,7 @@ import serialize from "w3c-xmlserializer";
 const {JSDOM} = jsdom;
 const players = JSON.parse(await fs.promises.readFile("cache/players.json"));
 const leaderboards = JSON.parse(await fs.promises.readFile("cache/leaderboards.json"));
-const blocks = ["g", "path"];
+const blocks = ["foreignObject", "svg", "g", "path"];
 function indent(element, level, block) {
 	if (element == null) {
 		return;
@@ -68,7 +68,7 @@ function sortDatumDates(datumDates) {
 	});
 	return datumDates;
 }
-function plot(title, data, cumulative, extended, timed) {
+function plot(scope, title, data, cumulative, extended, timed) {
 	const sortedData = Object.fromEntries(sortData(Object.entries(data).map(([datum, dates]) => {
 		return [
 			datum,
@@ -103,15 +103,72 @@ function plot(title, data, cumulative, extended, timed) {
 	}
 	const maxDuration = Math.round((Date.parse(maxDate) - Date.parse(minDate)) / 86400000);
 	const {window} = new JSDOM(`\
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${maxDuration} ${maxValue}" preserveAspectRatio="none" lang="en" style="color-scheme: dark light;">
+<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
 	<title>${title}</title>
 	<style>
-		svg {
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
 			background: var(--canvas-background);
+			color: var(--canvas-foreground);
 			fill: var(--canvas-background);
 			stroke: var(--canvas-foreground);
 			stroke-linejoin: round;
 			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			inset: 0 auto auto 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg {
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+			padding: 10px;
+			border: 1px dashed var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
 		}
 		g &gt; path[tabindex] {
 			vector-effect: non-scaling-stroke;
@@ -182,16 +239,241 @@ function plot(title, data, cumulative, extended, timed) {
 			}
 		}
 	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("${scope}", documentUrl).pathname;
+			const playersKey = \`\${scope}#players\`;
+			const leaderboardsKey = \`\${scope}#leaderboards\`;
+			async function importDataScript(dataScriptUrl) {
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl);
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = \`callback\${Math.random() * 2 ** 53}\`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = \`\${dataScriptUrl}&amp;callback=\${name}\`;
+					function handleError(event) {
+						delete window[name];
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			document.addEventListener("DOMContentLoaded", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				const {players, leaderboards} = await (async () =&gt; {
+					try {
+						const cachedPlayers = sessionStorage.getItem(playersKey);
+						const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+						if (cachedPlayers == null || cachedLeaderboards == null) {
+							throw new Error();
+						}
+						const players = JSON.parse(cachedPlayers);
+						const leaderboards = JSON.parse(cachedLeaderboards);
+						return {players, leaderboards};
+					} catch {}
+					try {
+						const players = Object.create(null);
+						const leaderboards = Object.create(null);
+						const games = ["9d3rrxyd", "w6jl2ned"];
+						for (const gameId of games) {
+							const {data} = await importDataScript(\`https://www.speedrun.com/api/v1/games/\${gameId}?embed=categories,levels,variables\`);
+							const versions = data.variables.data.find((variable) =&gt; {
+								return variable.name === "Version";
+							});
+							const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+								return [level.id, level];
+							}));
+							const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+								return [category.id, category];
+							}));
+							const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+								return [variable.id, variable];
+							}));
+							console.log(\`Got game\`);
+							await new Promise((resolve) =&gt; {
+								setTimeout(resolve, 800);
+							});
+							const slice = 200;
+							for (let offset = 0;; offset += slice) {
+								const {data, pagination} = await importDataScript(\`https://www.speedrun.com/api/v1/runs?game=\${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=\${offset}&amp;max=\${slice}\`);
+								const {size} = pagination;
+								if (size === 0) {
+									break;
+								}
+								for (const run of data) {
+									const status = run.status.status;
+									if (status == null || status === "new") {
+										continue;
+									}
+									const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+									const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+									players[player] ??= playerName;
+									const level = run.level;
+									const category = run.category;
+									const values = Object.entries(run.values).filter(([variable]) =&gt; {
+										return variables[variable]?.["is-subcategory"] ?? false;
+									}).map(([variable, value]) =&gt; {
+										return \`-\${variable}.\${value}\`;
+									});
+									const leaderboard = \`\${level != null ? \`l_\${level}-\` : ""}\${category}\${values.join("")}\`;
+									const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+									const categoryName = categories[run.category]?.name ?? null;
+									const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+										return variables[variable]?.["is-subcategory"] ?? false;
+									}).map(([variable, value]) =&gt; {
+										return variables[variable]?.values.values[value]?.label ?? null;
+									}).filter((valueName) =&gt; {
+										return valueName != null;
+									});
+									const leaderboardName = \`\${levelName != null ? \`\${levelName}: \` : ""}\${categoryName ?? ""}\${values.length !== 0 ? \` - \${valueNames.join(", ")}\` : ""}\`;
+									leaderboards[leaderboard] ??= leaderboardName;
+								}
+								console.log(\`Got runs \${offset}-\${offset + size - 1}\`);
+								await new Promise((resolve) =&gt; {
+									setTimeout(resolve, 800);
+								});
+							}
+						}
+						try {
+							const cachedPlayers = JSON.stringify(players);
+							const cachedLeaderboards = JSON.stringify(leaderboards);
+							sessionStorage.setItem(playersKey, cachedPlayers);
+							sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+						} catch {}
+						return {players, leaderboards};
+					} catch {}
+					const players = null;
+					const leaderboards = null;
+					return {players, leaderboards};
+				})();
+				if (players == null || leaderboards == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return \` for player \${players[$1] ?? $1}\`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return \` for leaderboard \${leaderboards[$1] ?? $1}\`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
 </svg>
 `, {
 		contentType: "image/svg+xml",
 	});
 	const {document} = window;
-	const svg = document.documentElement;
+	const root = document.documentElement;
+	const foreignObject = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+	foreignObject.setAttribute("x", "0");
+	foreignObject.setAttribute("y", "0");
+	foreignObject.setAttribute("width", "100%");
+	foreignObject.setAttribute("height", "100%");
+	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	svg.setAttribute("viewBox", `0 0 ${maxDuration} ${maxValue}`);
+	svg.setAttribute("preserveAspectRatio", "none");
+	svg.setAttribute("overflow", "visible");
 	const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
 	const gCount = Object.keys(sortedData).length;
-	g.setAttribute("transform", `scale(1 -1)`);
-	g.setAttribute("transform-origin", `center center`);
+	g.setAttribute("transform", "scale(1 -1)");
+	g.setAttribute("transform-origin", "center center");
 	g.setAttribute("style", `--count: ${gCount};`);
 	let gIndex = 0;
 	for (const [datum, datumDates] of Object.entries(sortedData)) {
@@ -270,13 +552,15 @@ function plot(title, data, cumulative, extended, timed) {
 		++gIndex;
 	}
 	svg.append(g);
-	indent(g, 1, true);
-	const formattedData = serialize(svg, {
+	foreignObject.append(svg);
+	root.append(foreignObject);
+	indent(foreignObject, 1, true);
+	const formattedData = serialize(root, {
 		requireWellFormed: true,
 	});
 	return formattedData;
 }
-function plotRunCountByDatum(title, data) {
+function plotRunCountByDatum(scope, title, data) {
 	const newData = Object.create(null);
 	for (const [datum, datumDates] of Object.entries(data)) {
 		for (const [date, dateRuns] of Object.entries(datumDates)) {
@@ -290,10 +574,10 @@ function plotRunCountByDatum(title, data) {
 			}
 		}
 	}
-	const formattedData = plot(title, newData, true, true, false);
+	const formattedData = plot(scope, title, newData, true, true, false);
 	return formattedData;
 }
-function plotKeyCountByDatum(title, data, key) {
+function plotKeyCountByDatum(scope, title, data, key) {
 	const newData = Object.create(null);
 	for (const [datum, datumDates] of Object.entries(data)) {
 		const values = new Set();
@@ -311,10 +595,10 @@ function plotKeyCountByDatum(title, data, key) {
 			}
 		}
 	}
-	const formattedData = plot(title, newData, true, true, false);
+	const formattedData = plot(scope, title, newData, true, true, false);
 	return formattedData;
 }
-function plotTimeByDatumKey(title, datumDates, key) {
+function plotTimeByDatumKey(scope, title, datumDates, key) {
 	const keyData = Object.create(null);
 	for (const [date, dateRuns] of Object.entries(datumDates)) {
 		for (const run of dateRuns) {
@@ -337,10 +621,10 @@ function plotTimeByDatumKey(title, datumDates, key) {
 	if (Object.keys(keyData).length === 0) {
 		return null;
 	}
-	const formattedData = plot(title, keyData, false, false, true);
+	const formattedData = plot(scope, title, keyData, false, false, true);
 	return formattedData;
 }
-function plotRecordCountByPlayer(title, leaderboards) {
+function plotRecordCountByPlayer(scope, title, leaderboards) {
 	const players = Object.create(null);
 	for (const leaderboardDates of Object.values(leaderboards)) {
 		let minTime = null;
@@ -367,10 +651,10 @@ function plotRecordCountByPlayer(title, leaderboards) {
 			}
 		}
 	}
-	const formattedPlayers = plot(title, players, true, true, false);
+	const formattedPlayers = plot(scope, title, players, true, true, false);
 	return formattedPlayers;
 }
-function plotRecordTimeByLeaderboard(title, leaderboards) {
+function plotRecordTimeByLeaderboard(scope, title, leaderboards) {
 	const newLeaderboards = Object.create(null);
 	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
 		let minTime = null;
@@ -393,16 +677,16 @@ function plotRecordTimeByLeaderboard(title, leaderboards) {
 			}
 		}
 	}
-	const formattedLeaderboards = plot(title, newLeaderboards, false, false, true);
+	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true);
 	return formattedLeaderboards;
 }
-const formattedRunCountByPlayer = plotRunCountByDatum("Run count by player", players);
-const formattedRunCountByLeaderboard = plotRunCountByDatum("Run count by leaderboard", leaderboards);
-const formattedLeaderboardCountByPlayer = plotKeyCountByDatum("Leaderboard count by player", players, "leaderboard");
-const formattedPlayerCountByLeaderboard = plotKeyCountByDatum("Player count by leaderboard", leaderboards, "player");
+const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by player", players);
+const formattedRunCountByLeaderboard = plotRunCountByDatum("../", "Run count by leaderboard", leaderboards);
+const formattedLeaderboardCountByPlayer = plotKeyCountByDatum("../", "Leaderboard count by player", players, "leaderboard");
+const formattedPlayerCountByLeaderboard = plotKeyCountByDatum("../", "Player count by leaderboard", leaderboards, "player");
 const formattedTimeByLeaderboardByPlayer = Object.create(null);
 for (const [player, playerDates] of Object.entries(players)) {
-	const formattedTimeByLeaderboard = plotTimeByDatumKey(`Time by leaderboard for player ${player}`, playerDates, "leaderboard");
+	const formattedTimeByLeaderboard = plotTimeByDatumKey("../../", `Time by leaderboard for player ${player}`, playerDates, "leaderboard");
 	if (formattedTimeByLeaderboard == null) {
 		continue;
 	}
@@ -410,14 +694,14 @@ for (const [player, playerDates] of Object.entries(players)) {
 }
 const formattedTimeByPlayerByLeaderboard = Object.create(null);
 for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-	const formattedTimeByPlayer = plotTimeByDatumKey(`Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player");
+	const formattedTimeByPlayer = plotTimeByDatumKey("../../", `Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player");
 	if (formattedTimeByPlayer == null) {
 		continue;
 	}
 	formattedTimeByPlayerByLeaderboard[leaderboard] = formattedTimeByPlayer;
 }
-const formattedRecordCountByPlayer = plotRecordCountByPlayer("Record count by player", leaderboards);
-const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("Record time by leaderboard", leaderboards);
+const formattedRecordCountByPlayer = plotRecordCountByPlayer("../", "Record count by player", leaderboards);
+const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("../", "Record time by leaderboard", leaderboards);
 await fs.promises.mkdir("plot", {
 	recursive: true,
 });
