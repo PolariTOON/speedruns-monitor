@@ -719,10 +719,10 @@ await fs.promises.rm("plot/leaderboards", {
 await fs.promises.mkdir("plot/leaderboards", {
 	recursive: true,
 });
-await fs.promises.writeFile(`plot/player-leaderboards.svg`, `${formattedLeaderboardCountByPlayer}\n`);
-await fs.promises.writeFile(`plot/leaderboard-players.svg`, `${formattedPlayerCountByLeaderboard}\n`);
 await fs.promises.writeFile(`plot/player-runs.svg`, `${formattedRunCountByPlayer}\n`);
 await fs.promises.writeFile(`plot/leaderboard-runs.svg`, `${formattedRunCountByLeaderboard}\n`);
+await fs.promises.writeFile(`plot/player-leaderboards.svg`, `${formattedLeaderboardCountByPlayer}\n`);
+await fs.promises.writeFile(`plot/leaderboard-players.svg`, `${formattedPlayerCountByLeaderboard}\n`);
 for (const [player, formattedTimeByLeaderboard] of Object.entries(formattedTimeByLeaderboardByPlayer)) {
 	await fs.promises.writeFile(`plot/players/${player}-leaderboard-times.svg`, `${formattedTimeByLeaderboard}\n`);
 }
@@ -731,3 +731,37 @@ for (const [leaderboard, formattedTimeByPlayer] of Object.entries(formattedTimeB
 }
 await fs.promises.writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
 await fs.promises.writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
+await fs.promises.writeFile(`plot/readme.md`, `\
+# Plot
+
+- [Run count by player](player-runs.svg)
+- [Run count by leaderboard](leaderboard-runs.svg)
+- [Leaderboard count by player](player-leaderboards.svg)
+- [Player count by leaderboard](leaderboard-players.svg)
+- [Record count by player](player-records.svg)
+- [Record time by leaderboard](leaderboard-records.svg)
+- [Players](players)
+- [Leaderboards](leaderboards)
+`);
+await fs.promises.writeFile(`plot/players/readme.md`, `\
+# Players
+
+${sort(Object.keys(formattedTimeByLeaderboardByPlayer), (player) => {
+	return player;
+}).map((player) => {
+	return `\
+- [Time by leaderboard for player \`${player}\`](${player}-leaderboard-times.svg)
+`;
+}).join("")}\
+`);
+await fs.promises.writeFile(`plot/leaderboards/readme.md`, `\
+# Leaderboards
+
+${sort(Object.keys(formattedTimeByPlayerByLeaderboard), (leaderboard) => {
+	return !leaderboard.startsWith("l_") ? `l_-${leaderboard}` : leaderboard;
+}).map((leaderboard) => {
+	return `\
+- [Time by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-times.svg)
+`;
+}).join("")}\
+`);

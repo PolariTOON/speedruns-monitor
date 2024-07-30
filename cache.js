@@ -285,3 +285,10 @@ await fs.promises.writeFile(`cache/players-by-name.json`, `${JSON.stringify(play
 await fs.promises.writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards-by-id.json`, `${JSON.stringify(leaderboardsById, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/readme.md`, `\
+# Cache
+
+- [Dates](dates.json)
+- [Players](players.json)
+- [Leaderboards](leaderboards.json)
+`);

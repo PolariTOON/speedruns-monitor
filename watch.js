@@ -592,3 +592,9 @@ await fs.promises.mkdir("watch", {
 });
 await fs.promises.writeFile("watch/players.xhtml", `${formattedPlayers}\n`);
 await fs.promises.writeFile("watch/leaderboards.xhtml", `${formattedLeaderboards}\n`);
+await fs.promises.writeFile(`watch/readme.md`, `\
+# Watch
+
+- [Players](players.xhtml)
+- [Leaderboards](leaderboards.xhtml)
+`);
