@@ -124,7 +124,8 @@ function plot(scope, title, data, cumulative, extended, timed) {
 		}
 		foreignObject &gt; div {
 			position: absolute;
-			inset: 0 auto auto 0;
+			left: 0;
+			top: 0;
 			margin: 20px;
 			border: 1px solid var(--canvas-foreground);
 			background: var(--highlighted);

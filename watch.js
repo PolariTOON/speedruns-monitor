@@ -61,6 +61,23 @@ function watch(scope, title, data) {
 				width: min-content;
 				height: min-content;
 			}
+			:root::before,
+			:root::after {
+				content: "";
+				position: fixed;
+				z-index: 4;
+				left: 0;
+				top: 0;
+				background: var(--canvas-background);
+			}
+			:root::before {
+				width: 100%;
+				height: 20px;
+			}
+			:root::after {
+				width: 20px;
+				height: 100%;
+			}
 			body {
 				margin: 20px;
 				font: 16px / 1.25 serif;
@@ -69,7 +86,9 @@ function watch(scope, title, data) {
 			}
 			body &gt; div {
 				position: fixed;
-				inset: 0 auto auto 0;
+				z-index: 5;
+				left: 0;
+				top: 0;
 				margin: 20px;
 				border: 1px solid var(--canvas-foreground);
 				background: var(--highlighted);
@@ -109,22 +128,21 @@ function watch(scope, title, data) {
 			body &gt; table {
 				table-layout: fixed;
 				border-collapse: collapse;
-				background: var(--canvas-background);
 			}
-			col {
-				background: repeating-linear-gradient(45deg, var(--first-platform, #0000) 0 2px, var(--second-platform, #0000) 0 4px, var(--third-platform, #0000) 0 6px);
-			}
-			col[data-android] {
+			col[data-android],
+			th:not(:empty)[data-android] {
 				--first-platform: var(--android);
 			}
-			col[data-ios] {
+			col[data-ios],
+			th:not(:empty)[data-ios] {
 				--second-platform: var(--ios);
 			}
-			col[data-switch] {
+			col[data-switch],
+			th:not(:empty)[data-switch] {
 				--third-platform: var(--switch);
 			}
-			thead {
-				writing-mode: sideways-lr;
+			col {
+				background: repeating-linear-gradient(45deg, var(--first-platform, #0000) 0 2px, var(--second-platform, #0000) 0 4px, var(--third-platform, #0000) 0 6px) var(--canvas-background);
 			}
 			th,
 			td {
@@ -135,6 +153,12 @@ function watch(scope, title, data) {
 			}
 			th {
 				padding: 10px;
+			}
+			th:not(:empty) {
+				outline: 1px solid var(--canvas-foreground);
+				outline-offset: -.5px;
+				border: 1px solid #0000;
+				background: linear-gradient(var(--highlighted) 0 100%), repeating-linear-gradient(45deg, var(--first-platform, #0000) 0 2px, var(--second-platform, #0000) 0 4px, var(--third-platform, #0000) 0 6px) var(--canvas-background);
 			}
 			th:not(:empty)[data-android]:not([data-ios]):not([data-switch])::after {
 				content: " (" attr(data-android) ")";
@@ -157,15 +181,39 @@ function watch(scope, title, data) {
 			th:not(:empty)[data-android][data-ios][data-switch]::after {
 				content: " (" attr(data-android) ", " attr(data-ios) ", " attr(data-switch) ")";
 			}
+			th:empty {
+				outline: 1px dashed var(--canvas-foreground);
+				outline-offset: -.5px;
+				border: 1px dashed #0000;
+				background: var(--canvas-background);
+			}
+			th:not([scope]) {
+				position: sticky;
+				z-index: 4;
+				left: 20px;
+				top: 20px;
+			}
+			th[scope="row"],
+			th[scope="col"] {
+				position: sticky;
+				z-index: 3;
+			}
+			th[scope="row"] {
+				left: 20px;
+				top: auto;
+			}
+			th[scope="col"] {
+				left: auto;
+				top: 20px;
+				writing-mode: sideways-lr;
+			}
 			td {
 				padding: 0;
 			}
-			th:not(:empty),
 			td:not(:empty) {
 				border: 1px solid var(--canvas-foreground);
 				background: var(--highlighted);
 			}
-			th:empty,
 			td:empty:is(:not(:nth-child(1 of td:not(:empty)) ~ *), :nth-last-child(1 of td:not(:empty)) ~ *) {
 				border: 1px dashed var(--canvas-foreground);
 				background: var(--canvas-background);
@@ -669,9 +717,10 @@ function watch(scope, title, data) {
 	for (const [date, datePlatforms] of Object.entries(dates)) {
 		const col = document.createElement("col");
 		const th = document.createElement("th");
+		th.scope = "col";
 		th.textContent = date;
 		for (const platform of Object.keys(datePlatforms)) {
-			col.setAttribute(`data-${platform}`, datePlatforms[platform]);
+			col.setAttribute(`data-${platform}`, "");
 			th.setAttribute(`data-${platform}`, datePlatforms[platform]);
 		}
 		colbody.append(col);
@@ -681,6 +730,7 @@ function watch(scope, title, data) {
 	for (const [datum, datumDates] of Object.entries(data)) {
 		const tr = document.createElement("tr");
 		const th = document.createElement("th");
+		th.scope = "row";
 		th.textContent = datum;
 		tr.append(th);
 		let span = 0;
