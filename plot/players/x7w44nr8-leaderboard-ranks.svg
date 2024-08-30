@@ -368,6 +368,7 @@
 												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
 												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
 												players[player] ??= playerName;
+												const gui = run.weblink ?? null;
 												const level = run.level;
 												const category = run.category;
 												const values = Object.entries(run.values).filter(([variable]) =&gt; {
@@ -377,7 +378,27 @@
 												});
 												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
 												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
-												const categoryName = categories[run.category]?.name ?? null;
+												const categoryName = categories[run.category]?.name ?? (await (async () =&gt; {
+													if (gui == null) {
+														return null;
+													}
+													const response = await fetch(gui, {
+														signal,
+													});
+													if (!response.ok) {
+														return null;
+													}
+													const document = new DOMParser(await response.text(), "text/html");
+													const category = document.querySelector(".sm\\:grid-cols-3 .bg-yellow-700\\/20 .text-secondary");
+													if (category == null) {
+														return null;
+													}
+													const categoryName = category.textContent;
+													categories[run.category] ??= {
+														name: categoryName,
+													};
+													return categoryName;
+												})()) ?? null;
 												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
 													return variables[variable]?.["is-subcategory"] ?? false;
 												}).map(([variable, value]) =&gt; {

@@ -1,5 +1,7 @@
 import fs from "fs";
+import jsdom from "jsdom";
 import fetch from "node-fetch";
+const {JSDOM} = jsdom;
 const dates = Object.create(null);
 const players = Object.create(null);
 const playersById = Object.create(null);
@@ -54,7 +56,7 @@ for (const gameId of games) {
 				}
 				const date = run.date;
 				dates[date] ??= Object.create(null);
-				const [player, playerDates] = (() => {
+				const [player, playerDates] = await (async () => {
 					const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
 					const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
 					playersById[player] ??= playerName;
@@ -70,7 +72,7 @@ for (const gameId of games) {
 				const time = `${minutes ?? "--"}:${seconds ?? "--"}.${centiseconds ?? "--"}`;
 				const version = versions.values.values[run.values[versions.id]].label ?? null;
 				const platform = platforms[run.system.platform] ?? null;
-				const [leaderboard, leaderboardDates] = (() => {
+				const [leaderboard, leaderboardDates] = await (async () => {
 					const level = run.level;
 					const category = run.category;
 					const values = Object.entries(run.values).filter(([variable]) => {
@@ -80,7 +82,28 @@ for (const gameId of games) {
 					});
 					const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
 					const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
-					const categoryName = categories[run.category]?.name ?? null;
+					const categoryName = categories[run.category]?.name ?? (await (async () => {
+						if (gui == null) {
+							throw new Error();
+						}
+						const response = await fetch(gui);
+						if (!response.ok) {
+							throw new Error(response.statusText);
+						}
+						const {window} = new JSDOM(await response.text(), {
+							contentType: "text/html",
+						});
+						const {document} = window;
+						const category = document.querySelector(".sm\\:grid-cols-3 .bg-yellow-700\\/20 .text-secondary");
+						if (category == null) {
+							throw new Error();
+						}
+						const categoryName = category.textContent;
+						categories[run.category] ??= {
+							name: categoryName,
+						};
+						return categoryName;
+					})()) ?? null;
 					const valueNames = Object.entries(run.values).filter(([variable]) => {
 						return variables[variable]?.["is-subcategory"] ?? false;
 					}).map(([variable, value]) => {
