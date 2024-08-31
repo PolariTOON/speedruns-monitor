@@ -15,6 +15,8 @@
 - [Time by player for leaderboard `xd17x94d-9l71pv4l.zqo20y2l`](xd17x94d-9l71pv4l.zqo20y2l-player-times.svg)
 - [Time by player for leaderboard `xd1v018d-68k7x44l.mlno8vjq`](xd1v018d-68k7x44l.mlno8vjq-player-times.svg)
 - [Time by player for leaderboard `xd1v018d-68k7x44l.zqo74r41`](xd1v018d-68k7x44l.zqo74r41-player-times.svg)
+- [Time by player for leaderboard `zdn9m472-2lge53e8.q5v59jml`](zdn9m472-2lge53e8.q5v59jml-player-times.svg)
+- [Time by player for leaderboard `zdn9m472-2lge53e8.qzn0z9gq`](zdn9m472-2lge53e8.qzn0z9gq-player-times.svg)
 - [Time by player for leaderboard `l_495zlx39-9d8eewld-2lgr793n.21g8ownl`](l_495zlx39-9d8eewld-2lgr793n.21g8ownl-player-times.svg)
 - [Time by player for leaderboard `l_495zlx39-9d8eewld-2lgr793n.21gp48n1`](l_495zlx39-9d8eewld-2lgr793n.21gp48n1-player-times.svg)
 - [Time by player for leaderboard `l_495zlx39-9d8eewld-2lgr793n.4lxpe62q`](l_495zlx39-9d8eewld-2lgr793n.4lxpe62q-player-times.svg)

@@ -507,18 +507,50 @@
 		}
 	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%">
-		<svg viewBox="0 0 0 3079" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
+		<svg viewBox="0 0 693 4110" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 3;">
 				<g style="--index: 0;">
-					<path d="M0,3079" tabindex="0">
+					<path d="M0,3079L644,3079L644,2051L693,2051L693,1694" tabindex="0">
 						<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
 					</path>
-					<rect x="0" y="3079" width="0" height="0"/>
+					<rect x="0" y="1694" width="693" height="1385"/>
 					<path d="M0,3079L0,3079" tabindex="0">
 						<title>00:30.79 on 2022-08-07</title>
 					</path>
-					<line x1="0" y1="3079" x2="0" y2="3079"/>
-					<line x1="0" y1="0" x2="0" y2="3079"/>
+					<line x1="0" y1="3079" x2="693" y2="3079"/>
+					<line x1="0" y1="0" x2="0" y2="4110"/>
+					<path d="M644,2051L644,2051" tabindex="0">
+						<title>00:20.51 on 2024-05-12</title>
+					</path>
+					<line x1="0" y1="2051" x2="693" y2="2051"/>
+					<line x1="644" y1="0" x2="644" y2="4110"/>
+					<path d="M693,1694L693,1694" tabindex="0">
+						<title>00:16.94 on 2024-06-30</title>
+					</path>
+					<line x1="0" y1="1694" x2="693" y2="1694"/>
+					<line x1="693" y1="0" x2="693" y2="4110"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M692,1597" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+					</path>
+					<rect x="692" y="1597" width="0" height="0"/>
+					<path d="M692,1597L692,1597" tabindex="0">
+						<title>00:15.97 on 2024-06-29</title>
+					</path>
+					<line x1="0" y1="1597" x2="693" y2="1597"/>
+					<line x1="692" y1="0" x2="692" y2="4110"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M693,4110" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.qj7zdm3q</title>
+					</path>
+					<rect x="693" y="4110" width="0" height="0"/>
+					<path d="M693,4110L693,4110" tabindex="0">
+						<title>00:41.10 on 2024-06-30</title>
+					</path>
+					<line x1="0" y1="4110" x2="693" y2="4110"/>
+					<line x1="693" y1="0" x2="693" y2="4110"/>
 				</g>
 			</g>
 		</svg>
