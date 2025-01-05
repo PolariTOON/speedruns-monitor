@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 	<head>
-		<title>Leaderboards</title>
+		<title>Submissions by leaderboard</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="color-scheme" content="dark light" />
@@ -598,8 +598,8 @@
 						return;
 					}
 					const {players, leaderboards} = session;
-					const hasPlayerThs = titleContent === "Players";
-					const hasLeaderboardThs = titleContent === "Leaderboards";
+					const hasPlayerThs = titleContent.includes(" by player");
+					const hasLeaderboardThs = titleContent.includes(" by leaderboard");
 					const ths = thElements.map((thElement, k) =&gt; {
 						const thContent = thContents[k];
 						const th = {

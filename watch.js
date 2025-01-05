@@ -43,7 +43,39 @@ function indent(element, level, block) {
 		element = element.nextElementSibling;
 	}
 }
+function sort(array, hash) {
+	array.sort((a, b) => {
+		const aHash = hash(a);
+		const bHash = hash(b);
+		if (aHash < bHash) {
+			return -1;
+		}
+		if (aHash > bHash) {
+			return 1;
+		}
+		return 0;
+	});
+	return array;
+}
+function sortData(data) {
+	sort(data, (datum) => {
+		return Object.keys(datum[1])[0];
+	});
+	return data;
+}
+function sortDatumDates(datumDates) {
+	sort(datumDates, (datumDate) => {
+		return datumDate[0];
+	});
+	return datumDates;
+}
 function watch(scope, title, data) {
+	const sortedData = Object.fromEntries(sortData(Object.entries(data).map(([datum, dates]) => {
+		return [
+			datum,
+			Object.fromEntries(sortDatumDates(Object.entries(dates))),
+		];
+	})));
 	const {window} = new JSDOM(`\
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 	<head>
@@ -645,8 +677,8 @@ function watch(scope, title, data) {
 						return;
 					}
 					const {players, leaderboards} = session;
-					const hasPlayerThs = titleContent === "Players";
-					const hasLeaderboardThs = titleContent === "Leaderboards";
+					const hasPlayerThs = titleContent.includes(" by player");
+					const hasLeaderboardThs = titleContent.includes(" by leaderboard");
 					const ths = thElements.map((thElement, k) =&gt; {
 						const thContent = thContents[k];
 						const th = {
@@ -727,7 +759,7 @@ function watch(scope, title, data) {
 		tr.append(th);
 	}
 	thead.append(tr);
-	for (const [datum, datumDates] of Object.entries(data)) {
+	for (const [datum, datumDates] of Object.entries(sortedData)) {
 		const tr = document.createElement("tr");
 		const th = document.createElement("th");
 		th.scope = "row";
@@ -790,16 +822,43 @@ function watch(scope, title, data) {
 	});
 	return formattedData;
 }
-const formattedPlayers = watch("../", "Players", players);
-const formattedLeaderboards = watch("../", "Leaderboards", leaderboards);
+function watchRuns(scope, title, data) {
+	const newData = Object.create(null);
+	for (const [datum, datumDates] of Object.entries(data)) {
+		for (const [date, dateRuns] of Object.entries(datumDates)) {
+			for (const run of dateRuns) {
+				if (run.status !== "verified") {
+					continue;
+				}
+				const newDatumDates = newData[datum] ??= Object.create(null);
+				newDatumDates[date] ??= [];
+				newDatumDates[date].push(run);
+			}
+		}
+	}
+	const formattedData = watch(scope, title, newData);
+	return formattedData;
+}
+function watchSubmissions(scope, title, data) {
+	const formattedData = watch(scope, title, data);
+	return formattedData;
+}
+const formattedRunsByPlayer = watchRuns("../", "Runs by player", players);
+const formattedRunsByLeaderboard = watchRuns("../", "Runs by leaderboard", leaderboards);
+const formattedSubmissionsByPlayer = watchSubmissions("../", "Submissions by player", players);
+const formattedSubmissionsByLeaderboard = watchSubmissions("../", "Submissions by leaderboard", leaderboards);
 await fs.promises.mkdir("watch", {
 	recursive: true,
 });
-await fs.promises.writeFile("watch/players.xhtml", `${formattedPlayers}\n`);
-await fs.promises.writeFile("watch/leaderboards.xhtml", `${formattedLeaderboards}\n`);
+await fs.promises.writeFile("watch/player-runs.xhtml", `${formattedRunsByPlayer}\n`);
+await fs.promises.writeFile("watch/leaderboard-runs.xhtml", `${formattedRunsByLeaderboard}\n`);
+await fs.promises.writeFile("watch/player-submissions.xhtml", `${formattedSubmissionsByPlayer}\n`);
+await fs.promises.writeFile("watch/leaderboard-submissions.xhtml", `${formattedSubmissionsByLeaderboard}\n`);
 await fs.promises.writeFile(`watch/readme.md`, `\
 # Watch
 
-- [Players](players.xhtml)
-- [Leaderboards](leaderboards.xhtml)
+- [Runs by player](player-runs.xhtml)
+- [Runs by leaderboard](leaderboard-runs.xhtml)
+- [Submissions by player](player-submissions.xhtml)
+- [Submissions by leaderboard](leaderboard-submissions.xhtml)
 `);
