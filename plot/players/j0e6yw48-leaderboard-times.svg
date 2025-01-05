@@ -507,18 +507,39 @@
 		}
 	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%">
-		<svg viewBox="0 0 0 1010" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
+		<svg viewBox="0 0 18 1010" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 				<g style="--index: 0;">
-					<path d="M0,1010" tabindex="0">
+					<path d="M0,1010L6,1010L6,944" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 					</path>
-					<rect x="0" y="1010" width="0" height="0"/>
+					<rect x="0" y="944" width="6" height="66"/>
 					<path d="M0,1010L0,1010" tabindex="0">
 						<title>00:10.10 on 2024-08-29</title>
 					</path>
-					<line x1="0" y1="1010" x2="0" y2="1010"/>
+					<line x1="0" y1="1010" x2="18" y2="1010"/>
 					<line x1="0" y1="0" x2="0" y2="1010"/>
+					<path d="M6,944L6,944" tabindex="0">
+						<title>00:09.44 on 2024-09-04</title>
+					</path>
+					<line x1="0" y1="944" x2="18" y2="944"/>
+					<line x1="6" y1="0" x2="6" y2="1010"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M8,844L18,844L18,813" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
+					</path>
+					<rect x="8" y="813" width="10" height="31"/>
+					<path d="M8,844L8,844" tabindex="0">
+						<title>00:08.44 on 2024-09-06</title>
+					</path>
+					<line x1="0" y1="844" x2="18" y2="844"/>
+					<line x1="8" y1="0" x2="8" y2="1010"/>
+					<path d="M18,813L18,813" tabindex="0">
+						<title>00:08.13 on 2024-09-16</title>
+					</path>
+					<line x1="0" y1="813" x2="18" y2="813"/>
+					<line x1="18" y1="0" x2="18" y2="1010"/>
 				</g>
 			</g>
 		</svg>

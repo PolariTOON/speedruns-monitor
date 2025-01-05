@@ -507,21 +507,26 @@
 		}
 	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%">
-		<svg viewBox="0 0 388 2" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 3;">
+		<svg viewBox="0 0 605 3" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 4;">
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,0L6,0L6,0L100,0L100,0L221,0L221,1L388,1L388,2L388,2" tabindex="0">
+					<path d="M0,0L0,0L0,0L6,0L6,0L100,0L100,0L221,0L221,1L388,1L388,2L605,2L605,3L605,3" tabindex="0">
 						<title>810y31qx</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,1L221,1L221,0L388,0" tabindex="0">
+					<path d="M0,1L221,1L221,0L605,0L605,1L605,1" tabindex="0">
 						<title>x356nrej</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,2L226,2L226,2L388,2L388,1L388,1" tabindex="0">
+					<path d="M0,2L226,2L226,2L388,2L388,1L605,1L605,2L605,2" tabindex="0">
 						<title>8w3l21qj</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,3L605,3L605,0L605,0" tabindex="0">
+						<title>0jmw6wex</title>
 					</path>
 				</g>
 			</g>

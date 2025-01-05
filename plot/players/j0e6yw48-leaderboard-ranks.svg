@@ -507,11 +507,16 @@
 		}
 	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%">
-		<svg viewBox="0 0 0 161" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
+		<svg viewBox="0 0 100 161" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 				<g style="--index: 0;">
-					<path d="M0,161L0,161L0,57L0,57" tabindex="0">
+					<path d="M0,161L0,161L0,57L2,57L2,58L6,58L6,29L52,29L52,30L58,30L58,31L66,31L66,32L74,32L74,33L79,33L79,34L87,34L87,35L100,35L100,36L100,36" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,56L8,56L8,9L18,9L18,7L100,7" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
 					</path>
 				</g>
 			</g>

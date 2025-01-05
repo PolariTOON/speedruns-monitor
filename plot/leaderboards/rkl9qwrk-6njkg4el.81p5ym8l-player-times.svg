@@ -507,8 +507,8 @@
 		}
 	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%">
-		<svg viewBox="0 0 0 4406" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
+		<svg viewBox="0 0 690 5774" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 				<g style="--index: 0;">
 					<path d="M0,4406" tabindex="0">
 						<title>x356nrej</title>
@@ -517,8 +517,19 @@
 					<path d="M0,4406L0,4406" tabindex="0">
 						<title>00:44.06 on 2023-02-10</title>
 					</path>
-					<line x1="0" y1="4406" x2="0" y2="4406"/>
-					<line x1="0" y1="0" x2="0" y2="4406"/>
+					<line x1="0" y1="4406" x2="690" y2="4406"/>
+					<line x1="0" y1="0" x2="0" y2="5774"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M690,5774" tabindex="0">
+						<title>86p0vvqj</title>
+					</path>
+					<rect x="690" y="5774" width="0" height="0"/>
+					<path d="M690,5774L690,5774" tabindex="0">
+						<title>00:57.74 on 2024-12-31</title>
+					</path>
+					<line x1="0" y1="5774" x2="690" y2="5774"/>
+					<line x1="690" y1="0" x2="690" y2="5774"/>
 				</g>
 			</g>
 		</svg>

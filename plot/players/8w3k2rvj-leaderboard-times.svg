@@ -507,18 +507,23 @@
 		}
 	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%">
-		<svg viewBox="0 0 0 91579" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 511 91579" preserveAspectRatio="none" overflow="visible">
 			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
 				<g style="--index: 0;">
-					<path d="M0,91579" tabindex="0">
+					<path d="M0,91579L511,91579L511,75697" tabindex="0">
 						<title>xd17x94d-9l71pv4l.21gpn081</title>
 					</path>
-					<rect x="0" y="91579" width="0" height="0"/>
+					<rect x="0" y="75697" width="511" height="15882"/>
 					<path d="M0,91579L0,91579" tabindex="0">
 						<title>15:15.79 on 2023-05-06</title>
 					</path>
-					<line x1="0" y1="91579" x2="0" y2="91579"/>
+					<line x1="0" y1="91579" x2="511" y2="91579"/>
 					<line x1="0" y1="0" x2="0" y2="91579"/>
+					<path d="M511,75697L511,75697" tabindex="0">
+						<title>12:36.97 on 2024-09-28</title>
+					</path>
+					<line x1="0" y1="75697" x2="511" y2="75697"/>
+					<line x1="511" y1="0" x2="511" y2="91579"/>
 				</g>
 			</g>
 		</svg>
