@@ -1,0 +1,935 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
+	<title>Rank by player for leaderboard xd17x94d-9l71pv4l.21gpn081</title>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
+			background: var(--canvas-background);
+			color: var(--canvas-foreground);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg {
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+			padding: 10px;
+			border: 1px dashed var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--highlighted: #6663;
+				--faded: #9993;
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--highlighted: #9993;
+				--faded: #6663;
+			}
+		}
+	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleError(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
+								});
+							}
+							break;
+						}
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
+				})();
+				await promise;
+				if (session == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const {players, leaderboards} = session;
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%">
+		<svg viewBox="0 0 657 83" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 84;">
+				<g style="--index: 0;">
+					<path d="M0,0L0,0L0,0L2,0L2,1L25,1L25,2L73,2L73,3L78,3L78,4L115,4L115,5L135,5L135,6L162,6L162,7L357,7L357,8L385,8L385,9L547,9L547,10L559,10L559,11L617,11L617,12L624,12L624,13L651,13L651,14L657,14" tabindex="0">
+						<title>x356nrej</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,1L1,1L1,1L2,1L2,2L25,2L25,3L73,3L73,4L78,4L78,6L135,6L135,7L162,7L162,8L175,8L175,9L211,9L211,10L250,10L250,11L267,11L267,12L319,12L319,13L337,13L337,14L340,14L340,15L343,15L343,16L356,16L356,17L385,17L385,18L487,18L487,19L496,19L496,20L497,20L497,21L546,21L546,22L617,22L617,23L624,23L624,24L650,24L650,25L657,25" tabindex="0">
+						<title>jnzen32j</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,2L2,2L2,0L135,0L135,1L164,1L164,2L181,2L181,0L184,0L184,0L220,0L220,1L396,1L396,1L398,1L398,1L657,1" tabindex="0">
+						<title>0jmw6wex</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,3L15,3L15,3L22,3L22,3L24,3L24,3L25,3L25,4L73,4L73,5L78,5L78,7L135,7L135,8L162,8L162,9L175,9L175,10L211,10L211,11L222,11L222,12L267,12L267,13L319,13L319,14L328,14L328,15L337,15L337,16L343,16L343,17L349,17L349,18L385,18L385,19L487,19L487,20L496,20L496,21L497,21L497,22L546,22L546,23L617,23L617,24L624,24L624,25L650,25L650,26L657,26" tabindex="0">
+						<title>j5v07yg8</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,4L20,4L20,4L25,4L25,5L27,5L27,6L28,6L28,7L29,7L29,8L32,8L32,9L37,9L37,10L38,10L38,11L68,11L68,12L71,12L71,13L72,13L72,14L73,14L73,15L78,15L78,16L121,16L121,17L122,17L122,18L125,18L125,19L131,19L131,20L135,20L135,21L139,21L139,22L149,22L149,23L151,23L151,24L158,24L158,25L162,25L162,26L169,26L169,27L175,27L175,28L198,28L198,29L204,29L204,30L208,30L208,31L216,31L216,32L218,32L218,33L222,33L222,34L236,34L236,36L249,36L249,37L255,37L255,38L267,38L267,39L269,39L269,40L283,40L283,41L319,41L319,42L323,42L323,44L328,44L328,45L330,45L330,46L337,46L337,47L343,47L343,48L349,48L349,49L365,49L365,50L370,50L370,51L378,51L378,52L385,52L385,53L391,53L391,54L434,54L434,55L479,55L479,56L496,56L496,57L497,57L497,59L501,59L501,60L514,60L514,61L538,61L538,62L539,62L539,63L544,63L544,65L546,65L546,66L561,66L561,67L565,67L565,68L583,68L583,69L591,69L591,70L610,70L610,71L617,71L617,72L624,72L624,73L626,73L626,74L650,74L650,75L651,75L651,76L657,76L657,77L657,77" tabindex="0">
+						<title>j4rp9rv8</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,5L21,5L21,5L25,5L25,6L27,6L27,7L28,7L28,5L29,5L29,6L38,6L38,7L68,7L68,8L73,8L73,9L78,9L78,11L121,11L121,12L135,12L135,13L140,13L140,14L151,14L151,15L158,15L158,16L162,16L162,17L175,17L175,18L198,18L198,19L222,19L222,20L236,20L236,21L267,21L267,22L269,22L269,23L319,23L319,24L326,24L326,25L328,25L328,26L330,26L330,27L337,27L337,28L343,28L343,29L349,29L349,30L385,30L385,31L395,31L395,32L496,32L496,33L497,33L497,34L539,34L539,35L544,35L544,36L546,36L546,37L565,37L565,38L591,38L591,39L593,39L593,40L607,40L607,41L610,41L610,42L617,42L617,43L624,43L624,44L650,44L650,45L651,45L651,46L657,46L657,47L657,47" tabindex="0">
+						<title>8d0yd3gx</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,6L25,6L25,1L73,1L73,2L78,2L78,3L135,3L135,4L161,4L161,5L162,5L162,6L357,6L357,7L385,7L385,8L547,8L547,9L559,9L559,10L617,10L617,11L624,11L624,12L651,12L651,13L657,13" tabindex="0">
+						<title>j4235d5x</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,7L27,7L27,5L28,5L28,6L29,6L29,7L38,7L38,8L68,8L68,9L73,9L73,10L78,10L78,12L121,12L121,13L135,13L135,14L140,14L140,15L151,15L151,16L158,16L158,17L162,17L162,18L175,18L175,19L198,19L198,20L222,20L222,21L236,21L236,22L267,22L267,23L269,23L269,24L319,24L319,25L326,25L326,26L328,26L328,27L330,27L330,28L337,28L337,29L343,29L343,30L349,30L349,31L385,31L385,32L395,32L395,33L479,33L479,34L496,34L496,35L497,35L497,36L539,36L539,37L544,37L544,38L546,38L546,39L565,39L565,40L591,40L591,41L593,41L593,42L607,42L607,43L610,43L610,44L617,44L617,45L624,45L624,46L650,46L650,47L651,47L651,48L657,48L657,49L657,49" tabindex="0">
+						<title>xzlq2908</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,8L28,8L28,8L29,8L29,9L32,9L32,10L37,10L37,11L38,11L38,12L68,12L68,13L70,13L70,14L72,14L72,15L73,15L73,16L78,16L78,17L121,17L121,18L122,18L122,19L125,19L125,20L131,20L131,21L135,21L135,22L139,22L139,23L149,23L149,24L151,24L151,25L158,25L158,26L162,26L162,27L169,27L169,28L175,28L175,29L198,29L198,30L204,30L204,31L208,31L208,32L216,32L216,33L218,33L218,34L222,34L222,35L225,35L225,36L231,36L231,37L236,37L236,39L249,39L249,40L255,40L255,41L261,41L261,42L267,42L267,43L269,43L269,44L276,44L276,45L283,45L283,46L319,46L319,47L323,47L323,49L328,49L328,50L330,50L330,51L337,51L337,52L343,52L343,53L349,53L349,54L365,54L365,55L370,55L370,56L378,56L378,57L385,57L385,58L391,58L391,59L434,59L434,60L479,60L479,61L496,61L496,62L497,62L497,64L501,64L501,65L514,65L514,66L538,66L538,67L539,67L539,68L544,68L544,70L546,70L546,71L561,71L561,72L565,72L565,73L583,73L583,74L591,74L591,75L610,75L610,76L617,76L617,77L624,77L624,78L626,78L626,79L650,79L650,80L651,80L651,81L657,81L657,82L657,82" tabindex="0">
+						<title>8g0zk42x</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,9L29,9L29,5L38,5L38,6L68,6L68,7L73,7L73,8L78,8L78,10L121,10L121,11L135,11L135,12L140,12L140,13L151,13L151,14L162,14L162,15L175,15L175,16L198,16L198,17L222,17L222,18L236,18L236,19L267,19L267,20L269,20L269,21L319,21L319,22L328,22L328,23L333,23L333,24L337,24L337,25L343,25L343,26L349,26L349,27L385,27L385,28L395,28L395,29L496,29L496,30L497,30L497,31L544,31L544,32L546,32L546,33L591,33L591,34L593,34L593,35L607,35L607,36L610,36L610,37L617,37L617,38L624,38L624,39L650,39L650,40L651,40L651,41L657,41L657,42L657,42" tabindex="0">
+						<title>8lonqn28</title>
+					</path>
+				</g>
+				<g style="--index: 10;">
+					<path d="M0,10L32,10L32,8L38,8L38,9L68,9L68,10L71,10L71,11L72,11L72,12L73,12L73,13L78,13L78,14L121,14L121,15L122,15L122,16L125,16L125,17L131,17L131,18L135,18L135,19L139,19L139,20L149,20L149,21L151,21L151,22L158,22L158,23L162,23L162,24L169,24L169,25L175,25L175,26L198,26L198,27L208,27L208,28L222,28L222,29L236,29L236,31L255,31L255,32L267,32L267,33L269,33L269,34L283,34L283,35L319,35L319,36L323,36L323,38L328,38L328,39L330,39L330,40L337,40L337,41L343,41L343,42L349,42L349,43L365,43L365,44L370,44L370,45L378,45L378,46L385,46L385,47L391,47L391,48L434,48L434,49L479,49L479,50L496,50L496,51L497,51L497,52L498,52L498,53L514,53L514,54L539,54L539,55L544,55L544,57L546,57L546,58L561,58L561,59L565,59L565,60L583,60L583,61L591,61L591,62L610,62L610,63L617,63L617,64L624,64L624,65L650,65L650,66L651,66L651,67L657,67L657,68L657,68" tabindex="0">
+						<title>jp672g58</title>
+					</path>
+				</g>
+				<g style="--index: 11;">
+					<path d="M0,11L37,11L37,9L38,9L38,10L68,10L68,11L71,11L71,12L72,12L72,13L73,13L73,14L78,14L78,15L121,15L121,16L122,16L122,17L125,17L125,18L131,18L131,19L135,19L135,20L139,20L139,21L149,21L149,22L151,22L151,23L158,23L158,24L162,24L162,25L169,25L169,26L175,26L175,27L198,27L198,28L208,28L208,29L222,29L222,30L236,30L236,32L255,32L255,33L267,33L267,34L269,34L269,35L283,35L283,36L319,36L319,37L323,37L323,39L328,39L328,40L330,40L330,41L337,41L337,42L343,42L343,43L349,43L349,44L365,44L365,45L370,45L370,46L378,46L378,47L385,47L385,48L391,48L391,49L434,49L434,50L479,50L479,51L496,51L496,52L497,52L497,53L498,53L498,54L501,54L501,55L514,55L514,56L539,56L539,57L544,57L544,59L546,59L546,60L561,60L561,61L565,61L565,62L583,62L583,63L591,63L591,64L610,64L610,65L617,65L617,66L624,66L624,67L650,67L650,68L651,68L651,69L657,69L657,70L657,70" tabindex="0">
+						<title>8qoz5eoj</title>
+					</path>
+				</g>
+				<g style="--index: 12;">
+					<path d="M0,12L38,12L38,5L73,5L73,6L78,6L78,8L135,8L135,9L162,9L162,10L175,10L175,11L211,11L211,12L222,12L222,13L267,13L267,14L319,14L319,15L328,15L328,16L337,16L337,17L343,17L343,18L349,18L349,19L385,19L385,20L487,20L487,21L496,21L496,22L497,22L497,23L546,23L546,24L617,24L617,25L624,25L624,26L650,26L650,27L651,27L651,28L657,28" tabindex="0">
+						<title>86r57mp8</title>
+					</path>
+				</g>
+				<g style="--index: 13;">
+					<path d="M0,13L68,13L68,6L73,6L73,7L78,7L78,9L121,9L121,10L135,10L135,11L151,11L151,12L162,12L162,13L175,13L175,14L198,14L198,15L222,15L222,16L267,16L267,17L269,17L269,18L319,18L319,19L328,19L328,20L333,20L333,21L337,21L337,22L343,22L343,23L349,23L349,24L385,24L385,25L395,25L395,26L496,26L496,27L497,27L497,28L546,28L546,29L591,29L591,30L593,30L593,31L617,31L617,32L624,32L624,33L650,33L650,34L651,34L651,35L657,35L657,36L657,36" tabindex="0">
+						<title>jmz4n7ox</title>
+					</path>
+				</g>
+				<g style="--index: 14;">
+					<path d="M0,14L70,14L70,13L71,13L71,10L72,10L72,11L73,11L73,12L78,12L78,5L110,5L110,5L115,5L115,4L135,4L135,5L161,5L161,3L162,3L162,4L262,4L262,5L395,5L395,6L604,6L604,7L617,7L617,8L624,8L624,9L629,9L629,10L653,10L653,11L657,11" tabindex="0">
+						<title>810y31qx</title>
+					</path>
+				</g>
+				<g style="--index: 15;">
+					<path d="M0,15L72,15L72,10L73,10L73,11L78,11L78,13L121,13L121,14L135,14L135,15L140,15L140,16L151,16L151,17L158,17L158,18L162,18L162,19L175,19L175,20L198,20L198,21L222,21L222,22L236,22L236,23L267,23L267,24L269,24L269,25L319,25L319,26L326,26L326,27L328,27L328,28L330,28L330,29L337,29L337,30L343,30L343,31L349,31L349,32L385,32L385,33L395,33L395,34L479,34L479,35L496,35L496,36L497,36L497,37L539,37L539,38L544,38L544,39L546,39L546,40L565,40L565,41L591,41L591,42L593,42L593,43L607,43L607,44L610,44L610,45L617,45L617,46L624,46L624,47L650,47L650,48L651,48L651,49L657,49L657,50L657,50" tabindex="0">
+						<title>j20rw5lx</title>
+					</path>
+				</g>
+				<g style="--index: 16;">
+					<path d="M0,16L73,16L73,1L74,1L74,1L135,1L135,2L162,2L162,3L263,3L263,4L617,4L617,5L629,5L629,7L633,7L633,8L653,8L653,9L657,9" tabindex="0">
+						<title>jongn6l8</title>
+					</path>
+				</g>
+				<g style="--index: 17;">
+					<path d="M0,17L78,17L78,2L135,2L135,3L161,3L161,4L162,4L162,5L262,5L262,4L263,4L263,3L630,3L630,3L636,3L636,4L657,4" tabindex="0">
+						<title>x3wdlvkj</title>
+					</path>
+				</g>
+				<g style="--index: 18;">
+					<path d="M0,18L121,18L121,9L135,9L135,10L151,10L151,11L162,11L162,12L175,12L175,13L198,13L198,14L222,14L222,15L267,15L267,16L269,16L269,17L319,17L319,18L328,18L328,19L333,19L333,20L337,20L337,21L343,21L343,22L349,22L349,23L385,23L385,24L395,24L395,25L496,25L496,26L497,26L497,27L546,27L546,28L591,28L591,29L593,29L593,30L617,30L617,31L624,31L624,32L650,32L650,33L651,33L651,34L657,34L657,35L657,35" tabindex="0">
+						<title>jnplq5q8</title>
+					</path>
+				</g>
+				<g style="--index: 19;">
+					<path d="M0,19L122,19L122,15L125,15L125,16L131,16L131,17L135,17L135,18L139,18L139,19L149,19L149,20L151,20L151,21L158,21L158,22L162,22L162,23L169,23L169,24L175,24L175,25L198,25L198,26L208,26L208,27L222,27L222,28L236,28L236,30L255,30L255,31L267,31L267,32L269,32L269,33L283,33L283,34L319,34L319,35L323,35L323,37L328,37L328,38L330,38L330,39L337,39L337,40L343,40L343,41L349,41L349,42L365,42L365,43L378,43L378,44L385,44L385,45L395,45L395,46L434,46L434,47L479,47L479,48L496,48L496,49L497,49L497,50L498,50L498,51L514,51L514,52L539,52L539,53L544,53L544,54L546,54L546,55L561,55L561,56L565,56L565,57L583,57L583,58L591,58L591,59L610,59L610,60L617,60L617,61L624,61L624,62L650,62L650,63L651,63L651,64L657,64L657,65L657,65" tabindex="0">
+						<title>xyoeokzj</title>
+					</path>
+				</g>
+				<g style="--index: 20;">
+					<path d="M0,20L125,20L125,15L132,15L132,16L135,16L135,17L151,17L151,18L158,18L158,19L162,19L162,20L169,20L169,21L175,21L175,22L198,22L198,23L222,23L222,24L236,24L236,26L255,26L255,27L267,27L267,28L269,28L269,29L319,29L319,30L323,30L323,31L326,31L326,32L328,32L328,33L330,33L330,34L337,34L337,35L343,35L343,36L349,36L349,37L365,37L365,38L378,38L378,39L385,39L385,40L395,40L395,41L479,41L479,42L496,42L496,43L497,43L497,44L539,44L539,45L544,45L544,46L546,46L546,47L565,47L565,48L591,48L591,49L593,49L593,50L607,50L607,51L610,51L610,52L617,52L617,53L624,53L624,54L650,54L650,55L651,55L651,56L657,56L657,57L657,57" tabindex="0">
+						<title>810zqr3x</title>
+					</path>
+				</g>
+				<g style="--index: 21;">
+					<path d="M0,21L131,21L131,16L132,16L132,15L135,15L135,16L140,16L140,12L151,12L151,13L162,13L162,14L175,14L175,15L198,15L198,16L222,16L222,17L236,17L236,18L267,18L267,19L269,19L269,20L319,20L319,21L328,21L328,22L333,22L333,23L337,23L337,24L343,24L343,25L349,25L349,26L385,26L385,27L395,27L395,28L496,28L496,29L497,29L497,30L544,30L544,31L546,31L546,32L591,32L591,33L593,33L593,34L610,34L610,35L617,35L617,36L624,36L624,37L650,37L650,38L651,38L651,39L657,39L657,40L657,40" tabindex="0">
+						<title>j20z7nox</title>
+					</path>
+				</g>
+				<g style="--index: 22;">
+					<path d="M0,22L135,22L135,0L149,0L149,0L164,0L164,1L165,1L165,0L181,0L181,1L220,1L220,0L657,0" tabindex="0">
+						<title>jn2m23wj</title>
+					</path>
+				</g>
+				<g style="--index: 23;">
+					<path d="M0,23L139,23L139,18L151,18L151,19L158,19L158,20L162,20L162,21L169,21L169,22L175,22L175,23L198,23L198,24L222,24L222,25L236,25L236,27L255,27L255,28L267,28L267,29L269,29L269,30L319,30L319,31L323,31L323,32L326,32L326,33L328,33L328,34L330,34L330,35L337,35L337,36L343,36L343,37L349,37L349,38L365,38L365,39L378,39L378,40L385,40L385,41L395,41L395,42L479,42L479,43L496,43L496,44L497,44L497,45L514,45L514,46L539,46L539,47L544,47L544,48L546,48L546,49L561,49L561,50L565,50L565,51L591,51L591,52L593,52L593,53L610,53L610,54L617,54L617,55L624,55L624,56L650,56L650,57L651,57L651,58L657,58L657,59L657,59" tabindex="0">
+						<title>x3wkwd6j</title>
+					</path>
+				</g>
+				<g style="--index: 24;">
+					<path d="M0,24L149,24L149,19L151,19L151,20L158,20L158,21L162,21L162,22L169,22L169,23L175,23L175,24L198,24L198,25L208,25L208,26L222,26L222,27L236,27L236,29L255,29L255,30L267,30L267,31L269,31L269,32L283,32L283,33L319,33L319,34L323,34L323,35L326,35L326,36L328,36L328,37L330,37L330,38L337,38L337,39L343,39L343,40L349,40L349,41L365,41L365,42L378,42L378,43L385,43L385,44L395,44L395,45L479,45L479,46L496,46L496,47L497,47L497,48L514,48L514,49L539,49L539,50L544,50L544,51L546,51L546,52L561,52L561,53L565,53L565,54L591,54L591,55L593,55L593,56L610,56L610,57L617,57L617,58L624,58L624,59L650,59L650,60L651,60L651,61L657,61L657,62L657,62" tabindex="0">
+						<title>81071rrx</title>
+					</path>
+				</g>
+				<g style="--index: 25;">
+					<path d="M0,25L151,25L151,10L162,10L162,11L175,11L175,12L198,12L198,13L222,13L222,14L267,14L267,15L319,15L319,16L328,16L328,17L333,17L333,18L337,18L337,19L343,19L343,20L349,20L349,21L385,21L385,22L395,22L395,23L496,23L496,24L497,24L497,25L546,25L546,26L591,26L591,27L593,27L593,28L617,28L617,29L624,29L624,30L650,30L650,31L651,31L651,32L657,32L657,33L657,33" tabindex="0">
+						<title>j9pmw1nx</title>
+					</path>
+				</g>
+				<g style="--index: 26;">
+					<path d="M0,26L158,26L158,15L162,15L162,16L175,16L175,17L198,17L198,18L222,18L222,19L236,19L236,20L267,20L267,21L269,21L269,22L319,22L319,23L326,23L326,24L328,24L328,25L337,25L337,26L343,26L343,27L349,27L349,28L385,28L385,29L395,29L395,30L496,30L496,31L497,31L497,32L539,32L539,33L544,33L544,34L546,34L546,35L565,35L565,36L591,36L591,37L593,37L593,38L607,38L607,39L610,39L610,40L617,40L617,41L624,41L624,42L650,42L650,43L651,43L651,44L657,44L657,45L657,45" tabindex="0">
+						<title>8ewdk0d8</title>
+					</path>
+				</g>
+				<g style="--index: 27;">
+					<path d="M0,27L162,27L162,2L163,2L163,2L164,2L164,0L165,0L165,1L181,1L181,2L657,2" tabindex="0">
+						<title>8ek6z678</title>
+					</path>
+				</g>
+				<g style="--index: 28;">
+					<path d="M0,28L169,28L169,20L175,20L175,21L198,21L198,22L222,22L222,23L236,23L236,25L255,25L255,26L267,26L267,27L269,27L269,28L319,28L319,29L326,29L326,30L328,30L328,31L330,31L330,32L337,32L337,33L343,33L343,34L349,34L349,35L365,35L365,36L378,36L378,37L385,37L385,38L395,38L395,39L479,39L479,40L496,40L496,41L497,41L497,42L539,42L539,43L544,43L544,44L546,44L546,45L565,45L565,46L591,46L591,47L593,47L593,48L607,48L607,49L610,49L610,50L617,50L617,51L624,51L624,52L650,52L650,53L651,53L651,54L657,54L657,55L657,55" tabindex="0">
+						<title>8d0owkox</title>
+					</path>
+				</g>
+				<g style="--index: 29;">
+					<path d="M0,29L175,29L175,8L211,8L211,9L250,9L250,10L267,10L267,11L337,11L337,12L340,12L340,13L343,13L343,14L356,14L356,15L385,15L385,16L497,16L497,17L546,17L546,18L559,18L559,19L617,19L617,20L624,20L624,21L650,21L650,22L657,22" tabindex="0">
+						<title>8w3k2rvj</title>
+					</path>
+				</g>
+				<g style="--index: 30;">
+					<path d="M0,30L198,30L198,12L211,12L211,8L250,8L250,9L270,9L270,10L337,10L337,11L343,11L343,12L385,12L385,13L497,13L497,14L547,14L547,15L559,15L559,16L617,16L617,17L624,17L624,18L651,18L651,19L657,19" tabindex="0">
+						<title>jon0gdl8</title>
+					</path>
+				</g>
+				<g style="--index: 31;">
+					<path d="M0,31L204,31L204,29L208,29L208,30L216,30L216,31L218,31L218,32L222,32L222,33L236,33L236,35L249,35L249,36L255,36L255,37L267,37L267,38L269,38L269,39L283,39L283,40L319,40L319,41L323,41L323,43L328,43L328,44L330,44L330,45L337,45L337,46L343,46L343,47L349,47L349,48L365,48L365,49L370,49L370,50L378,50L378,51L385,51L385,52L391,52L391,53L434,53L434,54L479,54L479,55L496,55L496,56L497,56L497,58L501,58L501,59L514,59L514,60L538,60L538,61L539,61L539,62L544,62L544,64L546,64L546,65L561,65L561,66L565,66L565,67L583,67L583,68L591,68L591,69L610,69L610,70L617,70L617,71L624,71L624,72L650,72L650,73L651,73L651,74L657,74L657,75L657,75" tabindex="0">
+						<title>8rl93o68</title>
+					</path>
+				</g>
+				<g style="--index: 32;">
+					<path d="M0,32L208,32L208,25L222,25L222,26L236,26L236,28L255,28L255,29L267,29L267,30L269,30L269,31L319,31L319,32L323,32L323,33L326,33L326,34L328,34L328,35L330,35L330,36L337,36L337,37L343,37L343,38L349,38L349,39L365,39L365,40L378,40L378,41L385,41L385,42L395,42L395,43L479,43L479,44L496,44L496,45L497,45L497,46L514,46L514,47L539,47L539,48L544,48L544,49L546,49L546,50L561,50L561,51L565,51L565,52L591,52L591,53L593,53L593,54L610,54L610,55L617,55L617,56L624,56L624,57L650,57L650,58L651,58L651,59L657,59L657,60L657,60" tabindex="0">
+						<title>j06ygprj</title>
+					</path>
+				</g>
+				<g style="--index: 33;">
+					<path d="M0,33L216,33L216,30L218,30L218,31L222,31L222,32L236,32L236,34L255,34L255,35L267,35L267,36L269,36L269,37L283,37L283,38L319,38L319,39L323,39L323,41L328,41L328,42L330,42L330,43L337,43L337,44L343,44L343,45L349,45L349,46L365,46L365,47L370,47L370,48L378,48L378,49L385,49L385,50L391,50L391,51L434,51L434,52L479,52L479,53L496,53L496,54L497,54L497,56L501,56L501,57L514,57L514,58L538,58L538,59L539,59L539,60L544,60L544,62L546,62L546,63L561,63L561,64L565,64L565,65L583,65L583,66L591,66L591,67L610,67L610,68L617,68L617,69L624,69L624,70L650,70L650,71L651,71L651,72L657,72L657,73L657,73" tabindex="0">
+						<title>j0grn39x</title>
+					</path>
+				</g>
+				<g style="--index: 34;">
+					<path d="M0,34L218,34L218,30L222,30L222,31L236,31L236,33L255,33L255,34L267,34L267,35L269,35L269,36L283,36L283,37L319,37L319,38L323,38L323,40L328,40L328,41L330,41L330,42L337,42L337,43L343,43L343,44L349,44L349,45L365,45L365,46L370,46L370,47L378,47L378,48L385,48L385,49L391,49L391,50L434,50L434,51L479,51L479,52L496,52L496,53L497,53L497,54L498,54L498,55L501,55L501,56L514,56L514,57L539,57L539,58L544,58L544,60L546,60L546,61L561,61L561,62L565,62L565,63L583,63L583,64L591,64L591,65L610,65L610,66L617,66L617,67L624,67L624,68L650,68L650,69L651,69L651,70L657,70L657,71L657,71" tabindex="0">
+						<title>8lom3o78</title>
+					</path>
+				</g>
+				<g style="--index: 35;">
+					<path d="M0,35L222,35L222,11L250,11L250,8L270,8L270,9L337,9L337,10L357,10L357,11L385,11L385,12L497,12L497,13L547,13L547,14L559,14L559,15L617,15L617,16L624,16L624,17L651,17L651,18L657,18" tabindex="0">
+						<title>j9pwdpox</title>
+					</path>
+				</g>
+				<g style="--index: 36;">
+					<path d="M0,36L225,36L225,35L231,35L231,36L236,36L236,38L249,38L249,39L255,39L255,40L267,40L267,41L269,41L269,42L276,42L276,43L283,43L283,44L319,44L319,45L323,45L323,47L328,47L328,48L330,48L330,49L337,49L337,50L343,50L343,51L349,51L349,52L365,52L365,53L370,53L370,54L378,54L378,55L385,55L385,56L391,56L391,57L434,57L434,58L479,58L479,59L496,59L496,60L497,60L497,62L501,62L501,63L514,63L514,64L538,64L538,65L539,65L539,66L544,66L544,68L546,68L546,69L561,69L561,70L565,70L565,71L583,71L583,72L591,72L591,73L610,73L610,74L617,74L617,75L624,75L624,76L626,76L626,77L650,77L650,78L651,78L651,79L657,79L657,80L657,80" tabindex="0">
+						<title>j9pwg57x</title>
+					</path>
+				</g>
+				<g style="--index: 37;">
+					<path d="M0,37L231,37L231,35L236,35L236,37L249,37L249,38L255,38L255,39L267,39L267,40L269,40L269,41L276,41L276,42L283,42L283,43L319,43L319,44L323,44L323,46L328,46L328,47L330,47L330,48L337,48L337,49L343,49L343,50L349,50L349,51L365,51L365,52L370,52L370,53L378,53L378,54L385,54L385,55L391,55L391,56L434,56L434,57L479,57L479,58L496,58L496,59L497,59L497,61L501,61L501,62L514,62L514,63L538,63L538,64L539,64L539,65L544,65L544,67L546,67L546,68L561,68L561,69L565,69L565,70L583,70L583,71L591,71L591,72L610,72L610,73L617,73L617,74L624,74L624,75L626,75L626,76L650,76L650,77L651,77L651,78L657,78L657,79L657,79" tabindex="0">
+						<title>xz1nv0ej</title>
+					</path>
+				</g>
+				<g style="--index: 38;">
+					<path d="M0,38L236,38L236,24L267,24L267,25L269,25L269,26L319,26L319,27L326,27L326,28L328,28L328,29L330,29L330,30L337,30L337,31L343,31L343,32L349,32L349,33L378,33L378,34L385,34L385,35L395,35L395,36L479,36L479,37L496,37L496,38L497,38L497,39L539,39L539,40L544,40L544,41L546,41L546,42L565,42L565,43L591,43L591,44L593,44L593,45L607,45L607,46L610,46L610,47L617,47L617,48L624,48L624,49L650,49L650,50L651,50L651,51L657,51L657,52L657,52" tabindex="0">
+						<title>xz2mepnx</title>
+					</path>
+				</g>
+				<g style="--index: 39;">
+					<path d="M0,39L236,39L236,17L267,17L267,18L269,18L269,19L319,19L319,20L328,20L328,21L333,21L333,22L337,22L337,23L343,23L343,24L349,24L349,25L385,25L385,26L395,26L395,27L496,27L496,28L497,28L497,29L546,29L546,30L591,30L591,31L593,31L593,32L617,32L617,33L624,33L624,34L650,34L650,35L651,35L651,36L657,36L657,37L657,37" tabindex="0">
+						<title>j06yr3mj</title>
+					</path>
+				</g>
+				<g style="--index: 40;">
+					<path d="M0,40L249,40L249,35L255,35L255,36L267,36L267,37L269,37L269,38L283,38L283,39L319,39L319,40L323,40L323,42L328,42L328,43L330,43L330,44L337,44L337,45L343,45L343,46L349,46L349,47L365,47L365,48L370,48L370,49L378,49L378,50L385,50L385,51L391,51L391,52L434,52L434,53L479,53L479,54L496,54L496,55L497,55L497,57L501,57L501,58L514,58L514,59L538,59L538,60L539,60L539,61L544,61L544,63L546,63L546,64L561,64L561,65L565,65L565,66L583,66L583,67L591,67L591,68L610,68L610,69L617,69L617,70L624,70L624,71L650,71L650,72L651,72L651,73L657,73L657,74L657,74" tabindex="0">
+						<title>x76q50rj</title>
+					</path>
+				</g>
+				<g style="--index: 41;">
+					<path d="M0,41L255,41L255,25L267,25L267,26L269,26L269,27L319,27L319,28L326,28L326,29L328,29L328,30L330,30L330,31L337,31L337,32L343,32L343,33L349,33L349,34L365,34L365,35L378,35L378,36L385,36L385,37L395,37L395,38L479,38L479,39L496,39L496,40L497,40L497,41L539,41L539,42L544,42L544,43L546,43L546,44L565,44L565,45L591,45L591,46L593,46L593,47L607,47L607,48L610,48L610,49L617,49L617,50L624,50L624,51L650,51L650,52L651,52L651,53L657,53L657,54L657,54" tabindex="0">
+						<title>j5qowvnj</title>
+					</path>
+				</g>
+				<g style="--index: 42;">
+					<path d="M0,42L256,42L256,42L261,42L261,43L267,43L267,44L269,44L269,45L276,45L276,46L283,46L283,47L319,47L319,48L323,48L323,50L328,50L328,51L330,51L330,52L337,52L337,53L343,53L343,54L349,54L349,55L365,55L365,56L370,56L370,57L378,57L378,58L385,58L385,59L391,59L391,60L434,60L434,61L479,61L479,62L496,62L496,63L497,63L497,65L501,65L501,66L514,66L514,67L538,67L538,68L539,68L539,69L544,69L544,71L546,71L546,72L561,72L561,73L565,73L565,74L583,74L583,75L591,75L591,76L610,76L610,77L617,77L617,78L624,78L624,79L626,79L626,80L650,80L650,81L651,81L651,82L657,82L657,83L657,83" tabindex="0">
+						<title>8w3l21qj</title>
+					</path>
+				</g>
+				<g style="--index: 43;">
+					<path d="M0,43L261,43L261,41L267,41L267,42L269,42L269,43L276,43L276,44L283,44L283,45L319,45L319,46L323,46L323,48L328,48L328,49L330,49L330,50L337,50L337,51L343,51L343,52L349,52L349,53L365,53L365,54L370,54L370,55L378,55L378,56L385,56L385,57L391,57L391,58L434,58L434,59L479,59L479,60L496,60L496,61L497,61L497,63L501,63L501,64L514,64L514,65L538,65L538,66L539,66L539,67L544,67L544,69L546,69L546,70L561,70L561,71L565,71L565,72L583,72L583,73L591,73L591,74L610,74L610,75L617,75L617,76L624,76L624,77L626,77L626,78L650,78L650,79L651,79L651,80L657,80L657,81L657,81" tabindex="0">
+						<title>j2qwgooj</title>
+					</path>
+				</g>
+				<g style="--index: 44;">
+					<path d="M0,44L267,44L267,10L270,10L270,8L273,8L273,8L357,8L357,9L385,9L385,10L547,10L547,11L559,11L559,12L617,12L617,13L624,13L624,14L651,14L651,15L657,15" tabindex="0">
+						<title>8rm224qj</title>
+					</path>
+				</g>
+				<g style="--index: 45;">
+					<path d="M0,45L269,45L269,16L319,16L319,17L328,17L328,18L333,18L333,19L337,19L337,20L343,20L343,21L349,21L349,22L385,22L385,23L395,23L395,24L496,24L496,25L497,25L497,26L546,26L546,27L591,27L591,28L593,28L593,29L617,29L617,30L624,30L624,31L650,31L650,32L651,32L651,33L657,33L657,34L657,34" tabindex="0">
+						<title>jok21g78</title>
+					</path>
+				</g>
+				<g style="--index: 46;">
+					<path d="M0,46L276,46L276,41L283,41L283,42L319,42L319,43L323,43L323,45L328,45L328,46L330,46L330,47L337,47L337,48L343,48L343,49L349,49L349,50L365,50L365,51L370,51L370,52L378,52L378,53L385,53L385,54L391,54L391,55L434,55L434,56L479,56L479,57L496,57L496,58L497,58L497,60L501,60L501,61L514,61L514,62L538,62L538,63L539,63L539,64L544,64L544,66L546,66L546,67L561,67L561,68L565,68L565,69L583,69L583,70L591,70L591,71L610,71L610,72L617,72L617,73L624,73L624,74L626,74L626,75L650,75L650,76L651,76L651,77L657,77L657,78L657,78" tabindex="0">
+						<title>8v6vem5x</title>
+					</path>
+				</g>
+				<g style="--index: 47;">
+					<path d="M0,47L283,47L283,32L319,32L319,33L323,33L323,34L326,34L326,35L328,35L328,36L330,36L330,37L337,37L337,38L343,38L343,39L349,39L349,40L365,40L365,41L378,41L378,42L385,42L385,43L395,43L395,44L479,44L479,45L496,45L496,46L497,46L497,47L514,47L514,48L539,48L539,49L544,49L544,50L546,50L546,51L561,51L561,52L565,52L565,53L591,53L591,54L593,54L593,55L610,55L610,56L617,56L617,57L624,57L624,58L650,58L650,59L651,59L651,60L657,60L657,61L657,61" tabindex="0">
+						<title>x363wmex</title>
+					</path>
+				</g>
+				<g style="--index: 48;">
+					<path d="M0,48L319,48L319,12L337,12L337,13L340,13L340,14L343,14L343,15L356,15L356,16L385,16L385,17L497,17L497,18L546,18L546,19L559,19L559,20L617,20L617,21L624,21L624,22L650,22L650,23L657,23" tabindex="0">
+						<title>xkpp4kkj</title>
+					</path>
+				</g>
+				<g style="--index: 49;">
+					<path d="M0,49L323,49L323,30L326,30L326,31L328,31L328,32L330,32L330,33L337,33L337,34L343,34L343,35L349,35L349,36L365,36L365,37L378,37L378,38L385,38L385,39L395,39L395,40L479,40L479,41L496,41L496,42L497,42L497,43L539,43L539,44L544,44L544,45L546,45L546,46L565,46L565,47L591,47L591,48L593,48L593,49L607,49L607,50L610,50L610,51L617,51L617,52L624,52L624,53L650,53L650,54L651,54L651,55L657,55L657,56L657,56" tabindex="0">
+						<title>jokkd308</title>
+					</path>
+				</g>
+				<g style="--index: 50;">
+					<path d="M0,50L323,50L323,36L326,36L326,23L328,23L328,24L333,24L333,17L337,17L337,18L343,18L343,19L349,19L349,20L385,20L385,21L395,21L395,22L496,22L496,23L497,23L497,24L546,24L546,25L591,25L591,26L593,26L593,27L617,27L617,28L624,28L624,29L650,29L650,30L651,30L651,31L657,31" tabindex="0">
+						<title>8lr4w0r8</title>
+					</path>
+				</g>
+				<g style="--index: 51;">
+					<path d="M0,51L328,51L328,14L337,14L337,15L340,15L340,12L343,12L343,13L356,13L356,14L385,14L385,15L497,15L497,16L546,16L546,17L559,17L559,18L617,18L617,19L624,19L624,20L651,20L651,21L657,21" tabindex="0">
+						<title>xk42q99j</title>
+					</path>
+				</g>
+				<g style="--index: 52;">
+					<path d="M0,52L330,52L330,26L337,26L337,27L343,27L343,28L349,28L349,29L385,29L385,30L395,30L395,31L496,31L496,32L497,32L497,33L539,33L539,34L544,34L544,35L546,35L546,36L565,36L565,37L591,37L591,38L593,38L593,39L607,39L607,40L610,40L610,41L617,41L617,42L624,42L624,43L650,43L650,44L651,44L651,45L657,45L657,46L657,46" tabindex="0">
+						<title>8v0rgvnx</title>
+					</path>
+				</g>
+				<g style="--index: 53;">
+					<path d="M0,53L337,53L337,9L357,9L357,10L385,10L385,11L547,11L547,12L559,12L559,13L617,13L617,14L624,14L624,15L651,15L651,16L657,16" tabindex="0">
+						<title>j4vwv75j</title>
+					</path>
+				</g>
+				<g style="--index: 54;">
+					<path d="M0,54L343,54L343,11L357,11L357,6L395,6L395,7L559,7L559,8L605,8L605,9L617,9L617,10L624,10L624,11L651,11L651,12L657,12" tabindex="0">
+						<title>81mpp0p8</title>
+					</path>
+				</g>
+				<g style="--index: 55;">
+					<path d="M0,55L349,55L349,17L356,17L356,13L385,13L385,14L497,14L497,15L547,15L547,16L559,16L559,17L617,17L617,18L624,18L624,19L651,19L651,20L657,20" tabindex="0">
+						<title>jng132q8</title>
+					</path>
+				</g>
+				<g style="--index: 56;">
+					<path d="M0,56L365,56L365,34L378,34L378,35L385,35L385,36L395,36L395,37L479,37L479,38L496,38L496,39L497,39L497,40L539,40L539,41L544,41L544,42L546,42L546,43L565,43L565,44L591,44L591,45L593,45L593,46L607,46L607,47L610,47L610,48L617,48L617,49L624,49L624,50L650,50L650,51L651,51L651,52L657,52L657,53L657,53" tabindex="0">
+						<title>8lrz1248</title>
+					</path>
+				</g>
+				<g style="--index: 57;">
+					<path d="M0,57L370,57L370,44L378,44L378,45L385,45L385,46L391,46L391,47L434,47L434,48L479,48L479,49L496,49L496,50L497,50L497,51L498,51L498,52L514,52L514,53L539,53L539,54L544,54L544,55L546,55L546,56L561,56L561,57L565,57L565,58L583,58L583,59L591,59L591,60L610,60L610,61L617,61L617,62L624,62L624,63L650,63L650,64L651,64L651,65L657,65L657,66L657,66" tabindex="0">
+						<title>j40z14l8</title>
+					</path>
+				</g>
+				<g style="--index: 58;">
+					<path d="M0,58L378,58L378,33L385,33L385,34L395,34L395,35L479,35L479,36L496,36L496,37L497,37L497,38L539,38L539,39L544,39L544,40L546,40L546,41L565,41L565,42L591,42L591,43L593,43L593,44L607,44L607,45L610,45L610,46L617,46L617,47L624,47L624,48L650,48L650,49L651,49L651,50L657,50L657,51L657,51" tabindex="0">
+						<title>j9kl94v8</title>
+					</path>
+				</g>
+				<g style="--index: 59;">
+					<path d="M0,59L385,59L385,7L395,7L395,5L604,5L604,6L617,6L617,7L624,7L624,8L629,8L629,9L653,9L653,10L657,10" tabindex="0">
+						<title>j59g63gx</title>
+					</path>
+				</g>
+				<g style="--index: 60;">
+					<path d="M0,60L391,60L391,46L395,46L395,21L487,21L487,18L497,18L497,19L546,19L546,20L559,20L559,7L604,7L604,5L617,5L617,6L624,6L624,7L629,7L629,4L633,4L633,5L635,5L635,4L636,4L636,3L657,3" tabindex="0">
+						<title>8v0mryvx</title>
+					</path>
+				</g>
+				<g style="--index: 61;">
+					<path d="M0,61L434,61L434,46L479,46L479,47L496,47L496,48L497,48L497,49L514,49L514,50L539,50L539,51L544,51L544,52L546,52L546,53L561,53L561,54L565,54L565,55L591,55L591,56L593,56L593,57L610,57L610,58L617,58L617,59L624,59L624,60L650,60L650,61L651,61L651,62L657,62L657,63L657,63" tabindex="0">
+						<title>8dpky5g8</title>
+					</path>
+				</g>
+				<g style="--index: 62;">
+					<path d="M0,62L479,62L479,33L496,33L496,34L497,34L497,35L539,35L539,36L544,36L544,37L546,37L546,38L565,38L565,39L591,39L591,40L593,40L593,41L607,41L607,42L610,42L610,43L617,43L617,44L624,44L624,45L650,45L650,46L651,46L651,47L657,47L657,48L657,48" tabindex="0">
+						<title>86r1y938</title>
+					</path>
+				</g>
+				<g style="--index: 63;">
+					<path d="M0,63L496,63L496,19L497,19L497,20L546,20L546,21L617,21L617,22L624,22L624,23L650,23L650,24L657,24" tabindex="0">
+						<title>86rz9rw8</title>
+					</path>
+				</g>
+				<g style="--index: 64;">
+					<path d="M0,64L497,64L497,12L547,12L547,13L559,13L559,14L617,14L617,15L624,15L624,16L651,16L651,17L657,17" tabindex="0">
+						<title>jokeyme8</title>
+					</path>
+				</g>
+				<g style="--index: 65;">
+					<path d="M0,65L497,65L497,55L498,55L498,50L514,50L514,51L539,51L539,52L544,52L544,53L546,53L546,54L561,54L561,55L565,55L565,56L583,56L583,57L591,57L591,58L610,58L610,59L617,59L617,60L624,60L624,61L650,61L650,62L651,62L651,63L657,63L657,64L657,64" tabindex="0">
+						<title>j59z4mgx</title>
+					</path>
+				</g>
+				<g style="--index: 66;">
+					<path d="M0,66L501,66L501,54L514,54L514,55L539,55L539,56L544,56L544,58L546,58L546,59L561,59L561,60L565,60L565,61L583,61L583,62L591,62L591,63L610,63L610,64L617,64L617,65L624,65L624,66L650,66L650,67L651,67L651,68L657,68L657,69L657,69" tabindex="0">
+						<title>xkp5mm2j</title>
+					</path>
+				</g>
+				<g style="--index: 67;">
+					<path d="M0,67L514,67L514,45L539,45L539,46L544,46L544,47L546,47L546,48L565,48L565,49L591,49L591,50L593,50L593,51L607,51L607,52L610,52L610,53L617,53L617,54L624,54L624,55L650,55L650,56L651,56L651,57L657,57L657,58L657,58" tabindex="0">
+						<title>j9k9v1v8</title>
+					</path>
+				</g>
+				<g style="--index: 68;">
+					<path d="M0,68L538,68L538,58L539,58L539,59L544,59L544,61L546,61L546,62L561,62L561,63L565,63L565,64L583,64L583,65L591,65L591,66L610,66L610,67L617,67L617,68L624,68L624,69L650,69L650,70L651,70L651,71L657,71L657,72L657,72" tabindex="0">
+						<title>j465mqd8</title>
+					</path>
+				</g>
+				<g style="--index: 69;">
+					<path d="M0,69L539,69L539,32L544,32L544,33L546,33L546,34L591,34L591,35L593,35L593,36L607,36L607,37L610,37L610,38L617,38L617,39L624,39L624,40L650,40L650,41L651,41L651,42L657,42L657,43L657,43" tabindex="0">
+						<title>jpyo2pkj</title>
+					</path>
+				</g>
+				<g style="--index: 70;">
+					<path d="M0,70L544,70L544,56L546,56L546,57L561,57L561,58L565,58L565,59L583,59L583,60L591,60L591,61L610,61L610,62L617,62L617,63L624,63L624,64L650,64L650,65L651,65L651,66L657,66L657,67L657,67" tabindex="0">
+						<title>8w0dld4j</title>
+					</path>
+				</g>
+				<g style="--index: 71;">
+					<path d="M0,71L544,71L544,30L546,30L546,31L591,31L591,32L593,32L593,33L617,33L617,34L624,34L624,35L650,35L650,36L651,36L651,37L657,37L657,38L657,38" tabindex="0">
+						<title>j46k93w8</title>
+					</path>
+				</g>
+				<g style="--index: 72;">
+					<path d="M0,72L546,72L546,16L547,16L547,8L559,8L559,9L605,9L605,8L617,8L617,9L624,9L624,10L629,10L629,6L633,6L633,7L653,7L653,8L657,8" tabindex="0">
+						<title>810g2npx</title>
+					</path>
+				</g>
+				<g style="--index: 73;">
+					<path d="M0,73L561,73L561,49L565,49L565,50L591,50L591,51L593,51L593,52L607,52L607,35L610,35L610,36L617,36L617,37L624,37L624,38L650,38L650,39L651,39L651,40L657,40L657,41L657,41" tabindex="0">
+						<title>8eeqeo78</title>
+					</path>
+				</g>
+				<g style="--index: 74;">
+					<path d="M0,74L565,74L565,35L591,35L591,36L593,36L593,37L607,37L607,38L610,38L610,39L617,39L617,40L624,40L624,41L650,41L650,42L651,42L651,43L657,43L657,44L657,44" tabindex="0">
+						<title>8w3pvglj</title>
+					</path>
+				</g>
+				<g style="--index: 75;">
+					<path d="M0,75L583,75L583,56L591,56L591,57L593,57L593,26L617,26L617,27L624,27L624,28L650,28L650,29L651,29L651,30L657,30" tabindex="0">
+						<title>x36dnd7x</title>
+					</path>
+				</g>
+				<g style="--index: 76;">
+					<path d="M0,76L591,76L591,25L617,25L617,26L624,26L624,27L650,27L650,28L651,28L651,29L657,29" tabindex="0">
+						<title>8delm25j</title>
+					</path>
+				</g>
+				<g style="--index: 77;">
+					<path d="M0,77L610,77L610,34L617,34L617,35L624,35L624,36L650,36L650,37L651,37L651,38L657,38L657,39L657,39" tabindex="0">
+						<title>jo1popnx</title>
+					</path>
+				</g>
+				<g style="--index: 78;">
+					<path d="M0,78L617,78L617,4L629,4L629,5L633,5L633,6L657,6" tabindex="0">
+						<title>8g5l7n2j</title>
+					</path>
+				</g>
+				<g style="--index: 79;">
+					<path d="M0,79L624,79L624,6L629,6L629,8L633,8L633,4L635,4L635,5L657,5" tabindex="0">
+						<title>x3p537k8</title>
+					</path>
+				</g>
+				<g style="--index: 80;">
+					<path d="M0,80L626,80L626,73L650,73L650,74L651,74L651,75L657,75L657,76L657,76" tabindex="0">
+						<title>xzylng9j</title>
+					</path>
+				</g>
+				<g style="--index: 81;">
+					<path d="M0,81L650,81L650,21L651,21L651,11L653,11L653,7L657,7" tabindex="0">
+						<title>xyklwnm8</title>
+					</path>
+				</g>
+				<g style="--index: 82;">
+					<path d="M0,82L651,82L651,27L657,27" tabindex="0">
+						<title>81p6y738</title>
+					</path>
+				</g>
+				<g style="--index: 83;">
+					<path d="M0,83L657,83L657,32L657,32" tabindex="0">
+						<title>j0ewnqw8</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
+</svg>

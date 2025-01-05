@@ -1,0 +1,675 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
+	<title>Rank by player for leaderboard l_o9xo3rp9-9d8eewld-7896y468.4qywn341</title>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
+			background: var(--canvas-background);
+			color: var(--canvas-foreground);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg {
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+			padding: 10px;
+			border: 1px dashed var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--highlighted: #6663;
+				--faded: #9993;
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--highlighted: #9993;
+				--faded: #6663;
+			}
+		}
+	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleError(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
+								});
+							}
+							break;
+						}
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
+				})();
+				await promise;
+				if (session == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const {players, leaderboards} = session;
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%">
+		<svg viewBox="0 0 619 31" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 32;">
+				<g style="--index: 0;">
+					<path d="M0,0L0,0L0,0L62,0L62,1L68,1L68,2L69,2L69,3L71,3L71,4L97,4L97,5L107,5L107,6L108,6L108,7L132,7L132,8L166,8L166,9L167,9L167,10L173,10L173,11L180,11L180,12L208,12L208,13L242,13L242,14L287,14L287,15L439,15L439,16L452,16L452,17L484,17L484,18L534,18L534,19L537,19L537,20L546,20L546,21L581,21L581,22L618,22L618,23L619,23" tabindex="0">
+						<title>8qoz5eoj</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,1L7,1L7,1L62,1L62,2L67,2L67,3L68,3L68,4L69,4L69,5L71,5L71,6L91,6L91,7L97,7L97,8L107,8L107,9L108,9L108,10L132,10L132,11L133,11L133,12L157,12L157,13L166,13L166,14L173,14L173,15L180,15L180,16L208,16L208,17L242,17L242,18L287,18L287,19L439,19L439,20L452,20L452,21L484,21L484,22L534,22L534,23L537,23L537,24L546,24L546,25L581,25L581,26L592,26L592,27L618,27L618,28L619,28L619,29L619,29" tabindex="0">
+						<title>xz0v5kn8</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,2L62,2L62,0L69,0L69,1L70,1L70,0L71,0L71,1L97,1L97,2L107,2L107,3L108,3L108,4L153,4L153,2L157,2L157,0L173,0L173,1L180,1L180,2L581,2L581,3L618,3L618,5L619,5" tabindex="0">
+						<title>8640og3j</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,3L67,3L67,2L68,2L68,3L69,3L69,4L71,4L71,5L97,5L97,6L107,6L107,7L108,7L108,8L132,8L132,9L133,9L133,10L157,10L157,11L166,11L166,12L173,12L173,13L180,13L180,14L208,14L208,15L242,15L242,16L287,16L287,17L439,17L439,18L452,18L452,19L484,19L484,20L534,20L534,21L537,21L537,22L546,22L546,23L581,23L581,24L592,24L592,25L618,25L618,26L619,26" tabindex="0">
+						<title>j9p7powx</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,4L68,4L68,1L69,1L69,2L71,2L71,3L97,3L97,4L107,4L107,5L108,5L108,6L166,6L166,7L167,7L167,8L173,8L173,9L180,9L180,10L242,10L242,11L287,11L287,12L439,12L439,13L484,13L484,14L534,14L534,15L537,15L537,16L546,16L546,17L581,17L581,18L618,18L618,19L619,19" tabindex="0">
+						<title>xk349668</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,5L69,5L69,0L70,0L70,1L71,1L71,2L97,2L97,3L107,3L107,4L108,4L108,5L166,5L166,6L173,6L173,7L180,7L180,8L181,8L181,9L439,9L439,10L546,10L546,11L581,11L581,12L618,12L618,13L619,13" tabindex="0">
+						<title>j9p3ykox</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,6L71,6L71,0L97,0L97,1L157,1L157,2L173,2L173,3L180,3L180,4L546,4L546,5L581,5L581,6L618,6L618,7L619,7" tabindex="0">
+						<title>8q6k30oj</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,7L91,7L91,6L97,6L97,7L107,7L107,8L108,8L108,9L132,9L132,10L133,10L133,11L157,11L157,12L166,12L166,13L173,13L173,14L180,14L180,15L208,15L208,16L242,16L242,17L287,17L287,18L439,18L439,19L452,19L452,20L484,20L484,21L534,21L534,22L537,22L537,23L546,23L546,24L581,24L581,25L592,25L592,26L618,26L618,27L619,27" tabindex="0">
+						<title>joneez78</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,8L97,8L97,0L157,0L157,1L173,1L173,2L180,2L180,3L581,3L581,4L618,4L618,6L619,6" tabindex="0">
+						<title>j4235d5x</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,9L107,9L107,2L153,2L153,3L173,3L173,4L180,4L180,5L546,5L546,6L581,6L581,7L618,7L618,8L619,8" tabindex="0">
+						<title>j9pkl7vx</title>
+					</path>
+				</g>
+				<g style="--index: 10;">
+					<path d="M0,10L108,10L108,3L153,3L153,4L173,4L173,5L180,5L180,6L181,6L181,7L546,7L546,8L581,8L581,9L618,9L618,10L619,10" tabindex="0">
+						<title>8g072p2x</title>
+					</path>
+				</g>
+				<g style="--index: 11;">
+					<path d="M0,11L132,11L132,7L166,7L166,8L167,8L167,9L173,9L173,10L180,10L180,11L242,11L242,12L287,12L287,13L439,13L439,14L484,14L484,15L534,15L534,16L537,16L537,17L546,17L546,18L581,18L581,19L618,19L618,20L619,20" tabindex="0">
+						<title>8g0qr57x</title>
+					</path>
+				</g>
+				<g style="--index: 12;">
+					<path d="M0,12L133,12L133,9L166,9L166,10L167,10L167,11L173,11L173,12L180,12L180,13L208,13L208,14L242,14L242,15L287,15L287,16L439,16L439,17L452,17L452,18L484,18L484,19L534,19L534,20L537,20L537,21L546,21L546,22L581,22L581,23L618,23L618,24L619,24" tabindex="0">
+						<title>8ew394p8</title>
+					</path>
+				</g>
+				<g style="--index: 13;">
+					<path d="M0,13L157,13L157,10L166,10L166,11L167,11L167,7L173,7L173,8L180,8L180,9L181,9L181,6L546,6L546,7L581,7L581,8L618,8L618,9L619,9" tabindex="0">
+						<title>xyodgvzj</title>
+					</path>
+				</g>
+				<g style="--index: 14;">
+					<path d="M0,14L166,14L166,5L173,5L173,6L180,6L180,7L181,7L181,8L439,8L439,9L546,9L546,10L581,10L581,11L618,11L618,12L619,12" tabindex="0">
+						<title>8w049n3j</title>
+					</path>
+				</g>
+				<g style="--index: 15;">
+					<path d="M0,15L173,15L173,0L180,0L180,1L581,1L581,2L618,2L618,4L619,4" tabindex="0">
+						<title>xkon93k8</title>
+					</path>
+				</g>
+				<g style="--index: 16;">
+					<path d="M0,16L180,16L180,0L616,0L616,0L619,0" tabindex="0">
+						<title>jn2m23wj</title>
+					</path>
+				</g>
+				<g style="--index: 17;">
+					<path d="M0,17L208,17L208,12L242,12L242,13L287,13L287,14L439,14L439,15L452,15L452,16L484,16L484,17L534,17L534,18L537,18L537,19L546,19L546,20L581,20L581,21L618,21L618,22L619,22" tabindex="0">
+						<title>8v05z9yx</title>
+					</path>
+				</g>
+				<g style="--index: 18;">
+					<path d="M0,18L242,18L242,10L287,10L287,11L439,11L439,12L484,12L484,13L534,13L534,14L546,14L546,15L581,15L581,16L618,16L618,17L619,17" tabindex="0">
+						<title>jon0m6l8</title>
+					</path>
+				</g>
+				<g style="--index: 19;">
+					<path d="M0,19L287,19L287,10L439,10L439,11L534,11L534,12L546,12L546,13L581,13L581,14L618,14L618,15L619,15" tabindex="0">
+						<title>8v02q3nx</title>
+					</path>
+				</g>
+				<g style="--index: 20;">
+					<path d="M0,20L355,20L355,20L439,20L439,21L452,21L452,22L484,22L484,23L534,23L534,24L535,24L535,25L537,25L537,26L546,26L546,27L581,27L581,28L592,28L592,29L618,29L618,30L619,30L619,31L619,31" tabindex="0">
+						<title>x77ee56x</title>
+					</path>
+				</g>
+				<g style="--index: 21;">
+					<path d="M0,21L439,21L439,8L546,8L546,9L581,9L581,10L618,10L618,11L619,11" tabindex="0">
+						<title>8w3l21qj</title>
+					</path>
+				</g>
+				<g style="--index: 22;">
+					<path d="M0,22L452,22L452,15L484,15L484,16L534,16L534,17L537,17L537,18L546,18L546,19L581,19L581,20L618,20L618,21L619,21" tabindex="0">
+						<title>xz22lw4x</title>
+					</path>
+				</g>
+				<g style="--index: 23;">
+					<path d="M0,23L484,23L484,12L534,12L534,13L546,13L546,14L581,14L581,15L618,15L618,16L619,16" tabindex="0">
+						<title>j46k93w8</title>
+					</path>
+				</g>
+				<g style="--index: 24;">
+					<path d="M0,24L534,24L534,11L546,11L546,12L581,12L581,13L618,13L618,14L619,14" tabindex="0">
+						<title>8eep62p8</title>
+					</path>
+				</g>
+				<g style="--index: 25;">
+					<path d="M0,25L535,25L535,24L537,24L537,25L546,25L546,26L581,26L581,27L592,27L592,28L618,28L618,29L619,29L619,30L619,30" tabindex="0">
+						<title>8g2w027j</title>
+					</path>
+				</g>
+				<g style="--index: 26;">
+					<path d="M0,26L537,26L537,15L546,15L546,16L581,16L581,17L618,17L618,18L619,18" tabindex="0">
+						<title>86rq7yw8</title>
+					</path>
+				</g>
+				<g style="--index: 27;">
+					<path d="M0,27L546,27L546,4L581,4L581,5L618,5L618,2L619,2" tabindex="0">
+						<title>8v0mryvx</title>
+					</path>
+				</g>
+				<g style="--index: 28;">
+					<path d="M0,28L581,28L581,1L619,1" tabindex="0">
+						<title>86rpw3p8</title>
+					</path>
+				</g>
+				<g style="--index: 29;">
+					<path d="M0,29L592,29L592,24L618,24L618,25L619,25" tabindex="0">
+						<title>xzyl2k9j</title>
+					</path>
+				</g>
+				<g style="--index: 30;">
+					<path d="M0,30L618,30L618,3L619,3" tabindex="0">
+						<title>x7z6ly08</title>
+					</path>
+				</g>
+				<g style="--index: 31;">
+					<path d="M0,31L619,31L619,28L619,28" tabindex="0">
+						<title>xk6pydk8</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
+</svg>
