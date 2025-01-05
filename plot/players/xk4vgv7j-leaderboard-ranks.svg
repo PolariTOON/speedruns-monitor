@@ -1,0 +1,525 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
+	<title>Rank by leaderboard for player xk4vgv7j</title>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
+			background: var(--canvas-background);
+			color: var(--canvas-foreground);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg {
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+			padding: 10px;
+			border: 1px dashed var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--highlighted: #6663;
+				--faded: #9993;
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--highlighted: #9993;
+				--faded: #6663;
+			}
+		}
+	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleError(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
+								});
+							}
+							break;
+						}
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
+				})();
+				await promise;
+				if (session == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const {players, leaderboards} = session;
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%">
+		<svg viewBox="0 0 1259 127" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
+				<g style="--index: 0;">
+					<path d="M0,25L0,25L0,9L1,9L1,9L20,9L20,10L43,10L43,11L305,11L305,12L307,12L307,10L352,10L352,12L473,12L473,13L525,13L525,14L663,14L663,15L728,15L728,16L1032,16L1032,17L1054,17L1054,18L1157,18L1157,19L1174,19L1174,20L1185,20L1185,21L1187,21L1187,22L1206,22L1206,23L1259,23" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,27L1,27L1,18L4,18L4,19L16,19L16,20L64,20L64,21L129,21L129,22L292,22L292,23L299,23L299,24L312,24L312,25L352,25L352,26L358,26L358,27L400,27L400,28L408,28L408,29L413,29L413,31L416,31L416,32L442,32L442,33L464,33L464,34L469,34L469,35L474,35L474,36L477,36L477,37L484,37L484,38L492,38L492,39L496,39L496,40L508,40L508,41L515,41L515,42L518,42L518,43L519,43L519,44L521,44L521,45L523,45L523,46L582,46L582,47L586,47L586,48L598,48L598,49L602,49L602,50L624,50L624,51L632,51L632,52L658,52L658,53L662,53L662,54L664,54L664,55L677,55L677,56L679,56L679,57L723,57L723,58L728,58L728,59L736,59L736,60L744,60L744,61L748,61L748,62L756,62L756,63L759,63L759,64L766,64L766,65L769,65L769,66L785,66L785,67L786,67L786,69L792,69L792,71L797,71L797,72L821,72L821,73L847,73L847,74L849,74L849,75L851,75L851,76L875,76L875,77L885,77L885,79L893,79L893,80L922,80L922,81L933,81L933,82L940,82L940,83L942,83L942,84L959,84L959,85L973,85L973,86L988,86L988,88L1052,88L1052,89L1053,89L1053,90L1077,90L1077,91L1096,91L1096,92L1110,92L1110,93L1119,93L1119,94L1122,94L1122,95L1136,95L1136,96L1139,96L1139,97L1156,97L1156,98L1157,98L1157,100L1165,100L1165,101L1174,101L1174,103L1187,103L1187,104L1192,104L1192,105L1194,105L1194,106L1195,106L1195,107L1196,107L1196,108L1197,108L1197,109L1200,109L1200,110L1204,110L1204,111L1207,111L1207,112L1208,112L1208,113L1211,113L1211,115L1214,115L1214,116L1219,116L1219,117L1223,117L1223,118L1225,118L1225,119L1229,119L1229,120L1235,120L1235,122L1237,122L1237,123L1240,123L1240,124L1245,124L1245,125L1248,125L1248,126L1259,126L1259,127L1259,127" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
+</svg>

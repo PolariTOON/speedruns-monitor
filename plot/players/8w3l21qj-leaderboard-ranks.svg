@@ -1,0 +1,745 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
+	<title>Rank by leaderboard for player 8w3l21qj</title>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
+			background: var(--canvas-background);
+			color: var(--canvas-foreground);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg {
+			width: calc(100% - 40px);
+			height: calc(100% - 40px);
+			margin: 20px;
+			padding: 10px;
+			border: 1px dashed var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--highlighted: #6663;
+				--faded: #9993;
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--highlighted: #9993;
+				--faded: #6663;
+			}
+		}
+	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleError(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
+								});
+							}
+							break;
+						}
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
+				})();
+				await promise;
+				if (session == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const {players, leaderboards} = session;
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%">
+		<svg viewBox="0 0 401 116" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 46;">
+				<g style="--index: 0;">
+					<path d="M0,42L0,42L0,42L5,42L5,43L11,43L11,44L13,44L13,45L20,45L20,46L27,46L27,47L63,47L63,48L67,48L67,50L72,50L72,51L74,51L74,52L81,52L81,53L87,53L87,54L93,54L93,55L109,55L109,56L114,56L114,57L122,57L122,58L129,58L129,59L135,59L135,60L178,60L178,61L223,61L223,62L240,62L240,63L241,63L241,65L245,65L245,66L258,66L258,67L282,67L282,68L283,68L283,69L288,69L288,71L290,71L290,72L305,72L305,73L309,73L309,74L327,74L327,75L335,75L335,76L354,76L354,77L361,77L361,78L368,78L368,79L370,79L370,80L394,80L394,81L395,81L395,82L401,82L401,83L401,83" tabindex="0">
+						<title>xd17x94d-9l71pv4l.21gpn081</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,2L4,2L4,2L142,2L142,3L209,3L209,1L254,1L254,1L336,1L336,1L401,1" tabindex="0">
+						<title>7dg65oxk-r8r1zm0n.5q89kv31</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,6L30,6L30,6L37,6L37,5L90,5L90,6L107,6L107,7L216,7L216,8L383,8L383,9L401,9" tabindex="0">
+						<title>rkl9qwrk-6njkg4el.lr3x560l</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,12L30,12L30,11L66,11L66,12L71,12L71,13L73,13L73,14L127,14L127,15L257,15L257,16L288,16L288,17L336,17L336,18L340,18L340,19L371,19L371,20L374,20L374,21L381,21L381,22L401,22" tabindex="0">
+						<title>9kv6l5e2-ql6rezjl.1dk62o3l</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,2L33,2L33,2L195,2L195,1L401,1" tabindex="0">
+						<title>xd1v018d-68k7x44l.mlno8vjq</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,4L37,4L37,4L141,4L141,3L143,3L143,2L144,2L144,2L401,2" tabindex="0">
+						<title>l_gdr5onk9-rkl3znrk-rn1g06dn.qj77o50q</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,3L37,3L37,3L95,3L95,4L393,4L393,5L401,5" tabindex="0">
+						<title>l_xd0mnpjw-rkl3znrk-wley4prn.192xe54q</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,0L76,0L76,0L139,0L139,0L140,0L140,0L143,0L143,0L319,0L319,0L401,0" tabindex="0">
+						<title>l_gdr5onk9-rkl3znrk-rn1g06dn.lmooe9y1</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,0L76,0L76,0L140,0L140,0L143,0L143,0L401,0" tabindex="0">
+						<title>l_gdr5onk9-rkl3znrk-rn1g06dn.q655wjnl</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,6L76,6L76,6L401,6L401,8L401,8" tabindex="0">
+						<title>l_r9gnozkd-rkl3znrk-wledz9en.jq606z3q</title>
+					</path>
+				</g>
+				<g style="--index: 10;">
+					<path d="M0,8L85,8L85,8L120,8L120,9L142,9L142,9L285,9L285,10L401,10" tabindex="0">
+						<title>l_r9gnozkd-rkl3znrk-wledz9en.rqvp5e7q</title>
+					</path>
+				</g>
+				<g style="--index: 11;">
+					<path d="M0,15L88,15L88,14L401,14" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.4qypgj4q</title>
+					</path>
+				</g>
+				<g style="--index: 12;">
+					<path d="M0,8L88,8L88,8L401,8" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.mlnwjz0l</title>
+					</path>
+				</g>
+				<g style="--index: 13;">
+					<path d="M0,7L94,7L94,7L401,7" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.810zkwwq</title>
+					</path>
+				</g>
+				<g style="--index: 14;">
+					<path d="M0,5L97,5L97,5L401,5" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.9qj0kxel</title>
+					</path>
+				</g>
+				<g style="--index: 15;">
+					<path d="M0,116L100,116L100,40L194,40L194,41L195,41L195,10L383,10L383,11L401,11" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
+					</path>
+				</g>
+				<g style="--index: 16;">
+					<path d="M0,29L136,29L136,10L148,10L148,11L195,11L195,11L310,11L310,12L382,12L382,13L401,13" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21g82pnl</title>
+					</path>
+				</g>
+				<g style="--index: 17;">
+					<path d="M0,4L136,4L136,4L200,4L200,3L232,3L232,3L236,3L236,2L401,2" tabindex="0">
+						<title>l_r9gn1qpd-9kv66g32-onv7r45n.810zdxoq</title>
+					</path>
+				</g>
+				<g style="--index: 18;">
+					<path d="M0,16L136,16L136,9L150,9L150,6L254,6L254,3L332,3L332,3L401,3" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.gq7jrxvq</title>
+					</path>
+				</g>
+				<g style="--index: 19;">
+					<path d="M0,71L136,71L136,21L173,21L173,22L195,22L195,5L328,5L328,6L401,6" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
+					</path>
+				</g>
+				<g style="--index: 20;">
+					<path d="M0,56L136,56L136,19L152,19L152,9L336,9L336,10L391,10L391,12L401,12" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
+					</path>
+				</g>
+				<g style="--index: 21;">
+					<path d="M0,34L136,34L136,19L175,19L175,20L203,20L203,21L213,21L213,8L374,8L374,8L378,8L378,9L401,9" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
+					</path>
+				</g>
+				<g style="--index: 22;">
+					<path d="M0,81L136,81L136,72L140,72L140,73L191,73L191,74L192,74L192,75L194,75L194,76L195,76L195,77L196,77L196,20L352,20L352,21L354,21L354,22L376,22L376,23L393,23L393,24L394,24L394,25L401,25" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
+					</path>
+				</g>
+				<g style="--index: 23;">
+					<path d="M0,53L136,53L136,16L194,16L194,12L201,12L201,13L347,13L347,14L378,14L378,15L401,15" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21dz3e4l</title>
+					</path>
+				</g>
+				<g style="--index: 24;">
+					<path d="M0,6L136,6L136,5L401,5" tabindex="0">
+						<title>l_r9gnozkd-rkl3znrk-wledz9en.zqop6rp1</title>
+					</path>
+				</g>
+				<g style="--index: 25;">
+					<path d="M0,6L136,6L136,6L401,6" tabindex="0">
+						<title>l_r9gnozkd-rkl3znrk-wledz9en.0138n5dq</title>
+					</path>
+				</g>
+				<g style="--index: 26;">
+					<path d="M0,9L138,9L138,9L236,9L236,2L401,2" tabindex="0">
+						<title>l_r9gn1qpd-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+				</g>
+				<g style="--index: 27;">
+					<path d="M0,2L138,2L138,2L196,2L196,1L197,1L197,1L401,1" tabindex="0">
+						<title>l_r9gn1qpd-xd144xzd-38dz6v1n.q755eky1</title>
+					</path>
+				</g>
+				<g style="--index: 28;">
+					<path d="M0,10L138,10L138,3L199,3L199,3L236,3L236,2L401,2" tabindex="0">
+						<title>l_r9gn1qpd-xd144xwd</title>
+					</path>
+				</g>
+				<g style="--index: 29;">
+					<path d="M0,6L138,6L138,3L197,3L197,3L210,3L210,2L401,2" tabindex="0">
+						<title>l_r9gn1qpd-xd144xzd-38dz6v1n.z19md2jl</title>
+					</path>
+				</g>
+				<g style="--index: 30;">
+					<path d="M0,7L138,7L138,7L401,7" tabindex="0">
+						<title>l_r9gnozkd-rkl3znrk-wledz9en.z19mo80l</title>
+					</path>
+				</g>
+				<g style="--index: 31;">
+					<path d="M0,0L141,0L141,0L160,0L160,1L161,1L161,2L164,2L164,1L191,1L191,2L260,2L260,3L284,3L284,4L351,4L351,5L401,5" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.qvv4er7q</title>
+					</path>
+				</g>
+				<g style="--index: 32;">
+					<path d="M0,1L142,1L142,1L164,1L164,0L166,0L166,1L235,1L235,2L262,2L262,3L286,3L286,4L310,4L310,5L351,5L351,6L389,6L389,7L401,7" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.lx5xe821</title>
+					</path>
+				</g>
+				<g style="--index: 33;">
+					<path d="M0,0L142,0L142,0L164,0L164,0L233,0L233,1L281,1L281,2L282,2L282,4L351,4L351,5L401,5" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.q5vog5ml</title>
+					</path>
+				</g>
+				<g style="--index: 34;">
+					<path d="M0,0L142,0L142,0L164,0L164,0L253,0L253,1L255,1L255,2L285,2L285,3L286,3L286,4L351,4L351,5L401,5" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.le2km45l</title>
+					</path>
+				</g>
+				<g style="--index: 35;">
+					<path d="M0,11L221,11L221,6L401,6" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.5lmkgmjq</title>
+					</path>
+				</g>
+				<g style="--index: 36;">
+					<path d="M0,21L221,21L221,8L328,8L328,9L363,9L363,10L400,10L400,11L401,11" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.4qywn341</title>
+					</path>
+				</g>
+				<g style="--index: 37;">
+					<path d="M0,23L222,23L222,8L386,8L386,9L401,9" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.5lermx5q</title>
+					</path>
+				</g>
+				<g style="--index: 38;">
+					<path d="M0,21L222,21L222,15L378,15L378,16L401,16" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+					</path>
+				</g>
+				<g style="--index: 39;">
+					<path d="M0,31L222,31L222,25L310,25L310,26L362,26L362,27L381,27L381,28L401,28" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
+					</path>
+				</g>
+				<g style="--index: 40;">
+					<path d="M0,36L222,36L222,30L291,30L291,31L322,31L322,32L375,32L375,33L376,33L376,34L385,34L385,35L401,35" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.jq60ze3q</title>
+					</path>
+				</g>
+				<g style="--index: 41;">
+					<path d="M0,44L222,44L222,7L375,7L375,8L401,8" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
+					</path>
+				</g>
+				<g style="--index: 42;">
+					<path d="M0,28L222,28L222,18L318,18L318,19L386,19L386,20L390,20L390,21L401,21" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.rqvpey7q</title>
+					</path>
+				</g>
+				<g style="--index: 43;">
+					<path d="M0,5L336,5L336,4L401,4" tabindex="0">
+						<title>l_o9xo3rp9-xd144xwd</title>
+					</path>
+				</g>
+				<g style="--index: 44;">
+					<path d="M0,2L344,2L344,1L401,1" tabindex="0">
+						<title>l_o9xo3rp9-9kv66g32-onv7r45n.810zdxoq</title>
+					</path>
+				</g>
+				<g style="--index: 45;">
+					<path d="M0,6L344,6L344,4L401,4" tabindex="0">
+						<title>l_o9xo3rp9-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
+</svg>
