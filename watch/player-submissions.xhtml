@@ -477,18 +477,46 @@
 										const leaderboards = Object.create(null);
 										const games = ["9d3rrxyd", "w6jl2ned"];
 										for (const gameId of games) {
-											const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
-											const versions = data.variables.data.find((variable) =&gt; {
-												return variable.name === "Version";
-											});
-											const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
-												return [level.id, level];
+											const data = await importDataScript(`https://www.speedrun.com/api/v2/GetGameData?gameId=${gameId}`, signal);
+											const levels = Object.fromEntries(data.levels.map((level) =&gt; {
+												return [
+													level.id,
+													{
+														id: level.id,
+														name: level.name,
+													},
+												];
 											}));
-											const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
-												return [category.id, category];
+											const categories = Object.fromEntries(data.categories.map((category) =&gt; {
+												return [
+													category.id,
+													{
+														id: category.id,
+														name: category.name,
+													},
+												];
 											}));
-											const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
-												return [variable.id, variable];
+											const variables = Object.fromEntries(data.variables.map((variable) =&gt; {
+												return [
+													variable.id,
+													{
+														id: variable.id,
+														name: variable.name,
+														values: {
+															values: Object.fromEntries(data.values.filter((value) =&gt; {
+																return value.variableId === variable.id;
+															}).map((value) =&gt; {
+																return [
+																	value.id,
+																	{
+																		label: value.name,
+																	},
+																];
+															})),
+														},
+														"is-subcategory": variable.isSubcategory,
+													},
+												];
 											}));
 											console.log(`Got game`);
 											await waitForTimeout(800, signal);
@@ -507,7 +535,6 @@
 													const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
 													const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
 													players[player] ??= playerName;
-													const gui = run.weblink ?? null;
 													const level = run.level;
 													const category = run.category;
 													const values = Object.entries(run.values).filter(([variable]) =&gt; {
@@ -517,27 +544,7 @@
 													});
 													const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
 													const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
-													const categoryName = categories[run.category]?.name ?? (await (async () =&gt; {
-														if (gui == null) {
-															return null;
-														}
-														const response = await fetch(gui, {
-															signal,
-														});
-														if (!response.ok) {
-															return null;
-														}
-														const document = new DOMParser(await response.text(), "text/html");
-														const category = document.querySelector(".sm\\:grid-cols-3 .bg-yellow-700\\/20 .text-secondary");
-														if (category == null) {
-															return null;
-														}
-														const categoryName = category.textContent;
-														categories[run.category] ??= {
-															name: categoryName,
-														};
-														return categoryName;
-													})()) ?? null;
+													const categoryName = categories[run.category]?.name ?? null;
 													const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
 														return variables[variable]?.["is-subcategory"] ?? false;
 													}).map(([variable, value]) =&gt; {
