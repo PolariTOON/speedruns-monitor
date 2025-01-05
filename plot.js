@@ -68,7 +68,7 @@ function sortDatumDates(datumDates) {
 	});
 	return datumDates;
 }
-function plot(scope, title, data, cumulative, extended, timed) {
+function plot(scope, title, data, cumulative, extended, timed, ranked) {
 	const sortedData = Object.fromEntries(sortData(Object.entries(data).map(([datum, dates]) => {
 		return [
 			datum,
@@ -639,7 +639,11 @@ function plot(scope, title, data, cumulative, extended, timed) {
 		const d = [];
 		let currentValue = null;
 		if (extended) {
-			currentValue = 0;
+			if (ranked) {
+				currentValue = gIndex;
+			} else {
+				currentValue = 0;
+			}
 			d.push(`M0,${currentValue}`);
 		}
 		const subPaths = [];
@@ -730,7 +734,7 @@ function plotRunCountByDatum(scope, title, data) {
 			}
 		}
 	}
-	const formattedData = plot(scope, title, newData, true, true, false);
+	const formattedData = plot(scope, title, newData, true, true, false, false);
 	return formattedData;
 }
 function plotKeyCountByDatum(scope, title, data, key) {
@@ -751,7 +755,7 @@ function plotKeyCountByDatum(scope, title, data, key) {
 			}
 		}
 	}
-	const formattedData = plot(scope, title, newData, true, true, false);
+	const formattedData = plot(scope, title, newData, true, true, false, false);
 	return formattedData;
 }
 function plotTimeByDatumKey(scope, title, datumDates, key) {
@@ -777,8 +781,47 @@ function plotTimeByDatumKey(scope, title, datumDates, key) {
 	if (Object.keys(keyData).length === 0) {
 		return null;
 	}
-	const formattedData = plot(scope, title, keyData, false, false, true);
+	const formattedData = plot(scope, title, keyData, false, false, true, false);
 	return formattedData;
+}
+function plotRankByPlayer(scope, title, leaderboardDates) {
+	const players = Object.create(null);
+	const times = Object.create(null);
+	const ranks = [];
+	for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
+		for (const run of dateRuns) {
+			if (run.status !== "verified") {
+				continue;
+			}
+			const time = run.time;
+			const player = run.player;
+			let lowerTime = player in players ? times[player] : null;
+			if (lowerTime == null || time.length < lowerTime.length || time < lowerTime) {
+				lowerTime = time;
+				times[player] = lowerTime;
+				let currentRank = player in players ? players[player][Object.keys(players[player])[Object.keys(players[player]).length - 1]] : ranks.push(null) - 1;
+				let lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
+				lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
+				while (lowerTime != null && (time.length < lowerTime.length || time < lowerTime)) {
+					const playerDates = players[lowerPlayer] ??= Object.create(null);
+					playerDates[date] = currentRank;
+					ranks[currentRank] = lowerPlayer;
+					--currentRank;
+					lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
+					lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
+				}
+				lowerPlayer = player;
+				const playerDates = players[lowerPlayer] ??= Object.create(null);
+				playerDates[date] = currentRank;
+				ranks[currentRank] = lowerPlayer;
+			}
+		}
+	}
+	if (Object.keys(players).length === 0) {
+		return null;
+	}
+	const formattedPlayers = plot(scope, title, players, false, true, false, true);
+	return formattedPlayers;
 }
 function plotRecordCountByPlayer(scope, title, leaderboards) {
 	const players = Object.create(null);
@@ -807,7 +850,7 @@ function plotRecordCountByPlayer(scope, title, leaderboards) {
 			}
 		}
 	}
-	const formattedPlayers = plot(scope, title, players, true, true, false);
+	const formattedPlayers = plot(scope, title, players, true, true, false, false);
 	return formattedPlayers;
 }
 function plotRecordTimeByLeaderboard(scope, title, leaderboards) {
@@ -833,7 +876,7 @@ function plotRecordTimeByLeaderboard(scope, title, leaderboards) {
 			}
 		}
 	}
-	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true);
+	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true, false);
 	return formattedLeaderboards;
 }
 const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by player", players);
@@ -855,6 +898,14 @@ for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
 		continue;
 	}
 	formattedTimeByPlayerByLeaderboard[leaderboard] = formattedTimeByPlayer;
+}
+const formattedRankByPlayerByLeaderboard = Object.create(null);
+for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
+	const formattedRankByPlayer = plotRankByPlayer("../../", `Rank by player for leaderboard ${leaderboard}`, leaderboardDates);
+	if (formattedRankByPlayer == null) {
+		continue;
+	}
+	formattedRankByPlayerByLeaderboard[leaderboard] = formattedRankByPlayer;
 }
 const formattedRecordCountByPlayer = plotRecordCountByPlayer("../", "Record count by player", leaderboards);
 const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("../", "Record time by leaderboard", leaderboards);
@@ -884,6 +935,9 @@ for (const [player, formattedTimeByLeaderboard] of Object.entries(formattedTimeB
 }
 for (const [leaderboard, formattedTimeByPlayer] of Object.entries(formattedTimeByPlayerByLeaderboard)) {
 	await fs.promises.writeFile(`plot/leaderboards/${leaderboard}-player-times.svg`, `${formattedTimeByPlayer}\n`);
+}
+for (const [leaderboard, formattedRankByPlayer] of Object.entries(formattedRankByPlayerByLeaderboard)) {
+	await fs.promises.writeFile(`plot/leaderboards/${leaderboard}-player-ranks.svg`, `${formattedRankByPlayer}\n`);
 }
 await fs.promises.writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
 await fs.promises.writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
@@ -918,6 +972,13 @@ ${sort(Object.keys(formattedTimeByPlayerByLeaderboard), (leaderboard) => {
 }).map((leaderboard) => {
 	return `\
 - [Time by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-times.svg)
+`;
+}).join("")}\
+${sort(Object.keys(formattedRankByPlayerByLeaderboard), (leaderboard) => {
+	return !leaderboard.startsWith("l_") ? `l_-${leaderboard}` : leaderboard;
+}).map((leaderboard) => {
+	return `\
+- [Rank by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-ranks.svg)
 `;
 }).join("")}\
 `);
