@@ -446,18 +446,47 @@ function plot(scope, title, data, cumulative, extended, timed) {
 									const leaderboards = Object.create(null);
 									const games = ["9d3rrxyd", "w6jl2ned"];
 									for (const gameId of games) {
-										const {data} = await importDataScript(\`https://www.speedrun.com/api/v1/games/\${gameId}?embed=categories,levels,variables\`, signal);
-										const versions = data.variables.data.find((variable) =&gt; {
-											return variable.name === "Version";
-										});
-										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
-											return [level.id, level];
+										const data = await importDataScript(\`https://www.speedrun.com/api/v2/GetGameData?gameId=\${gameId}\`, signal);
+										const levels = Object.fromEntries(data.levels.map((level) =&gt; {
+											return [
+												level.id,
+												{
+													id: level.id,
+													name: level.name,
+												},
+											];
 										}));
-										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
-											return [category.id, category];
+										const categories = Object.fromEntries(data.categories.map((category) =&gt; {
+											return [
+												category.id,
+												{
+													id: category.id,
+													name: category.name,
+												},
+											];
 										}));
-										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
-											return [variable.id, variable];
+										const variables = Object.fromEntries(data.variables.map((variable) =&gt; {
+											return [
+												variable.id,
+												{
+													id: variable.id,
+													name: variable.name,
+													values: {
+														values: Object.fromEntries(data.values.filter((value) =&gt; {
+															return value.variableId === variable.id;
+														}).map((value) =&gt; {
+															return [
+																value.id,
+																{
+																	id: value.id,
+																	label: value.name,
+																},
+															];
+														})),
+													},
+													"is-subcategory": variable.isSubcategory,
+												},
+											];
 										}));
 										console.log(\`Got game\`);
 										await waitForTimeout(800, signal);

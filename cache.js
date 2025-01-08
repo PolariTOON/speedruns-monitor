@@ -15,23 +15,55 @@ const platforms = {
 };
 for (const gameId of games) {
 	try {
-		const response = await fetch(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`);
+		const response = await fetch(`https://www.speedrun.com/api/v2/GetGameData?gameId=${gameId}`);
 		if (!response.ok) {
 			throw new Error(response.statusText);
 		}
-		const {data} = await response.json();
-		const versions = data.variables.data.find((variable) => {
+		const data = await response.json();
+		const levels = Object.fromEntries(data.levels.map((level) => {
+			return [
+				level.id,
+				{
+					id: level.id,
+					name: level.name,
+				},
+			];
+		}));
+		const categories = Object.fromEntries(data.categories.map((category) => {
+			return [
+				category.id,
+				{
+					id: category.id,
+					name: category.name,
+				},
+			];
+		}));
+		const variables = Object.fromEntries(data.variables.map((variable) => {
+			return [
+				variable.id,
+				{
+					id: variable.id,
+					name: variable.name,
+					values: {
+						values: Object.fromEntries(data.values.filter((value) => {
+							return value.variableId === variable.id;
+						}).map((value) => {
+							return [
+								value.id,
+								{
+									id: value.id,
+									label: value.name,
+								},
+							];
+						})),
+					},
+					"is-subcategory": variable.isSubcategory,
+				},
+			];
+		}));
+		const versions = Object.values(variables).find((variable) => {
 			return variable.name === "Version";
 		});
-		const levels = Object.fromEntries(data.levels.data.map((level) => {
-			return [level.id, level];
-		}));
-		const categories = Object.fromEntries(data.categories.data.map((category) => {
-			return [category.id, category];
-		}));
-		const variables = Object.fromEntries(data.variables.data.map((variable) => {
-			return [variable.id, variable];
-		}));
 		console.log(`Got game`);
 		await new Promise((resolve) => {
 			setTimeout(resolve, 800);
