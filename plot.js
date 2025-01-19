@@ -4,6 +4,7 @@ import serialize from "w3c-xmlserializer";
 const {JSDOM} = jsdom;
 const players = JSON.parse(await fs.promises.readFile("cache/players.json"));
 const leaderboards = JSON.parse(await fs.promises.readFile("cache/leaderboards.json"));
+const tiers = JSON.parse(await fs.promises.readFile("cache/tiers.json"));
 const blocks = ["foreignObject", "svg", "g", "path"];
 function indent(element, level, block) {
 	if (element == null) {
@@ -68,7 +69,7 @@ function sortDatumDates(datumDates) {
 	});
 	return datumDates;
 }
-function plot(scope, title, data, cumulative, extended, timed) {
+function plot(scope, title, data, cumulative, extended, timed, goals) {
 	const sortedData = Object.fromEntries(sortData(Object.entries(data).map(([datum, dates]) => {
 		return [
 			datum,
@@ -174,6 +175,24 @@ function plot(scope, title, data, cumulative, extended, timed) {
 			background: var(--canvas-background);
 			pointer-events: auto;
 		}
+		g &gt; rect[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: var(--tier, #0000);
+			stroke: none;
+			cursor: help;
+		}
+		g &gt; rect[tabindex][data-tier="diamond"] {
+			--tier: var(--diamond);
+		}
+		g &gt; rect[tabindex][data-tier="gold"] {
+			--tier: var(--gold);
+		}
+		g &gt; rect[tabindex][data-tier="silver"] {
+			--tier: var(--silver);
+		}
+		g &gt; rect[tabindex][data-tier="bronze"] {
+			--tier: var(--bronze);
+		}
 		g &gt; path[tabindex] {
 			vector-effect: non-scaling-stroke;
 			fill: none;
@@ -195,7 +214,7 @@ function plot(scope, title, data, cumulative, extended, timed) {
 		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
 			stroke-dasharray: 4 8;
 		}
-		g &gt; rect {
+		g &gt; path[tabindex]:first-of-type + rect {
 			vector-effect: non-scaling-stroke;
 			fill: none;
 			stroke: none;
@@ -210,7 +229,8 @@ function plot(scope, title, data, cumulative, extended, timed) {
 		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
 			stroke-width: 16;
 		}
-		g &gt; line {
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line + line {
 			vector-effect: non-scaling-stroke;
 			fill: none;
 			stroke: none;
@@ -230,6 +250,10 @@ function plot(scope, title, data, cumulative, extended, timed) {
 			:root {
 				--canvas-background: #000;
 				--canvas-foreground: #ccc;
+				--diamond: #0363;
+				--gold: #6303;
+				--silver: #3633;
+				--bronze: #6363;
 				--highlighted: #6663;
 				--faded: #9993;
 			}
@@ -238,6 +262,10 @@ function plot(scope, title, data, cumulative, extended, timed) {
 			:root {
 				--canvas-background: #fff;
 				--canvas-foreground: #333;
+				--diamond: #9cf3;
+				--gold: #fc93;
+				--silver: #9c93;
+				--bronze: #c9c3;
 				--highlighted: #9993;
 				--faded: #6663;
 			}
@@ -634,6 +662,29 @@ function plot(scope, title, data, cumulative, extended, timed) {
 	g.setAttribute("transform", "scale(1 -1)");
 	g.setAttribute("transform-origin", "center center");
 	g.setAttribute("style", `--count: ${gCount};`);
+	if (timed && goals != null) {
+		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
+		let currentGoal = 0;
+		for (const [tier, goal] of Object.entries(goals)) {
+			const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+			rect.setAttribute("x", "0");
+			rect.setAttribute("y", `${currentGoal}`);
+			rect.setAttribute("width", `${maxDuration}`);
+			rect.setAttribute("height", `${Math.min(goal, maxValue) - currentGoal}`);
+			rect.setAttribute("tabindex", "0");
+			rect.setAttribute("data-tier", tier);
+			const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+			const minutes = `${(goal - goal % 6000) / 6000}`.padStart(2, "0");
+			const seconds = `${(goal - goal % 100) / 100 % 60}`.padStart(2, "0");
+			const centiseconds = `${goal % 100}`.padStart(2, "0");
+			const time = `${minutes}:${seconds}.${centiseconds}`;
+			title.textContent = `${time} for ${tier}`;
+			rect.append(title);
+			subG.append(rect);
+			currentGoal = Math.min(goal, maxValue);
+		}
+		g.append(subG);
+	}
 	let gIndex = 0;
 	for (const [datum, datumDates] of Object.entries(sortedData)) {
 		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -736,7 +787,7 @@ function plotRunCountByDatum(scope, title, data) {
 			}
 		}
 	}
-	const formattedData = plot(scope, title, newData, true, true, false);
+	const formattedData = plot(scope, title, newData, true, true, false, null);
 	return formattedData;
 }
 function plotKeyCountByDatum(scope, title, data, key) {
@@ -757,10 +808,10 @@ function plotKeyCountByDatum(scope, title, data, key) {
 			}
 		}
 	}
-	const formattedData = plot(scope, title, newData, true, true, false);
+	const formattedData = plot(scope, title, newData, true, true, false, null);
 	return formattedData;
 }
-function plotTimeByDatumKey(scope, title, datumDates, key) {
+function plotTimeByDatumKey(scope, title, datumDates, key, times) {
 	const keyData = Object.create(null);
 	for (const [date, dateRuns] of Object.entries(datumDates)) {
 		for (const run of dateRuns) {
@@ -783,7 +834,14 @@ function plotTimeByDatumKey(scope, title, datumDates, key) {
 	if (Object.keys(keyData).length === 0) {
 		return null;
 	}
-	const formattedData = plot(scope, title, keyData, false, false, true);
+	const goals = times != null ? Object.fromEntries(Object.entries(times).map(([tier, time]) => {
+		const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
+			return Number(part);
+		});
+		const goal = minutes * 6000 + seconds * 100 + centiseconds;
+		return [tier, goal];
+	})) : null;
+	const formattedData = plot(scope, title, keyData, false, false, true, goals);
 	return formattedData;
 }
 function computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards) {
@@ -846,7 +904,7 @@ function plotRankByDatum(scope, title, data) {
 	if (Object.keys(data).length === 0) {
 		return null;
 	}
-	const formattedData = plot(scope, title, data, false, true, false);
+	const formattedData = plot(scope, title, data, false, true, false, null);
 	return formattedData;
 }
 function plotRecordCountByPlayer(scope, title, leaderboards) {
@@ -876,7 +934,7 @@ function plotRecordCountByPlayer(scope, title, leaderboards) {
 			}
 		}
 	}
-	const formattedPlayers = plot(scope, title, players, true, true, false);
+	const formattedPlayers = plot(scope, title, players, true, true, false, null);
 	return formattedPlayers;
 }
 function plotRecordTimeByLeaderboard(scope, title, leaderboards) {
@@ -902,7 +960,7 @@ function plotRecordTimeByLeaderboard(scope, title, leaderboards) {
 			}
 		}
 	}
-	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true);
+	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true, null);
 	return formattedLeaderboards;
 }
 const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by player", players);
@@ -912,7 +970,7 @@ const formattedPlayerCountByLeaderboard = plotKeyCountByDatum("../", "Player cou
 const [rankByLeaderboardByPlayer, rankByPlayerByLeaderboard] = computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards);
 const formattedTimeByLeaderboardByPlayer = Object.create(null);
 for (const [player, playerDates] of Object.entries(players)) {
-	const formattedTimeByLeaderboard = plotTimeByDatumKey("../../", `Time by leaderboard for player ${player}`, playerDates, "leaderboard");
+	const formattedTimeByLeaderboard = plotTimeByDatumKey("../../", `Time by leaderboard for player ${player}`, playerDates, "leaderboard", null);
 	if (formattedTimeByLeaderboard == null) {
 		continue;
 	}
@@ -928,7 +986,7 @@ for (const [player, playerLeaderboards] of Object.entries(rankByLeaderboardByPla
 }
 const formattedTimeByPlayerByLeaderboard = Object.create(null);
 for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-	const formattedTimeByPlayer = plotTimeByDatumKey("../../", `Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player");
+	const formattedTimeByPlayer = plotTimeByDatumKey("../../", `Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player", tiers[leaderboard]);
 	if (formattedTimeByPlayer == null) {
 		continue;
 	}

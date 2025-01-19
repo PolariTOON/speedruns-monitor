@@ -66,6 +66,24 @@
 			background: var(--canvas-background);
 			pointer-events: auto;
 		}
+		g &gt; rect[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: var(--tier, #0000);
+			stroke: none;
+			cursor: help;
+		}
+		g &gt; rect[tabindex][data-tier="diamond"] {
+			--tier: var(--diamond);
+		}
+		g &gt; rect[tabindex][data-tier="gold"] {
+			--tier: var(--gold);
+		}
+		g &gt; rect[tabindex][data-tier="silver"] {
+			--tier: var(--silver);
+		}
+		g &gt; rect[tabindex][data-tier="bronze"] {
+			--tier: var(--bronze);
+		}
 		g &gt; path[tabindex] {
 			vector-effect: non-scaling-stroke;
 			fill: none;
@@ -87,7 +105,7 @@
 		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
 			stroke-dasharray: 4 8;
 		}
-		g &gt; rect {
+		g &gt; path[tabindex]:first-of-type + rect {
 			vector-effect: non-scaling-stroke;
 			fill: none;
 			stroke: none;
@@ -102,7 +120,8 @@
 		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
 			stroke-width: 16;
 		}
-		g &gt; line {
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line + line {
 			vector-effect: non-scaling-stroke;
 			fill: none;
 			stroke: none;
@@ -122,6 +141,10 @@
 			:root {
 				--canvas-background: #000;
 				--canvas-foreground: #ccc;
+				--diamond: #0363;
+				--gold: #6303;
+				--silver: #3633;
+				--bronze: #6363;
 				--highlighted: #6663;
 				--faded: #9993;
 			}
@@ -130,6 +153,10 @@
 			:root {
 				--canvas-background: #fff;
 				--canvas-foreground: #333;
+				--diamond: #9cf3;
+				--gold: #fc93;
+				--silver: #9c93;
+				--bronze: #c9c3;
 				--highlighted: #9993;
 				--faded: #6663;
 			}
@@ -509,6 +536,12 @@
 	<foreignObject x="0" y="0" width="100%" height="100%">
 		<svg viewBox="0 0 1685 5172" preserveAspectRatio="none" overflow="visible">
 			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 16;">
+				<g>
+					<rect x="0" y="0" width="1685" height="2800" tabindex="0" data-tier="diamond"><title>00:28.00 for diamond</title></rect>
+					<rect x="0" y="2800" width="1685" height="1200" tabindex="0" data-tier="gold"><title>00:40.00 for gold</title></rect>
+					<rect x="0" y="4000" width="1685" height="1172" tabindex="0" data-tier="silver"><title>00:54.00 for silver</title></rect>
+					<rect x="0" y="5172" width="1685" height="0" tabindex="0" data-tier="bronze"><title>01:20.00 for bronze</title></rect>
+				</g>
 				<g style="--index: 0;">
 					<path d="M0,2963" tabindex="0">
 						<title>x356nrej</title>

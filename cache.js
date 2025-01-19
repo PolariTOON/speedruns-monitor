@@ -7,6 +7,7 @@ const playersByName = Object.create(null);
 const leaderboards = Object.create(null);
 const leaderboardsById = Object.create(null);
 const leaderboardsByName = Object.create(null);
+const tiers = Object.create(null);
 const games = ["9d3rrxyd", "w6jl2ned"];
 const platforms = {
 	"lq60nl94": "android",
@@ -159,6 +160,46 @@ for (const leaderboardDates of Object.values(leaderboards)) {
 	}
 }
 try {
+	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/bears.json`);
+	if (!response.ok) {
+		throw new Error(response.statusText);
+	}
+	const bears = await response.json();
+	for (const bear of bears) {
+		const {diamond, gold, name} = bear;
+		const silver = Math.ceil(gold * 4 / 3);
+		const bronze = gold * 2;
+		const goals = {
+			diamond,
+			gold,
+			silver,
+			bronze,
+		};
+		const times = Object.fromEntries(Object.entries(goals).map(([tier, goal]) => {
+			const minutes = `${goal / 60 | 0}`.padStart(2, "0");
+			const seconds = `${goal % 60 | 0}`.padStart(2, "0");
+			const centiseconds = `${goal * 100 % 100 | 0}`.padStart(2, "0");
+			const time = `${minutes}:${seconds}.${centiseconds}`;
+			return [tier, time];
+		}));
+		const englishName = name["en-US"];
+		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
+			return (leaderboardName === englishName || leaderboardName.startsWith(`${englishName} `) || leaderboardName.endsWith(` ${englishName}`) || leaderboardName.includes(` ${englishName} `)) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));
+		});
+		if (leaderboardName != null) {
+			const leaderboard = leaderboardsByName[leaderboardName];
+			tiers[leaderboard] ??= times;
+		}
+	}
+	console.log(`Got bears`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+} catch (error) {
+	console.warn(`Error while getting bears`);
+	throw error;
+}
+try {
 	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/updates.json`);
 	if (!response.ok) {
 		throw new Error(response.statusText);
@@ -275,6 +316,7 @@ const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(le
 		}))),
 	];
 })));
+const sortedTiers = tiers;
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });
@@ -285,10 +327,12 @@ await fs.promises.writeFile(`cache/players-by-name.json`, `${JSON.stringify(play
 await fs.promises.writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards-by-id.json`, `${JSON.stringify(leaderboardsById, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/tiers.json`, `${JSON.stringify(sortedTiers, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/readme.md`, `\
 # Cache
 
 - [Dates](dates.json)
 - [Players](players.json)
 - [Leaderboards](leaderboards.json)
+- [Tiers](tiers.json)
 `);
