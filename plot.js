@@ -59,7 +59,7 @@ function sort(array, hash) {
 }
 function sortData(data) {
 	sort(data, (datum) => {
-		return Object.keys(datum[1])[0];
+		return Object.keys(datum[1])[0] || Object.keys(datum[1])[1];
 	});
 	return data;
 }
@@ -963,6 +963,99 @@ function plotRecordTimeByLeaderboard(scope, title, leaderboards) {
 	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true, null);
 	return formattedLeaderboards;
 }
+function plotTotalTimeByPlayer(scope, title, players, tiers) {
+	const tierCount = Object.keys(tiers).length;
+	const newPlayers = Object.create(null);
+	for (const [player, playerDates] of Object.entries(players)) {
+		let leaderboardCount = 0;
+		let playerTime = 0;
+		const leaderboards = Object.create(null);
+		for (const [date, dateRuns] of Object.entries(playerDates)) {
+			for (const run of dateRuns) {
+				if (run.status !== "verified" || !(run.leaderboard in tiers)) {
+					continue;
+				}
+				const time = run.time;
+				const leaderboard = run.leaderboard;
+				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
+					return Number(part);
+				});
+				const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
+				const minTime = leaderboard in leaderboards ? leaderboards[leaderboard] : null;
+				if (minTime == null || currentTime < minTime) {
+					if (minTime == null) {
+						++leaderboardCount;
+					} else {
+						playerTime -= minTime;
+					}
+					playerTime += currentTime;
+					leaderboards[leaderboard] = currentTime;
+					if (leaderboardCount === tierCount) {
+						const newPlayerDates = newPlayers[player] ??= Object.create(null);
+						newPlayerDates[date] = playerTime;
+					}
+				}
+			}
+		}
+	}
+	const goals = Object.create(null);
+	for (const times of Object.values(tiers)) {
+		for (const [tier, time] of Object.entries(times)) {
+			const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
+				return Number(part);
+			});
+			const goal = minutes * 6000 + seconds * 100 + centiseconds;
+			goals[tier] ??= 0;
+			goals[tier] += goal;
+		}
+	}
+	const formattedData = plot(scope, title, newPlayers, false, false, true, goals);
+	return formattedData;
+}
+function plotTotalRankByPlayer(scope, title, players, tiers) {
+	const tierCount = Object.keys(tiers).length;
+	const newPlayers = Object.create(null);
+	for (const [player, playerLeaderboards] of Object.entries(players)) {
+		let leaderboardCount = 0;
+		const playerDates = Object.create(null);
+		for (const [playerLeaderboard, playerLeaderboardDates] of Object.entries(playerLeaderboards)) {
+			if (!(playerLeaderboard in tiers)) {
+				continue;
+			}
+			++leaderboardCount;
+			for (const [date, dateRank] of Object.entries(playerLeaderboardDates)) {
+				playerDates[date] ??= [];
+				playerDates[date].push(Object.assign(Object.create(null), {
+					rank: dateRank,
+					leaderboard: playerLeaderboard,
+				}));
+			}
+		}
+		if (leaderboardCount !== tierCount) {
+			continue;
+		}
+		const sortedPlayerDates = Object.fromEntries(sortDatumDates(Object.entries(playerDates)));
+		let playerRank = 0;
+		const leaderboards = Object.create(null);
+		for (const [date, dateRuns] of Object.entries(sortedPlayerDates)) {
+			for (const run of dateRuns) {
+				const rank = run.rank;
+				const leaderboard = run.leaderboard;
+				const currentRank = rank;
+				const previousRank = leaderboard in leaderboards ? leaderboards[leaderboard] : null;
+				if (previousRank != null) {
+					playerRank -= previousRank;
+				}
+				playerRank += currentRank;
+				leaderboards[leaderboard] = currentRank;
+				const newPlayerDates = newPlayers[player] ??= Object.create(null);
+				newPlayerDates[date] = playerRank;
+			}
+		}
+	}
+	const formattedPlayers = plot(scope, title, newPlayers, false, true, false, null);
+	return formattedPlayers;
+}
 const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by player", players);
 const formattedRunCountByLeaderboard = plotRunCountByDatum("../", "Run count by leaderboard", leaderboards);
 const formattedLeaderboardCountByPlayer = plotKeyCountByDatum("../", "Leaderboard count by player", players, "leaderboard");
@@ -1002,6 +1095,8 @@ for (const [leaderboard, leaderboardPlayers] of Object.entries(rankByPlayerByLea
 }
 const formattedRecordCountByPlayer = plotRecordCountByPlayer("../", "Record count by player", leaderboards);
 const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("../", "Record time by leaderboard", leaderboards);
+const formattedTotalTimeByPlayer = plotTotalTimeByPlayer("../", "Total time by player", players, tiers);
+const formattedTotalRankByPlayer = plotTotalRankByPlayer("../", "Total rank by player", rankByLeaderboardByPlayer, tiers);
 await fs.promises.mkdir("plot", {
 	recursive: true,
 });
@@ -1037,6 +1132,8 @@ for (const [leaderboard, formattedRankByPlayer] of Object.entries(formattedRankB
 }
 await fs.promises.writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
 await fs.promises.writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
+await fs.promises.writeFile(`plot/player-times.svg`, `${formattedTotalTimeByPlayer}\n`);
+await fs.promises.writeFile(`plot/player-ranks.svg`, `${formattedTotalRankByPlayer}\n`);
 await fs.promises.writeFile(`plot/readme.md`, `\
 # Plot
 
@@ -1046,6 +1143,8 @@ await fs.promises.writeFile(`plot/readme.md`, `\
 - [Player count by leaderboard](leaderboard-players.svg)
 - [Record count by player](player-records.svg)
 - [Record time by leaderboard](leaderboard-records.svg)
+- [Total time by player](player-times.svg)
+- [Total rank by player](player-ranks.svg)
 - [Players](players)
 - [Leaderboards](leaderboards)
 `);
