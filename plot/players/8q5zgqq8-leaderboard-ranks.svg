@@ -17,9 +17,27 @@
 		foreignObject {
 			pointer-events: none;
 		}
+		foreignObject::before,
+		foreignObject::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			left: 20px;
+			bottom: 20px;
+			pointer-events: auto;
+		}
+		foreignObject::before {
+			width: calc(100% - 40px);
+			height: calc(20px + var(--date-size) * 1px);
+		}
+		foreignObject::after {
+			width: calc(20px + var(--value-size) * 1px);
+			height: calc(100% - 40px);
+		}
 		foreignObject &gt; div {
 			position: absolute;
-			left: 0;
+			z-index: 4;
+			right: 0;
 			top: 0;
 			margin: 20px;
 			border: 1px solid var(--canvas-foreground);
@@ -39,6 +57,7 @@
 			display: table;
 			border-collapse: separate;
 			border-spacing: 10px;
+			direction: rtl;
 		}
 		progress,
 		input[type="checkbox"] {
@@ -48,28 +67,99 @@
 			margin: 2px;
 			accent-color: var(--canvas-foreground);
 			vertical-align: top;
+			direction: ltr;
 		}
 		progress + span,
 		input[type="checkbox"] + span {
 			display: table-cell;
 			vertical-align: top;
+			direction: ltr;
 		}
 		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
 			text-decoration: underline;
 		}
-		foreignObject &gt; svg {
-			width: calc(100% - 40px);
-			height: calc(100% - 40px);
-			margin: 20px;
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			position: absolute;
+			z-index: 2;
+			margin: 0;
 			padding: 10px;
-			border: 1px dashed var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			font-weight: bold;
+			pointer-events: auto;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			border-top: 1px solid #0000;
+			border-bottom: 1px solid var(--canvas-foreground);
+		}
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px dashed #0000;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg {
+			width: calc(20px + var(--date-size) * 1px);
+			height: 42px;
+			bottom: 20px;
+		}
+		foreignObject &gt; svg:first-of-type {
+			left: calc(40px + var(--value-size) * 1px);
+			transform: rotate(90deg) translate(-100%, 0);
+			transform-origin: left bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg {
+			right: 20px;
+			transform: rotate(90deg) translate(0, 100%);
+			transform-origin: right bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			width: calc(20px + var(--value-size) * 1px);
+			height: 42px;
+			left: 20px;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			bottom: calc(40px + var(--date-size) * 1px);
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			top: 20px;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text {
+			fill: var(--canvas-foreground);
+			stroke: none;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text {
+			cursor: vertical-text;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg + svg {
+			position: relative;
+			z-index: 3;
+			width: calc(100% - 60px - var(--value-size) * 1px);
+			height: calc(100% - 60px - var(--date-size) * 1px);
+			margin: 20px 20px calc(40px + var(--date-size) * 1px) calc(40px + var(--value-size) * 1px);
+			border-left: 1px solid var(--canvas-foreground);
+			border-right: 1px dashed var(--canvas-foreground);
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px solid var(--canvas-foreground);
 			background: var(--canvas-background);
 			pointer-events: auto;
 		}
-		g &gt; rect[tabindex] {
+		g &gt; rect {
 			vector-effect: non-scaling-stroke;
-			fill: var(--tier, #0000);
+			fill: var(--highlighted);
 			stroke: none;
+		}
+		g &gt; rect[tabindex] {
+			fill: var(--tier, #0000);
 			cursor: help;
 		}
 		g &gt; rect[tabindex][data-tier="diamond"] {
@@ -106,13 +196,11 @@
 			stroke-dasharray: 4 8;
 		}
 		g &gt; path[tabindex]:first-of-type + rect {
-			vector-effect: non-scaling-stroke;
 			fill: none;
-			stroke: none;
-			pointer-events: none;
 		}
 		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
 			fill: var(--highlighted);
+			pointer-events: none;
 		}
 		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
 			stroke-width: 8;
@@ -533,9 +621,24 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-07-14</text>
+		</svg>
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-12-26</text>
+		</svg>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		</svg>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">103</text>
+		</svg>
 		<svg viewBox="0 0 531 103" preserveAspectRatio="none" overflow="visible">
 			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
+				<g>
+					<rect x="0" y="0" width="531" height="103"/>
+				</g>
 				<g style="--index: 0;">
 					<path d="M0,103L0,103L0,38L4,38L4,39L28,39L28,40L38,40L38,42L75,42L75,43L93,43L93,44L95,44L95,45L112,45L112,46L206,46L206,47L275,47L275,48L289,48L289,49L292,49L292,50L309,50L309,51L310,51L310,53L348,53L348,54L350,54L350,55L353,55L353,56L357,56L357,57L361,57L361,58L364,58L364,59L376,59L376,60L378,60L378,61L393,61L393,62L398,62L398,63L399,63L399,64L403,64L403,65L412,65L412,66L414,66L414,67L421,67L421,68L422,68L422,69L456,69L456,70L464,70L464,71L470,71L470,72L474,72L474,73L486,73L486,74L487,74L487,75L491,75L491,76L492,76L492,77L499,77L499,78L502,78L502,79L512,79L512,80L513,80L513,81L521,81L521,82L531,82L531,83L531,83" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
