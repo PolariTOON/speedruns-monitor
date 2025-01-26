@@ -5,7 +5,7 @@ const {JSDOM} = jsdom;
 const players = JSON.parse(await fs.promises.readFile("cache/players.json"));
 const leaderboards = JSON.parse(await fs.promises.readFile("cache/leaderboards.json"));
 const tiers = JSON.parse(await fs.promises.readFile("cache/tiers.json"));
-const blocks = ["foreignObject", "svg", "g", "path"];
+const blocks = ["foreignObject", "svg", "g", "rect", "path"];
 function indent(element, level, block) {
 	if (element == null) {
 		return;
@@ -126,9 +126,27 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		foreignObject {
 			pointer-events: none;
 		}
+		foreignObject::before,
+		foreignObject::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			left: 20px;
+			bottom: 20px;
+			pointer-events: auto;
+		}
+		foreignObject::before {
+			width: calc(100% - 40px);
+			height: calc(20px + var(--date-size) * 1px);
+		}
+		foreignObject::after {
+			width: calc(20px + var(--value-size) * 1px);
+			height: calc(100% - 40px);
+		}
 		foreignObject &gt; div {
 			position: absolute;
-			left: 0;
+			z-index: 4;
+			right: 0;
 			top: 0;
 			margin: 20px;
 			border: 1px solid var(--canvas-foreground);
@@ -148,6 +166,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			display: table;
 			border-collapse: separate;
 			border-spacing: 10px;
+			direction: rtl;
 		}
 		progress,
 		input[type="checkbox"] {
@@ -157,28 +176,99 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			margin: 2px;
 			accent-color: var(--canvas-foreground);
 			vertical-align: top;
+			direction: ltr;
 		}
 		progress + span,
 		input[type="checkbox"] + span {
 			display: table-cell;
 			vertical-align: top;
+			direction: ltr;
 		}
 		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
 			text-decoration: underline;
 		}
-		foreignObject &gt; svg {
-			width: calc(100% - 40px);
-			height: calc(100% - 40px);
-			margin: 20px;
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			position: absolute;
+			z-index: 2;
+			margin: 0;
 			padding: 10px;
-			border: 1px dashed var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			font-weight: bold;
+			pointer-events: auto;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			border-top: 1px solid #0000;
+			border-bottom: 1px solid var(--canvas-foreground);
+		}
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px dashed #0000;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg {
+			width: calc(20px + var(--date-size) * 1px);
+			height: 42px;
+			bottom: 20px;
+		}
+		foreignObject &gt; svg:first-of-type {
+			left: calc(40px + var(--value-size) * 1px);
+			transform: rotate(90deg) translate(-100%, 0);
+			transform-origin: left bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg {
+			right: 20px;
+			transform: rotate(90deg) translate(0, 100%);
+			transform-origin: right bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			width: calc(20px + var(--value-size) * 1px);
+			height: 42px;
+			left: 20px;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			bottom: calc(40px + var(--date-size) * 1px);
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			top: 20px;
+		}
+		foreignObject &gt; svg:first-of-type > text,
+		foreignObject &gt; svg:first-of-type + svg > text,
+		foreignObject &gt; svg:first-of-type + svg + svg > text,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg > text {
+			fill: var(--canvas-foreground);
+			stroke: none;
+		}
+		foreignObject &gt; svg:first-of-type > text,
+		foreignObject &gt; svg:first-of-type + svg > text {
+			cursor: vertical-text;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg + svg {
+			position: relative;
+			z-index: 3;
+			width: calc(100% - 60px - var(--value-size) * 1px);
+			height: calc(100% - 60px - var(--date-size) * 1px);
+			margin: 20px 20px calc(40px + var(--date-size) * 1px) calc(40px + var(--value-size) * 1px);
+			border-left: 1px solid var(--canvas-foreground);
+			border-right: 1px dashed var(--canvas-foreground);
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px solid var(--canvas-foreground);
 			background: var(--canvas-background);
 			pointer-events: auto;
 		}
-		g &gt; rect[tabindex] {
+		g &gt; rect {
 			vector-effect: non-scaling-stroke;
-			fill: var(--tier, #0000);
+			fill: var(--highlighted);
 			stroke: none;
+		}
+		g &gt; rect[tabindex] {
+			fill: var(--tier, #0000);
 			cursor: help;
 		}
 		g &gt; rect[tabindex][data-tier="diamond"] {
@@ -215,13 +305,11 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			stroke-dasharray: 4 8;
 		}
 		g &gt; path[tabindex]:first-of-type + rect {
-			vector-effect: non-scaling-stroke;
 			fill: none;
-			stroke: none;
-			pointer-events: none;
 		}
 		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
 			fill: var(--highlighted);
+			pointer-events: none;
 		}
 		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
 			stroke-width: 8;
@@ -649,10 +737,55 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 	const {document} = window;
 	const root = document.documentElement;
 	const foreignObject = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
+	const dateSize = Math.max(minDate.length, maxDate.length) * 10;
+	const valueSize = (timed ? Math.max(8, 7 + `${(maxValue - maxValue % 60000) / 60000}`.length) : Math.max(1, `${maxValue}`.length)) * 10;
 	foreignObject.setAttribute("x", "0");
 	foreignObject.setAttribute("y", "0");
 	foreignObject.setAttribute("width", "100%");
 	foreignObject.setAttribute("height", "100%");
+	foreignObject.setAttribute("style", `--date-size: ${dateSize}; --value-size: ${valueSize};`);
+	for (const date of [minDate, maxDate]) {
+		const size = date.length * 10;
+		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		svg.setAttribute("viewBox", `0 0 ${dateSize} 20`);
+		const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+		text.setAttribute("x", `${dateSize / 2}`);
+		text.setAttribute("y", "10");
+		text.setAttribute("dx", "0");
+		text.setAttribute("dy", "2");
+		text.setAttribute("textLength", `${size}`);
+		text.setAttribute("lengthAdjust", "spacingAndGlyphs");
+		text.setAttribute("text-anchor", "middle");
+		text.setAttribute("dominant-baseline", "middle");
+		text.textContent = date;
+		svg.append(text);
+		foreignObject.append(svg);
+	}
+	for (const value of [0, maxValue]) {
+		const size = (timed ? 7 + `${(value - value % 60000) / 60000}`.length : `${value}`.length) * 10;
+		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		svg.setAttribute("viewBox", `0 0 ${valueSize} 20`);
+		const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+		text.setAttribute("x", `${valueSize / 2}`);
+		text.setAttribute("y", "10");
+		text.setAttribute("dx", "0");
+		text.setAttribute("dy", "2");
+		text.setAttribute("textLength", `${size}`);
+		text.setAttribute("lengthAdjust", "spacingAndGlyphs");
+		text.setAttribute("text-anchor", "middle");
+		text.setAttribute("dominant-baseline", "middle");
+		if (timed) {
+			const minutes = `${(value - value % 6000) / 6000}`.padStart(2, "0");
+			const seconds = `${(value - value % 100) / 100 % 60}`.padStart(2, "0");
+			const centiseconds = `${value % 100}`.padStart(2, "0");
+			const time = `${minutes}:${seconds}.${centiseconds}`;
+			text.textContent = time;
+		} else {
+			text.textContent = `${value}`;
+		}
+		svg.append(text);
+		foreignObject.append(svg);
+	}
 	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	svg.setAttribute("viewBox", `0 0 ${maxDuration} ${maxValue}`);
 	svg.setAttribute("preserveAspectRatio", "none");
@@ -662,27 +795,38 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 	g.setAttribute("transform", "scale(1 -1)");
 	g.setAttribute("transform-origin", "center center");
 	g.setAttribute("style", `--count: ${gCount};`);
-	if (timed && goals != null) {
-		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-		let currentGoal = 0;
-		for (const [tier, goal] of Object.entries(goals)) {
-			const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-			rect.setAttribute("x", "0");
-			rect.setAttribute("y", `${currentGoal}`);
-			rect.setAttribute("width", `${maxDuration}`);
-			rect.setAttribute("height", `${Math.min(goal, maxValue) - currentGoal}`);
-			rect.setAttribute("tabindex", "0");
-			rect.setAttribute("data-tier", tier);
-			const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-			const minutes = `${(goal - goal % 6000) / 6000}`.padStart(2, "0");
-			const seconds = `${(goal - goal % 100) / 100 % 60}`.padStart(2, "0");
-			const centiseconds = `${goal % 100}`.padStart(2, "0");
-			const time = `${minutes}:${seconds}.${centiseconds}`;
-			title.textContent = `${time} for ${tier}`;
-			rect.append(title);
-			subG.append(rect);
-			currentGoal = Math.min(goal, maxValue);
+	if (timed) {
+		if (goals != null) {
+			const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
+			let currentGoal = 0;
+			for (const [tier, goal] of Object.entries(goals)) {
+				const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+				rect.setAttribute("x", "0");
+				rect.setAttribute("y", `${currentGoal}`);
+				rect.setAttribute("width", `${maxDuration}`);
+				rect.setAttribute("height", `${Math.min(goal, maxValue) - currentGoal}`);
+				rect.setAttribute("tabindex", "0");
+				rect.setAttribute("data-tier", tier);
+				const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+				const minutes = `${(goal - goal % 6000) / 6000}`.padStart(2, "0");
+				const seconds = `${(goal - goal % 100) / 100 % 60}`.padStart(2, "0");
+				const centiseconds = `${goal % 100}`.padStart(2, "0");
+				const time = `${minutes}:${seconds}.${centiseconds}`;
+				title.textContent = `${time} for ${tier}`;
+				rect.append(title);
+				subG.append(rect);
+				currentGoal = Math.min(goal, maxValue);
+			}
+			g.append(subG);
 		}
+	} else {
+		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
+		const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+		rect.setAttribute("x", "0");
+		rect.setAttribute("y", "0");
+		rect.setAttribute("width", `${maxDuration}`);
+		rect.setAttribute("height", `${maxValue}`);
+		subG.append(rect);
 		g.append(subG);
 	}
 	let gIndex = 0;
