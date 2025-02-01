@@ -626,27 +626,37 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-02-10</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-12-31</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-01-26</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
 			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">1</text>
+			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">3</text>
 		</svg>
-		<svg viewBox="0 0 690 1" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
+		<svg viewBox="0 0 716 3" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 4;">
 				<g>
-					<rect x="0" y="0" width="690" height="1"/>
+					<rect x="0" y="0" width="716" height="3"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,0L690,0" tabindex="0">
+					<path d="M0,0L0,0L0,0L716,0L716,1L716,1" tabindex="0">
 						<title>x356nrej</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,1L690,1L690,1L690,1" tabindex="0">
+					<path d="M0,1L690,1L690,1L695,1L695,2L716,2L716,3L716,3" tabindex="0">
 						<title>86p0vvqj</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,2L695,2L695,1L716,1L716,2L716,2" tabindex="0">
+						<title>8v07p9ex</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,3L716,3L716,0L716,0" tabindex="0">
+						<title>8eeod1p8</title>
 					</path>
 				</g>
 			</g>

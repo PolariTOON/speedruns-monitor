@@ -635,7 +635,7 @@
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:20.82</text>
 		</svg>
 		<svg viewBox="0 0 2543 2082" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 45;">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 46;">
 				<g>
 					<rect x="0" y="0" width="2543" height="1300" tabindex="0" data-tier="diamond">
 						<title>00:13.00 for diamond</title>
@@ -1189,6 +1189,17 @@
 					<line x1="2409" y1="0" x2="2409" y2="2082"/>
 				</g>
 				<g style="--index: 43;">
+					<path d="M2455,1023" tabindex="0">
+						<title>0jmw6wex</title>
+					</path>
+					<rect x="2455" y="1023" width="0" height="0"/>
+					<path d="M2455,1023L2455,1023" tabindex="0">
+						<title>00:10.23 on 2024-09-29</title>
+					</path>
+					<line x1="0" y1="1023" x2="2543" y2="1023"/>
+					<line x1="2455" y1="0" x2="2455" y2="2082"/>
+				</g>
+				<g style="--index: 44;">
 					<path d="M2468,1172" tabindex="0">
 						<title>8w3439qj</title>
 					</path>
@@ -1199,7 +1210,7 @@
 					<line x1="0" y1="1172" x2="2543" y2="1172"/>
 					<line x1="2468" y1="0" x2="2468" y2="2082"/>
 				</g>
-				<g style="--index: 44;">
+				<g style="--index: 45;">
 					<path d="M2531,1480" tabindex="0">
 						<title>jm6vm048</title>
 					</path>

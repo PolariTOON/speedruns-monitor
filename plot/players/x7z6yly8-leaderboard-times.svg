@@ -626,16 +626,16 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-08-22</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-08-22</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-01-03</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
-			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:08.96</text>
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:20.48</text>
 		</svg>
-		<svg viewBox="0 0 0 896" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
+		<svg viewBox="0 0 134 2048" preserveAspectRatio="none" overflow="visible">
+			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 2;">
 				<g style="--index: 0;">
 					<path d="M0,896" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
@@ -644,8 +644,19 @@
 					<path d="M0,896L0,896" tabindex="0">
 						<title>00:08.96 on 2024-08-22</title>
 					</path>
-					<line x1="0" y1="896" x2="0" y2="896"/>
-					<line x1="0" y1="0" x2="0" y2="896"/>
+					<line x1="0" y1="896" x2="134" y2="896"/>
+					<line x1="0" y1="0" x2="0" y2="2048"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M134,2048" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.81ppd5g1</title>
+					</path>
+					<rect x="134" y="2048" width="0" height="0"/>
+					<path d="M134,2048L134,2048" tabindex="0">
+						<title>00:20.48 on 2025-01-03</title>
+					</path>
+					<line x1="0" y1="2048" x2="134" y2="2048"/>
+					<line x1="134" y1="0" x2="134" y2="2048"/>
 				</g>
 			</g>
 		</svg>
