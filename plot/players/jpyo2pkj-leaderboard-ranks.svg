@@ -1,5 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" lang="en" style="color-scheme: dark light;">
+<svg xmlns="http://www.w3.org/2000/svg" lang="en">
 	<title>Rank by leaderboard for player jpyo2pkj</title>
+	<metadata>
+		<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="color-scheme" content="dark light" />
+	</metadata>
 	<style>
 		*,
 		::before,
@@ -621,6 +626,462 @@
 			});
 		}
 	</script>
+	<script>
+		"use strict";
+		{
+			document.addEventListener("DOMContentLoaded", (event) =&gt; {
+				const minDateText = document.querySelector("foreignObject &gt; svg:first-of-type &gt; text");
+				const maxDateText = document.querySelector("foreignObject &gt; svg:first-of-type + svg &gt; text");
+				const startX = Math.round(Date.parse(minDateText.textContent) / 86400000);
+				function xToDate(x) {
+					const datetime = new Date((startX + x) * 86400000);
+					const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
+					const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
+					const day = `${datetime.getUTCDate()}`.padStart(2, "0");
+					const date = `${year}-${month}-${day}`;
+					const size = date.length * 10;
+					return {date, size};
+				}
+				function setMinDate(x) {
+					const {date, size} = xToDate(Math.floor(x));
+					minDateText.textLength.baseVal.value = size;
+					minDateText.textContent = date;
+				}
+				function setMaxDate(x) {
+					const {date, size} = xToDate(Math.ceil(x));
+					maxDateText.textLength.baseVal.value = size;
+					maxDateText.textContent = date;
+				}
+				const minValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg &gt; text");
+				const maxValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text");
+				const timed = minValueText.textContent.includes(":");
+				function yToValue(y) {
+					if (timed) {
+						const minutes = `${(y - y % 6000) / 6000}`.padStart(2, "0");
+						const seconds = `${(y - y % 100) / 100 % 60}`.padStart(2, "0");
+						const centiseconds = `${y % 100}`.padStart(2, "0");
+						const value = `${minutes}:${seconds}.${centiseconds}`;
+						const size = value.length * 10;
+						return {value, size};
+					} else {
+						const value = `${y}`;
+						const size = value.length * 10;
+						return {value, size};
+					}
+				}
+				function setMinValue(y) {
+					const {value, size} = yToValue(Math.floor(y));
+					minValueText.textLength.baseVal.value = size;
+					minValueText.textContent = value;
+				}
+				function setMaxValue(y) {
+					const {value, size} = yToValue(Math.ceil(y));
+					maxValueText.textLength.baseVal.value = size;
+					maxValueText.textContent = value;
+				}
+				const svg = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg + svg");
+				svg.tabIndex = -1;
+				svg.style.setProperty("outline", "0");
+				if (CSS.supports("overflow-clip-margin", "8px")) {
+					svg.style.setProperty("overflow", "clip");
+					svg.style.setProperty("overflow-clip-margin", "8px");
+				}
+				svg.style.setProperty("touch-action", "none");
+				const {x: baseX, y: baseY, width: baseWidth, height: baseHeight} = svg.viewBox.baseVal;
+				let pointerCount = 0;
+				const pointers = Object.create(null);
+				const xPointerIds = [];
+				const yPointerIds = [];
+				let x = null;
+				let y = null;
+				let width = null;
+				let height = null;
+				svg.addEventListener("pointerdown", (event) =&gt; {
+					const {pointerId} = event;
+					if (pointerId in pointers) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.setPointerCapture(pointerId);
+					++pointerCount;
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId] = {
+						offsetX,
+						offsetY,
+					};
+					xPointerIds.splice(xPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetX &lt;= offsetX;
+					}) + 1, 0, pointerId);
+					yPointerIds.splice(yPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetY &lt;= offsetY;
+					}) + 1, 0, pointerId);
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					width = Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth);
+					height = Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight);
+					x = Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX);
+					y = Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY);
+				});
+				svg.addEventListener("pointerup", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.releasePointerCapture(pointerId);
+					--pointerCount;
+					delete pointers[pointerId];
+					xPointerIds.splice(xPointerIds.lastIndexOf(pointerId), 1);
+					yPointerIds.splice(yPointerIds.lastIndexOf(pointerId), 1);
+					const minOffsetX = pointerCount !== 0 ? pointers[xPointerIds[0]].offsetX : null;
+					const minOffsetY = pointerCount !== 0 ? pointers[yPointerIds[0]].offsetY : null;
+					const maxClientWidth = pointerCount !== 0 ? pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX : null;
+					const maxClientHeight = pointerCount !== 0 ? pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY : null;
+					width = pointerCount !== 0 ? Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth) : null;
+					height = pointerCount !== 0 ? Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight) : null;
+					x = pointerCount !== 0 ? Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX) : null;
+					y = pointerCount !== 0 ? Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY) : null;
+				});
+				svg.addEventListener("pointermove", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					event.preventDefault();
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId].offsetX = offsetX;
+					pointers[pointerId].offsetY = offsetY;
+					const oldXIndex = xPointerIds.lastIndexOf(pointerId);
+					let newXIndex = oldXIndex;
+					while (newXIndex &gt; 0 &amp;&amp; pointers[xPointerIds[newXIndex - 1]].offsetX &gt; offsetX) {
+						--newXIndex;
+					}
+					xPointerIds.copyWithin(newXIndex + 1, newXIndex, oldXIndex);
+					xPointerIds[newXIndex] = pointerId;
+					while (newXIndex &lt; pointerCount - 1 &amp;&amp; pointers[xPointerIds[newXIndex + 1]].offsetX &lt; offsetX) {
+						++newXIndex;
+					}
+					xPointerIds.copyWithin(oldXIndex, oldXIndex + 1, newXIndex + 1);
+					xPointerIds[newXIndex] = pointerId;
+					const oldYIndex = yPointerIds.lastIndexOf(pointerId);
+					let newYIndex = oldYIndex;
+					while (newYIndex &gt; 0 &amp;&amp; pointers[yPointerIds[newYIndex - 1]].offsetY &gt; offsetY) {
+						--newYIndex;
+					}
+					yPointerIds.copyWithin(newYIndex + 1, newYIndex, oldYIndex);
+					yPointerIds[newYIndex] = pointerId;
+					while (newYIndex &lt; pointerCount - 1 &amp;&amp; pointers[yPointerIds[newYIndex + 1]].offsetY &lt; offsetY) {
+						++newYIndex;
+					}
+					yPointerIds.copyWithin(oldYIndex, oldYIndex + 1, newYIndex + 1);
+					yPointerIds[newYIndex] = pointerId;
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					animWidth = width === 0 ? animWidth : maxClientWidth === 0 ? baseWidth : Math.min(svg.clientWidth / maxClientWidth * width, baseWidth);
+					animHeight = height === 0 ? animHeight : maxClientHeight === 0 ? baseHeight : Math.min(svg.clientHeight / maxClientHeight * height, baseHeight);
+					animX = Math.max(Math.min(x - minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(y - minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+				const zoomIntensity = 1.25;
+				svg.addEventListener("wheel", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					if (!ctrlKey) {
+						const vectorX = (shiftKey ? event.deltaY : event.deltaX) / svg.clientWidth * animWidth;
+						const vectorY = (shiftKey ? 0 : event.deltaY) / svg.clientHeight * animHeight;
+						animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+						animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+						svg.viewBox.baseVal.x = animX;
+						svg.viewBox.baseVal.y = animY;
+						setMinDate(animX);
+						setMaxDate(animX + animWidth);
+						setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+						setMaxValue(baseY * 2 + baseHeight - animY);
+						return;
+					}
+					const ratioX = zoomIntensity ** Math.sign(shiftKey ? event.deltaY : event.deltaX);
+					const ratioY = zoomIntensity ** Math.sign(shiftKey ? 0 : event.deltaY);
+					const positionX = Math.max(0, Math.min(event.offsetX / svg.clientWidth, 1)) * animWidth;
+					const positionY = Math.max(0, Math.min(event.offsetY / svg.clientHeight, 1)) * animHeight;
+					animWidth = Math.min(animWidth * ratioX, baseWidth);
+					animHeight = Math.min(animHeight * ratioY, baseHeight);
+					animX = Math.max(Math.min(animX + positionX * (1 - ratioX), baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(animY + positionY * (1 - ratioY), baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				}, {
+					passive: false,
+				});
+				svg.addEventListener("keydown", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					switch (event.code) {
+						case "Space": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "Equal":
+						case "NumpadAdd":
+						case "Minus":
+						case "NumpadSubtract": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.code === "Minus" || event.code === "NumpadSubtract" ? zoomIntensity : 1 / zoomIntensity;
+							if (!shiftKey) {
+								animHeight = Math.min(animHeight * ratio, baseHeight);
+								animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "Digit0":
+						case "Numpad0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							if (!shiftKey) {
+								animY = baseY;
+								animHeight = baseHeight;
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animX = baseX;
+							animWidth = baseWidth;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+					}
+					switch (event.key) {
+						case "ArrowRight": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = 50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowLeft": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = -50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowDown": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = 50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "End": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY + baseHeight - animHeight;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "ArrowUp": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = -50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "Home": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "PageDown":
+						case "PageUp":
+						case " ": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = event.key === "PageUp" || event.key === " " &amp;&amp; shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "+":
+						case "-": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.key === "-" ? 1 / zoomIntensity : zoomIntensity;
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animHeight = Math.min(animHeight * ratio, baseHeight);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animX = baseX;
+							animY = baseY;
+							animWidth = baseWidth;
+							animHeight = baseHeight;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+					}
+				});
+				svg.addEventListener("focusin", (event) =&gt; {
+					if (!event.target.matches(":focus-visible")) {
+						return;
+					}
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					let {x, y, width, height} = event.target.getBBox();
+					width = Math.round(width);
+					height = Math.round(height);
+					x = Math.round(x);
+					y = baseY * 2 + baseHeight - height - Math.round(y);
+					if (x + width &lt; animX) {
+						animX = x;
+						if (width &gt; animWidth) {
+							animX += (width - animWidth) / 2;
+						}
+					} else if (x &gt; animX + animWidth) {
+						animX = x + width - animWidth;
+						if (width &gt; animWidth) {
+							animX -= (width - animWidth) / 2;
+						}
+					}
+					if (y + height &lt; animY) {
+						animY = y;
+						if (height &gt; animHeight) {
+							animY += (height - animHeight) / 2;
+						}
+					} else if (y &gt; animY + animHeight) {
+						animY = y + height - animHeight;
+						if (height &gt; animHeight) {
+							animY -= (height - animHeight) / 2;
+						}
+					}
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+			}, {
+				once: true,
+			});
+		}
+	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-05-04</text>
@@ -635,7 +1096,7 @@
 			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">69</text>
 		</svg>
 		<svg viewBox="0 0 270 69" preserveAspectRatio="none" overflow="visible">
-			<g transform="scale(1 -1)" transform-origin="center center" style="--count: 1;">
+			<g transform="translate(0 69) scale(1 -1)" style="--count: 1;">
 				<g>
 					<rect x="0" y="0" width="270" height="69"/>
 				</g>
