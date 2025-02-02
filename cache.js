@@ -8,129 +8,280 @@ const leaderboards = Object.create(null);
 const leaderboardsById = Object.create(null);
 const leaderboardsByName = Object.create(null);
 const tiers = Object.create(null);
-const games = ["9d3rrxyd", "w6jl2ned"];
+const games = {
+	"9d3rrxyd": "sba",
+	"w6jl2ned": "sbace",
+};
+const statuses = {
+	1: "verified",
+	2: "rejected",
+};
 const platforms = {
 	"lq60nl94": "android",
 	"gde3xgek": "ios",
 	"7m6ylw9p": "switch"
 };
-for (const gameId of games) {
+for (const [gameId, game] of Object.entries(games)) {
 	try {
-		const response = await fetch(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`);
+		const response = await fetch(`https://www.speedrun.com/api/v2/GetGameData?gameId=${gameId}`);
 		if (!response.ok) {
 			throw new Error(response.statusText);
 		}
-		const {data} = await response.json();
-		const versions = data.variables.data.find((variable) => {
+		const data = await response.json();
+		const levels = Object.fromEntries(data.levels.map((level) => {
+			return [
+				level.id,
+				{
+					id: level.id,
+					name: level.name,
+				},
+			];
+		}));
+		const categories = Object.fromEntries(data.categories.map((category) => {
+			return [
+				category.id,
+				{
+					id: category.id,
+					name: category.name,
+					isArchived: category.archived,
+				},
+			];
+		}));
+		const values = Object.fromEntries(data.values.map((value) => {
+			return [
+				value.id,
+				{
+					id: value.id,
+					name: value.name,
+					variableId: value.variableId,
+				},
+			];
+		}));
+		const variables = Object.fromEntries(data.variables.map((variable) => {
+			return [
+				variable.id,
+				{
+					id: variable.id,
+					name: variable.name,
+					isSubcategory: variable.isSubcategory,
+				},
+			];
+		}));
+		const versionVariable = Object.values(variables).find((variable) => {
 			return variable.name === "Version";
-		});
-		const levels = Object.fromEntries(data.levels.data.map((level) => {
-			return [level.id, level];
-		}));
-		const categories = Object.fromEntries(data.categories.data.map((category) => {
-			return [category.id, category];
-		}));
-		const variables = Object.fromEntries(data.variables.data.map((variable) => {
-			return [variable.id, variable];
-		}));
-		console.log(`Got game`);
+		}) ?? null;
+		console.log(`Got game ${gameId}`);
 		await new Promise((resolve) => {
 			setTimeout(resolve, 800);
 		});
-		const slice = 200;
-		for (let offset = 0;; offset += slice) {
-			const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&orderby=date&direction=asc&embed=players&offset=${offset}&max=${slice}`);
-			if (!response.ok) {
-				throw new Error(response.statusText);
-			}
-			const {data, pagination} = await response.json();
-			const {size} = pagination;
-			if (size === 0) {
-				break;
-			}
-			for (const run of data) {
-				const status = run.status.status;
-				if (status == null || status === "new") {
-					continue;
+		for (const [verified, status] of Object.entries(statuses)) {
+			const slice = 200;
+			for (let offset = 0;; offset += slice) {
+				const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&status=${status}&orderby=date&direction=asc&embed=players&offset=${offset}&max=${slice}`);
+				if (!response.ok) {
+					throw new Error(response.statusText);
 				}
-				const date = run.date;
-				dates[date] ??= Object.create(null);
-				const [player, playerDates] = (() => {
-					const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-					const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
-					playersById[player] ??= playerName;
-					playersByName[playerName] ??= player;
-					return [player, players[player] ??= Object.create(null)];
-				})();
-				const playerDateRuns = playerDates[date] ??= [];
-				const gui = run.weblink ?? null;
-				const api = run.links[0].uri ?? null;
-				const minutes = run.times.primary_t != null ? `${run.times.primary_t / 60 | 0}`.padStart(2, "0") : null;
-				const seconds = run.times.primary_t != null ? `${run.times.primary_t % 60 | 0}`.padStart(2, "0") : null;
-				const centiseconds = run.times.primary_t != null ? `${run.times.primary_t * 100 % 100 | 0}`.padStart(2, "0") : null;
-				const time = `${minutes ?? "--"}:${seconds ?? "--"}.${centiseconds ?? "--"}`;
-				const version = versions.values.values[run.values[versions.id]].label ?? null;
-				const platform = platforms[run.system.platform] ?? null;
-				const [leaderboard, leaderboardDates] = (() => {
-					const level = run.level;
-					const category = run.category;
-					const values = Object.entries(run.values).filter(([variable]) => {
-						return variables[variable]?.["is-subcategory"] ?? false;
-					}).map(([variable, value]) => {
-						return `-${variable}.${value}`;
+				const {data, pagination} = await response.json();
+				const {size} = pagination;
+				if (size === 0) {
+					await new Promise((resolve) => {
+						setTimeout(resolve, 800);
 					});
-					const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
-					const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
-					const categoryName = categories[run.category]?.name ?? null;
-					const valueNames = Object.entries(run.values).filter(([variable]) => {
-						return variables[variable]?.["is-subcategory"] ?? false;
-					}).map(([variable, value]) => {
-						return variables[variable]?.values.values[value]?.label ?? null;
+					break;
+				}
+				for (const run of data) {
+					const categoryId = run.category;
+					const category = categories[categoryId];
+					if (!category.isArchived) {
+						continue;
+					}
+					const date = run.date;
+					dates[date] ??= Object.create(null);
+					const playerId = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+					const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+					playersById[playerId] ??= playerName;
+					playersByName[playerName] ??= playerId;
+					const playerDates = players[playerId] ??= Object.create(null);
+					const playerDateRuns = playerDates[date] ??= [];
+					const runId = run.id;
+					const gui = `https://www.speedrun.com/${game}/run/${runId}`;
+					const api = `https://www.speedrun.com/api/v1/runs/${runId}`;
+					const minutes = run.times.primary_t != null ? `${run.times.primary_t / 60 | 0}`.padStart(2, "0") : null;
+					const seconds = run.times.primary_t != null ? `${run.times.primary_t % 60 | 0}`.padStart(2, "0") : null;
+					const centiseconds = run.times.primary_t != null ? `${run.times.primary_t * 100 % 100 | 0}`.padStart(2, "0") : null;
+					const time = `${minutes ?? "--"}:${seconds ?? "--"}.${centiseconds ?? "--"}`;
+					const versionId = versionVariable != null ? run.values[versionVariable.id] ?? null : null;
+					const version = versionId != null ? values[versionId].name : null;
+					const platform = platforms[run.system.platform] ?? null;
+					const levelId = run.level;
+					const valueIds = Object.entries(run.values).filter(([variableId]) => {
+						return variables[variableId].isSubcategory;
+					}).map(([variableId, valueId]) => {
+						return `-${variableId}.${valueId}`;
+					});
+					const leaderboardId = `${levelId != null ? `l_${levelId}-` : ""}${categoryId}${valueIds.join("")}`;
+					const levelName = levelId != null ? levels[levelId].name : null;
+					const categoryName = categories[categoryId].name;
+					const valueNames = Object.entries(run.values).filter(([variableId]) => {
+						return variables[variableId].isSubcategory;
+					}).map(([variableId, valueId]) => {
+						return values[valueId].name;
 					}).filter((valueName) => {
 						return valueName != null;
 					});
-					const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
-					leaderboardsById[leaderboard] ??= leaderboardName;
-					leaderboardsByName[leaderboardName] ??= leaderboard;
-					return [leaderboard, leaderboards[leaderboard] ??= Object.create(null)];
-				})();
-				const leaderboardDateRuns = leaderboardDates[date] ??= [];
-				const comment = (run.comment ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").split(/\n{2,}/).filter((paragraph) => {
-					return paragraph.startsWith("Moderator's note: ") || paragraph.startsWith("Moderator's note:\n");
-				}).map((paragraph) => {
-					return paragraph.slice(18);
-				}).map((paragraph) => {
-					const characters = [...paragraph];
-					const firstCharacter = characters.slice(0, 1).join("").toUpperCase();
-					const lastCharacters = characters.slice(1).join("");
-					return `${firstCharacter}${lastCharacters}`;
-				}).join("\n\n") || null;
-				const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
-				const playerDateRun = {
-					href: status !== "rejected" ? gui : api,
-					time: time,
-					leaderboard: leaderboard,
-					version: version != null && version !== "Select or add one!" ? version : "?",
-					platform: platform,
-					status: status,
-					annotation: status !== "rejected" ? comment : reason,
-				};
-				playerDateRuns.push(playerDateRun);
-				const leaderboardDateRun = {
-					href: status !== "rejected" ? gui : api,
-					time: time,
-					player: player,
-					version: version != null && version !== "Select or add one!" ? version : "?",
-					platform: platform,
-					status: status,
-					annotation: status !== "rejected" ? comment : reason,
-				};
-				leaderboardDateRuns.push(leaderboardDateRun);
+					const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${valueNames.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+					leaderboardsById[leaderboardId] ??= leaderboardName;
+					leaderboardsByName[leaderboardName] ??= leaderboardId;
+					const leaderboardDates = leaderboards[leaderboardId] ??= Object.create(null);
+					const leaderboardDateRuns = leaderboardDates[date] ??= [];
+					const comment = (run.comment ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").split(/\n{2,}/).filter((paragraph) => {
+						return paragraph.startsWith("Moderator's note: ") || paragraph.startsWith("Moderator's note:\n");
+					}).map((paragraph) => {
+						return paragraph.slice(18);
+					}).map((paragraph) => {
+						const characters = [...paragraph];
+						const firstCharacter = characters.slice(0, 1).join("").toUpperCase();
+						const lastCharacters = characters.slice(1).join("");
+						return `${firstCharacter}${lastCharacters}`;
+					}).join("\n\n") || null;
+					const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
+					const playerDateRun = {
+						href: status !== "rejected" ? gui : api,
+						time: time,
+						leaderboard: leaderboardId,
+						version: version != null && version !== "Select or add one!" ? version : "?",
+						platform: platform,
+						status: status,
+						annotation: status !== "rejected" ? comment : reason,
+					};
+					playerDateRuns.push(playerDateRun);
+					const leaderboardDateRun = {
+						href: status !== "rejected" ? gui : api,
+						time: time,
+						player: playerId,
+						version: version != null && version !== "Select or add one!" ? version : "?",
+						platform: platform,
+						status: status,
+						annotation: status !== "rejected" ? comment : reason,
+					};
+					leaderboardDateRuns.push(leaderboardDateRun);
+				}
+				console.log(`Got ${status} runs ${offset}-${offset + size - 1}`);
+				await new Promise((resolve) => {
+					setTimeout(resolve, 800);
+				});
 			}
-			console.log(`Got runs ${offset}-${offset + size - 1}`);
-			await new Promise((resolve) => {
-				setTimeout(resolve, 800);
-			});
+			console.log(`Got archived categories`);
+			for (const [categoryId, category] of Object.entries(categories)) {
+				if (category.isArchived) {
+					continue;
+				}
+				for (let page = 1, pages = 1; page <= pages; ++page) {
+					const response = await fetch(`https://www.speedrun.com/api/v2/GetGameLeaderboard2?params={"gameId":"${gameId}","categoryId":"${categoryId}","verified":${verified},"obsolete":1,"video":0}&page=${page}`);
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const {pagination, playerList, runList} = await response.json();
+					pages = pagination.pages;
+					const offset = (page - 1) * pagination.per;
+					const size = runList.length;
+					if (size === 0) {
+						await new Promise((resolve) => {
+							setTimeout(resolve, 800);
+						});
+						break;
+					}
+					for (const player of playerList) {
+						const playerId = player.id;
+						const playerName = player.name;
+						playersById[playerId] ??= playerName;
+						playersByName[playerName] ??= playerId;
+						players[playerId] ??= Object.create(null);
+					}
+					for (const run of runList) {
+						const timestamp = run.date;
+						const datetime = new Date(timestamp * 1000);
+						const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
+						const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
+						const day = `${datetime.getUTCDate()}`.padStart(2, "0");
+						const date = `${year}-${month}-${day}`;
+						dates[date] ??= Object.create(null);
+						const playerId = run.playerIds[0] ?? "814p2558";
+						const playerName = run.playerIds[0] != null ? playersById[run.playerIds[0]] : "anonymous";
+						playersById[playerId] ??= playerName;
+						playersByName[playerName] ??= playerId;
+						const playerDates = players[playerId] ??= Object.create(null);
+						const playerDateRuns = playerDates[date] ??= [];
+						const runId = run.id;
+						const gui = `https://www.speedrun.com/${game}/run/${runId}`;
+						const api = `https://www.speedrun.com/api/v1/runs/${runId}`;
+						const minutes = (run.igt ?? run.time) != null ? `${(run.igt ?? run.time) / 60 | 0}`.padStart(2, "0") : null;
+						const seconds = (run.igt ?? run.time) != null ? `${(run.igt ?? run.time) % 60 | 0}`.padStart(2, "0") : null;
+						const centiseconds = (run.igt ?? run.time) != null ? `${(run.igt ?? run.time) * 100 % 100 | 0}`.padStart(2, "0") : null;
+						const time = `${minutes ?? "--"}:${seconds ?? "--"}.${centiseconds ?? "--"}`;
+						const versionId = versionVariable != null ? run.valueIds.find((valueId) => {
+							return values[valueId].variableId === versionVariable.id;
+						}) ?? null : null;
+						const version = versionId != null ? values[versionId].name : null;
+						const platform = platforms[run.platformId] ?? null;
+						const levelId = run.levelId ?? null;
+						const valueIds = run.valueIds.filter((valueId) => {
+							return variables[values[valueId].variableId].isSubcategory;
+						}).map((valueId) => {
+							return `-${values[valueId].variableId}.${valueId}`;
+						});
+						const leaderboardId = `${levelId != null ? `l_${levelId}-` : ""}${categoryId}${valueIds.join("")}`;
+						const levelName = levelId != null ? levels[levelId].name : null;
+						const categoryName = categories[categoryId].name;
+						const valueNames = run.valueIds.filter((valueId) => {
+							return variables[values[valueId].variableId].isSubcategory;
+						}).map((valueId) => {
+							return values[valueId].name;
+						});
+						const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${valueNames.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+						leaderboardsById[leaderboardId] ??= leaderboardName;
+						leaderboardsByName[leaderboardName] ??= leaderboardId;
+						const leaderboardDates = leaderboards[leaderboardId] ??= Object.create(null);
+						const leaderboardDateRuns = leaderboardDates[date] ??= [];
+						const comment = (run.comment ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").split(/\n{2,}/).filter((paragraph) => {
+							return paragraph.startsWith("Moderator's note: ") || paragraph.startsWith("Moderator's note:\n");
+						}).map((paragraph) => {
+							return paragraph.slice(18);
+						}).map((paragraph) => {
+							const characters = [...paragraph];
+							const firstCharacter = characters.slice(0, 1).join("").toUpperCase();
+							const lastCharacters = characters.slice(1).join("");
+							return `${firstCharacter}${lastCharacters}`;
+						}).join("\n\n") || null;
+						const reason = (run.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
+						const playerDateRun = {
+							href: status !== "rejected" ? gui : api,
+							time: time,
+							leaderboard: leaderboardId,
+							version: version != null && version !== "Select or add one!" ? version : "?",
+							platform: platform,
+							status: status,
+							annotation: status !== "rejected" ? comment : reason,
+						};
+						playerDateRuns.push(playerDateRun);
+						const leaderboardDateRun = {
+							href: status !== "rejected" ? gui : api,
+							time: time,
+							player: playerId,
+							version: version != null && version !== "Select or add one!" ? version : "?",
+							platform: platform,
+							status: status,
+							annotation: status !== "rejected" ? comment : reason,
+						};
+						leaderboardDateRuns.push(leaderboardDateRun);
+					}
+					console.log(`Got ${status} runs ${offset}-${offset + size - 1}`);
+					await new Promise((resolve) => {
+						setTimeout(resolve, 800);
+					});
+				}
+				console.log(`Got category ${categoryId}`);
+			}
 		}
 	} catch (error) {
 		console.warn(`Error while getting game ${gameId}`);
