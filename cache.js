@@ -7,7 +7,9 @@ const playersByName = Object.create(null);
 const leaderboards = Object.create(null);
 const leaderboardsById = Object.create(null);
 const leaderboardsByName = Object.create(null);
-const tiers = Object.create(null);
+const bears = Object.create(null);
+const missions = Object.create(null);
+const races = Object.create(null);
 const games = {
 	"9d3rrxyd": "sba",
 	"w6jl2ned": "sbace",
@@ -339,7 +341,7 @@ try {
 		});
 		if (leaderboardName != null) {
 			const leaderboard = leaderboardsByName[leaderboardName];
-			tiers[leaderboard] ??= times;
+			bears[leaderboard] ??= times;
 		}
 	}
 	console.log(`Got bears`);
@@ -349,6 +351,14 @@ try {
 } catch (error) {
 	console.warn(`Error while getting bears`);
 	throw error;
+}
+for (const [leaderboard, leaderboardName] of Object.entries(leaderboardsById)) {
+	if (leaderboardName.startsWith("Missions: ") && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"))) {
+		missions[leaderboard] = Object.create(null);
+	}
+	if (leaderboardName.startsWith("Races: ") && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"))) {
+		races[leaderboard] = Object.create(null);
+	}
 }
 try {
 	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/updates.json`);
@@ -439,6 +449,12 @@ function sortLeaderboardDateRuns(leaderboardDateRuns) {
 	});
 	return leaderboardDateRuns;
 }
+function sortTiers(tiers) {
+	sort(tiers, (tier) => {
+		return !tier[0].startsWith("l_") ? `l_-${tier[0]}` : tier[0];
+	});
+	return tiers;
+}
 const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([date, platforms]) => {
 	return [
 		date,
@@ -467,7 +483,9 @@ const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(le
 		}))),
 	];
 })));
-const sortedTiers = tiers;
+const sortedBears = bears;
+const sortedMissions = Object.fromEntries(sortTiers(Object.entries(missions)));
+const sortedRaces = Object.fromEntries(sortTiers(Object.entries(races)));
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });
@@ -478,12 +496,16 @@ await fs.promises.writeFile(`cache/players-by-name.json`, `${JSON.stringify(play
 await fs.promises.writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards-by-id.json`, `${JSON.stringify(leaderboardsById, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/tiers.json`, `${JSON.stringify(sortedTiers, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/bears.json`, `${JSON.stringify(sortedBears, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/missions.json`, `${JSON.stringify(sortedMissions, null, "\t")}\n`);
+await fs.promises.writeFile(`cache/races.json`, `${JSON.stringify(sortedRaces, null, "\t")}\n`);
 await fs.promises.writeFile(`cache/readme.md`, `\
 # Cache
 
 - [Dates](dates.json)
 - [Players](players.json)
 - [Leaderboards](leaderboards.json)
-- [Tiers](tiers.json)
+- [Bears](bears.json)
+- [Missions](missions.json)
+- [Races](races.json)
 `);
