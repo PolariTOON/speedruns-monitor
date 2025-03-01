@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-07-02</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-01-30</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-27</text>
 		</svg>
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
@@ -1095,14 +1095,19 @@
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">100</text>
 		</svg>
-		<svg viewBox="0 0 212 100" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 100) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 240 100" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 100) scale(1 -1)" style="--count: 2;">
 				<g>
-					<rect x="0" y="0" width="212" height="100"/>
+					<rect x="0" y="0" width="240" height="100"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,100L0,100L0,75L6,75L6,76L7,76L7,77L10,77L10,78L12,78L12,79L34,79L34,80L36,80L36,81L50,81L50,82L51,82L51,83L60,83L60,84L67,84L67,85L68,85L68,86L93,86L93,87L103,87L103,88L130,88L130,90L145,90L145,91L153,91L153,92L166,92L166,93L212,93L212,94L212,94" tabindex="0">
+					<path d="M0,100L0,100L0,75L6,75L6,76L7,76L7,77L10,77L10,78L12,78L12,79L34,79L34,80L36,80L36,81L50,81L50,82L51,82L51,83L60,83L60,84L67,84L67,85L68,85L68,86L93,86L93,87L103,87L103,88L130,88L130,90L145,90L145,91L153,91L153,92L166,92L166,93L212,93L212,94L237,94L237,95L240,95L240,97L240,97" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,67L231,67L231,41L233,41L233,42L235,42L235,43L240,43" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
 					</path>
 				</g>
 			</g>

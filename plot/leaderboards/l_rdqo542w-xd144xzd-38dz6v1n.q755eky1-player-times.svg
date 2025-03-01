@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-09-16</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-09-16</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-02</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,8 +1095,8 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">03:58.27</text>
 		</svg>
-		<svg viewBox="0 0 0 23827" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 23827) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 505 23827" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 23827) scale(1 -1)" style="--count: 2;">
 				<g style="--index: 0;">
 					<path d="M0,23827" tabindex="0">
 						<title>x3wdlvkj</title>
@@ -1105,8 +1105,19 @@
 					<path d="M0,23827L0,23827" tabindex="0">
 						<title>03:58.27 on 2023-09-16</title>
 					</path>
-					<line x1="0" y1="23827" x2="0" y2="23827"/>
+					<line x1="0" y1="23827" x2="505" y2="23827"/>
 					<line x1="0" y1="0" x2="0" y2="23827"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M505,23493" tabindex="0">
+						<title>xkon93k8</title>
+					</path>
+					<rect x="505" y="23493" width="0" height="0"/>
+					<path d="M505,23493L505,23493" tabindex="0">
+						<title>03:54.93 on 2025-02-02</title>
+					</path>
+					<line x1="0" y1="23493" x2="505" y2="23493"/>
+					<line x1="505" y1="0" x2="505" y2="23827"/>
 				</g>
 			</g>
 		</svg>

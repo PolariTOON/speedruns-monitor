@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-01-24</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-01-31</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-22</text>
 		</svg>
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
@@ -1095,19 +1095,24 @@
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">199</text>
 		</svg>
-		<svg viewBox="0 0 7 199" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 199) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 29 199" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 199) scale(1 -1)" style="--count: 3;">
 				<g>
-					<rect x="0" y="0" width="7" height="199"/>
+					<rect x="0" y="0" width="29" height="199"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,199L0,199L0,96L7,96L7,97L7,97" tabindex="0">
+					<path d="M0,199L0,199L0,96L7,96L7,97L22,97L22,98L24,98L24,99L25,99L25,100L28,100L28,101L29,101" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,33L1,33L1,25L3,25L3,26L7,26" tabindex="0">
+					<path d="M0,33L1,33L1,25L3,25L3,26L9,26L9,27L20,27L20,28L29,28" tabindex="0">
 						<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,95L8,95L8,38L9,38L9,39L19,39L19,40L21,40L21,41L24,41L24,42L29,42L29,43L29,43" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
 					</path>
 				</g>
 			</g>
