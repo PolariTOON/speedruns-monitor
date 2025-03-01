@@ -1096,23 +1096,17 @@
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:24.77</text>
 		</svg>
 		<svg viewBox="0 0 254 2477" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 2477) scale(1 -1)" style="--count: 2;">
+			<g transform="translate(0 2477) scale(1 -1)" style="--count: 1;">
 				<g style="--index: 0;">
-					<path d="M0,2477" tabindex="0">
+					<path d="M0,2477L254,2477L254,2277" tabindex="0">
 						<title>l_ldykv1zw-rkl3znrk-wl3059ol.4qypgj4q</title>
 					</path>
-					<rect x="0" y="2477" width="0" height="0"/>
+					<rect x="0" y="2277" width="254" height="200"/>
 					<path d="M0,2477L0,2477" tabindex="0">
 						<title>00:24.77 on 2023-05-24</title>
 					</path>
 					<line x1="0" y1="2477" x2="254" y2="2477"/>
 					<line x1="0" y1="0" x2="0" y2="2477"/>
-				</g>
-				<g style="--index: 1;">
-					<path d="M254,2277" tabindex="0">
-						<title>l_ldykv1zw-rkl3znrk-wl3059ol.qvv4er7q</title>
-					</path>
-					<rect x="254" y="2277" width="0" height="0"/>
 					<path d="M254,2277L254,2277" tabindex="0">
 						<title>00:22.77 on 2024-02-02</title>
 					</path>
