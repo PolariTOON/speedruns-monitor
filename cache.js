@@ -7,9 +7,9 @@ const playersByName = Object.create(null);
 const leaderboards = Object.create(null);
 const leaderboardsById = Object.create(null);
 const leaderboardsByName = Object.create(null);
-const bears = Object.create(null);
-const missions = Object.create(null);
-const races = Object.create(null);
+const bearTiers = Object.create(null);
+const missionTiers = Object.create(null);
+const raceTiers = Object.create(null);
 const games = {
 	"9d3rrxyd": "sba",
 	"w6jl2ned": "sbace",
@@ -341,7 +341,7 @@ try {
 		});
 		if (leaderboardName != null) {
 			const leaderboard = leaderboardsByName[leaderboardName];
-			bears[leaderboard] ??= times;
+			bearTiers[leaderboard] ??= times;
 		}
 	}
 	console.log(`Got bears`);
@@ -354,10 +354,10 @@ try {
 }
 for (const [leaderboard, leaderboardName] of Object.entries(leaderboardsById)) {
 	if (leaderboardName.startsWith("Missions: ") && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"))) {
-		missions[leaderboard] = Object.create(null);
+		missionTiers[leaderboard] = Object.create(null);
 	}
 	if (leaderboardName.startsWith("Races: ") && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"))) {
-		races[leaderboard] = Object.create(null);
+		raceTiers[leaderboard] = Object.create(null);
 	}
 }
 try {
@@ -483,9 +483,9 @@ const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(le
 		}))),
 	];
 })));
-const sortedBears = bears;
-const sortedMissions = Object.fromEntries(sortTiers(Object.entries(missions)));
-const sortedRaces = Object.fromEntries(sortTiers(Object.entries(races)));
+const sortedBears = bearTiers;
+const sortedMissions = Object.fromEntries(sortTiers(Object.entries(missionTiers)));
+const sortedRaces = Object.fromEntries(sortTiers(Object.entries(raceTiers)));
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });
