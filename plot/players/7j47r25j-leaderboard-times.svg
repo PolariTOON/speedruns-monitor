@@ -1084,7 +1084,7 @@
 	</script>
 	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 80;">
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-01-09</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-01-06</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-01-09</text>
@@ -1093,31 +1093,63 @@
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
-			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:19.05</text>
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">01:12.48</text>
 		</svg>
-		<svg viewBox="0 0 0 1905" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 1905) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 3 7248" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 7248) scale(1 -1)" style="--count: 4;">
 				<g style="--index: 0;">
-					<path d="M0,942" tabindex="0">
-						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
+					<path d="M0,7248L2,7248L2,3449" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.1gnozzxl</title>
 					</path>
-					<rect x="0" y="942" width="0" height="0"/>
-					<path d="M0,942L0,942" tabindex="0">
-						<title>00:09.42 on 2018-01-09</title>
+					<rect x="0" y="3449" width="2" height="3799"/>
+					<path d="M0,7248L0,7248" tabindex="0">
+						<title>01:12.48 on 2018-01-06</title>
 					</path>
-					<line x1="0" y1="942" x2="0" y2="942"/>
-					<line x1="0" y1="0" x2="0" y2="1905"/>
+					<line x1="0" y1="7248" x2="3" y2="7248"/>
+					<line x1="0" y1="0" x2="0" y2="7248"/>
+					<path d="M2,3449L2,3449" tabindex="0">
+						<title>00:34.49 on 2018-01-08</title>
+					</path>
+					<line x1="0" y1="3449" x2="3" y2="3449"/>
+					<line x1="2" y1="0" x2="2" y2="7248"/>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,1905" tabindex="0">
+					<path d="M0,4737L1,4737L1,4508" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.q75zmmn1</title>
+					</path>
+					<rect x="0" y="4508" width="1" height="229"/>
+					<path d="M0,4737L0,4737" tabindex="0">
+						<title>00:47.37 on 2018-01-06</title>
+					</path>
+					<line x1="0" y1="4737" x2="3" y2="4737"/>
+					<line x1="0" y1="0" x2="0" y2="7248"/>
+					<path d="M1,4508L1,4508" tabindex="0">
+						<title>00:45.08 on 2018-01-07</title>
+					</path>
+					<line x1="0" y1="4508" x2="3" y2="4508"/>
+					<line x1="1" y1="0" x2="1" y2="7248"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M3,942" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
+					</path>
+					<rect x="3" y="942" width="0" height="0"/>
+					<path d="M3,942L3,942" tabindex="0">
+						<title>00:09.42 on 2018-01-09</title>
+					</path>
+					<line x1="0" y1="942" x2="3" y2="942"/>
+					<line x1="3" y1="0" x2="3" y2="7248"/>
+				</g>
+				<g style="--index: 3;">
+					<path d="M3,1905" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
 					</path>
-					<rect x="0" y="1905" width="0" height="0"/>
-					<path d="M0,1905L0,1905" tabindex="0">
+					<rect x="3" y="1905" width="0" height="0"/>
+					<path d="M3,1905L3,1905" tabindex="0">
 						<title>00:19.05 on 2018-01-09</title>
 					</path>
-					<line x1="0" y1="1905" x2="0" y2="1905"/>
-					<line x1="0" y1="0" x2="0" y2="1905"/>
+					<line x1="0" y1="1905" x2="3" y2="1905"/>
+					<line x1="3" y1="0" x2="3" y2="7248"/>
 				</g>
 			</g>
 		</svg>

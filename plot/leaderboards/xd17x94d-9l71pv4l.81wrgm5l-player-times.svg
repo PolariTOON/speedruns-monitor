@@ -1098,15 +1098,20 @@
 		<svg viewBox="0 0 1051 145349" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 145349) scale(1 -1)" style="--count: 6;">
 				<g style="--index: 0;">
-					<path d="M0,145349" tabindex="0">
+					<path d="M0,145349L1,145349L1,131333" tabindex="0">
 						<title>18qg9ndx</title>
 					</path>
-					<rect x="0" y="145349" width="0" height="0"/>
+					<rect x="0" y="131333" width="1" height="14016"/>
 					<path d="M0,145349L0,145349" tabindex="0">
 						<title>24:13.49 on 2018-09-30</title>
 					</path>
 					<line x1="0" y1="145349" x2="1051" y2="145349"/>
 					<line x1="0" y1="0" x2="0" y2="145349"/>
+					<path d="M1,131333L1,131333" tabindex="0">
+						<title>21:53.33 on 2018-10-01</title>
+					</path>
+					<line x1="0" y1="131333" x2="1051" y2="131333"/>
+					<line x1="1" y1="0" x2="1" y2="145349"/>
 				</g>
 				<g style="--index: 1;">
 					<path d="M109,112855" tabindex="0">
