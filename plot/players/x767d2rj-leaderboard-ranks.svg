@@ -1082,26 +1082,26 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2022-09-27</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-01-07</text>
 		</svg>
-		<svg viewBox="0 0 30 20">
-			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 30 20">
-			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">100</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">99</text>
 		</svg>
-		<svg viewBox="0 0 467 100" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 100) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 467 99" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 99) scale(1 -1)" style="--count: 1;">
 				<g>
-					<rect x="0" y="0" width="467" height="100"/>
+					<rect x="0" y="0" width="467" height="99"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,100L0,100L0,59L10,59L10,60L12,60L12,61L14,61L14,62L17,62L17,63L40,63L40,64L467,64L467,65L467,65" tabindex="0">
+					<path d="M0,99L0,99L0,59L10,59L10,60L12,60L12,61L14,61L14,62L17,62L17,63L40,63L40,64L467,64L467,65L467,65" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
 					</path>
 				</g>

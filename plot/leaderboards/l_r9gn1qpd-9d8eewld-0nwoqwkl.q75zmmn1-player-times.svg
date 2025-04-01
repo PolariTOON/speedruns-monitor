@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2017-12-29</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-01-07</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-03-07</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,8 +1095,8 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">01:08.95</text>
 		</svg>
-		<svg viewBox="0 0 9 6895" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 6895) scale(1 -1)" style="--count: 4;">
+		<svg viewBox="0 0 2625 6895" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 6895) scale(1 -1)" style="--count: 5;">
 				<g style="--index: 0;">
 					<path d="M0,6598L5,6598L5,5369L6,5369L6,4856" tabindex="0">
 						<title>48grel1x</title>
@@ -1105,17 +1105,17 @@
 					<path d="M0,6598L0,6598" tabindex="0">
 						<title>01:05.98 on 2017-12-29</title>
 					</path>
-					<line x1="0" y1="6598" x2="9" y2="6598"/>
+					<line x1="0" y1="6598" x2="2625" y2="6598"/>
 					<line x1="0" y1="0" x2="0" y2="6895"/>
 					<path d="M5,5369L5,5369" tabindex="0">
 						<title>00:53.69 on 2018-01-03</title>
 					</path>
-					<line x1="0" y1="5369" x2="9" y2="5369"/>
+					<line x1="0" y1="5369" x2="2625" y2="5369"/>
 					<line x1="5" y1="0" x2="5" y2="6895"/>
 					<path d="M6,4856L6,4856" tabindex="0">
 						<title>00:48.56 on 2018-01-04</title>
 					</path>
-					<line x1="0" y1="4856" x2="9" y2="4856"/>
+					<line x1="0" y1="4856" x2="2625" y2="4856"/>
 					<line x1="6" y1="0" x2="6" y2="6895"/>
 				</g>
 				<g style="--index: 1;">
@@ -1126,22 +1126,22 @@
 					<path d="M1,6895L1,6895" tabindex="0">
 						<title>01:08.95 on 2017-12-30</title>
 					</path>
-					<line x1="0" y1="6895" x2="9" y2="6895"/>
+					<line x1="0" y1="6895" x2="2625" y2="6895"/>
 					<line x1="1" y1="0" x2="1" y2="6895"/>
 					<path d="M2,5895L2,5895" tabindex="0">
 						<title>00:58.95 on 2017-12-31</title>
 					</path>
-					<line x1="0" y1="5895" x2="9" y2="5895"/>
+					<line x1="0" y1="5895" x2="2625" y2="5895"/>
 					<line x1="2" y1="0" x2="2" y2="6895"/>
 					<path d="M4,5324L4,5324" tabindex="0">
 						<title>00:53.24 on 2018-01-02</title>
 					</path>
-					<line x1="0" y1="5324" x2="9" y2="5324"/>
+					<line x1="0" y1="5324" x2="2625" y2="5324"/>
 					<line x1="4" y1="0" x2="4" y2="6895"/>
 					<path d="M5,5130L5,5130" tabindex="0">
 						<title>00:51.30 on 2018-01-03</title>
 					</path>
-					<line x1="0" y1="5130" x2="9" y2="5130"/>
+					<line x1="0" y1="5130" x2="2625" y2="5130"/>
 					<line x1="5" y1="0" x2="5" y2="6895"/>
 				</g>
 				<g style="--index: 2;">
@@ -1152,7 +1152,7 @@
 					<path d="M2,5189L2,5189" tabindex="0">
 						<title>00:51.89 on 2017-12-31</title>
 					</path>
-					<line x1="0" y1="5189" x2="9" y2="5189"/>
+					<line x1="0" y1="5189" x2="2625" y2="5189"/>
 					<line x1="2" y1="0" x2="2" y2="6895"/>
 				</g>
 				<g style="--index: 3;">
@@ -1163,13 +1163,24 @@
 					<path d="M8,4737L8,4737" tabindex="0">
 						<title>00:47.37 on 2018-01-06</title>
 					</path>
-					<line x1="0" y1="4737" x2="9" y2="4737"/>
+					<line x1="0" y1="4737" x2="2625" y2="4737"/>
 					<line x1="8" y1="0" x2="8" y2="6895"/>
 					<path d="M9,4508L9,4508" tabindex="0">
 						<title>00:45.08 on 2018-01-07</title>
 					</path>
-					<line x1="0" y1="4508" x2="9" y2="4508"/>
+					<line x1="0" y1="4508" x2="2625" y2="4508"/>
 					<line x1="9" y1="0" x2="9" y2="6895"/>
+				</g>
+				<g style="--index: 4;">
+					<path d="M2625,4447" tabindex="0">
+						<title>8eeod1p8</title>
+					</path>
+					<rect x="2625" y="4447" width="0" height="0"/>
+					<path d="M2625,4447L2625,4447" tabindex="0">
+						<title>00:44.47 on 2025-03-07</title>
+					</path>
+					<line x1="0" y1="4447" x2="2625" y2="4447"/>
+					<line x1="2625" y1="0" x2="2625" y2="6895"/>
 				</g>
 			</g>
 		</svg>

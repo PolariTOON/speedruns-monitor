@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" lang="en">
-	<title>Rank by leaderboard for player xzld1ve8</title>
+	<title>Time by leaderboard for player 8eop1w2j</title>
 	<metadata>
 		<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" />
 		<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width" />
@@ -1082,28 +1082,36 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 80;">
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2021-12-07</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-03-12</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-01-07</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-03-13</text>
 		</svg>
-		<svg viewBox="0 0 30 20">
-			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 80 20">
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
 		</svg>
-		<svg viewBox="0 0 30 20">
-			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">108</text>
+		<svg viewBox="0 0 80 20">
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">01:24.83</text>
 		</svg>
-		<svg viewBox="0 0 761 108" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 108) scale(1 -1)" style="--count: 1;">
-				<g>
-					<rect x="0" y="0" width="761" height="108"/>
-				</g>
+		<svg viewBox="0 0 1 8483" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 8483) scale(1 -1)" style="--count: 1;">
 				<g style="--index: 0;">
-					<path d="M0,46L0,46L0,46L15,46L15,47L34,47L34,48L38,48L38,49L39,49L39,50L50,50L50,51L53,51L53,52L65,52L65,53L68,53L68,54L73,54L73,55L80,55L80,56L82,56L82,57L89,57L89,58L91,58L91,59L96,59L96,60L98,60L98,61L99,61L99,62L103,62L103,63L106,63L106,64L121,64L121,65L136,65L136,66L144,66L144,68L175,68L175,69L176,69L176,70L177,70L177,71L180,71L180,72L182,72L182,73L210,73L210,74L212,74L212,75L214,75L214,76L218,76L218,78L221,78L221,79L222,79L222,80L223,80L223,81L233,81L233,83L251,83L251,84L253,84L253,85L256,85L256,86L258,86L258,88L260,88L260,89L263,89L263,91L265,91L265,92L270,92L270,94L278,94L278,95L279,95L279,96L283,96L283,97L286,97L286,98L289,98L289,99L294,99L294,100L304,100L304,101L306,101L306,102L308,102L308,103L309,103L309,104L311,104L311,105L312,105L312,106L334,106L334,107L761,107L761,108L761,108" tabindex="0">
-						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
+					<path d="M0,8483L1,8483L1,7994" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
 					</path>
+					<rect x="0" y="7994" width="1" height="489"/>
+					<path d="M0,8483L0,8483" tabindex="0">
+						<title>01:24.83 on 2025-03-12</title>
+					</path>
+					<line x1="0" y1="8483" x2="1" y2="8483"/>
+					<line x1="0" y1="0" x2="0" y2="8483"/>
+					<path d="M1,7994L1,7994" tabindex="0">
+						<title>01:19.94 on 2025-03-13</title>
+					</path>
+					<line x1="0" y1="7994" x2="1" y2="7994"/>
+					<line x1="1" y1="0" x2="1" y2="8483"/>
 				</g>
 			</g>
 		</svg>

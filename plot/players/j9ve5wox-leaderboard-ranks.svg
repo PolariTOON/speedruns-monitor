@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-20</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-25</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-03-31</text>
 		</svg>
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
@@ -1095,24 +1095,39 @@
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">205</text>
 		</svg>
-		<svg viewBox="0 0 5 205" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 205) scale(1 -1)" style="--count: 3;">
+		<svg viewBox="0 0 39 205" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 205) scale(1 -1)" style="--count: 6;">
 				<g>
-					<rect x="0" y="0" width="5" height="205"/>
+					<rect x="0" y="0" width="39" height="205"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,69L0,69L0,32L2,32L2,33L5,33" tabindex="0">
+					<path d="M0,69L0,69L0,32L2,32L2,33L9,33L9,34L13,34L13,35L25,35L25,36L30,36L30,37L39,37" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,205L0,205L0,136L1,136L1,137L5,137" tabindex="0">
+					<path d="M0,205L0,205L0,136L1,136L1,137L11,137L11,138L16,138L16,139L20,139L20,140L22,140L22,141L26,141L26,142L29,142L29,143L33,143L33,144L39,144" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,42L0,42L0,31L2,31L2,32L4,32L4,33L5,33L5,34L5,34" tabindex="0">
+					<path d="M0,42L0,42L0,31L2,31L2,32L4,32L4,33L5,33L5,34L21,34L21,35L22,35L22,32L23,32L23,33L26,33L26,34L39,34" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.4qywn341</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,33L23,33L23,23L31,23L31,24L33,24L33,25L39,25" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,40L23,40L23,35L26,35L26,36L28,36L28,37L39,37" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,14L23,14L23,9L39,9L39,10L39,10" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.qj7zdm3q</title>
 					</path>
 				</g>
 			</g>

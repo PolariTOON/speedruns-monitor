@@ -1082,26 +1082,26 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-02-27</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-22</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-03-28</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">91</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">100</text>
 		</svg>
-		<svg viewBox="0 0 726 91" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 91) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 760 100" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 100) scale(1 -1)" style="--count: 1;">
 				<g>
-					<rect x="0" y="0" width="726" height="91"/>
+					<rect x="0" y="0" width="760" height="100"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,20L0,20L0,17L8,17L8,18L13,18L13,19L18,19L18,20L22,20L22,21L33,21L33,22L34,22L34,23L38,23L38,24L42,24L42,25L44,25L44,26L47,26L47,27L48,27L48,28L68,28L68,29L76,29L76,30L83,30L83,31L90,31L90,32L91,32L91,33L93,33L93,34L103,34L103,35L104,35L104,36L117,36L117,37L124,37L124,38L127,38L127,39L147,39L147,40L199,40L199,41L210,41L210,42L217,42L217,43L232,43L232,44L244,44L244,46L250,46L250,47L258,47L258,48L285,48L285,49L314,49L314,50L339,50L339,51L378,51L378,52L381,52L381,53L402,53L402,54L405,54L405,55L412,55L412,56L437,56L437,57L447,57L447,58L449,58L449,59L455,59L455,60L485,60L485,61L511,61L511,63L518,63L518,64L526,64L526,65L539,65L539,66L540,66L540,67L547,67L547,68L552,68L552,69L556,69L556,70L558,70L558,71L580,71L580,72L588,72L588,73L608,73L608,74L613,74L613,75L614,75L614,77L629,77L629,78L641,78L641,79L647,79L647,80L650,80L650,81L656,81L656,82L659,82L659,83L695,83L695,84L705,84L705,85L706,85L706,86L716,86L716,88L718,88L718,89L721,89L721,90L726,90L726,91L726,91" tabindex="0">
+					<path d="M0,20L0,20L0,17L8,17L8,18L13,18L13,19L18,19L18,20L22,20L22,21L33,21L33,22L34,22L34,23L38,23L38,24L42,24L42,25L44,25L44,26L47,26L47,27L48,27L48,28L68,28L68,29L76,29L76,30L83,30L83,31L90,31L90,32L91,32L91,33L93,33L93,34L103,34L103,35L104,35L104,36L117,36L117,37L124,37L124,38L127,38L127,39L147,39L147,40L199,40L199,41L210,41L210,42L217,42L217,43L232,43L232,44L244,44L244,46L250,46L250,47L258,47L258,48L285,48L285,49L314,49L314,50L339,50L339,51L378,51L378,52L381,52L381,53L402,53L402,54L405,54L405,55L412,55L412,56L437,56L437,57L447,57L447,58L449,58L449,59L455,59L455,60L485,60L485,61L511,61L511,63L518,63L518,64L526,64L526,65L539,65L539,66L540,66L540,67L547,67L547,68L552,68L552,69L556,69L556,70L558,70L558,71L580,71L580,72L588,72L588,73L608,73L608,74L613,74L613,75L614,75L614,77L629,77L629,78L641,78L641,79L647,79L647,80L650,80L650,81L656,81L656,82L659,82L659,83L695,83L695,84L705,84L705,85L706,85L706,86L716,86L716,88L718,88L718,89L721,89L721,90L726,90L726,91L742,91L742,92L744,92L744,93L745,93L745,94L749,94L749,95L750,95L750,97L753,97L753,98L756,98L756,99L760,99L760,100L760,100" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
 					</path>
 				</g>
