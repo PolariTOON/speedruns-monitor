@@ -1,5 +1,6 @@
 # Plot
 
+- [Submission and run counts][submissions-and-runs.svg]
 - [Run count by player](player-runs.svg)
 - [Run count by leaderboard](leaderboard-runs.svg)
 - [Leaderboard count by player](player-leaderboards.svg)
