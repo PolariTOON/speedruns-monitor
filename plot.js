@@ -1379,6 +1379,31 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 	});
 	return formattedData;
 }
+function plotSubmissionAndRunCounts(scope, title, data) {
+	const newData = Object.create(null);
+	for (const datumDates of Object.values(data)) {
+		for (const [date, dateRuns] of Object.entries(datumDates)) {
+			for (const run of dateRuns) {
+				const submissionsDates = newData.submissions ??= Object.create(null);
+				submissionsDates[date] ??= 0;
+				++submissionsDates[date];
+				if (run.status !== "rejected" || run.annotation == null || run.annotation !== "Automatically moved to the new individual level" && run.annotation !== "Automatically moved to the new category extensions") {
+					const manualSubmissionsDates = newData.manualSubmissions ??= Object.create(null);
+					manualSubmissionsDates[date] ??= 0;
+					++manualSubmissionsDates[date];
+				}
+				if (run.status !== "verified") {
+					continue;
+				}
+				const runsDates = newData.runs ??= Object.create(null);
+				runsDates[date] ??= 0;
+				++runsDates[date];
+			}
+		}
+	}
+	const formattedData = plot(scope, title, newData, true, true, false, null);
+	return formattedData;
+}
 function plotRunCountByDatum(scope, title, data) {
 	const newData = Object.create(null);
 	for (const [datum, datumDates] of Object.entries(data)) {
@@ -1662,6 +1687,7 @@ function plotTotalRankByPlayer(scope, title, players, tiers) {
 	const formattedPlayers = plot(scope, title, newPlayers, false, true, false, null);
 	return formattedPlayers;
 }
+const formattedSubmissionAndRunCounts = plotSubmissionAndRunCounts("../", "Submission and run counts", players);
 const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by player", players);
 const formattedRunCountByLeaderboard = plotRunCountByDatum("../", "Run count by leaderboard", leaderboards);
 const formattedLeaderboardCountByPlayer = plotKeyCountByDatum("../", "Leaderboard count by player", players, "leaderboard");
@@ -1724,6 +1750,7 @@ await fs.promises.rm("plot/leaderboards", {
 await fs.promises.mkdir("plot/leaderboards", {
 	recursive: true,
 });
+await fs.promises.writeFile(`plot/submissions-and-runs.svg`, `${formattedSubmissionAndRunCounts}\n`);
 await fs.promises.writeFile(`plot/player-runs.svg`, `${formattedRunCountByPlayer}\n`);
 await fs.promises.writeFile(`plot/leaderboard-runs.svg`, `${formattedRunCountByLeaderboard}\n`);
 await fs.promises.writeFile(`plot/player-leaderboards.svg`, `${formattedLeaderboardCountByPlayer}\n`);
@@ -1751,6 +1778,7 @@ await fs.promises.writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankB
 await fs.promises.writeFile(`plot/readme.md`, `\
 # Plot
 
+- [Submission and run counts][submissions-and-runs.svg]
 - [Run count by player](player-runs.svg)
 - [Run count by leaderboard](leaderboard-runs.svg)
 - [Leaderboard count by player](player-leaderboards.svg)
