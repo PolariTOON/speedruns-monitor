@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-10-10</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-03-06</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-04-18</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,43 +1095,48 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">08:08.21</text>
 		</svg>
-		<svg viewBox="0 0 513 48821" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 556 48821" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 48821) scale(1 -1)" style="--count: 3;">
 				<g style="--index: 0;">
-					<path d="M0,36268L63,36268L63,33917L64,33917L64,33246L67,33246L67,29818L243,29818L243,29436L512,29436L512,29302" tabindex="0">
+					<path d="M0,36268L63,36268L63,33917L64,33917L64,33246L67,33246L67,29818L243,29818L243,29436L512,29436L512,29302L556,29302L556,28380" tabindex="0">
 						<title>8w3l21qj</title>
 					</path>
-					<rect x="0" y="29302" width="512" height="6966"/>
+					<rect x="0" y="28380" width="556" height="7888"/>
 					<path d="M0,36268L0,36268" tabindex="0">
 						<title>06:02.68 on 2023-10-10</title>
 					</path>
-					<line x1="0" y1="36268" x2="513" y2="36268"/>
+					<line x1="0" y1="36268" x2="556" y2="36268"/>
 					<line x1="0" y1="0" x2="0" y2="48821"/>
 					<path d="M63,33917L63,33917" tabindex="0">
 						<title>05:39.17 on 2023-12-12</title>
 					</path>
-					<line x1="0" y1="33917" x2="513" y2="33917"/>
+					<line x1="0" y1="33917" x2="556" y2="33917"/>
 					<line x1="63" y1="0" x2="63" y2="48821"/>
 					<path d="M64,33246L64,33246" tabindex="0">
 						<title>05:32.46 on 2023-12-13</title>
 					</path>
-					<line x1="0" y1="33246" x2="513" y2="33246"/>
+					<line x1="0" y1="33246" x2="556" y2="33246"/>
 					<line x1="64" y1="0" x2="64" y2="48821"/>
 					<path d="M67,29818L67,29818" tabindex="0">
 						<title>04:58.18 on 2023-12-16</title>
 					</path>
-					<line x1="0" y1="29818" x2="513" y2="29818"/>
+					<line x1="0" y1="29818" x2="556" y2="29818"/>
 					<line x1="67" y1="0" x2="67" y2="48821"/>
 					<path d="M243,29436L243,29436" tabindex="0">
 						<title>04:54.36 on 2024-06-09</title>
 					</path>
-					<line x1="0" y1="29436" x2="513" y2="29436"/>
+					<line x1="0" y1="29436" x2="556" y2="29436"/>
 					<line x1="243" y1="0" x2="243" y2="48821"/>
 					<path d="M512,29302L512,29302" tabindex="0">
 						<title>04:53.02 on 2025-03-05</title>
 					</path>
-					<line x1="0" y1="29302" x2="513" y2="29302"/>
+					<line x1="0" y1="29302" x2="556" y2="29302"/>
 					<line x1="512" y1="0" x2="512" y2="48821"/>
+					<path d="M556,28380L556,28380" tabindex="0">
+						<title>04:43.80 on 2025-04-18</title>
+					</path>
+					<line x1="0" y1="28380" x2="556" y2="28380"/>
+					<line x1="556" y1="0" x2="556" y2="48821"/>
 				</g>
 				<g style="--index: 1;">
 					<path d="M453,48821" tabindex="0">
@@ -1141,7 +1146,7 @@
 					<path d="M453,48821L453,48821" tabindex="0">
 						<title>08:08.21 on 2025-01-05</title>
 					</path>
-					<line x1="0" y1="48821" x2="513" y2="48821"/>
+					<line x1="0" y1="48821" x2="556" y2="48821"/>
 					<line x1="453" y1="0" x2="453" y2="48821"/>
 				</g>
 				<g style="--index: 2;">
@@ -1152,7 +1157,7 @@
 					<path d="M513,26938L513,26938" tabindex="0">
 						<title>04:29.38 on 2025-03-06</title>
 					</path>
-					<line x1="0" y1="26938" x2="513" y2="26938"/>
+					<line x1="0" y1="26938" x2="556" y2="26938"/>
 					<line x1="513" y1="0" x2="513" y2="48821"/>
 				</g>
 			</g>
