@@ -1096,12 +1096,12 @@
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">01:38.91</text>
 		</svg>
 		<svg viewBox="0 0 406 9891" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 9891) scale(1 -1)" style="--count: 3;">
+			<g transform="translate(0 9891) scale(1 -1)" style="--count: 2;">
 				<g style="--index: 0;">
-					<path d="M0,9891L2,9891L2,7356" tabindex="0">
+					<path d="M0,9891L2,9891L2,7356L406,7356L406,7053" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
 					</path>
-					<rect x="0" y="7356" width="2" height="2535"/>
+					<rect x="0" y="7053" width="406" height="2838"/>
 					<path d="M0,9891L0,9891" tabindex="0">
 						<title>01:38.91 on 2022-08-22</title>
 					</path>
@@ -1112,6 +1112,11 @@
 					</path>
 					<line x1="0" y1="7356" x2="406" y2="7356"/>
 					<line x1="2" y1="0" x2="2" y2="9891"/>
+					<path d="M406,7053L406,7053" tabindex="0">
+						<title>01:10.53 on 2023-10-02</title>
+					</path>
+					<line x1="0" y1="7053" x2="406" y2="7053"/>
+					<line x1="406" y1="0" x2="406" y2="9891"/>
 				</g>
 				<g style="--index: 1;">
 					<path d="M3,2714" tabindex="0">
@@ -1123,17 +1128,6 @@
 					</path>
 					<line x1="0" y1="2714" x2="406" y2="2714"/>
 					<line x1="3" y1="0" x2="3" y2="9891"/>
-				</g>
-				<g style="--index: 2;">
-					<path d="M406,7053" tabindex="0">
-						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klr25nj1</title>
-					</path>
-					<rect x="406" y="7053" width="0" height="0"/>
-					<path d="M406,7053L406,7053" tabindex="0">
-						<title>01:10.53 on 2023-10-02</title>
-					</path>
-					<line x1="0" y1="7053" x2="406" y2="7053"/>
-					<line x1="406" y1="0" x2="406" y2="9891"/>
 				</g>
 			</g>
 		</svg>
