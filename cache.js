@@ -1,5 +1,4 @@
-import fs from "fs";
-import fetch from "node-fetch";
+import {mkdir, writeFile} from "node:fs/promises";
 const dates = Object.create(null);
 const players = Object.create(null);
 const playersById = Object.create(null);
@@ -21,7 +20,7 @@ const statuses = {
 const platforms = {
 	"lq60nl94": "android",
 	"gde3xgek": "ios",
-	"7m6ylw9p": "switch"
+	"7m6ylw9p": "switch",
 };
 for (const [gameId, game] of Object.entries(games)) {
 	try {
@@ -550,20 +549,20 @@ const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(le
 const sortedBears = bearTiers;
 const sortedMissions = missionTiers;
 const sortedRaces = raceTiers;
-await fs.promises.mkdir("cache", {
+await mkdir("cache", {
 	recursive: true,
 });
-await fs.promises.writeFile(`cache/dates.json`, `${JSON.stringify(sortedDates, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/players.json`, `${JSON.stringify(sortedPlayers, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/players-by-id.json`, `${JSON.stringify(playersById, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/players-by-name.json`, `${JSON.stringify(playersByName, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/leaderboards-by-id.json`, `${JSON.stringify(leaderboardsById, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/bears.json`, `${JSON.stringify(sortedBears, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/missions.json`, `${JSON.stringify(sortedMissions, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/races.json`, `${JSON.stringify(sortedRaces, null, "\t")}\n`);
-await fs.promises.writeFile(`cache/readme.md`, `\
+await writeFile(`cache/dates.json`, `${JSON.stringify(sortedDates, null, "\t")}\n`);
+await writeFile(`cache/players.json`, `${JSON.stringify(sortedPlayers, null, "\t")}\n`);
+await writeFile(`cache/players-by-id.json`, `${JSON.stringify(playersById, null, "\t")}\n`);
+await writeFile(`cache/players-by-name.json`, `${JSON.stringify(playersByName, null, "\t")}\n`);
+await writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards, null, "\t")}\n`);
+await writeFile(`cache/leaderboards-by-id.json`, `${JSON.stringify(leaderboardsById, null, "\t")}\n`);
+await writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);
+await writeFile(`cache/bears.json`, `${JSON.stringify(sortedBears, null, "\t")}\n`);
+await writeFile(`cache/missions.json`, `${JSON.stringify(sortedMissions, null, "\t")}\n`);
+await writeFile(`cache/races.json`, `${JSON.stringify(sortedRaces, null, "\t")}\n`);
+await writeFile(`cache/readme.md`, `\
 # Cache
 
 - [Dates](dates.json)
