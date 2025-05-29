@@ -1,12 +1,10 @@
-import fs from "fs";
-import jsdom from "jsdom";
-import serialize from "w3c-xmlserializer";
-const {JSDOM} = jsdom;
-const players = JSON.parse(await fs.promises.readFile("cache/players.json"));
-const leaderboards = JSON.parse(await fs.promises.readFile("cache/leaderboards.json"));
-const bears = JSON.parse(await fs.promises.readFile("cache/bears.json"));
-const missions = JSON.parse(await fs.promises.readFile("cache/missions.json"));
-const races = JSON.parse(await fs.promises.readFile("cache/races.json"));
+import {mkdir, rm, writeFile} from "node:fs/promises";
+import {DOMParser} from "linkedom";
+import players from "./cache/players.json" with {type: "json"};
+import leaderboards from "./cache/leaderboards.json" with {type: "json"};
+import bears from "./cache/bears.json" with {type: "json"};
+import missions from "./cache/missions.json" with {type: "json"};
+import races from "./cache/races.json" with {type: "json"};
 const blocks = ["foreignObject", "svg", "g", "rect", "path"];
 function indent(element, level, block) {
 	if (element == null) {
@@ -108,7 +106,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		}
 	}
 	const maxDuration = Math.round((Date.parse(maxDate) - Date.parse(minDate)) / 86400000);
-	const {window} = new JSDOM(`\
+	const document = new DOMParser().parseFromString(`\
 <svg xmlns="http://www.w3.org/2000/svg" lang="en">
 	<title>${title}</title>
 	<metadata>
@@ -1194,10 +1192,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		}
 	</script>
 </svg>
-`, {
-		contentType: "image/svg+xml",
-	});
-	const {document} = window;
+`, "image/svg+xml");
 	const root = document.documentElement;
 	const foreignObject = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
 	const dateSize = Math.max(minDate.length, maxDate.length) * 10;
@@ -1374,9 +1369,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 	foreignObject.append(svg);
 	root.append(foreignObject);
 	indent(foreignObject, 1, true);
-	const formattedData = serialize(root, {
-		requireWellFormed: true,
-	});
+	const formattedData = root.toString();
 	return formattedData;
 }
 function plotSubmissionAndRunCounts(scope, title, data) {
@@ -1733,49 +1726,49 @@ const formattedTotalTimeByPlayerForRaces = plotTotalTimeByPlayer("../", "Total t
 const formattedTotalRankByPlayerForBears = plotTotalRankByPlayer("../", "Total rank by player (bears)", rankByLeaderboardByPlayer, bears);
 const formattedTotalRankByPlayerForMissions = plotTotalRankByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, missions);
 const formattedTotalRankByPlayerForRaces = plotTotalRankByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, races);
-await fs.promises.mkdir("plot", {
+await mkdir("plot", {
 	recursive: true,
 });
-await fs.promises.rm("plot/players", {
+await rm("plot/players", {
 	force: true,
 	recursive: true,
 });
-await fs.promises.mkdir("plot/players", {
+await mkdir("plot/players", {
 	recursive: true,
 });
-await fs.promises.rm("plot/leaderboards", {
+await rm("plot/leaderboards", {
 	force: true,
 	recursive: true,
 });
-await fs.promises.mkdir("plot/leaderboards", {
+await mkdir("plot/leaderboards", {
 	recursive: true,
 });
-await fs.promises.writeFile(`plot/submissions-and-runs.svg`, `${formattedSubmissionAndRunCounts}\n`);
-await fs.promises.writeFile(`plot/player-runs.svg`, `${formattedRunCountByPlayer}\n`);
-await fs.promises.writeFile(`plot/leaderboard-runs.svg`, `${formattedRunCountByLeaderboard}\n`);
-await fs.promises.writeFile(`plot/player-leaderboards.svg`, `${formattedLeaderboardCountByPlayer}\n`);
-await fs.promises.writeFile(`plot/leaderboard-players.svg`, `${formattedPlayerCountByLeaderboard}\n`);
+await writeFile(`plot/submissions-and-runs.svg`, `${formattedSubmissionAndRunCounts}\n`);
+await writeFile(`plot/player-runs.svg`, `${formattedRunCountByPlayer}\n`);
+await writeFile(`plot/leaderboard-runs.svg`, `${formattedRunCountByLeaderboard}\n`);
+await writeFile(`plot/player-leaderboards.svg`, `${formattedLeaderboardCountByPlayer}\n`);
+await writeFile(`plot/leaderboard-players.svg`, `${formattedPlayerCountByLeaderboard}\n`);
 for (const [player, formattedTimeByLeaderboard] of Object.entries(formattedTimeByLeaderboardByPlayer)) {
-	await fs.promises.writeFile(`plot/players/${player}-leaderboard-times.svg`, `${formattedTimeByLeaderboard}\n`);
+	await writeFile(`plot/players/${player}-leaderboard-times.svg`, `${formattedTimeByLeaderboard}\n`);
 }
 for (const [player, formattedRankByLeaderboard] of Object.entries(formattedRankByLeaderboardByPlayer)) {
-	await fs.promises.writeFile(`plot/players/${player}-leaderboard-ranks.svg`, `${formattedRankByLeaderboard}\n`);
+	await writeFile(`plot/players/${player}-leaderboard-ranks.svg`, `${formattedRankByLeaderboard}\n`);
 }
 for (const [leaderboard, formattedTimeByPlayer] of Object.entries(formattedTimeByPlayerByLeaderboard)) {
-	await fs.promises.writeFile(`plot/leaderboards/${leaderboard}-player-times.svg`, `${formattedTimeByPlayer}\n`);
+	await writeFile(`plot/leaderboards/${leaderboard}-player-times.svg`, `${formattedTimeByPlayer}\n`);
 }
 for (const [leaderboard, formattedRankByPlayer] of Object.entries(formattedRankByPlayerByLeaderboard)) {
-	await fs.promises.writeFile(`plot/leaderboards/${leaderboard}-player-ranks.svg`, `${formattedRankByPlayer}\n`);
+	await writeFile(`plot/leaderboards/${leaderboard}-player-ranks.svg`, `${formattedRankByPlayer}\n`);
 }
-await fs.promises.writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
-await fs.promises.writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
-await fs.promises.writeFile(`plot/player-bear-times.svg`, `${formattedTotalTimeByPlayerForBears}\n`);
-await fs.promises.writeFile(`plot/player-mission-times.svg`, `${formattedTotalTimeByPlayerForMissions}\n`);
-await fs.promises.writeFile(`plot/player-race-times.svg`, `${formattedTotalTimeByPlayerForRaces}\n`);
-await fs.promises.writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBears}\n`);
-await fs.promises.writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
-await fs.promises.writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
-await fs.promises.writeFile(`plot/readme.md`, `\
+await writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
+await writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
+await writeFile(`plot/player-bear-times.svg`, `${formattedTotalTimeByPlayerForBears}\n`);
+await writeFile(`plot/player-mission-times.svg`, `${formattedTotalTimeByPlayerForMissions}\n`);
+await writeFile(`plot/player-race-times.svg`, `${formattedTotalTimeByPlayerForRaces}\n`);
+await writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBears}\n`);
+await writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
+await writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
+await writeFile(`plot/readme.md`, `\
 # Plot
 
 - [Submission and run counts](submissions-and-runs.svg)
@@ -1794,7 +1787,7 @@ await fs.promises.writeFile(`plot/readme.md`, `\
 - [Players](players)
 - [Leaderboards](leaderboards)
 `);
-await fs.promises.writeFile(`plot/players/readme.md`, `\
+await writeFile(`plot/players/readme.md`, `\
 # Players
 
 ${sort(Object.keys(formattedTimeByLeaderboardByPlayer), (player) => {
@@ -1812,7 +1805,7 @@ ${sort(Object.keys(formattedRankByLeaderboardByPlayer), (player) => {
 `;
 }).join("")}\
 `);
-await fs.promises.writeFile(`plot/leaderboards/readme.md`, `\
+await writeFile(`plot/leaderboards/readme.md`, `\
 # Leaderboards
 
 ${sort(Object.keys(formattedTimeByPlayerByLeaderboard), (leaderboard) => {

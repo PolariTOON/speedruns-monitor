@@ -1,10 +1,8 @@
-import fs from "fs";
-import jsdom from "jsdom";
-import serialize from "w3c-xmlserializer";
-const {JSDOM} = jsdom;
-const dates = JSON.parse(await fs.promises.readFile("cache/dates.json"));
-const players = JSON.parse(await fs.promises.readFile("cache/players.json"));
-const leaderboards = JSON.parse(await fs.promises.readFile("cache/leaderboards.json"));
+import {mkdir, writeFile} from "node:fs/promises";
+import {DOMParser} from "linkedom";
+import dates from "./cache/dates.json" with {type: "json"};
+import players from "./cache/players.json" with {type: "json"};
+import leaderboards from "./cache/leaderboards.json" with {type: "json"};
 const blocks = ["body", "table", "colgroup", "thead", "tbody", "tr", "td"];
 function indent(element, level, block) {
 	if (element == null) {
@@ -76,7 +74,7 @@ function watch(scope, title, data) {
 			Object.fromEntries(sortDatumDates(Object.entries(dates))),
 		];
 	})));
-	const {window} = new JSDOM(`\
+	const document = new DOMParser().parseFromString(`\
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 	<head>
 		<title>${title}</title>
@@ -730,10 +728,7 @@ function watch(scope, title, data) {
 		</script>
 	</head>
 </html>
-`, {
-		contentType: "application/xhtml+xml",
-	});
-	const {document} = window;
+`, "application/xhtml+xml");
 	const root = document.documentElement;
 	const body = document.createElement("body");
 	const table = document.createElement("table");
@@ -749,7 +744,7 @@ function watch(scope, title, data) {
 	for (const [date, datePlatforms] of Object.entries(dates)) {
 		const col = document.createElement("col");
 		const th = document.createElement("th");
-		th.scope = "col";
+		th.setAttribute("scope", "col");
 		th.textContent = date;
 		for (const platform of Object.keys(datePlatforms)) {
 			col.setAttribute(`data-${platform}`, "");
@@ -762,7 +757,7 @@ function watch(scope, title, data) {
 	for (const [datum, datumDates] of Object.entries(sortedData)) {
 		const tr = document.createElement("tr");
 		const th = document.createElement("th");
-		th.scope = "row";
+		th.setAttribute("scope", "row");
 		th.textContent = datum;
 		tr.append(th);
 		let span = 0;
@@ -772,7 +767,7 @@ function watch(scope, title, data) {
 			if (date >= arrival && date <= departure && (datumDates[date] != null || Object.keys(dates[date]).length !== 0)) {
 				while (span > 0) {
 					const td = document.createElement("td");
-					td.colSpan = Math.min(span, 1000);
+					td.setAttribute("colspan", `${Math.min(span, 1000)}`);
 					tr.append(td);
 					span -= 1000;
 				}
@@ -781,7 +776,7 @@ function watch(scope, title, data) {
 					for (const run of datumDates[date]) {
 						const p = document.createElement("p");
 						const a = document.createElement("a");
-						a.href = run.href;
+						a.setAttribute("href", run.href);
 						a.textContent = run.version;
 						if (run.platform != null) {
 							a.setAttribute("data-platform", run.platform);
@@ -804,7 +799,7 @@ function watch(scope, title, data) {
 		}
 		while (span > 0) {
 			const td = document.createElement("td");
-			td.colSpan = Math.min(span, 1000);
+			td.setAttribute("colspan", `${Math.min(span, 1000)}`);
 			tr.append(td);
 			span -= 1000;
 		}
@@ -817,9 +812,7 @@ function watch(scope, title, data) {
 	body.append(table);
 	root.append(body);
 	indent(body, 1, true);
-	const formattedData = serialize(root, {
-		requireWellFormed: true,
-	});
+	const formattedData = root.toString();
 	return formattedData;
 }
 function watchRuns(scope, title, data) {
@@ -847,14 +840,14 @@ const formattedRunsByPlayer = watchRuns("../", "Runs by player", players);
 const formattedRunsByLeaderboard = watchRuns("../", "Runs by leaderboard", leaderboards);
 const formattedSubmissionsByPlayer = watchSubmissions("../", "Submissions by player", players);
 const formattedSubmissionsByLeaderboard = watchSubmissions("../", "Submissions by leaderboard", leaderboards);
-await fs.promises.mkdir("watch", {
+await mkdir("watch", {
 	recursive: true,
 });
-await fs.promises.writeFile("watch/player-runs.xhtml", `${formattedRunsByPlayer}\n`);
-await fs.promises.writeFile("watch/leaderboard-runs.xhtml", `${formattedRunsByLeaderboard}\n`);
-await fs.promises.writeFile("watch/player-submissions.xhtml", `${formattedSubmissionsByPlayer}\n`);
-await fs.promises.writeFile("watch/leaderboard-submissions.xhtml", `${formattedSubmissionsByLeaderboard}\n`);
-await fs.promises.writeFile(`watch/readme.md`, `\
+await writeFile("watch/player-runs.xhtml", `${formattedRunsByPlayer}\n`);
+await writeFile("watch/leaderboard-runs.xhtml", `${formattedRunsByLeaderboard}\n`);
+await writeFile("watch/player-submissions.xhtml", `${formattedSubmissionsByPlayer}\n`);
+await writeFile("watch/leaderboard-submissions.xhtml", `${formattedSubmissionsByLeaderboard}\n`);
+await writeFile(`watch/readme.md`, `\
 # Watch
 
 - [Runs by player](player-runs.xhtml)

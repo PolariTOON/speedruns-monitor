@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "jsdom": "^22.1.0",
-    "node-fetch": "^3.3.2",
-    "w3c-xmlserializer": "^4.0.0"
+    "linkedom": "PolariTOON/linkedom#xhtml-serialization"
   },
   "scripts": {
     "cache": "node cache.js",
