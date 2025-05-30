@@ -352,13 +352,77 @@ try {
 	console.warn(`Error while getting bears`);
 	throw error;
 }
-for (const [leaderboard, leaderboardName] of Object.entries(leaderboardsById)) {
-	if (leaderboardName.startsWith("Missions: ") && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"))) {
-		missionTiers[leaderboard] = Object.create(null);
+try {
+	const challengeResponse = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/challenges.json`);
+	if (!challengeResponse.ok) {
+		throw new Error(challengeResponse.statusText);
 	}
-	if (leaderboardName.startsWith("Races: ") && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"))) {
-		raceTiers[leaderboard] = Object.create(null);
+	const challenges = await challengeResponse.json();
+	console.log(`Got challenges`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+	const levelResponse = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/levels.json`);
+	if (!levelResponse.ok) {
+		throw new Error(levelResponse.statusText);
 	}
+	const levels = await levelResponse.json();
+	console.log(`Got levels`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/missions.json`);
+	if (!response.ok) {
+		throw new Error(response.statusText);
+	}
+	const missions = await response.json();
+	for (const mission of missions) {
+		const {challenge, level} = mission;
+		const challengeName = challenges[challenge].name;
+		const englishChallengeName = challengeName["en-US"];
+		const levelName = levels[level].name;
+		const englishLevelName = levelName["en-US"];
+		const englishName = `${englishChallengeName} in ${englishLevelName}`;
+		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
+			return leaderboardName.startsWith("Missions: ") && (leaderboardName.endsWith(` ${englishName}`) || leaderboardName.includes(` ${englishLevelName} `)) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));
+		});
+		if (leaderboardName != null) {
+			const leaderboard = leaderboardsByName[leaderboardName];
+			missionTiers[leaderboard] ??= Object.create(null);
+		}
+	}
+	console.log(`Got missions`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+} catch (error) {
+	console.warn(`Error while getting missions`);
+	throw error;
+}
+try {
+	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/races.json`);
+	if (!response.ok) {
+		throw new Error(response.statusText);
+	}
+	const races = await response.json();
+	for (const race of races) {
+		const {name} = race;
+		const englishName = name["en-US"];
+		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
+			return leaderboardName.startsWith("Races: ") && (leaderboardName.endsWith(` ${englishName}`) || leaderboardName.includes(` ${englishName} `)) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));
+		});
+		if (leaderboardName != null) {
+			const leaderboard = leaderboardsByName[leaderboardName];
+			raceTiers[leaderboard] ??= Object.create(null);
+		}
+	}
+	console.log(`Got races`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+} catch (error) {
+	console.warn(`Error while getting races`);
+	throw error;
 }
 try {
 	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/updates.json`);
@@ -484,8 +548,8 @@ const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(le
 	];
 })));
 const sortedBears = bearTiers;
-const sortedMissions = Object.fromEntries(sortTiers(Object.entries(missionTiers)));
-const sortedRaces = Object.fromEntries(sortTiers(Object.entries(raceTiers)));
+const sortedMissions = missionTiers;
+const sortedRaces = raceTiers;
 await fs.promises.mkdir("cache", {
 	recursive: true,
 });
