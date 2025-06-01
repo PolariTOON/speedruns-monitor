@@ -8,6 +8,10 @@ Tool used by the community to visualize the chronology of Super Bear Adventure s
 
 - Retrieves, pseudonymizes, aggregates, indexes, sorts and stores JSON snapshots for all the verified or rejected speedruns
 
+### `diamond`
+
+- Computes expected diamond times according to latest records based on the cache
+
 ### `plot`
 
 - Generates SVG charts showing the run count and leaderboard count for each player over time, the run count and player count for each leaderboard over time, the time and the rank for each leaderboard for each player over time, the time and the rank for each player for each leaderboard over time, the record count for each player over time, and the record time for each leaderboard over time based on the cache
