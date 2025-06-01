@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-04-13</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-04-30</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-05-31</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,23 +1095,43 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">14:04.09</text>
 		</svg>
-		<svg viewBox="0 0 17 84409" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 84409) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 48 84409" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 84409) scale(1 -1)" style="--count: 4;">
 				<g style="--index: 0;">
-					<path d="M0,4287L2,4287L2,4057" tabindex="0">
+					<path d="M0,4287L2,4287L2,4057L25,4057L25,4042L26,4042L26,4010L27,4010L27,3968L48,3968L48,3964" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
 					</path>
-					<rect x="0" y="4057" width="2" height="230"/>
+					<rect x="0" y="3964" width="48" height="323"/>
 					<path d="M0,4287L0,4287" tabindex="0">
 						<title>00:42.87 on 2025-04-13</title>
 					</path>
-					<line x1="0" y1="4287" x2="17" y2="4287"/>
+					<line x1="0" y1="4287" x2="48" y2="4287"/>
 					<line x1="0" y1="0" x2="0" y2="84409"/>
 					<path d="M2,4057L2,4057" tabindex="0">
 						<title>00:40.57 on 2025-04-15</title>
 					</path>
-					<line x1="0" y1="4057" x2="17" y2="4057"/>
+					<line x1="0" y1="4057" x2="48" y2="4057"/>
 					<line x1="2" y1="0" x2="2" y2="84409"/>
+					<path d="M25,4042L25,4042" tabindex="0">
+						<title>00:40.42 on 2025-05-08</title>
+					</path>
+					<line x1="0" y1="4042" x2="48" y2="4042"/>
+					<line x1="25" y1="0" x2="25" y2="84409"/>
+					<path d="M26,4010L26,4010" tabindex="0">
+						<title>00:40.10 on 2025-05-09</title>
+					</path>
+					<line x1="0" y1="4010" x2="48" y2="4010"/>
+					<line x1="26" y1="0" x2="26" y2="84409"/>
+					<path d="M27,3968L27,3968" tabindex="0">
+						<title>00:39.68 on 2025-05-10</title>
+					</path>
+					<line x1="0" y1="3968" x2="48" y2="3968"/>
+					<line x1="27" y1="0" x2="27" y2="84409"/>
+					<path d="M48,3964L48,3964" tabindex="0">
+						<title>00:39.64 on 2025-05-31</title>
+					</path>
+					<line x1="0" y1="3964" x2="48" y2="3964"/>
+					<line x1="48" y1="0" x2="48" y2="84409"/>
 				</g>
 				<g style="--index: 1;">
 					<path d="M17,84409" tabindex="0">
@@ -1121,8 +1141,30 @@
 					<path d="M17,84409L17,84409" tabindex="0">
 						<title>14:04.09 on 2025-04-30</title>
 					</path>
-					<line x1="0" y1="84409" x2="17" y2="84409"/>
+					<line x1="0" y1="84409" x2="48" y2="84409"/>
 					<line x1="17" y1="0" x2="17" y2="84409"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M39,6348" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.4lxpe62q</title>
+					</path>
+					<rect x="39" y="6348" width="0" height="0"/>
+					<path d="M39,6348L39,6348" tabindex="0">
+						<title>01:03.48 on 2025-05-22</title>
+					</path>
+					<line x1="0" y1="6348" x2="48" y2="6348"/>
+					<line x1="39" y1="0" x2="39" y2="84409"/>
+				</g>
+				<g style="--index: 3;">
+					<path d="M42,1498" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
+					</path>
+					<rect x="42" y="1498" width="0" height="0"/>
+					<path d="M42,1498L42,1498" tabindex="0">
+						<title>00:14.98 on 2025-05-25</title>
+					</path>
+					<line x1="0" y1="1498" x2="48" y2="1498"/>
+					<line x1="42" y1="0" x2="42" y2="84409"/>
 				</g>
 			</g>
 		</svg>

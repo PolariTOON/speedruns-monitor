@@ -1082,42 +1082,72 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-07-15</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-04-30</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-05-25</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">79</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">137</text>
 		</svg>
-		<svg viewBox="0 0 289 79" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 79) scale(1 -1)" style="--count: 4;">
+		<svg viewBox="0 0 314 137" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 137) scale(1 -1)" style="--count: 10;">
 				<g>
-					<rect x="0" y="0" width="289" height="79"/>
+					<rect x="0" y="0" width="314" height="137"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,79L0,79L0,29L6,29L6,30L13,30L13,31L39,31L39,32L40,32L40,33L46,33L46,34L48,34L48,35L58,35L58,36L63,36L63,37L73,37L73,38L79,38L79,39L124,39L124,40L176,40L176,41L185,41L185,42L193,42L193,43L197,43L197,44L198,44L198,45L202,45L202,44L207,44L207,45L212,45L212,46L218,46L218,47L222,47L222,48L225,48L225,49L229,49L229,50L237,50L237,51L249,51L249,52L251,52L251,53L258,53L258,54L289,54L289,55L289,55" tabindex="0">
+					<path d="M0,79L0,79L0,29L6,29L6,30L13,30L13,31L39,31L39,32L40,32L40,33L46,33L46,34L48,34L48,35L58,35L58,36L63,36L63,37L73,37L73,38L79,38L79,39L124,39L124,40L176,40L176,41L185,41L185,42L193,42L193,43L197,43L197,44L198,44L198,45L202,45L202,44L207,44L207,45L212,45L212,46L218,46L218,47L222,47L222,48L225,48L225,49L229,49L229,50L237,50L237,51L249,51L249,52L251,52L251,53L258,53L258,54L289,54L289,55L307,55L307,17L314,17" tabindex="0">
 						<title>xd17x94d-9l71pv4l.21gpn081</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,22L221,22L221,9L238,9L238,10L289,10" tabindex="0">
+					<path d="M0,22L221,22L221,9L238,9L238,10L314,10" tabindex="0">
 						<title>l_ldykv1zw-rkl3znrk-wl3059ol.4qypgj4q</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,70L222,70L222,27L229,27L229,28L233,28L233,29L245,29L245,30L250,30L250,31L260,31L260,32L277,32L277,33L280,33L280,34L281,34L281,7L289,7" tabindex="0">
+					<path d="M0,70L222,70L222,27L229,27L229,28L233,28L233,29L245,29L245,30L250,30L250,31L260,31L260,32L277,32L277,33L280,33L280,34L281,34L281,7L314,7" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
 					</path>
 				</g>
 				<g style="--index: 3;">
-					<path d="M0,39L282,39L282,5L289,5" tabindex="0">
+					<path d="M0,39L282,39L282,5L314,5" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.rqvpey7q</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,30L290,30L290,4L314,4" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,137L292,137L292,16L314,16" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,36L292,36L292,6L314,6" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,114L292,114L292,13L314,13" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,47L292,47L292,11L295,11L295,12L314,12" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,73L292,73L292,17L305,17L305,18L310,18L310,19L314,19L314,20L314,20" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
 					</path>
 				</g>
 			</g>
