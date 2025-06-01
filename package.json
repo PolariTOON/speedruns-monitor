@@ -4,6 +4,7 @@
   },
   "scripts": {
     "cache": "node cache.js",
+    "diamond": "node diamond.js",
     "plot": "node plot.js",
     "watch": "node watch.js"
   },
