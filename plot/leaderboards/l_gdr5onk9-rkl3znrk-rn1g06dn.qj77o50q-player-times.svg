@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-06-10</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-05-03</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-06-30</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,19 +1095,19 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">07:21.47</text>
 		</svg>
-		<svg viewBox="0 0 693 44147" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 44147) scale(1 -1)" style="--count: 21;">
+		<svg viewBox="0 0 751 44147" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 44147) scale(1 -1)" style="--count: 24;">
 				<g>
-					<rect x="0" y="0" width="693" height="27000" tabindex="0" data-tier="diamond">
+					<rect x="0" y="0" width="751" height="27000" tabindex="0" data-tier="diamond">
 						<title>04:30.00 for diamond</title>
 					</rect>
-					<rect x="0" y="27000" width="693" height="9000" tabindex="0" data-tier="gold">
+					<rect x="0" y="27000" width="751" height="9000" tabindex="0" data-tier="gold">
 						<title>06:00.00 for gold</title>
 					</rect>
-					<rect x="0" y="36000" width="693" height="8147" tabindex="0" data-tier="silver">
+					<rect x="0" y="36000" width="751" height="8147" tabindex="0" data-tier="silver">
 						<title>08:00.00 for silver</title>
 					</rect>
-					<rect x="0" y="44147" width="693" height="0" tabindex="0" data-tier="bronze">
+					<rect x="0" y="44147" width="751" height="0" tabindex="0" data-tier="bronze">
 						<title>12:00.00 for bronze</title>
 					</rect>
 				</g>
@@ -1119,7 +1119,7 @@
 					<path d="M0,23672L0,23672" tabindex="0">
 						<title>03:56.72 on 2023-06-10</title>
 					</path>
-					<line x1="0" y1="23672" x2="693" y2="23672"/>
+					<line x1="0" y1="23672" x2="751" y2="23672"/>
 					<line x1="0" y1="0" x2="0" y2="44147"/>
 				</g>
 				<g style="--index: 1;">
@@ -1130,7 +1130,7 @@
 					<path d="M0,25650L0,25650" tabindex="0">
 						<title>04:16.50 on 2023-06-10</title>
 					</path>
-					<line x1="0" y1="25650" x2="693" y2="25650"/>
+					<line x1="0" y1="25650" x2="751" y2="25650"/>
 					<line x1="0" y1="0" x2="0" y2="44147"/>
 				</g>
 				<g style="--index: 2;">
@@ -1141,22 +1141,22 @@
 					<path d="M2,22925L2,22925" tabindex="0">
 						<title>03:49.25 on 2023-06-12</title>
 					</path>
-					<line x1="0" y1="22925" x2="693" y2="22925"/>
+					<line x1="0" y1="22925" x2="751" y2="22925"/>
 					<line x1="2" y1="0" x2="2" y2="44147"/>
 					<path d="M453,22165L453,22165" tabindex="0">
 						<title>03:41.65 on 2024-09-05</title>
 					</path>
-					<line x1="0" y1="22165" x2="693" y2="22165"/>
+					<line x1="0" y1="22165" x2="751" y2="22165"/>
 					<line x1="453" y1="0" x2="453" y2="44147"/>
 					<path d="M480,21374L480,21374" tabindex="0">
 						<title>03:33.74 on 2024-10-02</title>
 					</path>
-					<line x1="0" y1="21374" x2="693" y2="21374"/>
+					<line x1="0" y1="21374" x2="751" y2="21374"/>
 					<line x1="480" y1="0" x2="480" y2="44147"/>
 					<path d="M484,21247L484,21247" tabindex="0">
 						<title>03:32.47 on 2024-10-06</title>
 					</path>
-					<line x1="0" y1="21247" x2="693" y2="21247"/>
+					<line x1="0" y1="21247" x2="751" y2="21247"/>
 					<line x1="484" y1="0" x2="484" y2="44147"/>
 				</g>
 				<g style="--index: 3;">
@@ -1167,7 +1167,7 @@
 					<path d="M28,32149L28,32149" tabindex="0">
 						<title>05:21.49 on 2023-07-08</title>
 					</path>
-					<line x1="0" y1="32149" x2="693" y2="32149"/>
+					<line x1="0" y1="32149" x2="751" y2="32149"/>
 					<line x1="28" y1="0" x2="28" y2="44147"/>
 				</g>
 				<g style="--index: 4;">
@@ -1178,32 +1178,32 @@
 					<path d="M83,34407L83,34407" tabindex="0">
 						<title>05:44.07 on 2023-09-01</title>
 					</path>
-					<line x1="0" y1="34407" x2="693" y2="34407"/>
+					<line x1="0" y1="34407" x2="751" y2="34407"/>
 					<line x1="83" y1="0" x2="83" y2="44147"/>
 					<path d="M187,29864L187,29864" tabindex="0">
 						<title>04:58.64 on 2023-12-14</title>
 					</path>
-					<line x1="0" y1="29864" x2="693" y2="29864"/>
+					<line x1="0" y1="29864" x2="751" y2="29864"/>
 					<line x1="187" y1="0" x2="187" y2="44147"/>
 					<path d="M189,24810L189,24810" tabindex="0">
 						<title>04:08.10 on 2023-12-16</title>
 					</path>
-					<line x1="0" y1="24810" x2="693" y2="24810"/>
+					<line x1="0" y1="24810" x2="751" y2="24810"/>
 					<line x1="189" y1="0" x2="189" y2="44147"/>
 					<path d="M190,24540L190,24540" tabindex="0">
 						<title>04:05.40 on 2023-12-17</title>
 					</path>
-					<line x1="0" y1="24540" x2="693" y2="24540"/>
+					<line x1="0" y1="24540" x2="751" y2="24540"/>
 					<line x1="190" y1="0" x2="190" y2="44147"/>
 					<path d="M676,24444L676,24444" tabindex="0">
 						<title>04:04.44 on 2025-04-16</title>
 					</path>
-					<line x1="0" y1="24444" x2="693" y2="24444"/>
+					<line x1="0" y1="24444" x2="751" y2="24444"/>
 					<line x1="676" y1="0" x2="676" y2="44147"/>
 					<path d="M678,23556L678,23556" tabindex="0">
 						<title>03:55.56 on 2025-04-18</title>
 					</path>
-					<line x1="0" y1="23556" x2="693" y2="23556"/>
+					<line x1="0" y1="23556" x2="751" y2="23556"/>
 					<line x1="678" y1="0" x2="678" y2="44147"/>
 				</g>
 				<g style="--index: 5;">
@@ -1214,10 +1214,21 @@
 					<path d="M318,30614L318,30614" tabindex="0">
 						<title>05:06.14 on 2024-04-23</title>
 					</path>
-					<line x1="0" y1="30614" x2="693" y2="30614"/>
+					<line x1="0" y1="30614" x2="751" y2="30614"/>
 					<line x1="318" y1="0" x2="318" y2="44147"/>
 				</g>
 				<g style="--index: 6;">
+					<path d="M389,26869" tabindex="0">
+						<title>j2p4pel8</title>
+					</path>
+					<rect x="389" y="26869" width="0" height="0"/>
+					<path d="M389,26869L389,26869" tabindex="0">
+						<title>04:28.69 on 2024-07-03</title>
+					</path>
+					<line x1="0" y1="26869" x2="751" y2="26869"/>
+					<line x1="389" y1="0" x2="389" y2="44147"/>
+				</g>
+				<g style="--index: 7;">
 					<path d="M391,30068L424,30068L424,27816" tabindex="0">
 						<title>8v07p9ex</title>
 					</path>
@@ -1225,15 +1236,15 @@
 					<path d="M391,30068L391,30068" tabindex="0">
 						<title>05:00.68 on 2024-07-05</title>
 					</path>
-					<line x1="0" y1="30068" x2="693" y2="30068"/>
+					<line x1="0" y1="30068" x2="751" y2="30068"/>
 					<line x1="391" y1="0" x2="391" y2="44147"/>
 					<path d="M424,27816L424,27816" tabindex="0">
 						<title>04:38.16 on 2024-08-07</title>
 					</path>
-					<line x1="0" y1="27816" x2="693" y2="27816"/>
+					<line x1="0" y1="27816" x2="751" y2="27816"/>
 					<line x1="424" y1="0" x2="424" y2="44147"/>
 				</g>
-				<g style="--index: 7;">
+				<g style="--index: 8;">
 					<path d="M452,22206L455,22206L455,21752L456,21752L456,21375L481,21375L481,21343" tabindex="0">
 						<title>jonm5ol8</title>
 					</path>
@@ -1241,25 +1252,25 @@
 					<path d="M452,22206L452,22206" tabindex="0">
 						<title>03:42.06 on 2024-09-04</title>
 					</path>
-					<line x1="0" y1="22206" x2="693" y2="22206"/>
+					<line x1="0" y1="22206" x2="751" y2="22206"/>
 					<line x1="452" y1="0" x2="452" y2="44147"/>
 					<path d="M455,21752L455,21752" tabindex="0">
 						<title>03:37.52 on 2024-09-07</title>
 					</path>
-					<line x1="0" y1="21752" x2="693" y2="21752"/>
+					<line x1="0" y1="21752" x2="751" y2="21752"/>
 					<line x1="455" y1="0" x2="455" y2="44147"/>
 					<path d="M456,21375L456,21375" tabindex="0">
 						<title>03:33.75 on 2024-09-08</title>
 					</path>
-					<line x1="0" y1="21375" x2="693" y2="21375"/>
+					<line x1="0" y1="21375" x2="751" y2="21375"/>
 					<line x1="456" y1="0" x2="456" y2="44147"/>
 					<path d="M481,21343L481,21343" tabindex="0">
 						<title>03:33.43 on 2024-10-03</title>
 					</path>
-					<line x1="0" y1="21343" x2="693" y2="21343"/>
+					<line x1="0" y1="21343" x2="751" y2="21343"/>
 					<line x1="481" y1="0" x2="481" y2="44147"/>
 				</g>
-				<g style="--index: 8;">
+				<g style="--index: 9;">
 					<path d="M463,29539" tabindex="0">
 						<title>j0ewpzw8</title>
 					</path>
@@ -1267,10 +1278,10 @@
 					<path d="M463,29539L463,29539" tabindex="0">
 						<title>04:55.39 on 2024-09-15</title>
 					</path>
-					<line x1="0" y1="29539" x2="693" y2="29539"/>
+					<line x1="0" y1="29539" x2="751" y2="29539"/>
 					<line x1="463" y1="0" x2="463" y2="44147"/>
 				</g>
-				<g style="--index: 9;">
+				<g style="--index: 10;">
 					<path d="M477,23421" tabindex="0">
 						<title>0jmw6wex</title>
 					</path>
@@ -1278,10 +1289,10 @@
 					<path d="M477,23421L477,23421" tabindex="0">
 						<title>03:54.21 on 2024-09-29</title>
 					</path>
-					<line x1="0" y1="23421" x2="693" y2="23421"/>
+					<line x1="0" y1="23421" x2="751" y2="23421"/>
 					<line x1="477" y1="0" x2="477" y2="44147"/>
 				</g>
-				<g style="--index: 10;">
+				<g style="--index: 11;">
 					<path d="M506,29895" tabindex="0">
 						<title>j2p224o8</title>
 					</path>
@@ -1289,10 +1300,10 @@
 					<path d="M506,29895L506,29895" tabindex="0">
 						<title>04:58.95 on 2024-10-28</title>
 					</path>
-					<line x1="0" y1="29895" x2="693" y2="29895"/>
+					<line x1="0" y1="29895" x2="751" y2="29895"/>
 					<line x1="506" y1="0" x2="506" y2="44147"/>
 				</g>
-				<g style="--index: 11;">
+				<g style="--index: 12;">
 					<path d="M550,44147L552,44147L552,32757" tabindex="0">
 						<title>8lrpdkl8</title>
 					</path>
@@ -1300,15 +1311,15 @@
 					<path d="M550,44147L550,44147" tabindex="0">
 						<title>07:21.47 on 2024-12-11</title>
 					</path>
-					<line x1="0" y1="44147" x2="693" y2="44147"/>
+					<line x1="0" y1="44147" x2="751" y2="44147"/>
 					<line x1="550" y1="0" x2="550" y2="44147"/>
 					<path d="M552,32757L552,32757" tabindex="0">
 						<title>05:27.57 on 2024-12-13</title>
 					</path>
-					<line x1="0" y1="32757" x2="693" y2="32757"/>
+					<line x1="0" y1="32757" x2="751" y2="32757"/>
 					<line x1="552" y1="0" x2="552" y2="44147"/>
 				</g>
-				<g style="--index: 12;">
+				<g style="--index: 13;">
 					<path d="M569,29127" tabindex="0">
 						<title>jo1d4qlx</title>
 					</path>
@@ -1316,10 +1327,10 @@
 					<path d="M569,29127L569,29127" tabindex="0">
 						<title>04:51.27 on 2024-12-30</title>
 					</path>
-					<line x1="0" y1="29127" x2="693" y2="29127"/>
+					<line x1="0" y1="29127" x2="751" y2="29127"/>
 					<line x1="569" y1="0" x2="569" y2="44147"/>
 				</g>
-				<g style="--index: 13;">
+				<g style="--index: 14;">
 					<path d="M572,31236" tabindex="0">
 						<title>jpz2ge4x</title>
 					</path>
@@ -1327,10 +1338,10 @@
 					<path d="M572,31236L572,31236" tabindex="0">
 						<title>05:12.36 on 2025-01-02</title>
 					</path>
-					<line x1="0" y1="31236" x2="693" y2="31236"/>
+					<line x1="0" y1="31236" x2="751" y2="31236"/>
 					<line x1="572" y1="0" x2="572" y2="44147"/>
 				</g>
-				<g style="--index: 14;">
+				<g style="--index: 15;">
 					<path d="M583,28336" tabindex="0">
 						<title>jo1e74lx</title>
 					</path>
@@ -1338,10 +1349,31 @@
 					<path d="M583,28336L583,28336" tabindex="0">
 						<title>04:43.36 on 2025-01-13</title>
 					</path>
-					<line x1="0" y1="28336" x2="693" y2="28336"/>
+					<line x1="0" y1="28336" x2="751" y2="28336"/>
 					<line x1="583" y1="0" x2="583" y2="44147"/>
 				</g>
-				<g style="--index: 15;">
+				<g style="--index: 16;">
+					<path d="M584,25804L637,25804L637,23532L731,23532L731,23100" tabindex="0">
+						<title>81pdyqq8</title>
+					</path>
+					<rect x="584" y="23100" width="147" height="2704"/>
+					<path d="M584,25804L584,25804" tabindex="0">
+						<title>04:18.04 on 2025-01-14</title>
+					</path>
+					<line x1="0" y1="25804" x2="751" y2="25804"/>
+					<line x1="584" y1="0" x2="584" y2="44147"/>
+					<path d="M637,23532L637,23532" tabindex="0">
+						<title>03:55.32 on 2025-03-08</title>
+					</path>
+					<line x1="0" y1="23532" x2="751" y2="23532"/>
+					<line x1="637" y1="0" x2="637" y2="44147"/>
+					<path d="M731,23100L731,23100" tabindex="0">
+						<title>03:51.00 on 2025-06-10</title>
+					</path>
+					<line x1="0" y1="23100" x2="751" y2="23100"/>
+					<line x1="731" y1="0" x2="731" y2="44147"/>
+				</g>
+				<g style="--index: 17;">
 					<path d="M600,24700" tabindex="0">
 						<title>8dez4g9j</title>
 					</path>
@@ -1349,21 +1381,10 @@
 					<path d="M600,24700L600,24700" tabindex="0">
 						<title>04:07.00 on 2025-01-30</title>
 					</path>
-					<line x1="0" y1="24700" x2="693" y2="24700"/>
+					<line x1="0" y1="24700" x2="751" y2="24700"/>
 					<line x1="600" y1="0" x2="600" y2="44147"/>
 				</g>
-				<g style="--index: 16;">
-					<path d="M637,23532" tabindex="0">
-						<title>81pdyqq8</title>
-					</path>
-					<rect x="637" y="23532" width="0" height="0"/>
-					<path d="M637,23532L637,23532" tabindex="0">
-						<title>03:55.32 on 2025-03-08</title>
-					</path>
-					<line x1="0" y1="23532" x2="693" y2="23532"/>
-					<line x1="637" y1="0" x2="637" y2="44147"/>
-				</g>
-				<g style="--index: 17;">
+				<g style="--index: 18;">
 					<path d="M641,30900" tabindex="0">
 						<title>j2pmnwl8</title>
 					</path>
@@ -1371,10 +1392,10 @@
 					<path d="M641,30900L641,30900" tabindex="0">
 						<title>05:09.00 on 2025-03-12</title>
 					</path>
-					<line x1="0" y1="30900" x2="693" y2="30900"/>
+					<line x1="0" y1="30900" x2="751" y2="30900"/>
 					<line x1="641" y1="0" x2="641" y2="44147"/>
 				</g>
-				<g style="--index: 18;">
+				<g style="--index: 19;">
 					<path d="M670,25536" tabindex="0">
 						<title>86pqy35j</title>
 					</path>
@@ -1382,10 +1403,10 @@
 					<path d="M670,25536L670,25536" tabindex="0">
 						<title>04:15.36 on 2025-04-10</title>
 					</path>
-					<line x1="0" y1="25536" x2="693" y2="25536"/>
+					<line x1="0" y1="25536" x2="751" y2="25536"/>
 					<line x1="670" y1="0" x2="670" y2="44147"/>
 				</g>
-				<g style="--index: 19;">
+				<g style="--index: 20;">
 					<path d="M678,24010" tabindex="0">
 						<title>xkz4ozmx</title>
 					</path>
@@ -1393,10 +1414,10 @@
 					<path d="M678,24010L678,24010" tabindex="0">
 						<title>04:00.10 on 2025-04-18</title>
 					</path>
-					<line x1="0" y1="24010" x2="693" y2="24010"/>
+					<line x1="0" y1="24010" x2="751" y2="24010"/>
 					<line x1="678" y1="0" x2="678" y2="44147"/>
 				</g>
-				<g style="--index: 20;">
+				<g style="--index: 21;">
 					<path d="M693,29669" tabindex="0">
 						<title>xyylq0mx</title>
 					</path>
@@ -1404,8 +1425,30 @@
 					<path d="M693,29669L693,29669" tabindex="0">
 						<title>04:56.69 on 2025-05-03</title>
 					</path>
-					<line x1="0" y1="29669" x2="693" y2="29669"/>
+					<line x1="0" y1="29669" x2="751" y2="29669"/>
 					<line x1="693" y1="0" x2="693" y2="44147"/>
+				</g>
+				<g style="--index: 22;">
+					<path d="M729,23110" tabindex="0">
+						<title>81v0nq38</title>
+					</path>
+					<rect x="729" y="23110" width="0" height="0"/>
+					<path d="M729,23110L729,23110" tabindex="0">
+						<title>03:51.10 on 2025-06-08</title>
+					</path>
+					<line x1="0" y1="23110" x2="751" y2="23110"/>
+					<line x1="729" y1="0" x2="729" y2="44147"/>
+				</g>
+				<g style="--index: 23;">
+					<path d="M751,23238" tabindex="0">
+						<title>x356nrej</title>
+					</path>
+					<rect x="751" y="23238" width="0" height="0"/>
+					<path d="M751,23238L751,23238" tabindex="0">
+						<title>03:52.38 on 2025-06-30</title>
+					</path>
+					<line x1="0" y1="23238" x2="751" y2="23238"/>
+					<line x1="751" y1="0" x2="751" y2="44147"/>
 				</g>
 			</g>
 		</svg>
