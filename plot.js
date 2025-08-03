@@ -5,6 +5,7 @@ import leaderboards from "./cache/leaderboards.json" with {type: "json"};
 import bears from "./cache/bears.json" with {type: "json"};
 import missions from "./cache/missions.json" with {type: "json"};
 import races from "./cache/races.json" with {type: "json"};
+import sublevels from "./cache/sublevels.json" with {type: "json"};
 const blocks = ["foreignObject", "svg", "g", "rect", "path"];
 function indent(element, level, block) {
 	if (element == null) {
@@ -1704,7 +1705,7 @@ for (const [player, playerLeaderboards] of Object.entries(rankByLeaderboardByPla
 }
 const formattedTimeByPlayerByLeaderboard = Object.create(null);
 for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-	const formattedTimeByPlayer = plotTimeByDatumKey("../../", `Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player", bears[leaderboard]);
+	const formattedTimeByPlayer = plotTimeByDatumKey("../../", `Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player", bears[leaderboard] ?? missions[leaderboard] ?? races[leaderboard] ?? sublevels[leaderboard]);
 	if (formattedTimeByPlayer == null) {
 		continue;
 	}
@@ -1723,9 +1724,11 @@ const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("../", "Rec
 const formattedTotalTimeByPlayerForBears = plotTotalTimeByPlayer("../", "Total time by player (bears)", players, bears);
 const formattedTotalTimeByPlayerForMissions = plotTotalTimeByPlayer("../", "Total time by player (missions)", players, missions);
 const formattedTotalTimeByPlayerForRaces = plotTotalTimeByPlayer("../", "Total time by player (races)", players, races);
+const formattedTotalTimeByPlayerForSublevels = plotTotalTimeByPlayer("../", "Total time by player (sublevels)", players, sublevels);
 const formattedTotalRankByPlayerForBears = plotTotalRankByPlayer("../", "Total rank by player (bears)", rankByLeaderboardByPlayer, bears);
 const formattedTotalRankByPlayerForMissions = plotTotalRankByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, missions);
 const formattedTotalRankByPlayerForRaces = plotTotalRankByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, races);
+const formattedTotalRankByPlayerForSublevels = plotTotalRankByPlayer("../", "Total rank by player (sublevels)", rankByLeaderboardByPlayer, sublevels);
 await mkdir("plot", {
 	recursive: true,
 });
@@ -1765,9 +1768,11 @@ await writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderbo
 await writeFile(`plot/player-bear-times.svg`, `${formattedTotalTimeByPlayerForBears}\n`);
 await writeFile(`plot/player-mission-times.svg`, `${formattedTotalTimeByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-times.svg`, `${formattedTotalTimeByPlayerForRaces}\n`);
+await writeFile(`plot/player-sublevel-times.svg`, `${formattedTotalTimeByPlayerForSublevels}\n`);
 await writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBears}\n`);
 await writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
+await writeFile(`plot/player-sublevel-ranks.svg`, `${formattedTotalRankByPlayerForSublevels}\n`);
 await writeFile(`plot/readme.md`, `\
 # Plot
 
@@ -1781,9 +1786,11 @@ await writeFile(`plot/readme.md`, `\
 - [Total time by player (bears)](player-bear-times.svg)
 - [Total time by player (missions)](player-mission-times.svg)
 - [Total time by player (races)](player-race-times.svg)
+- [Total time by player (sublevels)](player-sublevel-times.svg)
 - [Total rank by player (bears)](player-bear-ranks.svg)
 - [Total rank by player (missions)](player-mission-ranks.svg)
 - [Total rank by player (races)](player-race-ranks.svg)
+- [Total rank by player (sublevels)](player-sublevel-ranks.svg)
 - [Players](players)
 - [Leaderboards](leaderboards)
 `);

@@ -9,6 +9,7 @@ const leaderboardsByName = Object.create(null);
 const bearTiers = Object.create(null);
 const missionTiers = Object.create(null);
 const raceTiers = Object.create(null);
+const sublevelTiers = Object.create(null);
 const games = {
 	"9d3rrxyd": "sba",
 	"w6jl2ned": "sbace",
@@ -383,7 +384,7 @@ try {
 		const englishLevelName = levelName["en-US"];
 		const englishName = `${englishChallengeName} in ${englishLevelName}`;
 		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
-			return leaderboardName.startsWith("Missions: ") && (leaderboardName.endsWith(` ${englishName}`) || leaderboardName.includes(` ${englishLevelName} `)) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));
+			return leaderboardName.startsWith("Missions: ") && (leaderboardName.endsWith(` ${englishName}`) || leaderboardName.includes(` ${englishName} `)) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));
 		});
 		if (leaderboardName != null) {
 			const leaderboard = leaderboardsByName[leaderboardName];
@@ -421,6 +422,46 @@ try {
 	});
 } catch (error) {
 	console.warn(`Error while getting races`);
+	throw error;
+}
+try {
+	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/sublevels.json`);
+	if (!response.ok) {
+		throw new Error(response.statusText);
+	}
+	const sublevels = await response.json();
+	for (const sublevel of sublevels) {
+		const {diamond, gold, name} = sublevel;
+		const silver = Math.ceil(gold * 4 / 3);
+		const bronze = gold * 2;
+		const goals = {
+			diamond,
+			gold,
+			silver,
+			bronze,
+		};
+		const times = Object.fromEntries(Object.entries(goals).map(([tier, goal]) => {
+			const minutes = `${goal / 60 | 0}`.padStart(2, "0");
+			const seconds = `${goal % 60 | 0}`.padStart(2, "0");
+			const centiseconds = `${goal * 100 % 100 | 0}`.padStart(2, "0");
+			const time = `${minutes}:${seconds}.${centiseconds}`;
+			return [tier, time];
+		}));
+		const englishName = name["en-US"];
+		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
+			return leaderboardName.startsWith(`${englishName}: `) && (leaderboardName.endsWith(" Escape") || leaderboardName.includes(" Escape ")) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));
+		});
+		if (leaderboardName != null) {
+			const leaderboard = leaderboardsByName[leaderboardName];
+			sublevelTiers[leaderboard] ??= times;
+		}
+	}
+	console.log(`Got sublevels`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+} catch (error) {
+	console.warn(`Error while getting sublevels`);
 	throw error;
 }
 try {
@@ -512,12 +553,6 @@ function sortLeaderboardDateRuns(leaderboardDateRuns) {
 	});
 	return leaderboardDateRuns;
 }
-function sortTiers(tiers) {
-	sort(tiers, (tier) => {
-		return !tier[0].startsWith("l_") ? `l_-${tier[0]}` : tier[0];
-	});
-	return tiers;
-}
 const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([date, platforms]) => {
 	return [
 		date,
@@ -549,6 +584,7 @@ const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(le
 const sortedBears = bearTiers;
 const sortedMissions = missionTiers;
 const sortedRaces = raceTiers;
+const sortedSublevels = sublevelTiers;
 await mkdir("cache", {
 	recursive: true,
 });
@@ -562,6 +598,7 @@ await writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboard
 await writeFile(`cache/bears.json`, `${JSON.stringify(sortedBears, null, "\t")}\n`);
 await writeFile(`cache/missions.json`, `${JSON.stringify(sortedMissions, null, "\t")}\n`);
 await writeFile(`cache/races.json`, `${JSON.stringify(sortedRaces, null, "\t")}\n`);
+await writeFile(`cache/sublevels.json`, `${JSON.stringify(sortedSublevels, null, "\t")}\n`);
 await writeFile(`cache/readme.md`, `\
 # Cache
 
@@ -571,4 +608,5 @@ await writeFile(`cache/readme.md`, `\
 - [Bears](bears.json)
 - [Missions](missions.json)
 - [Races](races.json)
+- [Sublevels](sublevels.json)
 `);
