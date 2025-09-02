@@ -1,115 +1,5 @@
-import {mkdir, rm, writeFile} from "node:fs/promises";
-import {DOMParser} from "linkedom";
-import players from "./cache/players.json" with {type: "json"};
-import leaderboards from "./cache/leaderboards.json" with {type: "json"};
-import bears from "./cache/bears.json" with {type: "json"};
-import missions from "./cache/missions.json" with {type: "json"};
-import races from "./cache/races.json" with {type: "json"};
-import sublevels from "./cache/sublevels.json" with {type: "json"};
-const blocks = ["foreignObject", "svg", "g", "rect", "path"];
-function indent(element, level, block) {
-	if (element == null) {
-		return;
-	}
-	const nextSibling = element.nextElementSibling;
-	const stack = [block];
-	while (element != null && element !== nextSibling) {
-		const block = stack[stack.length - 1];
-		if (block) {
-			element.before("\t".repeat(level));
-			element.after("\n");
-		}
-		while (element.firstElementChild != null) {
-			const block = blocks.includes(element.tagName);
-			if (block) {
-				++level;
-				element.prepend("\n");
-			}
-			stack.push(block);
-			element = element.firstElementChild;
-			if (block) {
-				element.before("\t".repeat(level));
-				element.after("\n");
-			}
-		}
-		while (stack.length !== 1 && element.nextElementSibling == null) {
-			element = element.parentElement;
-			const block = stack[stack.length - 1];
-			if (block) {
-				--level;
-				element.append("\t".repeat(level));
-			}
-			stack.pop();
-		}
-		element = element.nextElementSibling;
-	}
-}
-function sort(array, hash) {
-	array.sort((a, b) => {
-		const aHash = hash(a);
-		const bHash = hash(b);
-		if (aHash < bHash) {
-			return -1;
-		}
-		if (aHash > bHash) {
-			return 1;
-		}
-		return 0;
-	});
-	return array;
-}
-function sortData(data) {
-	sort(data, (datum) => {
-		return Object.keys(datum[1])[0] || Object.keys(datum[1])[1];
-	});
-	return data;
-}
-function sortDatumDates(datumDates) {
-	sort(datumDates, (datumDate) => {
-		return datumDate[0];
-	});
-	return datumDates;
-}
-function plot(scope, title, data, cumulative, extended, timed, goals) {
-	const sortedData = Object.fromEntries(sortData(Object.entries(data).map(([datum, dates]) => {
-		return [
-			datum,
-			Object.fromEntries(sortDatumDates(Object.entries(dates))),
-		];
-	})));
-	let minDate = null;
-	let maxDate = null;
-	let maxValue = null;
-	for (const datumDates of Object.values(sortedData)) {
-		let currentValue = "" in datumDates ? datumDates[""] : 0;
-		if (extended && (maxValue == null || currentValue > maxValue)) {
-			maxValue = currentValue;
-		}
-		for (const [date, dateValueOrDiff] of Object.entries(datumDates)) {
-			if (date === "") {
-				continue;
-			}
-			if (minDate == null || date.length < minDate.length || date < minDate) {
-				minDate = date;
-			}
-			if (maxDate == null || date.length > maxDate.length || date > maxDate) {
-				maxDate = date;
-			}
-			if (!cumulative) {
-				currentValue = dateValueOrDiff;
-			} else {
-				currentValue += dateValueOrDiff;
-				datumDates[date] = currentValue;
-			}
-			if (maxValue == null || currentValue > maxValue) {
-				maxValue = currentValue;
-			}
-		}
-	}
-	const maxDuration = Math.round((Date.parse(maxDate) - Date.parse(minDate)) / 86400000);
-	const document = new DOMParser().parseFromString(`\
 <svg xmlns="http://www.w3.org/2000/svg" lang="en">
-	<title>${title}</title>
+	<title>Record count by player (bears)</title>
 	<metadata>
 		<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" />
 		<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width" />
@@ -244,15 +134,15 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		foreignObject &gt; svg:first-of-type + svg + svg + svg {
 			top: 20px;
 		}
-		foreignObject &gt; svg:first-of-type > text,
-		foreignObject &gt; svg:first-of-type + svg > text,
-		foreignObject &gt; svg:first-of-type + svg + svg > text,
-		foreignObject &gt; svg:first-of-type + svg + svg + svg > text {
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text {
 			fill: var(--canvas-foreground);
 			stroke: none;
 		}
-		foreignObject &gt; svg:first-of-type > text,
-		foreignObject &gt; svg:first-of-type + svg > text {
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text {
 			cursor: vertical-text;
 		}
 		foreignObject &gt; svg:first-of-type + svg + svg + svg + svg {
@@ -370,11 +260,11 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		{
 			const script = document.currentScript;
 			const documentUrl = location.href;
-			const scope = new URL("${scope}", documentUrl).pathname;
-			const playersKey = \`\${scope}#players\`;
-			const leaderboardsKey = \`\${scope}#leaderboards\`;
-			const sessionKey = \`\${scope}#session\`;
-			const lockKey = \`\${scope}#lock\`;
+			const scope = new URL("../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
 			async function importDataScript(dataScriptUrl, signal) {
 				signal.throwIfAborted();
 				if (documentUrl.protocol !== "file:") {
@@ -388,7 +278,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 					return data;
 				}
 				return await new Promise((resolve, reject) =&gt; {
-					const name = \`callback\${Math.random() * 2 ** 53}\`;
+					const name = `callback${Math.random() * 2 ** 53}`;
 					let called = false;
 					let data = null;
 					function callback(value) {
@@ -399,7 +289,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 					}
 					window[name] = callback;
 					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
-					dataScript.href = \`\${dataScriptUrl}&amp;callback=\${name}\`;
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
 					function handleAbort(event) {
 						delete window[name];
 						dataScript.removeEventListener("error", handleError);
@@ -456,16 +346,16 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			}
 			window.addEventListener("pageshow", (event) =&gt; {
 				if (event.persisted) {
-					console.log(\`Successfully restored page from cache\`);
+					console.log(`Successfully restored page from cache`);
 				} else {
-					console.log(\`Unsuccessfully restored page from cache\`);
+					console.log(`Unsuccessfully restored page from cache`);
 				}
 			});
 			window.addEventListener("pagehide", (event) =&gt; {
 				if (event.persisted) {
-					console.log(\`Successfully saved page to cache\`);
+					console.log(`Successfully saved page to cache`);
 				} else {
-					console.log(\`Unsuccessfully saved page to cache\`);
+					console.log(`Unsuccessfully saved page to cache`);
 				}
 			});
 			window.addEventListener("pageshow", async (event) =&gt; {
@@ -520,11 +410,11 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 										sessionStorage.setItem(playersKey, cachedPlayers);
 										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
 									} catch {}
-									console.log(\`Successfully loaded names from peer\`);
+									console.log(`Successfully loaded names from peer`);
 									abort();
 									resolve();
 								} else {
-									console.log(\`Unsuccessfully loaded names from peer\`);
+									console.log(`Unsuccessfully loaded names from peer`);
 									abort();
 									resolve();
 								}
@@ -548,27 +438,27 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 						type: "response",
 						session,
 					});
-					console.log(\`Successfully loaded names from local\`);
+					console.log(`Successfully loaded names from local`);
 					abort();
 					resolve();
 				} else {
 					broadcastChannel.postMessage({
 						type: "request",
 					});
-					console.log(\`Unsuccessfully loaded names from local\`);
+					console.log(`Unsuccessfully loaded names from local`);
 				}
 				(async () =&gt; {
 					for (;;) {
 						await navigator.locks.request(lockKey, async () =&gt; {
 							lock = true;
-							console.log(\`Acquired lock\`);
+							console.log(`Acquired lock`);
 							if (!signal.aborted) {
 								try {
 									const players = Object.create(null);
 									const leaderboards = Object.create(null);
 									const games = ["9d3rrxyd", "w6jl2ned"];
 									for (const gameId of games) {
-										const {data} = await importDataScript(\`https://www.speedrun.com/api/v1/games/\${gameId}?embed=categories,levels,variables\`, signal);
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
 										const versions = data.variables.data.find((variable) =&gt; {
 											return variable.name === "Version";
 										});
@@ -581,11 +471,11 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
 											return [variable.id, variable];
 										}));
-										console.log(\`Got game\`);
+										console.log(`Got game`);
 										await waitForTimeout(800, signal);
 										const slice = 200;
 										for (let offset = 0;; offset += slice) {
-											const {data, pagination} = await importDataScript(\`https://www.speedrun.com/api/v1/runs?game=\${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=\${offset}&amp;max=\${slice}\`, signal);
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
 											const {size} = pagination;
 											if (size === 0) {
 												break;
@@ -603,9 +493,9 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 												const values = Object.entries(run.values).filter(([variable]) =&gt; {
 													return variables[variable]?.["is-subcategory"] ?? false;
 												}).map(([variable, value]) =&gt; {
-													return \`-\${variable}.\${value}\`;
+													return `-${variable}.${value}`;
 												});
-												const leaderboard = \`\${level != null ? \`l_\${level}-\` : ""}\${category}\${values.join("")}\`;
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
 												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
 												const categoryName = categories[run.category]?.name ?? null;
 												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
@@ -615,10 +505,10 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 												}).filter((valueName) =&gt; {
 													return valueName != null;
 												});
-												const leaderboardName = \`\${levelName != null ? \`\${levelName}: \` : ""}\${categoryName ?? ""}\${values.length !== 0 ? \` - \${valueNames.join(", ")}\` : ""}\`;
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
 												leaderboards[leaderboard] ??= leaderboardName;
 											}
-											console.log(\`Got runs \${offset}-\${offset + size - 1}\`);
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
 											await waitForTimeout(800, signal);
 										}
 									}
@@ -637,7 +527,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 											type: "response",
 											session,
 										});
-										console.log(\`Successfully loaded names from remote\`);
+										console.log(`Successfully loaded names from remote`);
 										abort();
 										resolve();
 									} else {
@@ -645,7 +535,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 											type: "response",
 											session,
 										});
-										console.log(\`Unsuccessfully loaded names from remote\`);
+										console.log(`Unsuccessfully loaded names from remote`);
 										abort();
 										resolve();
 									}
@@ -660,7 +550,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 							});
 						});
 						lock = false;
-						console.log(\`Released lock\`);
+						console.log(`Released lock`);
 						await new Promise((resolve) =&gt; {
 							window.addEventListener("pagehide", () =&gt; {
 								resolve();
@@ -695,9 +585,9 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 					element: rootTitleElement,
 					contentWithIds: rootTitleContent,
 					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
-						return \` for player \${players[$1] ?? $1}\`;
-					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
-						return \` for leaderboard \${leaderboards[$1] ?? $1}\`;
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
 					}) : rootTitleContent,
 				};
 				const hasPlayerPaths = rootTitleContent.includes(" by player");
@@ -745,10 +635,10 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 				const startX = Math.round(Date.parse(minDateText.textContent) / 86400000);
 				function xToDate(x) {
 					const datetime = new Date((startX + x) * 86400000);
-					const year = \`\${datetime.getUTCFullYear()}\`.padStart(4, "0");
-					const month = \`\${datetime.getUTCMonth() + 1}\`.padStart(2, "0");
-					const day = \`\${datetime.getUTCDate()}\`.padStart(2, "0");
-					const date = \`\${year}-\${month}-\${day}\`;
+					const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
+					const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
+					const day = `${datetime.getUTCDate()}`.padStart(2, "0");
+					const date = `${year}-${month}-${day}`;
 					const size = date.length * 10;
 					return {date, size};
 				}
@@ -767,14 +657,14 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 				const timed = minValueText.textContent.includes(":");
 				function yToValue(y) {
 					if (timed) {
-						const minutes = \`\${(y - y % 6000) / 6000}\`.padStart(2, "0");
-						const seconds = \`\${(y - y % 100) / 100 % 60}\`.padStart(2, "0");
-						const centiseconds = \`\${y % 100}\`.padStart(2, "0");
-						const value = \`\${minutes}:\${seconds}.\${centiseconds}\`;
+						const minutes = `${(y - y % 6000) / 6000}`.padStart(2, "0");
+						const seconds = `${(y - y % 100) / 100 % 60}`.padStart(2, "0");
+						const centiseconds = `${y % 100}`.padStart(2, "0");
+						const value = `${minutes}:${seconds}.${centiseconds}`;
 						const size = value.length * 10;
 						return {value, size};
 					} else {
-						const value = \`\${y}\`;
+						const value = `${y}`;
 						const size = value.length * 10;
 						return {value, size};
 					}
@@ -1192,671 +1082,245 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			});
 		}
 	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-01-08</text>
+		</svg>
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-31</text>
+		</svg>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		</svg>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">33</text>
+		</svg>
+		<svg viewBox="0 0 2761 33" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 33) scale(1 -1)" style="--count: 44;">
+				<g>
+					<rect x="0" y="0" width="2761" height="33"/>
+				</g>
+				<g style="--index: 0;">
+					<path d="M0,0L0,0L0,1L1,1L1,4L5,4L5,1L7,1L7,3L9,3L9,6L10,6L10,3L11,3L11,4L14,4L14,3L16,3L16,4L17,4L17,4L18,4L18,4L19,4L19,4L23,4L23,4L24,4L24,3L25,3L25,3L26,3L26,2L28,2L28,1L30,1L30,3L31,3L31,5L57,5L57,7L59,7L59,8L60,8L60,10L66,10L66,9L69,9L69,8L70,8L70,7L71,7L71,6L93,6L93,7L94,7L94,6L95,6L95,5L99,5L99,4L101,4L101,3L103,3L103,2L104,2L104,1L181,1L181,3L182,3L182,1L186,1L186,0L418,0L418,2L759,2L759,1L842,1L842,0L2761,0" tabindex="0">
+						<title>qj2pq1p8</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,0L1,0L1,1L5,1L5,0L83,0L83,1L94,1L94,1L95,1L95,3L97,3L97,2L101,2L101,0L175,0L175,1L180,1L180,0L2761,0" tabindex="0">
+						<title>e8e935oj</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,0L1,0L1,1L106,1L106,0L2761,0" tabindex="0">
+						<title>7j47r25j</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,0L5,0L5,5L6,5L6,5L7,5L7,5L9,5L9,4L11,4L11,3L14,3L14,4L16,4L16,3L31,3L31,2L104,2L104,1L106,1L106,0L2761,0" tabindex="0">
+						<title>5j5gggn8</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,0L7,0L7,1L8,1L8,1L16,1L16,1L18,1L18,2L27,2L27,1L57,1L57,0L66,0L66,1L91,1L91,2L93,2L93,2L94,2L94,0L95,0L95,1L181,1L181,0L2761,0" tabindex="0">
+						<title>48grel1x</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,0L10,0L10,3L11,3L11,3L18,3L18,2L25,2L25,1L59,1L59,0L2761,0" tabindex="0">
+						<title>0jm3onz8</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,0L24,0L24,1L25,1L25,2L26,2L26,3L27,3L27,4L28,4L28,6L30,6L30,4L31,4L31,3L60,3L60,2L99,2L99,0L2761,0" tabindex="0">
+						<title>kj9kz6r8</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,0L69,0L69,1L70,1L70,2L71,2L71,3L83,3L83,2L91,2L91,4L93,4L93,5L94,5L94,10L95,10L95,8L97,8L97,9L99,9L99,8L100,8L100,6L101,6L101,5L103,5L103,4L106,4L106,3L183,3L183,0L2761,0" tabindex="0">
+						<title>18qg9ndx</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,0L99,0L99,4L100,4L100,6L101,6L101,10L103,10L103,12L104,12L104,14L105,14L105,14L106,14L106,17L107,17L107,17L175,17L175,16L180,16L180,17L181,17L181,16L182,16L182,18L183,18L183,21L186,21L186,23L187,23L187,23L251,23L251,23L252,23L252,23L253,23L253,23L255,23L255,23L260,23L260,23L263,23L263,23L389,23L389,23L416,23L416,22L418,22L418,20L434,20L434,19L574,19L574,22L578,22L578,23L643,23L643,22L840,22L840,21L844,21L844,21L846,21L846,21L853,21L853,20L854,20L854,19L857,19L857,18L862,18L862,17L863,17L863,16L869,16L869,15L870,15L870,14L871,14L871,12L875,12L875,9L888,9L888,8L923,8L923,7L957,7L957,8L959,8L959,10L963,10L963,12L965,12L965,13L967,13L967,15L968,15L968,14L970,14L970,15L996,15L996,14L1005,14L1005,13L1013,13L1013,12L1019,12L1019,11L1023,11L1023,10L1027,10L1027,9L1047,9L1047,6L1048,6L1048,5L1055,5L1055,5L1056,5L1056,4L1059,4L1059,5L1078,5L1078,4L1094,4L1094,3L1104,3L1104,2L1111,2L1111,1L1143,1L1143,2L1146,2L1146,3L1151,3L1151,2L1182,2L1182,1L1373,1L1373,0L2761,0" tabindex="0">
+						<title>y8dgoe98</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,0L416,0L416,1L854,1L854,0L2761,0" tabindex="0">
+						<title>1xye35n8</title>
+					</path>
+				</g>
+				<g style="--index: 10;">
+					<path d="M0,0L434,0L434,1L435,1L435,1L524,1L524,0L2761,0" tabindex="0">
+						<title>dx3k6eej</title>
+					</path>
+				</g>
+				<g style="--index: 11;">
+					<path d="M0,0L524,0L524,1L872,1L872,0L1052,0L1052,0L1053,0L1053,1L1054,1L1054,1L1056,1L1056,2L1073,2L1073,3L1074,3L1074,3L1078,3L1078,3L1112,3L1112,2L1145,2L1145,1L1154,1L1154,0L2085,0L2085,1L2099,1L2099,0L2761,0" tabindex="0">
+						<title>0jmw6wex</title>
+					</path>
+				</g>
+				<g style="--index: 12;">
+					<path d="M0,0L643,0L643,1L714,1L714,1L857,1L857,0L2761,0" tabindex="0">
+						<title>7j4y0zmj</title>
+					</path>
+				</g>
+				<g style="--index: 13;">
+					<path d="M0,0L758,0L758,1L759,1L759,2L766,2L766,2L769,2L769,2L777,2L777,2L823,2L823,2L842,2L842,3L855,3L855,2L862,2L862,3L864,3L864,2L868,2L868,1L873,1L873,0L896,0L896,1L968,1L968,2L970,2L970,1L1050,1L1050,0L2761,0" tabindex="0">
+						<title>8146r4r8</title>
+					</path>
+				</g>
+				<g style="--index: 14;">
+					<path d="M0,0L840,0L840,1L853,1L853,2L854,2L854,4L855,4L855,6L857,6L857,8L863,8L863,9L864,9L864,10L865,10L865,9L868,9L868,10L869,10L869,12L870,12L870,13L871,13L871,16L872,16L872,15L873,15L873,16L875,16L875,19L888,19L888,20L896,20L896,19L922,19L922,18L923,18L923,19L925,19L925,18L931,18L931,17L959,17L959,15L965,15L965,11L995,11L995,11L1005,11L1005,12L1013,12L1013,13L1015,13L1015,13L1019,13L1019,14L1023,14L1023,15L1028,15L1028,12L1033,12L1033,11L1036,11L1036,12L1037,12L1037,11L1042,11L1042,10L1047,10L1047,7L1050,7L1050,6L1051,6L1051,7L1054,7L1054,7L1055,7L1055,6L1059,6L1059,5L1061,5L1061,4L1076,4L1076,3L1080,3L1080,2L1104,2L1104,1L1115,1L1115,0L2761,0" tabindex="0">
+						<title>x356nrej</title>
+					</path>
+				</g>
+				<g style="--index: 15;">
+					<path d="M0,0L865,0L865,1L963,1L963,0L2761,0" tabindex="0">
+						<title>8rp1o2qj</title>
+					</path>
+				</g>
+				<g style="--index: 16;">
+					<path d="M0,0L872,0L872,2L957,2L957,1L967,1L967,0L2761,0" tabindex="0">
+						<title>xz9mo9n8</title>
+					</path>
+				</g>
+				<g style="--index: 17;">
+					<path d="M0,0L922,0L922,1L925,1L925,2L963,2L963,1L966,1L966,1L1048,1L1048,0L2761,0" tabindex="0">
+						<title>18vm2258</title>
+					</path>
+				</g>
+				<g style="--index: 18;">
+					<path d="M0,0L931,0L931,1L971,1L971,1L987,1L987,1L1023,1L1023,2L1027,2L1027,3L1028,3L1028,6L1036,6L1036,5L1037,5L1037,6L1042,6L1042,7L1045,7L1045,6L1046,6L1046,6L1047,6L1047,4L1048,4L1048,5L1049,5L1049,6L1054,6L1054,8L1055,8L1055,9L1060,9L1060,9L1061,9L1061,10L1066,10L1066,9L1071,9L1071,11L1074,11L1074,11L1076,11L1076,13L1077,13L1077,13L1078,13L1078,14L1079,14L1079,15L1080,15L1080,16L1082,16L1082,17L1085,17L1085,16L1086,16L1086,16L1087,16L1087,17L1088,17L1088,19L1089,19L1089,19L1090,19L1090,19L1091,19L1091,19L1092,19L1092,20L1094,20L1094,21L1095,21L1095,20L1097,20L1097,21L1103,21L1103,20L1104,20L1104,19L1105,19L1105,18L1111,18L1111,20L1112,20L1112,24L1114,24L1114,23L1115,23L1115,25L1116,25L1116,26L1118,26L1118,26L1119,26L1119,27L1125,27L1125,25L1131,25L1131,27L1132,27L1132,25L1133,25L1133,26L1134,26L1134,27L1138,27L1138,26L1140,26L1140,25L1143,25L1143,24L1145,24L1145,21L1146,21L1146,20L1150,20L1150,19L1156,19L1156,18L1164,18L1164,17L1174,17L1174,18L1178,18L1178,17L1182,17L1182,16L1183,16L1183,15L1186,15L1186,13L1199,13L1199,11L1287,11L1287,13L1288,13L1288,14L1306,14L1306,13L1312,13L1312,12L1369,12L1369,11L1438,11L1438,10L1477,10L1477,9L1514,9L1514,8L1515,8L1515,6L1516,6L1516,5L1594,5L1594,4L1600,4L1600,3L1608,3L1608,1L1609,1L1609,2L1629,2L1629,1L1763,1L1763,0L1953,0L1953,0L1979,0L1979,1L1981,1L1981,0L1987,0L1987,1L1993,1L1993,0L2761,0" tabindex="0">
+						<title>xkon93k8</title>
+					</path>
+				</g>
+				<g style="--index: 19;">
+					<path d="M0,0L965,0L965,3L967,3L967,2L996,2L996,3L1023,3L1023,2L1047,2L1047,9L1048,9L1048,11L1049,11L1049,10L1052,10L1052,10L1053,10L1053,9L1054,9L1054,7L1071,7L1071,6L1073,6L1073,5L1076,5L1076,4L1078,4L1078,3L1082,3L1082,2L1088,2L1088,1L1090,1L1090,0L1140,0L1140,1L1141,1L1141,2L1144,2L1144,2L1145,2L1145,6L1146,6L1146,6L1151,6L1151,7L1154,7L1154,8L1156,8L1156,9L1158,9L1158,10L1164,10L1164,11L1166,11L1166,10L1173,10L1173,10L1174,10L1174,9L1178,9L1178,10L1182,10L1182,11L1186,11L1186,13L1199,13L1199,15L1288,15L1288,14L1312,14L1312,15L1369,15L1369,16L1438,16L1438,17L1476,17L1476,17L1477,17L1477,18L1514,18L1514,19L1515,19L1515,21L1516,21L1516,22L1599,22L1599,21L1600,21L1600,23L1601,23L1601,22L1602,22L1602,23L1608,23L1608,26L1609,26L1609,25L1619,25L1619,24L1620,24L1620,25L1622,25L1622,24L1623,24L1623,25L1629,25L1629,25L1631,25L1631,26L1634,26L1634,26L1636,26L1636,24L1637,24L1637,25L1640,25L1640,24L1641,24L1641,26L1705,26L1705,26L1766,26L1766,25L1775,25L1775,24L1787,24L1787,23L1791,23L1791,21L1807,21L1807,20L1817,20L1817,19L1828,19L1828,18L1893,18L1893,15L1894,15L1894,14L1899,14L1899,13L1908,13L1908,12L1911,12L1911,11L1913,11L1913,10L1914,10L1914,8L1925,8L1925,7L1930,7L1930,6L1940,6L1940,5L1948,5L1948,4L1987,4L1987,3L2054,3L2054,2L2176,2L2176,1L2207,1L2207,0L2761,0" tabindex="0">
+						<title>j2yr9lp8</title>
+					</path>
+				</g>
+				<g style="--index: 20;">
+					<path d="M0,0L1033,0L1033,1L1047,1L1047,0L2761,0" tabindex="0">
+						<title>8e94kq6j</title>
+					</path>
+				</g>
+				<g style="--index: 21;">
+					<path d="M0,0L1045,0L1045,1L1046,1L1046,1L1047,1L1047,3L1048,3L1048,2L1050,2L1050,3L1061,3L1061,3L1066,3L1066,4L1071,4L1071,3L1078,3L1078,3L1079,3L1079,2L1085,2L1085,3L1086,3L1086,3L1087,3L1087,2L1088,2L1088,1L1090,1L1090,2L1091,2L1091,2L1092,2L1092,1L1095,1L1095,2L1097,2L1097,1L1101,1L1101,2L1102,2L1102,1L1106,1L1106,2L1108,2L1108,1L1116,1L1116,0L1166,0L1166,1L1608,1L1608,0L2761,0" tabindex="0">
+						<title>x7q00668</title>
+					</path>
+				</g>
+				<g style="--index: 22;">
+					<path d="M0,0L1050,0L1050,1L1051,1L1051,0L2761,0" tabindex="0">
+						<title>j0np7or8</title>
+					</path>
+				</g>
+				<g style="--index: 23;">
+					<path d="M0,0L1078,0L1078,1L1079,1L1079,1L1099,1L1099,1L1101,1L1101,0L1102,0L1102,1L1103,1L1103,2L1104,2L1104,5L1105,5L1105,6L1106,6L1106,5L1108,5L1108,6L1111,6L1111,5L1112,5L1112,2L1115,2L1115,1L1118,1L1118,0L1138,0L1138,1L1150,1L1150,2L1158,2L1158,1L1182,1L1182,2L1183,2L1183,3L1253,3L1253,3L1287,3L1287,1L1306,1L1306,2L1373,2L1373,3L1593,3L1593,2L1642,2L1642,1L2175,1L2175,0L2761,0" tabindex="0">
+						<title>814zn7l8</title>
+					</path>
+				</g>
+				<g style="--index: 24;">
+					<path d="M0,0L1114,0L1114,1L1118,1L1118,2L1119,2L1119,1L1125,1L1125,3L1131,3L1131,1L1132,1L1132,3L1133,3L1133,2L1134,2L1134,1L1141,1L1141,0L2761,0" tabindex="0">
+						<title>jnzg27dj</title>
+					</path>
+				</g>
+				<g style="--index: 25;">
+					<path d="M0,0L1593,0L1593,1L1594,1L1594,2L1599,2L1599,3L1600,3L1600,2L1601,2L1601,3L1602,3L1602,2L1619,2L1619,3L1620,3L1620,2L1622,2L1622,3L1623,3L1623,2L1629,2L1629,3L1631,3L1631,2L1634,2L1634,2L1636,2L1636,4L1637,4L1637,3L1640,3L1640,4L1641,4L1641,2L1642,2L1642,3L1818,3L1818,2L2009,2L2009,1L2190,1L2190,0L2761,0" tabindex="0">
+						<title>xk3m6d68</title>
+					</path>
+				</g>
+				<g style="--index: 26;">
+					<path d="M0,0L1763,0L1763,1L1766,1L1766,2L1775,2L1775,3L1787,3L1787,4L1791,4L1791,6L1794,6L1794,5L1800,5L1800,6L1807,6L1807,7L1817,7L1817,8L1818,8L1818,9L1826,9L1826,9L1828,9L1828,10L1854,10L1854,10L1878,10L1878,10L1893,10L1893,13L1894,13L1894,14L1899,14L1899,15L1900,15L1900,15L1902,15L1902,15L1907,15L1907,15L1908,15L1908,16L1909,16L1909,16L1911,16L1911,17L1913,17L1913,18L1914,18L1914,20L1925,20L1925,21L1930,21L1930,22L1931,22L1931,22L1940,22L1940,23L1948,23L1948,24L1949,24L1949,24L1950,24L1950,24L1951,24L1951,24L1953,24L1953,24L1981,24L1981,25L1982,25L1982,25L1984,25L1984,25L1987,25L1987,25L2007,25L2007,24L2013,24L2013,24L2054,24L2054,25L2062,25L2062,25L2077,25L2077,25L2084,25L2084,26L2085,26L2085,25L2099,25L2099,26L2175,26L2175,27L2176,27L2176,28L2178,28L2178,29L2184,29L2184,30L2190,30L2190,31L2207,31L2207,32L2229,32L2229,32L2230,32L2230,32L2376,32L2376,33L2380,33L2380,33L2411,33L2411,33L2412,33L2412,32L2413,32L2413,32L2417,32L2417,33L2431,33L2431,32L2432,32L2432,33L2434,33L2434,32L2452,32L2452,31L2459,31L2459,32L2460,32L2460,31L2463,31L2463,32L2520,32L2520,31L2538,31L2538,31L2541,31L2541,32L2548,32L2548,32L2549,32L2549,32L2552,32L2552,31L2555,31L2555,32L2614,32L2614,30L2615,30L2615,31L2616,31L2616,30L2627,30L2627,29L2633,29L2633,28L2635,28L2635,29L2639,29L2639,28L2642,28L2642,27L2644,27L2644,26L2646,26L2646,28L2651,28L2651,28L2661,28L2661,27L2662,27L2662,28L2679,28L2679,27L2680,27L2680,28L2692,28L2692,27L2701,27L2701,28L2706,28L2706,29L2707,29L2707,30L2712,30L2712,29L2718,29L2718,30L2724,30L2724,29L2730,29L2730,28L2732,28L2732,27L2733,27L2733,26L2734,26L2734,25L2738,25L2738,24L2740,24L2740,23L2741,23L2741,22L2750,22L2750,20L2751,20L2751,19L2757,19L2757,18L2760,18L2760,17L2761,17L2761,16L2761,16" tabindex="0">
+						<title>jn2m23wj</title>
+					</path>
+				</g>
+				<g style="--index: 27;">
+					<path d="M0,0L1794,0L1794,1L1800,1L1800,0L2007,0L2007,1L2009,1L2009,2L2178,2L2178,1L2184,1L2184,0L2761,0" tabindex="0">
+						<title>j4235d5x</title>
+					</path>
+				</g>
+				<g style="--index: 28;">
+					<path d="M0,0L1993,0L1993,1L2084,1L2084,0L2761,0" tabindex="0">
+						<title>8g0ppzrx</title>
+					</path>
+				</g>
+				<g style="--index: 29;">
+					<path d="M0,0L2308,0L2308,1L2309,1L2309,0L2761,0" tabindex="0">
+						<title>j465mqd8</title>
+					</path>
+				</g>
+				<g style="--index: 30;">
+					<path d="M0,0L2309,0L2309,0L2761,0" tabindex="0">
+						<title>j5959zwx</title>
+					</path>
+				</g>
+				<g style="--index: 31;">
+					<path d="M0,0L2309,0L2309,1L2310,1L2310,0L2761,0" tabindex="0">
+						<title>jmz5yyex</title>
+					</path>
+				</g>
+				<g style="--index: 32;">
+					<path d="M0,0L2310,0L2310,1L2353,1L2353,0L2761,0" tabindex="0">
+						<title>x3wdlvkj</title>
+					</path>
+				</g>
+				<g style="--index: 33;">
+					<path d="M0,0L2353,0L2353,1L2354,1L2354,1L2376,1L2376,0L2761,0" tabindex="0">
+						<title>8v0mryvx</title>
+					</path>
+				</g>
+				<g style="--index: 34;">
+					<path d="M0,0L2412,0L2412,1L2413,1L2413,1L2414,1L2414,1L2417,1L2417,0L2520,0L2520,1L2541,1L2541,0L2552,0L2552,1L2555,1L2555,0L2761,0" tabindex="0">
+						<title>86rpw3p8</title>
+					</path>
+				</g>
+				<g style="--index: 35;">
+					<path d="M0,0L2431,0L2431,1L2432,1L2432,0L2434,0L2434,1L2435,1L2435,1L2459,1L2459,0L2460,0L2460,1L2463,1L2463,0L2761,0" tabindex="0">
+						<title>jonm5ol8</title>
+					</path>
+				</g>
+				<g style="--index: 36;">
+					<path d="M0,0L2452,0L2452,1L2496,1L2496,1L2707,1L2707,0L2761,0" tabindex="0">
+						<title>jm62e748</title>
+					</path>
+				</g>
+				<g style="--index: 37;">
+					<path d="M0,0L2614,0L2614,2L2615,2L2615,1L2616,1L2616,2L2617,2L2617,2L2627,2L2627,3L2630,3L2630,3L2633,3L2633,4L2634,4L2634,4L2635,4L2635,3L2636,3L2636,3L2638,3L2638,3L2642,3L2642,4L2643,4L2643,4L2644,4L2644,5L2646,5L2646,3L2661,3L2661,4L2662,4L2662,3L2680,3L2680,2L2705,2L2705,3L2706,3L2706,2L2707,2L2707,2L2730,2L2730,3L2731,3L2731,3L2732,3L2732,3L2733,3L2733,5L2734,5L2734,6L2736,6L2736,5L2737,5L2737,4L2744,4L2744,3L2761,3" tabindex="0">
+						<title>jo19m63x</title>
+					</path>
+				</g>
+				<g style="--index: 38;">
+					<path d="M0,0L2639,0L2639,1L2643,1L2643,1L2687,1L2687,1L2692,1L2692,2L2705,2L2705,1L2712,1L2712,2L2718,2L2718,1L2724,1L2724,2L2729,2L2729,2L2730,2L2730,2L2734,2L2734,2L2735,2L2735,2L2736,2L2736,3L2738,3L2738,4L2739,4L2739,4L2740,4L2740,5L2742,5L2742,4L2743,4L2743,4L2744,4L2744,3L2751,3L2751,4L2752,4L2752,4L2753,4L2753,3L2756,3L2756,2L2761,2" tabindex="0">
+						<title>81pdyqq8</title>
+					</path>
+				</g>
+				<g style="--index: 39;">
+					<path d="M0,0L2679,0L2679,1L2700,1L2700,1L2701,1L2701,0L2761,0" tabindex="0">
+						<title>x361ozex</title>
+					</path>
+				</g>
+				<g style="--index: 40;">
+					<path d="M0,0L2732,0L2732,1L2733,1L2733,0L2739,0L2739,1L2760,1L2760,1L2761,1" tabindex="0">
+						<title>8gop7k2x</title>
+					</path>
+				</g>
+				<g style="--index: 41;">
+					<path d="M0,0L2735,0L2735,0L2736,0L2736,0L2737,0L2737,1L2739,1L2739,0L2740,0L2740,0L2741,0L2741,1L2742,1L2742,2L2744,2L2744,4L2750,4L2750,6L2751,6L2751,6L2752,6L2752,6L2753,6L2753,7L2754,7L2754,7L2756,7L2756,8L2760,8L2760,9L2761,9L2761,9L2761,9" tabindex="0">
+						<title>j2p4pel8</title>
+					</path>
+				</g>
+				<g style="--index: 42;">
+					<path d="M0,0L2757,0L2757,1L2761,1" tabindex="0">
+						<title>jo1zrpnx</title>
+					</path>
+				</g>
+				<g style="--index: 43;">
+					<path d="M0,0L2761,0L2761,1L2761,1" tabindex="0">
+						<title>86pek6wj</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
 </svg>
-`, "image/svg+xml");
-	const root = document.documentElement;
-	const foreignObject = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
-	const dateSize = Math.max(minDate.length, maxDate.length) * 10;
-	const valueSize = (timed ? Math.max(8, 7 + `${(maxValue - maxValue % 60000) / 60000}`.length) : Math.max(1, `${maxValue}`.length)) * 10;
-	foreignObject.setAttribute("x", "0");
-	foreignObject.setAttribute("y", "0");
-	foreignObject.setAttribute("width", "100%");
-	foreignObject.setAttribute("height", "100%");
-	foreignObject.setAttribute("style", `--date-size: ${dateSize}; --value-size: ${valueSize};`);
-	for (const date of [minDate, maxDate]) {
-		const size = date.length * 10;
-		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-		svg.setAttribute("viewBox", `0 0 ${dateSize} 20`);
-		const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-		text.setAttribute("x", `${dateSize / 2}`);
-		text.setAttribute("y", "10");
-		text.setAttribute("dx", "0");
-		text.setAttribute("dy", "2");
-		text.setAttribute("textLength", `${size}`);
-		text.setAttribute("lengthAdjust", "spacingAndGlyphs");
-		text.setAttribute("text-anchor", "middle");
-		text.setAttribute("dominant-baseline", "middle");
-		text.textContent = date;
-		svg.append(text);
-		foreignObject.append(svg);
-	}
-	for (const value of [0, maxValue]) {
-		const size = (timed ? 7 + `${(value - value % 60000) / 60000}`.length : `${value}`.length) * 10;
-		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-		svg.setAttribute("viewBox", `0 0 ${valueSize} 20`);
-		const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-		text.setAttribute("x", `${valueSize / 2}`);
-		text.setAttribute("y", "10");
-		text.setAttribute("dx", "0");
-		text.setAttribute("dy", "2");
-		text.setAttribute("textLength", `${size}`);
-		text.setAttribute("lengthAdjust", "spacingAndGlyphs");
-		text.setAttribute("text-anchor", "middle");
-		text.setAttribute("dominant-baseline", "middle");
-		if (timed) {
-			const minutes = `${(value - value % 6000) / 6000}`.padStart(2, "0");
-			const seconds = `${(value - value % 100) / 100 % 60}`.padStart(2, "0");
-			const centiseconds = `${value % 100}`.padStart(2, "0");
-			const time = `${minutes}:${seconds}.${centiseconds}`;
-			text.textContent = time;
-		} else {
-			text.textContent = `${value}`;
-		}
-		svg.append(text);
-		foreignObject.append(svg);
-	}
-	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-	svg.setAttribute("viewBox", `0 0 ${maxDuration} ${maxValue}`);
-	svg.setAttribute("preserveAspectRatio", "none");
-	svg.setAttribute("overflow", "visible");
-	const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-	const gCount = Object.keys(sortedData).length;
-	g.setAttribute("transform", `translate(0 ${maxValue}) scale(1 -1)`);
-	g.setAttribute("style", `--count: ${gCount};`);
-	if (timed) {
-		if (goals != null) {
-			const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-			let currentGoal = 0;
-			for (const [tier, goal] of Object.entries(goals)) {
-				const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-				rect.setAttribute("x", "0");
-				rect.setAttribute("y", `${currentGoal}`);
-				rect.setAttribute("width", `${maxDuration}`);
-				rect.setAttribute("height", `${Math.min(goal, maxValue) - currentGoal}`);
-				rect.setAttribute("tabindex", "0");
-				rect.setAttribute("data-tier", tier);
-				const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-				const minutes = `${(goal - goal % 6000) / 6000}`.padStart(2, "0");
-				const seconds = `${(goal - goal % 100) / 100 % 60}`.padStart(2, "0");
-				const centiseconds = `${goal % 100}`.padStart(2, "0");
-				const time = `${minutes}:${seconds}.${centiseconds}`;
-				title.textContent = `${time} for ${tier}`;
-				rect.append(title);
-				subG.append(rect);
-				currentGoal = Math.min(goal, maxValue);
-			}
-			g.append(subG);
-		}
-	} else {
-		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-		const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-		rect.setAttribute("x", "0");
-		rect.setAttribute("y", "0");
-		rect.setAttribute("width", `${maxDuration}`);
-		rect.setAttribute("height", `${maxValue}`);
-		subG.append(rect);
-		g.append(subG);
-	}
-	let gIndex = 0;
-	for (const [datum, datumDates] of Object.entries(sortedData)) {
-		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-		subG.setAttribute("style", `--index: ${gIndex};`);
-		const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-		const d = [];
-		let currentValue = null;
-		if (extended) {
-			currentValue = "" in datumDates ? datumDates[""] : 0;
-			d.push(`M0,${currentValue}`);
-		}
-		const subPaths = [];
-		for (const [date, dateValue] of Object.entries(datumDates)) {
-			if (date === "") {
-				continue;
-			}
-			const duration = Math.round((Date.parse(date) - Date.parse(minDate)) / 86400000);
-			if (currentValue != null) {
-				d.push(`L${duration},${currentValue}`);
-				currentValue = dateValue;
-				d.push(`L${duration},${currentValue}`);
-			} else {
-				currentValue = dateValue;
-				d.push(`M${duration},${currentValue}`);
-			}
-			if (timed) {
-				const subPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-				subPath.setAttribute("d", `M${duration},${currentValue}L${duration},${currentValue}`);
-				subPath.setAttribute("tabindex", "0");
-				const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-				const minutes = `${(currentValue - currentValue % 6000) / 6000}`.padStart(2, "0");
-				const seconds = `${(currentValue - currentValue % 100) / 100 % 60}`.padStart(2, "0");
-				const centiseconds = `${currentValue % 100}`.padStart(2, "0");
-				const time = `${minutes}:${seconds}.${centiseconds}`;
-				title.textContent = `${time} on ${date}`;
-				subPath.append(title);
-				subPaths.push(subPath);
-				const horizontalLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-				horizontalLine.setAttribute("x1", "0");
-				horizontalLine.setAttribute("y1", `${currentValue}`);
-				horizontalLine.setAttribute("x2", `${maxDuration}`);
-				horizontalLine.setAttribute("y2", `${currentValue}`);
-				subPaths.push(horizontalLine);
-				const verticalLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-				verticalLine.setAttribute("x1", `${duration}`);
-				verticalLine.setAttribute("y1", "0");
-				verticalLine.setAttribute("x2", `${duration}`);
-				verticalLine.setAttribute("y2", `${maxValue}`);
-				subPaths.push(verticalLine);
-			}
-		}
-		if (extended) {
-			d.push(`L${maxDuration},${currentValue}`);
-		}
-		path.setAttribute("d", d.join(""));
-		path.setAttribute("tabindex", "0");
-		const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-		title.textContent = datum;
-		path.append(title);
-		subG.append(path);
-		if (timed) {
-			const datumDatesEntries = Object.entries(datumDates);
-			const [firstDate, firstValue] = datumDatesEntries[0];
-			const firstDuration = Math.round((Date.parse(firstDate) - Date.parse(minDate)) / 86400000);
-			const [lastDate, lastValue] = datumDatesEntries[datumDatesEntries.length - 1];
-			const lastDuration = Math.round((Date.parse(lastDate) - Date.parse(minDate)) / 86400000);
-			const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-			rect.setAttribute("x", `${Math.min(firstDuration, lastDuration)}`);
-			rect.setAttribute("y", `${Math.min(firstValue, lastValue)}`);
-			rect.setAttribute("width", `${Math.abs(lastDuration - firstDuration)}`);
-			rect.setAttribute("height", `${Math.abs(lastValue - firstValue)}`);
-			subG.append(rect);
-		}
-		for (const subPath of subPaths) {
-			subG.append(subPath);
-		}
-		g.append(subG);
-		++gIndex;
-	}
-	svg.append(g);
-	foreignObject.append(svg);
-	root.append(foreignObject);
-	indent(foreignObject, 1, true);
-	const formattedData = root.toString();
-	return formattedData;
-}
-function plotSubmissionAndRunCounts(scope, title, data) {
-	const newData = Object.create(null);
-	for (const datumDates of Object.values(data)) {
-		for (const [date, dateRuns] of Object.entries(datumDates)) {
-			for (const run of dateRuns) {
-				const submissionsDates = newData.submissions ??= Object.create(null);
-				submissionsDates[date] ??= 0;
-				++submissionsDates[date];
-				if (run.status !== "rejected" || run.annotation == null || run.annotation !== "Automatically moved to the new individual level" && run.annotation !== "Automatically moved to the new category extensions") {
-					const manualSubmissionsDates = newData.manualSubmissions ??= Object.create(null);
-					manualSubmissionsDates[date] ??= 0;
-					++manualSubmissionsDates[date];
-				}
-				if (run.status !== "verified") {
-					continue;
-				}
-				const runsDates = newData.runs ??= Object.create(null);
-				runsDates[date] ??= 0;
-				++runsDates[date];
-			}
-		}
-	}
-	const formattedData = plot(scope, title, newData, true, true, false, null);
-	return formattedData;
-}
-function plotRunCountByDatum(scope, title, data) {
-	const newData = Object.create(null);
-	for (const [datum, datumDates] of Object.entries(data)) {
-		for (const [date, dateRuns] of Object.entries(datumDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const newDatumDates = newData[datum] ??= Object.create(null);
-				newDatumDates[date] ??= 0;
-				++newDatumDates[date];
-			}
-		}
-	}
-	const formattedData = plot(scope, title, newData, true, true, false, null);
-	return formattedData;
-}
-function plotKeyCountByDatum(scope, title, data, key) {
-	const newData = Object.create(null);
-	for (const [datum, datumDates] of Object.entries(data)) {
-		const values = new Set();
-		let currentSize = 0;
-		for (const [date, dateRuns] of Object.entries(datumDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				values.add(run[key]);
-				const newDatumDates = newData[datum] ??= Object.create(null);
-				newDatumDates[date] ??= 0;
-				newDatumDates[date] += values.size - currentSize;
-				currentSize = values.size;
-			}
-		}
-	}
-	const formattedData = plot(scope, title, newData, true, true, false, null);
-	return formattedData;
-}
-function plotTimeByDatumKey(scope, title, datumDates, key, times) {
-	const keyData = Object.create(null);
-	for (const [date, dateRuns] of Object.entries(datumDates)) {
-		for (const run of dateRuns) {
-			if (run.status !== "verified") {
-				continue;
-			}
-			const time = run.time;
-			const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-				return Number(part);
-			});
-			const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
-			const minTime = run[key] in keyData ? keyData[run[key]][Object.keys(keyData[run[key]])[Object.keys(keyData[run[key]]).length - 1]] : null;
-			if (minTime == null || currentTime < minTime) {
-				const datumDates = keyData[run[key]] ??= Object.create(null);
-				datumDates[date] ??= Number.POSITIVE_INFINITY;
-				datumDates[date] = Math.min(datumDates[date], currentTime);
-			}
-		}
-	}
-	if (Object.keys(keyData).length === 0) {
-		return null;
-	}
-	const goals = times != null ? Object.fromEntries(Object.entries(times).map(([tier, time]) => {
-		const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-			return Number(part);
-		});
-		const goal = minutes * 6000 + seconds * 100 + centiseconds;
-		return [tier, goal];
-	})) : null;
-	const formattedData = plot(scope, title, keyData, false, false, true, goals);
-	return formattedData;
-}
-function computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards) {
-	const newPlayers = Object.create(null);
-	const newLeaderboards = Object.create(null);
-	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-		const players = Object.create(null);
-		const times = Object.create(null);
-		const ranks = [];
-		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const time = run.time;
-				const player = run.player;
-				let lowerTime = player in players ? times[player] : null;
-				if (lowerTime == null || time.length < lowerTime.length || time < lowerTime) {
-					lowerTime = time;
-					times[player] = lowerTime;
-					const rank = player in players ? players[player][Object.keys(players[player])[Object.keys(players[player]).length - 1]] : ranks.push(null) - 1;
-					let currentRank = rank;
-					let lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
-					lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
-					while (lowerTime != null && (time.length < lowerTime.length || time < lowerTime)) {
-						const playerDates = players[lowerPlayer];
-						playerDates[date] = currentRank;
-						ranks[currentRank] = lowerPlayer;
-						--currentRank;
-						lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
-						lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
-					}
-					lowerPlayer = player;
-					const playerDates = players[lowerPlayer] ??= Object.assign(Object.create(null), {
-						"": rank,
-					});
-					playerDates[date] = currentRank;
-					ranks[currentRank] = lowerPlayer;
-				}
-			}
-		}
-		newLeaderboards[leaderboard] = players;
-	}
-	for (const [player, playerDates] of Object.entries(players)) {
-		const leaderboards = Object.create(null);
-		for (const dateRuns of Object.values(playerDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const leaderboard = run.leaderboard;
-				leaderboards[leaderboard] ??= newLeaderboards[leaderboard][player];
-			}
-		}
-		newPlayers[player] = leaderboards;
-	}
-	return [newPlayers, newLeaderboards];
-}
-function plotRankByDatum(scope, title, data) {
-	if (Object.keys(data).length === 0) {
-		return null;
-	}
-	const formattedData = plot(scope, title, data, false, true, false, null);
-	return formattedData;
-}
-function plotRecordCountByPlayer(scope, title, leaderboards, tiers) {
-	const players = Object.create(null);
-	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-		if (tiers != null && !(leaderboard in tiers)) {
-			continue;
-		}
-		let minTime = null;
-		let minPlayer = null;
-		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const time = run.time;
-				const player = run.player;
-				if (minTime == null || time.length < minTime.length || time < minTime) {
-					if (minPlayer != null) {
-						const playerDates = players[minPlayer] ??= Object.create(null);
-						playerDates[date] ??= 0;
-						--playerDates[date];
-					}
-					minTime = time;
-					minPlayer = player;
-					const playerDates = players[minPlayer] ??= Object.create(null);
-					playerDates[date] ??= 0;
-					++playerDates[date];
-				}
-			}
-		}
-	}
-	const formattedPlayers = plot(scope, title, players, true, true, false, null);
-	return formattedPlayers;
-}
-function plotRecordTimeByLeaderboard(scope, title, leaderboards, tiers) {
-	const newLeaderboards = Object.create(null);
-	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-		if (tiers != null && !(leaderboard in tiers)) {
-			continue;
-		}
-		let minTime = null;
-		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const time = run.time;
-				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-					return Number(part);
-				});
-				const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
-				if (minTime == null || currentTime < minTime) {
-					const newLeaderboardDates = newLeaderboards[leaderboard] ??= Object.create(null);
-					newLeaderboardDates[date] ??= Number.POSITIVE_INFINITY;
-					newLeaderboardDates[date] = Math.min(newLeaderboardDates[date], currentTime);
-					minTime = currentTime;
-				}
-			}
-		}
-	}
-	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true, null);
-	return formattedLeaderboards;
-}
-function plotTotalTimeByPlayer(scope, title, players, tiers) {
-	const tierCount = Object.keys(tiers).length;
-	const newPlayers = Object.create(null);
-	for (const [player, playerDates] of Object.entries(players)) {
-		let leaderboardCount = 0;
-		let playerTime = 0;
-		const leaderboards = Object.create(null);
-		for (const [date, dateRuns] of Object.entries(playerDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified" || !(run.leaderboard in tiers)) {
-					continue;
-				}
-				const time = run.time;
-				const leaderboard = run.leaderboard;
-				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-					return Number(part);
-				});
-				const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
-				const minTime = leaderboard in leaderboards ? leaderboards[leaderboard] : null;
-				if (minTime == null || currentTime < minTime) {
-					if (minTime == null) {
-						++leaderboardCount;
-					} else {
-						playerTime -= minTime;
-					}
-					playerTime += currentTime;
-					leaderboards[leaderboard] = currentTime;
-					if (leaderboardCount === tierCount) {
-						const newPlayerDates = newPlayers[player] ??= Object.create(null);
-						newPlayerDates[date] = playerTime;
-					}
-				}
-			}
-		}
-	}
-	const goals = Object.create(null);
-	for (const times of Object.values(tiers)) {
-		for (const [tier, time] of Object.entries(times)) {
-			const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-				return Number(part);
-			});
-			const goal = minutes * 6000 + seconds * 100 + centiseconds;
-			goals[tier] ??= 0;
-			goals[tier] += goal;
-		}
-	}
-	const formattedData = plot(scope, title, newPlayers, false, false, true, goals);
-	return formattedData;
-}
-function plotTotalRankByPlayer(scope, title, players, tiers) {
-	const tierCount = Object.keys(tiers).length;
-	const newPlayers = Object.create(null);
-	for (const [player, playerLeaderboards] of Object.entries(players)) {
-		let leaderboardCount = 0;
-		const playerDates = Object.create(null);
-		for (const [playerLeaderboard, playerLeaderboardDates] of Object.entries(playerLeaderboards)) {
-			if (!(playerLeaderboard in tiers)) {
-				continue;
-			}
-			++leaderboardCount;
-			for (const [date, dateRank] of Object.entries(playerLeaderboardDates)) {
-				playerDates[date] ??= [];
-				playerDates[date].push(Object.assign(Object.create(null), {
-					rank: dateRank,
-					leaderboard: playerLeaderboard,
-				}));
-			}
-		}
-		if (leaderboardCount !== tierCount) {
-			continue;
-		}
-		const sortedPlayerDates = Object.fromEntries(sortDatumDates(Object.entries(playerDates)));
-		let playerRank = 0;
-		const leaderboards = Object.create(null);
-		for (const [date, dateRuns] of Object.entries(sortedPlayerDates)) {
-			for (const run of dateRuns) {
-				const rank = run.rank;
-				const leaderboard = run.leaderboard;
-				const currentRank = rank;
-				const previousRank = leaderboard in leaderboards ? leaderboards[leaderboard] : null;
-				if (previousRank != null) {
-					playerRank -= previousRank;
-				}
-				playerRank += currentRank;
-				leaderboards[leaderboard] = currentRank;
-				const newPlayerDates = newPlayers[player] ??= Object.create(null);
-				newPlayerDates[date] = playerRank;
-			}
-		}
-	}
-	const formattedPlayers = plot(scope, title, newPlayers, false, true, false, null);
-	return formattedPlayers;
-}
-const formattedSubmissionAndRunCounts = plotSubmissionAndRunCounts("../", "Submission and run counts", players);
-const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by player", players);
-const formattedRunCountByLeaderboard = plotRunCountByDatum("../", "Run count by leaderboard", leaderboards);
-const formattedLeaderboardCountByPlayer = plotKeyCountByDatum("../", "Leaderboard count by player", players, "leaderboard");
-const formattedPlayerCountByLeaderboard = plotKeyCountByDatum("../", "Player count by leaderboard", leaderboards, "player");
-const [rankByLeaderboardByPlayer, rankByPlayerByLeaderboard] = computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards);
-const formattedTimeByLeaderboardByPlayer = Object.create(null);
-for (const [player, playerDates] of Object.entries(players)) {
-	const formattedTimeByLeaderboard = plotTimeByDatumKey("../../", `Time by leaderboard for player ${player}`, playerDates, "leaderboard", null);
-	if (formattedTimeByLeaderboard == null) {
-		continue;
-	}
-	formattedTimeByLeaderboardByPlayer[player] = formattedTimeByLeaderboard;
-}
-const formattedRankByLeaderboardByPlayer = Object.create(null);
-for (const [player, playerLeaderboards] of Object.entries(rankByLeaderboardByPlayer)) {
-	const formattedRankByLeaderboard = plotRankByDatum("../../", `Rank by leaderboard for player ${player}`, playerLeaderboards);
-	if (formattedRankByLeaderboard == null) {
-		continue;
-	}
-	formattedRankByLeaderboardByPlayer[player] = formattedRankByLeaderboard;
-}
-const formattedTimeByPlayerByLeaderboard = Object.create(null);
-for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-	const formattedTimeByPlayer = plotTimeByDatumKey("../../", `Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player", bears[leaderboard] ?? missions[leaderboard] ?? races[leaderboard] ?? sublevels[leaderboard]);
-	if (formattedTimeByPlayer == null) {
-		continue;
-	}
-	formattedTimeByPlayerByLeaderboard[leaderboard] = formattedTimeByPlayer;
-}
-const formattedRankByPlayerByLeaderboard = Object.create(null);
-for (const [leaderboard, leaderboardPlayers] of Object.entries(rankByPlayerByLeaderboard)) {
-	const formattedRankByPlayer = plotRankByDatum("../../", `Rank by player for leaderboard ${leaderboard}`, leaderboardPlayers);
-	if (formattedRankByPlayer == null) {
-		continue;
-	}
-	formattedRankByPlayerByLeaderboard[leaderboard] = formattedRankByPlayer;
-}
-const formattedRecordCountByPlayer = plotRecordCountByPlayer("../", "Record count by player", leaderboards, null);
-const formattedRecordCountByPlayerForBears = plotRecordCountByPlayer("../", "Record count by player (bears)", leaderboards, bears);
-const formattedRecordCountByPlayerForMissions = plotRecordCountByPlayer("../", "Record count by player (missions)", leaderboards, missions);
-const formattedRecordCountByPlayerForRaces = plotRecordCountByPlayer("../", "Record count by player (races)", leaderboards, races);
-const formattedRecordCountByPlayerForSublevels = plotRecordCountByPlayer("../", "Record count by player (sublevels)", leaderboards, sublevels);
-const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("../", "Record time by leaderboard", leaderboards, null);
-const formattedRecordTimeByLeaderboardForBears = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (bears)", leaderboards, bears);
-const formattedRecordTimeByLeaderboardForMissions = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (missions)", leaderboards, missions);
-const formattedRecordTimeByLeaderboardForRaces = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (races)", leaderboards, races);
-const formattedRecordTimeByLeaderboardForSublevels = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (sublevels)", leaderboards, sublevels);
-const formattedTotalTimeByPlayerForBears = plotTotalTimeByPlayer("../", "Total time by player (bears)", players, bears);
-const formattedTotalTimeByPlayerForMissions = plotTotalTimeByPlayer("../", "Total time by player (missions)", players, missions);
-const formattedTotalTimeByPlayerForRaces = plotTotalTimeByPlayer("../", "Total time by player (races)", players, races);
-const formattedTotalTimeByPlayerForSublevels = plotTotalTimeByPlayer("../", "Total time by player (sublevels)", players, sublevels);
-const formattedTotalRankByPlayerForBears = plotTotalRankByPlayer("../", "Total rank by player (bears)", rankByLeaderboardByPlayer, bears);
-const formattedTotalRankByPlayerForMissions = plotTotalRankByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, missions);
-const formattedTotalRankByPlayerForRaces = plotTotalRankByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, races);
-const formattedTotalRankByPlayerForSublevels = plotTotalRankByPlayer("../", "Total rank by player (sublevels)", rankByLeaderboardByPlayer, sublevels);
-await mkdir("plot", {
-	recursive: true,
-});
-await rm("plot/players", {
-	force: true,
-	recursive: true,
-});
-await mkdir("plot/players", {
-	recursive: true,
-});
-await rm("plot/leaderboards", {
-	force: true,
-	recursive: true,
-});
-await mkdir("plot/leaderboards", {
-	recursive: true,
-});
-await writeFile(`plot/submissions-and-runs.svg`, `${formattedSubmissionAndRunCounts}\n`);
-await writeFile(`plot/player-runs.svg`, `${formattedRunCountByPlayer}\n`);
-await writeFile(`plot/leaderboard-runs.svg`, `${formattedRunCountByLeaderboard}\n`);
-await writeFile(`plot/player-leaderboards.svg`, `${formattedLeaderboardCountByPlayer}\n`);
-await writeFile(`plot/leaderboard-players.svg`, `${formattedPlayerCountByLeaderboard}\n`);
-for (const [player, formattedTimeByLeaderboard] of Object.entries(formattedTimeByLeaderboardByPlayer)) {
-	await writeFile(`plot/players/${player}-leaderboard-times.svg`, `${formattedTimeByLeaderboard}\n`);
-}
-for (const [player, formattedRankByLeaderboard] of Object.entries(formattedRankByLeaderboardByPlayer)) {
-	await writeFile(`plot/players/${player}-leaderboard-ranks.svg`, `${formattedRankByLeaderboard}\n`);
-}
-for (const [leaderboard, formattedTimeByPlayer] of Object.entries(formattedTimeByPlayerByLeaderboard)) {
-	await writeFile(`plot/leaderboards/${leaderboard}-player-times.svg`, `${formattedTimeByPlayer}\n`);
-}
-for (const [leaderboard, formattedRankByPlayer] of Object.entries(formattedRankByPlayerByLeaderboard)) {
-	await writeFile(`plot/leaderboards/${leaderboard}-player-ranks.svg`, `${formattedRankByPlayer}\n`);
-}
-await writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
-await writeFile(`plot/player-bear-records.svg`, `${formattedRecordCountByPlayerForBears}\n`);
-await writeFile(`plot/player-mission-records.svg`, `${formattedRecordCountByPlayerForMissions}\n`);
-await writeFile(`plot/player-race-records.svg`, `${formattedRecordCountByPlayerForRaces}\n`);
-await writeFile(`plot/player-sublevel-records.svg`, `${formattedRecordCountByPlayerForSublevels}\n`);
-await writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
-await writeFile(`plot/leaderboard-bear-records.svg`, `${formattedRecordTimeByLeaderboardForBears}\n`);
-await writeFile(`plot/leaderboard-missions-records.svg`, `${formattedRecordTimeByLeaderboardForMissions}\n`);
-await writeFile(`plot/leaderboard-race-records.svg`, `${formattedRecordTimeByLeaderboardForRaces}\n`);
-await writeFile(`plot/leaderboard-sublevel-records.svg`, `${formattedRecordTimeByLeaderboardForSublevels}\n`);
-await writeFile(`plot/player-bear-times.svg`, `${formattedTotalTimeByPlayerForBears}\n`);
-await writeFile(`plot/player-mission-times.svg`, `${formattedTotalTimeByPlayerForMissions}\n`);
-await writeFile(`plot/player-race-times.svg`, `${formattedTotalTimeByPlayerForRaces}\n`);
-await writeFile(`plot/player-sublevel-times.svg`, `${formattedTotalTimeByPlayerForSublevels}\n`);
-await writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBears}\n`);
-await writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
-await writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
-await writeFile(`plot/player-sublevel-ranks.svg`, `${formattedTotalRankByPlayerForSublevels}\n`);
-await writeFile(`plot/readme.md`, `\
-# Plot
-
-- [Submission and run counts](submissions-and-runs.svg)
-- [Run count by player](player-runs.svg)
-- [Run count by leaderboard](leaderboard-runs.svg)
-- [Leaderboard count by player](player-leaderboards.svg)
-- [Player count by leaderboard](leaderboard-players.svg)
-- [Record count by player](player-records.svg)
-- [Record count by player (bears)](player-bear-records.svg)
-- [Record count by player (missions)](player-mission-records.svg)
-- [Record count by player (races)](player-race-records.svg)
-- [Record count by player (sublevels)](player-sublevel-records.svg)
-- [Record time by leaderboard](leaderboard-records.svg)
-- [Record time by leaderboard (bears)](leaderboard-bear-records.svg)
-- [Record time by leaderboard (missions)](leaderboard-mission-records.svg)
-- [Record time by leaderboard (races)](leaderboard-race-records.svg)
-- [Record time by leaderboard (sublevels)](leaderboard-sublevel-records.svg)
-- [Total time by player (bears)](player-bear-times.svg)
-- [Total time by player (missions)](player-mission-times.svg)
-- [Total time by player (races)](player-race-times.svg)
-- [Total time by player (sublevels)](player-sublevel-times.svg)
-- [Total rank by player (bears)](player-bear-ranks.svg)
-- [Total rank by player (missions)](player-mission-ranks.svg)
-- [Total rank by player (races)](player-race-ranks.svg)
-- [Total rank by player (sublevels)](player-sublevel-ranks.svg)
-- [Players](players)
-- [Leaderboards](leaderboards)
-`);
-await writeFile(`plot/players/readme.md`, `\
-# Players
-
-${sort(Object.keys(formattedTimeByLeaderboardByPlayer), (player) => {
-	return player;
-}).map((player) => {
-	return `\
-- [Time by leaderboard for player \`${player}\`](${player}-leaderboard-times.svg)
-`;
-}).join("")}\
-${sort(Object.keys(formattedRankByLeaderboardByPlayer), (player) => {
-	return player;
-}).map((player) => {
-	return `\
-- [Rank by leaderboard for player \`${player}\`](${player}-leaderboard-ranks.svg)
-`;
-}).join("")}\
-`);
-await writeFile(`plot/leaderboards/readme.md`, `\
-# Leaderboards
-
-${sort(Object.keys(formattedTimeByPlayerByLeaderboard), (leaderboard) => {
-	return !leaderboard.startsWith("l_") ? `l_-${leaderboard}` : leaderboard;
-}).map((leaderboard) => {
-	return `\
-- [Time by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-times.svg)
-`;
-}).join("")}\
-${sort(Object.keys(formattedRankByPlayerByLeaderboard), (leaderboard) => {
-	return !leaderboard.startsWith("l_") ? `l_-${leaderboard}` : leaderboard;
-}).map((leaderboard) => {
-	return `\
-- [Rank by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-ranks.svg)
-`;
-}).join("")}\
-`);

@@ -1,115 +1,5 @@
-import {mkdir, rm, writeFile} from "node:fs/promises";
-import {DOMParser} from "linkedom";
-import players from "./cache/players.json" with {type: "json"};
-import leaderboards from "./cache/leaderboards.json" with {type: "json"};
-import bears from "./cache/bears.json" with {type: "json"};
-import missions from "./cache/missions.json" with {type: "json"};
-import races from "./cache/races.json" with {type: "json"};
-import sublevels from "./cache/sublevels.json" with {type: "json"};
-const blocks = ["foreignObject", "svg", "g", "rect", "path"];
-function indent(element, level, block) {
-	if (element == null) {
-		return;
-	}
-	const nextSibling = element.nextElementSibling;
-	const stack = [block];
-	while (element != null && element !== nextSibling) {
-		const block = stack[stack.length - 1];
-		if (block) {
-			element.before("\t".repeat(level));
-			element.after("\n");
-		}
-		while (element.firstElementChild != null) {
-			const block = blocks.includes(element.tagName);
-			if (block) {
-				++level;
-				element.prepend("\n");
-			}
-			stack.push(block);
-			element = element.firstElementChild;
-			if (block) {
-				element.before("\t".repeat(level));
-				element.after("\n");
-			}
-		}
-		while (stack.length !== 1 && element.nextElementSibling == null) {
-			element = element.parentElement;
-			const block = stack[stack.length - 1];
-			if (block) {
-				--level;
-				element.append("\t".repeat(level));
-			}
-			stack.pop();
-		}
-		element = element.nextElementSibling;
-	}
-}
-function sort(array, hash) {
-	array.sort((a, b) => {
-		const aHash = hash(a);
-		const bHash = hash(b);
-		if (aHash < bHash) {
-			return -1;
-		}
-		if (aHash > bHash) {
-			return 1;
-		}
-		return 0;
-	});
-	return array;
-}
-function sortData(data) {
-	sort(data, (datum) => {
-		return Object.keys(datum[1])[0] || Object.keys(datum[1])[1];
-	});
-	return data;
-}
-function sortDatumDates(datumDates) {
-	sort(datumDates, (datumDate) => {
-		return datumDate[0];
-	});
-	return datumDates;
-}
-function plot(scope, title, data, cumulative, extended, timed, goals) {
-	const sortedData = Object.fromEntries(sortData(Object.entries(data).map(([datum, dates]) => {
-		return [
-			datum,
-			Object.fromEntries(sortDatumDates(Object.entries(dates))),
-		];
-	})));
-	let minDate = null;
-	let maxDate = null;
-	let maxValue = null;
-	for (const datumDates of Object.values(sortedData)) {
-		let currentValue = "" in datumDates ? datumDates[""] : 0;
-		if (extended && (maxValue == null || currentValue > maxValue)) {
-			maxValue = currentValue;
-		}
-		for (const [date, dateValueOrDiff] of Object.entries(datumDates)) {
-			if (date === "") {
-				continue;
-			}
-			if (minDate == null || date.length < minDate.length || date < minDate) {
-				minDate = date;
-			}
-			if (maxDate == null || date.length > maxDate.length || date > maxDate) {
-				maxDate = date;
-			}
-			if (!cumulative) {
-				currentValue = dateValueOrDiff;
-			} else {
-				currentValue += dateValueOrDiff;
-				datumDates[date] = currentValue;
-			}
-			if (maxValue == null || currentValue > maxValue) {
-				maxValue = currentValue;
-			}
-		}
-	}
-	const maxDuration = Math.round((Date.parse(maxDate) - Date.parse(minDate)) / 86400000);
-	const document = new DOMParser().parseFromString(`\
 <svg xmlns="http://www.w3.org/2000/svg" lang="en">
-	<title>${title}</title>
+	<title>Record time by leaderboard (races)</title>
 	<metadata>
 		<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" />
 		<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width" />
@@ -244,15 +134,15 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		foreignObject &gt; svg:first-of-type + svg + svg + svg {
 			top: 20px;
 		}
-		foreignObject &gt; svg:first-of-type > text,
-		foreignObject &gt; svg:first-of-type + svg > text,
-		foreignObject &gt; svg:first-of-type + svg + svg > text,
-		foreignObject &gt; svg:first-of-type + svg + svg + svg > text {
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text {
 			fill: var(--canvas-foreground);
 			stroke: none;
 		}
-		foreignObject &gt; svg:first-of-type > text,
-		foreignObject &gt; svg:first-of-type + svg > text {
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text {
 			cursor: vertical-text;
 		}
 		foreignObject &gt; svg:first-of-type + svg + svg + svg + svg {
@@ -370,11 +260,11 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		{
 			const script = document.currentScript;
 			const documentUrl = location.href;
-			const scope = new URL("${scope}", documentUrl).pathname;
-			const playersKey = \`\${scope}#players\`;
-			const leaderboardsKey = \`\${scope}#leaderboards\`;
-			const sessionKey = \`\${scope}#session\`;
-			const lockKey = \`\${scope}#lock\`;
+			const scope = new URL("../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
 			async function importDataScript(dataScriptUrl, signal) {
 				signal.throwIfAborted();
 				if (documentUrl.protocol !== "file:") {
@@ -388,7 +278,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 					return data;
 				}
 				return await new Promise((resolve, reject) =&gt; {
-					const name = \`callback\${Math.random() * 2 ** 53}\`;
+					const name = `callback${Math.random() * 2 ** 53}`;
 					let called = false;
 					let data = null;
 					function callback(value) {
@@ -399,7 +289,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 					}
 					window[name] = callback;
 					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
-					dataScript.href = \`\${dataScriptUrl}&amp;callback=\${name}\`;
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
 					function handleAbort(event) {
 						delete window[name];
 						dataScript.removeEventListener("error", handleError);
@@ -456,16 +346,16 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			}
 			window.addEventListener("pageshow", (event) =&gt; {
 				if (event.persisted) {
-					console.log(\`Successfully restored page from cache\`);
+					console.log(`Successfully restored page from cache`);
 				} else {
-					console.log(\`Unsuccessfully restored page from cache\`);
+					console.log(`Unsuccessfully restored page from cache`);
 				}
 			});
 			window.addEventListener("pagehide", (event) =&gt; {
 				if (event.persisted) {
-					console.log(\`Successfully saved page to cache\`);
+					console.log(`Successfully saved page to cache`);
 				} else {
-					console.log(\`Unsuccessfully saved page to cache\`);
+					console.log(`Unsuccessfully saved page to cache`);
 				}
 			});
 			window.addEventListener("pageshow", async (event) =&gt; {
@@ -520,11 +410,11 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 										sessionStorage.setItem(playersKey, cachedPlayers);
 										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
 									} catch {}
-									console.log(\`Successfully loaded names from peer\`);
+									console.log(`Successfully loaded names from peer`);
 									abort();
 									resolve();
 								} else {
-									console.log(\`Unsuccessfully loaded names from peer\`);
+									console.log(`Unsuccessfully loaded names from peer`);
 									abort();
 									resolve();
 								}
@@ -548,27 +438,27 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 						type: "response",
 						session,
 					});
-					console.log(\`Successfully loaded names from local\`);
+					console.log(`Successfully loaded names from local`);
 					abort();
 					resolve();
 				} else {
 					broadcastChannel.postMessage({
 						type: "request",
 					});
-					console.log(\`Unsuccessfully loaded names from local\`);
+					console.log(`Unsuccessfully loaded names from local`);
 				}
 				(async () =&gt; {
 					for (;;) {
 						await navigator.locks.request(lockKey, async () =&gt; {
 							lock = true;
-							console.log(\`Acquired lock\`);
+							console.log(`Acquired lock`);
 							if (!signal.aborted) {
 								try {
 									const players = Object.create(null);
 									const leaderboards = Object.create(null);
 									const games = ["9d3rrxyd", "w6jl2ned"];
 									for (const gameId of games) {
-										const {data} = await importDataScript(\`https://www.speedrun.com/api/v1/games/\${gameId}?embed=categories,levels,variables\`, signal);
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
 										const versions = data.variables.data.find((variable) =&gt; {
 											return variable.name === "Version";
 										});
@@ -581,11 +471,11 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
 											return [variable.id, variable];
 										}));
-										console.log(\`Got game\`);
+										console.log(`Got game`);
 										await waitForTimeout(800, signal);
 										const slice = 200;
 										for (let offset = 0;; offset += slice) {
-											const {data, pagination} = await importDataScript(\`https://www.speedrun.com/api/v1/runs?game=\${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=\${offset}&amp;max=\${slice}\`, signal);
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
 											const {size} = pagination;
 											if (size === 0) {
 												break;
@@ -603,9 +493,9 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 												const values = Object.entries(run.values).filter(([variable]) =&gt; {
 													return variables[variable]?.["is-subcategory"] ?? false;
 												}).map(([variable, value]) =&gt; {
-													return \`-\${variable}.\${value}\`;
+													return `-${variable}.${value}`;
 												});
-												const leaderboard = \`\${level != null ? \`l_\${level}-\` : ""}\${category}\${values.join("")}\`;
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
 												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
 												const categoryName = categories[run.category]?.name ?? null;
 												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
@@ -615,10 +505,10 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 												}).filter((valueName) =&gt; {
 													return valueName != null;
 												});
-												const leaderboardName = \`\${levelName != null ? \`\${levelName}: \` : ""}\${categoryName ?? ""}\${values.length !== 0 ? \` - \${valueNames.join(", ")}\` : ""}\`;
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
 												leaderboards[leaderboard] ??= leaderboardName;
 											}
-											console.log(\`Got runs \${offset}-\${offset + size - 1}\`);
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
 											await waitForTimeout(800, signal);
 										}
 									}
@@ -637,7 +527,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 											type: "response",
 											session,
 										});
-										console.log(\`Successfully loaded names from remote\`);
+										console.log(`Successfully loaded names from remote`);
 										abort();
 										resolve();
 									} else {
@@ -645,7 +535,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 											type: "response",
 											session,
 										});
-										console.log(\`Unsuccessfully loaded names from remote\`);
+										console.log(`Unsuccessfully loaded names from remote`);
 										abort();
 										resolve();
 									}
@@ -660,7 +550,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 							});
 						});
 						lock = false;
-						console.log(\`Released lock\`);
+						console.log(`Released lock`);
 						await new Promise((resolve) =&gt; {
 							window.addEventListener("pagehide", () =&gt; {
 								resolve();
@@ -695,9 +585,9 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 					element: rootTitleElement,
 					contentWithIds: rootTitleContent,
 					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
-						return \` for player \${players[$1] ?? $1}\`;
-					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
-						return \` for leaderboard \${leaderboards[$1] ?? $1}\`;
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
 					}) : rootTitleContent,
 				};
 				const hasPlayerPaths = rootTitleContent.includes(" by player");
@@ -745,10 +635,10 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 				const startX = Math.round(Date.parse(minDateText.textContent) / 86400000);
 				function xToDate(x) {
 					const datetime = new Date((startX + x) * 86400000);
-					const year = \`\${datetime.getUTCFullYear()}\`.padStart(4, "0");
-					const month = \`\${datetime.getUTCMonth() + 1}\`.padStart(2, "0");
-					const day = \`\${datetime.getUTCDate()}\`.padStart(2, "0");
-					const date = \`\${year}-\${month}-\${day}\`;
+					const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
+					const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
+					const day = `${datetime.getUTCDate()}`.padStart(2, "0");
+					const date = `${year}-${month}-${day}`;
 					const size = date.length * 10;
 					return {date, size};
 				}
@@ -767,14 +657,14 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 				const timed = minValueText.textContent.includes(":");
 				function yToValue(y) {
 					if (timed) {
-						const minutes = \`\${(y - y % 6000) / 6000}\`.padStart(2, "0");
-						const seconds = \`\${(y - y % 100) / 100 % 60}\`.padStart(2, "0");
-						const centiseconds = \`\${y % 100}\`.padStart(2, "0");
-						const value = \`\${minutes}:\${seconds}.\${centiseconds}\`;
+						const minutes = `${(y - y % 6000) / 6000}`.padStart(2, "0");
+						const seconds = `${(y - y % 100) / 100 % 60}`.padStart(2, "0");
+						const centiseconds = `${y % 100}`.padStart(2, "0");
+						const value = `${minutes}:${seconds}.${centiseconds}`;
 						const size = value.length * 10;
 						return {value, size};
 					} else {
-						const value = \`\${y}\`;
+						const value = `${y}`;
 						const size = value.length * 10;
 						return {value, size};
 					}
@@ -1192,671 +1082,341 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			});
 		}
 	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 80;">
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-08-31</text>
+		</svg>
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-16</text>
+		</svg>
+		<svg viewBox="0 0 80 20">
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
+		</svg>
+		<svg viewBox="0 0 80 20">
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:37.90</text>
+		</svg>
+		<svg viewBox="0 0 2361 3790" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 3790) scale(1 -1)" style="--count: 4;">
+				<g style="--index: 0;">
+					<path d="M0,2730L3,2730L3,2714L13,2714L13,2673L15,2673L15,2644L1017,2644L1017,2544L1050,2544L1050,2529L1070,2529L1070,2509L1412,2509L1412,2498L1456,2498L1456,2497L1468,2497L1468,2490L1723,2490L1723,2478L1725,2478L1725,2472L1727,2472L1727,2456L1728,2456L1728,2446L1950,2446L1950,2333L1981,2333L1981,2277L2050,2277L2050,2225L2074,2225L2074,2217L2093,2217L2093,2196L2141,2196L2141,2191L2361,2191L2361,2183" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.4qypgj4q</title>
+					</path>
+					<rect x="0" y="2183" width="2361" height="547"/>
+					<path d="M0,2730L0,2730" tabindex="0">
+						<title>00:27.30 on 2018-08-31</title>
+					</path>
+					<line x1="0" y1="2730" x2="2361" y2="2730"/>
+					<line x1="0" y1="0" x2="0" y2="3790"/>
+					<path d="M3,2714L3,2714" tabindex="0">
+						<title>00:27.14 on 2018-09-03</title>
+					</path>
+					<line x1="0" y1="2714" x2="2361" y2="2714"/>
+					<line x1="3" y1="0" x2="3" y2="3790"/>
+					<path d="M13,2673L13,2673" tabindex="0">
+						<title>00:26.73 on 2018-09-13</title>
+					</path>
+					<line x1="0" y1="2673" x2="2361" y2="2673"/>
+					<line x1="13" y1="0" x2="13" y2="3790"/>
+					<path d="M15,2644L15,2644" tabindex="0">
+						<title>00:26.44 on 2018-09-15</title>
+					</path>
+					<line x1="0" y1="2644" x2="2361" y2="2644"/>
+					<line x1="15" y1="0" x2="15" y2="3790"/>
+					<path d="M1017,2544L1017,2544" tabindex="0">
+						<title>00:25.44 on 2021-06-13</title>
+					</path>
+					<line x1="0" y1="2544" x2="2361" y2="2544"/>
+					<line x1="1017" y1="0" x2="1017" y2="3790"/>
+					<path d="M1050,2529L1050,2529" tabindex="0">
+						<title>00:25.29 on 2021-07-16</title>
+					</path>
+					<line x1="0" y1="2529" x2="2361" y2="2529"/>
+					<line x1="1050" y1="0" x2="1050" y2="3790"/>
+					<path d="M1070,2509L1070,2509" tabindex="0">
+						<title>00:25.09 on 2021-08-05</title>
+					</path>
+					<line x1="0" y1="2509" x2="2361" y2="2509"/>
+					<line x1="1070" y1="0" x2="1070" y2="3790"/>
+					<path d="M1412,2498L1412,2498" tabindex="0">
+						<title>00:24.98 on 2022-07-13</title>
+					</path>
+					<line x1="0" y1="2498" x2="2361" y2="2498"/>
+					<line x1="1412" y1="0" x2="1412" y2="3790"/>
+					<path d="M1456,2497L1456,2497" tabindex="0">
+						<title>00:24.97 on 2022-08-26</title>
+					</path>
+					<line x1="0" y1="2497" x2="2361" y2="2497"/>
+					<line x1="1456" y1="0" x2="1456" y2="3790"/>
+					<path d="M1468,2490L1468,2490" tabindex="0">
+						<title>00:24.90 on 2022-09-07</title>
+					</path>
+					<line x1="0" y1="2490" x2="2361" y2="2490"/>
+					<line x1="1468" y1="0" x2="1468" y2="3790"/>
+					<path d="M1723,2478L1723,2478" tabindex="0">
+						<title>00:24.78 on 2023-05-20</title>
+					</path>
+					<line x1="0" y1="2478" x2="2361" y2="2478"/>
+					<line x1="1723" y1="0" x2="1723" y2="3790"/>
+					<path d="M1725,2472L1725,2472" tabindex="0">
+						<title>00:24.72 on 2023-05-22</title>
+					</path>
+					<line x1="0" y1="2472" x2="2361" y2="2472"/>
+					<line x1="1725" y1="0" x2="1725" y2="3790"/>
+					<path d="M1727,2456L1727,2456" tabindex="0">
+						<title>00:24.56 on 2023-05-24</title>
+					</path>
+					<line x1="0" y1="2456" x2="2361" y2="2456"/>
+					<line x1="1727" y1="0" x2="1727" y2="3790"/>
+					<path d="M1728,2446L1728,2446" tabindex="0">
+						<title>00:24.46 on 2023-05-25</title>
+					</path>
+					<line x1="0" y1="2446" x2="2361" y2="2446"/>
+					<line x1="1728" y1="0" x2="1728" y2="3790"/>
+					<path d="M1950,2333L1950,2333" tabindex="0">
+						<title>00:23.33 on 2024-01-02</title>
+					</path>
+					<line x1="0" y1="2333" x2="2361" y2="2333"/>
+					<line x1="1950" y1="0" x2="1950" y2="3790"/>
+					<path d="M1981,2277L1981,2277" tabindex="0">
+						<title>00:22.77 on 2024-02-02</title>
+					</path>
+					<line x1="0" y1="2277" x2="2361" y2="2277"/>
+					<line x1="1981" y1="0" x2="1981" y2="3790"/>
+					<path d="M2050,2225L2050,2225" tabindex="0">
+						<title>00:22.25 on 2024-04-11</title>
+					</path>
+					<line x1="0" y1="2225" x2="2361" y2="2225"/>
+					<line x1="2050" y1="0" x2="2050" y2="3790"/>
+					<path d="M2074,2217L2074,2217" tabindex="0">
+						<title>00:22.17 on 2024-05-05</title>
+					</path>
+					<line x1="0" y1="2217" x2="2361" y2="2217"/>
+					<line x1="2074" y1="0" x2="2074" y2="3790"/>
+					<path d="M2093,2196L2093,2196" tabindex="0">
+						<title>00:21.96 on 2024-05-24</title>
+					</path>
+					<line x1="0" y1="2196" x2="2361" y2="2196"/>
+					<line x1="2093" y1="0" x2="2093" y2="3790"/>
+					<path d="M2141,2191L2141,2191" tabindex="0">
+						<title>00:21.91 on 2024-07-11</title>
+					</path>
+					<line x1="0" y1="2191" x2="2361" y2="2191"/>
+					<line x1="2141" y1="0" x2="2141" y2="3790"/>
+					<path d="M2361,2183L2361,2183" tabindex="0">
+						<title>00:21.83 on 2025-02-16</title>
+					</path>
+					<line x1="0" y1="2183" x2="2361" y2="2183"/>
+					<line x1="2361" y1="0" x2="2361" y2="3790"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M687,1593L797,1593L797,1440L864,1440L864,1430L886,1430L886,1409L1039,1409L1039,1406L1051,1406L1051,1393L1724,1393L1724,1385L2072,1385L2072,1371L2076,1371L2076,1369L2093,1369L2093,1358L2141,1358L2141,1354" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.810zkwwq</title>
+					</path>
+					<rect x="687" y="1354" width="1454" height="239"/>
+					<path d="M687,1593L687,1593" tabindex="0">
+						<title>00:15.93 on 2020-07-18</title>
+					</path>
+					<line x1="0" y1="1593" x2="2361" y2="1593"/>
+					<line x1="687" y1="0" x2="687" y2="3790"/>
+					<path d="M797,1440L797,1440" tabindex="0">
+						<title>00:14.40 on 2020-11-05</title>
+					</path>
+					<line x1="0" y1="1440" x2="2361" y2="1440"/>
+					<line x1="797" y1="0" x2="797" y2="3790"/>
+					<path d="M864,1430L864,1430" tabindex="0">
+						<title>00:14.30 on 2021-01-11</title>
+					</path>
+					<line x1="0" y1="1430" x2="2361" y2="1430"/>
+					<line x1="864" y1="0" x2="864" y2="3790"/>
+					<path d="M886,1409L886,1409" tabindex="0">
+						<title>00:14.09 on 2021-02-02</title>
+					</path>
+					<line x1="0" y1="1409" x2="2361" y2="1409"/>
+					<line x1="886" y1="0" x2="886" y2="3790"/>
+					<path d="M1039,1406L1039,1406" tabindex="0">
+						<title>00:14.06 on 2021-07-05</title>
+					</path>
+					<line x1="0" y1="1406" x2="2361" y2="1406"/>
+					<line x1="1039" y1="0" x2="1039" y2="3790"/>
+					<path d="M1051,1393L1051,1393" tabindex="0">
+						<title>00:13.93 on 2021-07-17</title>
+					</path>
+					<line x1="0" y1="1393" x2="2361" y2="1393"/>
+					<line x1="1051" y1="0" x2="1051" y2="3790"/>
+					<path d="M1724,1385L1724,1385" tabindex="0">
+						<title>00:13.85 on 2023-05-21</title>
+					</path>
+					<line x1="0" y1="1385" x2="2361" y2="1385"/>
+					<line x1="1724" y1="0" x2="1724" y2="3790"/>
+					<path d="M2072,1371L2072,1371" tabindex="0">
+						<title>00:13.71 on 2024-05-03</title>
+					</path>
+					<line x1="0" y1="1371" x2="2361" y2="1371"/>
+					<line x1="2072" y1="0" x2="2072" y2="3790"/>
+					<path d="M2076,1369L2076,1369" tabindex="0">
+						<title>00:13.69 on 2024-05-07</title>
+					</path>
+					<line x1="0" y1="1369" x2="2361" y2="1369"/>
+					<line x1="2076" y1="0" x2="2076" y2="3790"/>
+					<path d="M2093,1358L2093,1358" tabindex="0">
+						<title>00:13.58 on 2024-05-24</title>
+					</path>
+					<line x1="0" y1="1358" x2="2361" y2="1358"/>
+					<line x1="2093" y1="0" x2="2093" y2="3790"/>
+					<path d="M2141,1354L2141,1354" tabindex="0">
+						<title>00:13.54 on 2024-07-11</title>
+					</path>
+					<line x1="0" y1="1354" x2="2361" y2="1354"/>
+					<line x1="2141" y1="0" x2="2141" y2="3790"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M763,3790L886,3790L886,3701L887,3701L887,3651L1016,3651L1016,3577L1027,3577L1027,3565L1070,3565L1070,3417L1412,3417L1412,3408L1456,3408L1456,3393L1929,3393L1929,3349L1954,3349L1954,3343L1956,3343L1956,3315L2025,3315L2025,3214L2051,3214L2051,3157L2076,3157L2076,3032L2100,3032L2100,3001L2141,3001L2141,2998" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.9qj0kxel</title>
+					</path>
+					<rect x="763" y="2998" width="1378" height="792"/>
+					<path d="M763,3790L763,3790" tabindex="0">
+						<title>00:37.90 on 2020-10-02</title>
+					</path>
+					<line x1="0" y1="3790" x2="2361" y2="3790"/>
+					<line x1="763" y1="0" x2="763" y2="3790"/>
+					<path d="M886,3701L886,3701" tabindex="0">
+						<title>00:37.01 on 2021-02-02</title>
+					</path>
+					<line x1="0" y1="3701" x2="2361" y2="3701"/>
+					<line x1="886" y1="0" x2="886" y2="3790"/>
+					<path d="M887,3651L887,3651" tabindex="0">
+						<title>00:36.51 on 2021-02-03</title>
+					</path>
+					<line x1="0" y1="3651" x2="2361" y2="3651"/>
+					<line x1="887" y1="0" x2="887" y2="3790"/>
+					<path d="M1016,3577L1016,3577" tabindex="0">
+						<title>00:35.77 on 2021-06-12</title>
+					</path>
+					<line x1="0" y1="3577" x2="2361" y2="3577"/>
+					<line x1="1016" y1="0" x2="1016" y2="3790"/>
+					<path d="M1027,3565L1027,3565" tabindex="0">
+						<title>00:35.65 on 2021-06-23</title>
+					</path>
+					<line x1="0" y1="3565" x2="2361" y2="3565"/>
+					<line x1="1027" y1="0" x2="1027" y2="3790"/>
+					<path d="M1070,3417L1070,3417" tabindex="0">
+						<title>00:34.17 on 2021-08-05</title>
+					</path>
+					<line x1="0" y1="3417" x2="2361" y2="3417"/>
+					<line x1="1070" y1="0" x2="1070" y2="3790"/>
+					<path d="M1412,3408L1412,3408" tabindex="0">
+						<title>00:34.08 on 2022-07-13</title>
+					</path>
+					<line x1="0" y1="3408" x2="2361" y2="3408"/>
+					<line x1="1412" y1="0" x2="1412" y2="3790"/>
+					<path d="M1456,3393L1456,3393" tabindex="0">
+						<title>00:33.93 on 2022-08-26</title>
+					</path>
+					<line x1="0" y1="3393" x2="2361" y2="3393"/>
+					<line x1="1456" y1="0" x2="1456" y2="3790"/>
+					<path d="M1929,3349L1929,3349" tabindex="0">
+						<title>00:33.49 on 2023-12-12</title>
+					</path>
+					<line x1="0" y1="3349" x2="2361" y2="3349"/>
+					<line x1="1929" y1="0" x2="1929" y2="3790"/>
+					<path d="M1954,3343L1954,3343" tabindex="0">
+						<title>00:33.43 on 2024-01-06</title>
+					</path>
+					<line x1="0" y1="3343" x2="2361" y2="3343"/>
+					<line x1="1954" y1="0" x2="1954" y2="3790"/>
+					<path d="M1956,3315L1956,3315" tabindex="0">
+						<title>00:33.15 on 2024-01-08</title>
+					</path>
+					<line x1="0" y1="3315" x2="2361" y2="3315"/>
+					<line x1="1956" y1="0" x2="1956" y2="3790"/>
+					<path d="M2025,3214L2025,3214" tabindex="0">
+						<title>00:32.14 on 2024-03-17</title>
+					</path>
+					<line x1="0" y1="3214" x2="2361" y2="3214"/>
+					<line x1="2025" y1="0" x2="2025" y2="3790"/>
+					<path d="M2051,3157L2051,3157" tabindex="0">
+						<title>00:31.57 on 2024-04-12</title>
+					</path>
+					<line x1="0" y1="3157" x2="2361" y2="3157"/>
+					<line x1="2051" y1="0" x2="2051" y2="3790"/>
+					<path d="M2076,3032L2076,3032" tabindex="0">
+						<title>00:30.32 on 2024-05-07</title>
+					</path>
+					<line x1="0" y1="3032" x2="2361" y2="3032"/>
+					<line x1="2076" y1="0" x2="2076" y2="3790"/>
+					<path d="M2100,3001L2100,3001" tabindex="0">
+						<title>00:30.01 on 2024-05-31</title>
+					</path>
+					<line x1="0" y1="3001" x2="2361" y2="3001"/>
+					<line x1="2100" y1="0" x2="2100" y2="3790"/>
+					<path d="M2141,2998L2141,2998" tabindex="0">
+						<title>00:29.98 on 2024-07-11</title>
+					</path>
+					<line x1="0" y1="2998" x2="2361" y2="2998"/>
+					<line x1="2141" y1="0" x2="2141" y2="3790"/>
+				</g>
+				<g style="--index: 3;">
+					<path d="M797,3668L864,3668L864,3457L886,3457L886,3388L1016,3388L1016,3242L1035,3242L1035,3211L1051,3211L1051,3159L1456,3159L1456,3129L1729,3129L1729,3103L2077,3103L2077,3101L2093,3101L2093,3086L2141,3086L2141,3073" tabindex="0">
+						<title>l_ldykv1zw-rkl3znrk-wl3059ol.mlnwjz0l</title>
+					</path>
+					<rect x="797" y="3073" width="1344" height="595"/>
+					<path d="M797,3668L797,3668" tabindex="0">
+						<title>00:36.68 on 2020-11-05</title>
+					</path>
+					<line x1="0" y1="3668" x2="2361" y2="3668"/>
+					<line x1="797" y1="0" x2="797" y2="3790"/>
+					<path d="M864,3457L864,3457" tabindex="0">
+						<title>00:34.57 on 2021-01-11</title>
+					</path>
+					<line x1="0" y1="3457" x2="2361" y2="3457"/>
+					<line x1="864" y1="0" x2="864" y2="3790"/>
+					<path d="M886,3388L886,3388" tabindex="0">
+						<title>00:33.88 on 2021-02-02</title>
+					</path>
+					<line x1="0" y1="3388" x2="2361" y2="3388"/>
+					<line x1="886" y1="0" x2="886" y2="3790"/>
+					<path d="M1016,3242L1016,3242" tabindex="0">
+						<title>00:32.42 on 2021-06-12</title>
+					</path>
+					<line x1="0" y1="3242" x2="2361" y2="3242"/>
+					<line x1="1016" y1="0" x2="1016" y2="3790"/>
+					<path d="M1035,3211L1035,3211" tabindex="0">
+						<title>00:32.11 on 2021-07-01</title>
+					</path>
+					<line x1="0" y1="3211" x2="2361" y2="3211"/>
+					<line x1="1035" y1="0" x2="1035" y2="3790"/>
+					<path d="M1051,3159L1051,3159" tabindex="0">
+						<title>00:31.59 on 2021-07-17</title>
+					</path>
+					<line x1="0" y1="3159" x2="2361" y2="3159"/>
+					<line x1="1051" y1="0" x2="1051" y2="3790"/>
+					<path d="M1456,3129L1456,3129" tabindex="0">
+						<title>00:31.29 on 2022-08-26</title>
+					</path>
+					<line x1="0" y1="3129" x2="2361" y2="3129"/>
+					<line x1="1456" y1="0" x2="1456" y2="3790"/>
+					<path d="M1729,3103L1729,3103" tabindex="0">
+						<title>00:31.03 on 2023-05-26</title>
+					</path>
+					<line x1="0" y1="3103" x2="2361" y2="3103"/>
+					<line x1="1729" y1="0" x2="1729" y2="3790"/>
+					<path d="M2077,3101L2077,3101" tabindex="0">
+						<title>00:31.01 on 2024-05-08</title>
+					</path>
+					<line x1="0" y1="3101" x2="2361" y2="3101"/>
+					<line x1="2077" y1="0" x2="2077" y2="3790"/>
+					<path d="M2093,3086L2093,3086" tabindex="0">
+						<title>00:30.86 on 2024-05-24</title>
+					</path>
+					<line x1="0" y1="3086" x2="2361" y2="3086"/>
+					<line x1="2093" y1="0" x2="2093" y2="3790"/>
+					<path d="M2141,3073L2141,3073" tabindex="0">
+						<title>00:30.73 on 2024-07-11</title>
+					</path>
+					<line x1="0" y1="3073" x2="2361" y2="3073"/>
+					<line x1="2141" y1="0" x2="2141" y2="3790"/>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
 </svg>
-`, "image/svg+xml");
-	const root = document.documentElement;
-	const foreignObject = document.createElementNS("http://www.w3.org/2000/svg", "foreignObject");
-	const dateSize = Math.max(minDate.length, maxDate.length) * 10;
-	const valueSize = (timed ? Math.max(8, 7 + `${(maxValue - maxValue % 60000) / 60000}`.length) : Math.max(1, `${maxValue}`.length)) * 10;
-	foreignObject.setAttribute("x", "0");
-	foreignObject.setAttribute("y", "0");
-	foreignObject.setAttribute("width", "100%");
-	foreignObject.setAttribute("height", "100%");
-	foreignObject.setAttribute("style", `--date-size: ${dateSize}; --value-size: ${valueSize};`);
-	for (const date of [minDate, maxDate]) {
-		const size = date.length * 10;
-		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-		svg.setAttribute("viewBox", `0 0 ${dateSize} 20`);
-		const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-		text.setAttribute("x", `${dateSize / 2}`);
-		text.setAttribute("y", "10");
-		text.setAttribute("dx", "0");
-		text.setAttribute("dy", "2");
-		text.setAttribute("textLength", `${size}`);
-		text.setAttribute("lengthAdjust", "spacingAndGlyphs");
-		text.setAttribute("text-anchor", "middle");
-		text.setAttribute("dominant-baseline", "middle");
-		text.textContent = date;
-		svg.append(text);
-		foreignObject.append(svg);
-	}
-	for (const value of [0, maxValue]) {
-		const size = (timed ? 7 + `${(value - value % 60000) / 60000}`.length : `${value}`.length) * 10;
-		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-		svg.setAttribute("viewBox", `0 0 ${valueSize} 20`);
-		const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-		text.setAttribute("x", `${valueSize / 2}`);
-		text.setAttribute("y", "10");
-		text.setAttribute("dx", "0");
-		text.setAttribute("dy", "2");
-		text.setAttribute("textLength", `${size}`);
-		text.setAttribute("lengthAdjust", "spacingAndGlyphs");
-		text.setAttribute("text-anchor", "middle");
-		text.setAttribute("dominant-baseline", "middle");
-		if (timed) {
-			const minutes = `${(value - value % 6000) / 6000}`.padStart(2, "0");
-			const seconds = `${(value - value % 100) / 100 % 60}`.padStart(2, "0");
-			const centiseconds = `${value % 100}`.padStart(2, "0");
-			const time = `${minutes}:${seconds}.${centiseconds}`;
-			text.textContent = time;
-		} else {
-			text.textContent = `${value}`;
-		}
-		svg.append(text);
-		foreignObject.append(svg);
-	}
-	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-	svg.setAttribute("viewBox", `0 0 ${maxDuration} ${maxValue}`);
-	svg.setAttribute("preserveAspectRatio", "none");
-	svg.setAttribute("overflow", "visible");
-	const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-	const gCount = Object.keys(sortedData).length;
-	g.setAttribute("transform", `translate(0 ${maxValue}) scale(1 -1)`);
-	g.setAttribute("style", `--count: ${gCount};`);
-	if (timed) {
-		if (goals != null) {
-			const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-			let currentGoal = 0;
-			for (const [tier, goal] of Object.entries(goals)) {
-				const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-				rect.setAttribute("x", "0");
-				rect.setAttribute("y", `${currentGoal}`);
-				rect.setAttribute("width", `${maxDuration}`);
-				rect.setAttribute("height", `${Math.min(goal, maxValue) - currentGoal}`);
-				rect.setAttribute("tabindex", "0");
-				rect.setAttribute("data-tier", tier);
-				const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-				const minutes = `${(goal - goal % 6000) / 6000}`.padStart(2, "0");
-				const seconds = `${(goal - goal % 100) / 100 % 60}`.padStart(2, "0");
-				const centiseconds = `${goal % 100}`.padStart(2, "0");
-				const time = `${minutes}:${seconds}.${centiseconds}`;
-				title.textContent = `${time} for ${tier}`;
-				rect.append(title);
-				subG.append(rect);
-				currentGoal = Math.min(goal, maxValue);
-			}
-			g.append(subG);
-		}
-	} else {
-		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-		const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-		rect.setAttribute("x", "0");
-		rect.setAttribute("y", "0");
-		rect.setAttribute("width", `${maxDuration}`);
-		rect.setAttribute("height", `${maxValue}`);
-		subG.append(rect);
-		g.append(subG);
-	}
-	let gIndex = 0;
-	for (const [datum, datumDates] of Object.entries(sortedData)) {
-		const subG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-		subG.setAttribute("style", `--index: ${gIndex};`);
-		const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-		const d = [];
-		let currentValue = null;
-		if (extended) {
-			currentValue = "" in datumDates ? datumDates[""] : 0;
-			d.push(`M0,${currentValue}`);
-		}
-		const subPaths = [];
-		for (const [date, dateValue] of Object.entries(datumDates)) {
-			if (date === "") {
-				continue;
-			}
-			const duration = Math.round((Date.parse(date) - Date.parse(minDate)) / 86400000);
-			if (currentValue != null) {
-				d.push(`L${duration},${currentValue}`);
-				currentValue = dateValue;
-				d.push(`L${duration},${currentValue}`);
-			} else {
-				currentValue = dateValue;
-				d.push(`M${duration},${currentValue}`);
-			}
-			if (timed) {
-				const subPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-				subPath.setAttribute("d", `M${duration},${currentValue}L${duration},${currentValue}`);
-				subPath.setAttribute("tabindex", "0");
-				const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-				const minutes = `${(currentValue - currentValue % 6000) / 6000}`.padStart(2, "0");
-				const seconds = `${(currentValue - currentValue % 100) / 100 % 60}`.padStart(2, "0");
-				const centiseconds = `${currentValue % 100}`.padStart(2, "0");
-				const time = `${minutes}:${seconds}.${centiseconds}`;
-				title.textContent = `${time} on ${date}`;
-				subPath.append(title);
-				subPaths.push(subPath);
-				const horizontalLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-				horizontalLine.setAttribute("x1", "0");
-				horizontalLine.setAttribute("y1", `${currentValue}`);
-				horizontalLine.setAttribute("x2", `${maxDuration}`);
-				horizontalLine.setAttribute("y2", `${currentValue}`);
-				subPaths.push(horizontalLine);
-				const verticalLine = document.createElementNS("http://www.w3.org/2000/svg", "line");
-				verticalLine.setAttribute("x1", `${duration}`);
-				verticalLine.setAttribute("y1", "0");
-				verticalLine.setAttribute("x2", `${duration}`);
-				verticalLine.setAttribute("y2", `${maxValue}`);
-				subPaths.push(verticalLine);
-			}
-		}
-		if (extended) {
-			d.push(`L${maxDuration},${currentValue}`);
-		}
-		path.setAttribute("d", d.join(""));
-		path.setAttribute("tabindex", "0");
-		const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-		title.textContent = datum;
-		path.append(title);
-		subG.append(path);
-		if (timed) {
-			const datumDatesEntries = Object.entries(datumDates);
-			const [firstDate, firstValue] = datumDatesEntries[0];
-			const firstDuration = Math.round((Date.parse(firstDate) - Date.parse(minDate)) / 86400000);
-			const [lastDate, lastValue] = datumDatesEntries[datumDatesEntries.length - 1];
-			const lastDuration = Math.round((Date.parse(lastDate) - Date.parse(minDate)) / 86400000);
-			const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-			rect.setAttribute("x", `${Math.min(firstDuration, lastDuration)}`);
-			rect.setAttribute("y", `${Math.min(firstValue, lastValue)}`);
-			rect.setAttribute("width", `${Math.abs(lastDuration - firstDuration)}`);
-			rect.setAttribute("height", `${Math.abs(lastValue - firstValue)}`);
-			subG.append(rect);
-		}
-		for (const subPath of subPaths) {
-			subG.append(subPath);
-		}
-		g.append(subG);
-		++gIndex;
-	}
-	svg.append(g);
-	foreignObject.append(svg);
-	root.append(foreignObject);
-	indent(foreignObject, 1, true);
-	const formattedData = root.toString();
-	return formattedData;
-}
-function plotSubmissionAndRunCounts(scope, title, data) {
-	const newData = Object.create(null);
-	for (const datumDates of Object.values(data)) {
-		for (const [date, dateRuns] of Object.entries(datumDates)) {
-			for (const run of dateRuns) {
-				const submissionsDates = newData.submissions ??= Object.create(null);
-				submissionsDates[date] ??= 0;
-				++submissionsDates[date];
-				if (run.status !== "rejected" || run.annotation == null || run.annotation !== "Automatically moved to the new individual level" && run.annotation !== "Automatically moved to the new category extensions") {
-					const manualSubmissionsDates = newData.manualSubmissions ??= Object.create(null);
-					manualSubmissionsDates[date] ??= 0;
-					++manualSubmissionsDates[date];
-				}
-				if (run.status !== "verified") {
-					continue;
-				}
-				const runsDates = newData.runs ??= Object.create(null);
-				runsDates[date] ??= 0;
-				++runsDates[date];
-			}
-		}
-	}
-	const formattedData = plot(scope, title, newData, true, true, false, null);
-	return formattedData;
-}
-function plotRunCountByDatum(scope, title, data) {
-	const newData = Object.create(null);
-	for (const [datum, datumDates] of Object.entries(data)) {
-		for (const [date, dateRuns] of Object.entries(datumDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const newDatumDates = newData[datum] ??= Object.create(null);
-				newDatumDates[date] ??= 0;
-				++newDatumDates[date];
-			}
-		}
-	}
-	const formattedData = plot(scope, title, newData, true, true, false, null);
-	return formattedData;
-}
-function plotKeyCountByDatum(scope, title, data, key) {
-	const newData = Object.create(null);
-	for (const [datum, datumDates] of Object.entries(data)) {
-		const values = new Set();
-		let currentSize = 0;
-		for (const [date, dateRuns] of Object.entries(datumDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				values.add(run[key]);
-				const newDatumDates = newData[datum] ??= Object.create(null);
-				newDatumDates[date] ??= 0;
-				newDatumDates[date] += values.size - currentSize;
-				currentSize = values.size;
-			}
-		}
-	}
-	const formattedData = plot(scope, title, newData, true, true, false, null);
-	return formattedData;
-}
-function plotTimeByDatumKey(scope, title, datumDates, key, times) {
-	const keyData = Object.create(null);
-	for (const [date, dateRuns] of Object.entries(datumDates)) {
-		for (const run of dateRuns) {
-			if (run.status !== "verified") {
-				continue;
-			}
-			const time = run.time;
-			const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-				return Number(part);
-			});
-			const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
-			const minTime = run[key] in keyData ? keyData[run[key]][Object.keys(keyData[run[key]])[Object.keys(keyData[run[key]]).length - 1]] : null;
-			if (minTime == null || currentTime < minTime) {
-				const datumDates = keyData[run[key]] ??= Object.create(null);
-				datumDates[date] ??= Number.POSITIVE_INFINITY;
-				datumDates[date] = Math.min(datumDates[date], currentTime);
-			}
-		}
-	}
-	if (Object.keys(keyData).length === 0) {
-		return null;
-	}
-	const goals = times != null ? Object.fromEntries(Object.entries(times).map(([tier, time]) => {
-		const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-			return Number(part);
-		});
-		const goal = minutes * 6000 + seconds * 100 + centiseconds;
-		return [tier, goal];
-	})) : null;
-	const formattedData = plot(scope, title, keyData, false, false, true, goals);
-	return formattedData;
-}
-function computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards) {
-	const newPlayers = Object.create(null);
-	const newLeaderboards = Object.create(null);
-	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-		const players = Object.create(null);
-		const times = Object.create(null);
-		const ranks = [];
-		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const time = run.time;
-				const player = run.player;
-				let lowerTime = player in players ? times[player] : null;
-				if (lowerTime == null || time.length < lowerTime.length || time < lowerTime) {
-					lowerTime = time;
-					times[player] = lowerTime;
-					const rank = player in players ? players[player][Object.keys(players[player])[Object.keys(players[player]).length - 1]] : ranks.push(null) - 1;
-					let currentRank = rank;
-					let lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
-					lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
-					while (lowerTime != null && (time.length < lowerTime.length || time < lowerTime)) {
-						const playerDates = players[lowerPlayer];
-						playerDates[date] = currentRank;
-						ranks[currentRank] = lowerPlayer;
-						--currentRank;
-						lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
-						lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
-					}
-					lowerPlayer = player;
-					const playerDates = players[lowerPlayer] ??= Object.assign(Object.create(null), {
-						"": rank,
-					});
-					playerDates[date] = currentRank;
-					ranks[currentRank] = lowerPlayer;
-				}
-			}
-		}
-		newLeaderboards[leaderboard] = players;
-	}
-	for (const [player, playerDates] of Object.entries(players)) {
-		const leaderboards = Object.create(null);
-		for (const dateRuns of Object.values(playerDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const leaderboard = run.leaderboard;
-				leaderboards[leaderboard] ??= newLeaderboards[leaderboard][player];
-			}
-		}
-		newPlayers[player] = leaderboards;
-	}
-	return [newPlayers, newLeaderboards];
-}
-function plotRankByDatum(scope, title, data) {
-	if (Object.keys(data).length === 0) {
-		return null;
-	}
-	const formattedData = plot(scope, title, data, false, true, false, null);
-	return formattedData;
-}
-function plotRecordCountByPlayer(scope, title, leaderboards, tiers) {
-	const players = Object.create(null);
-	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-		if (tiers != null && !(leaderboard in tiers)) {
-			continue;
-		}
-		let minTime = null;
-		let minPlayer = null;
-		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const time = run.time;
-				const player = run.player;
-				if (minTime == null || time.length < minTime.length || time < minTime) {
-					if (minPlayer != null) {
-						const playerDates = players[minPlayer] ??= Object.create(null);
-						playerDates[date] ??= 0;
-						--playerDates[date];
-					}
-					minTime = time;
-					minPlayer = player;
-					const playerDates = players[minPlayer] ??= Object.create(null);
-					playerDates[date] ??= 0;
-					++playerDates[date];
-				}
-			}
-		}
-	}
-	const formattedPlayers = plot(scope, title, players, true, true, false, null);
-	return formattedPlayers;
-}
-function plotRecordTimeByLeaderboard(scope, title, leaderboards, tiers) {
-	const newLeaderboards = Object.create(null);
-	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-		if (tiers != null && !(leaderboard in tiers)) {
-			continue;
-		}
-		let minTime = null;
-		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified") {
-					continue;
-				}
-				const time = run.time;
-				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-					return Number(part);
-				});
-				const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
-				if (minTime == null || currentTime < minTime) {
-					const newLeaderboardDates = newLeaderboards[leaderboard] ??= Object.create(null);
-					newLeaderboardDates[date] ??= Number.POSITIVE_INFINITY;
-					newLeaderboardDates[date] = Math.min(newLeaderboardDates[date], currentTime);
-					minTime = currentTime;
-				}
-			}
-		}
-	}
-	const formattedLeaderboards = plot(scope, title, newLeaderboards, false, false, true, null);
-	return formattedLeaderboards;
-}
-function plotTotalTimeByPlayer(scope, title, players, tiers) {
-	const tierCount = Object.keys(tiers).length;
-	const newPlayers = Object.create(null);
-	for (const [player, playerDates] of Object.entries(players)) {
-		let leaderboardCount = 0;
-		let playerTime = 0;
-		const leaderboards = Object.create(null);
-		for (const [date, dateRuns] of Object.entries(playerDates)) {
-			for (const run of dateRuns) {
-				if (run.status !== "verified" || !(run.leaderboard in tiers)) {
-					continue;
-				}
-				const time = run.time;
-				const leaderboard = run.leaderboard;
-				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-					return Number(part);
-				});
-				const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
-				const minTime = leaderboard in leaderboards ? leaderboards[leaderboard] : null;
-				if (minTime == null || currentTime < minTime) {
-					if (minTime == null) {
-						++leaderboardCount;
-					} else {
-						playerTime -= minTime;
-					}
-					playerTime += currentTime;
-					leaderboards[leaderboard] = currentTime;
-					if (leaderboardCount === tierCount) {
-						const newPlayerDates = newPlayers[player] ??= Object.create(null);
-						newPlayerDates[date] = playerTime;
-					}
-				}
-			}
-		}
-	}
-	const goals = Object.create(null);
-	for (const times of Object.values(tiers)) {
-		for (const [tier, time] of Object.entries(times)) {
-			const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
-				return Number(part);
-			});
-			const goal = minutes * 6000 + seconds * 100 + centiseconds;
-			goals[tier] ??= 0;
-			goals[tier] += goal;
-		}
-	}
-	const formattedData = plot(scope, title, newPlayers, false, false, true, goals);
-	return formattedData;
-}
-function plotTotalRankByPlayer(scope, title, players, tiers) {
-	const tierCount = Object.keys(tiers).length;
-	const newPlayers = Object.create(null);
-	for (const [player, playerLeaderboards] of Object.entries(players)) {
-		let leaderboardCount = 0;
-		const playerDates = Object.create(null);
-		for (const [playerLeaderboard, playerLeaderboardDates] of Object.entries(playerLeaderboards)) {
-			if (!(playerLeaderboard in tiers)) {
-				continue;
-			}
-			++leaderboardCount;
-			for (const [date, dateRank] of Object.entries(playerLeaderboardDates)) {
-				playerDates[date] ??= [];
-				playerDates[date].push(Object.assign(Object.create(null), {
-					rank: dateRank,
-					leaderboard: playerLeaderboard,
-				}));
-			}
-		}
-		if (leaderboardCount !== tierCount) {
-			continue;
-		}
-		const sortedPlayerDates = Object.fromEntries(sortDatumDates(Object.entries(playerDates)));
-		let playerRank = 0;
-		const leaderboards = Object.create(null);
-		for (const [date, dateRuns] of Object.entries(sortedPlayerDates)) {
-			for (const run of dateRuns) {
-				const rank = run.rank;
-				const leaderboard = run.leaderboard;
-				const currentRank = rank;
-				const previousRank = leaderboard in leaderboards ? leaderboards[leaderboard] : null;
-				if (previousRank != null) {
-					playerRank -= previousRank;
-				}
-				playerRank += currentRank;
-				leaderboards[leaderboard] = currentRank;
-				const newPlayerDates = newPlayers[player] ??= Object.create(null);
-				newPlayerDates[date] = playerRank;
-			}
-		}
-	}
-	const formattedPlayers = plot(scope, title, newPlayers, false, true, false, null);
-	return formattedPlayers;
-}
-const formattedSubmissionAndRunCounts = plotSubmissionAndRunCounts("../", "Submission and run counts", players);
-const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by player", players);
-const formattedRunCountByLeaderboard = plotRunCountByDatum("../", "Run count by leaderboard", leaderboards);
-const formattedLeaderboardCountByPlayer = plotKeyCountByDatum("../", "Leaderboard count by player", players, "leaderboard");
-const formattedPlayerCountByLeaderboard = plotKeyCountByDatum("../", "Player count by leaderboard", leaderboards, "player");
-const [rankByLeaderboardByPlayer, rankByPlayerByLeaderboard] = computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards);
-const formattedTimeByLeaderboardByPlayer = Object.create(null);
-for (const [player, playerDates] of Object.entries(players)) {
-	const formattedTimeByLeaderboard = plotTimeByDatumKey("../../", `Time by leaderboard for player ${player}`, playerDates, "leaderboard", null);
-	if (formattedTimeByLeaderboard == null) {
-		continue;
-	}
-	formattedTimeByLeaderboardByPlayer[player] = formattedTimeByLeaderboard;
-}
-const formattedRankByLeaderboardByPlayer = Object.create(null);
-for (const [player, playerLeaderboards] of Object.entries(rankByLeaderboardByPlayer)) {
-	const formattedRankByLeaderboard = plotRankByDatum("../../", `Rank by leaderboard for player ${player}`, playerLeaderboards);
-	if (formattedRankByLeaderboard == null) {
-		continue;
-	}
-	formattedRankByLeaderboardByPlayer[player] = formattedRankByLeaderboard;
-}
-const formattedTimeByPlayerByLeaderboard = Object.create(null);
-for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-	const formattedTimeByPlayer = plotTimeByDatumKey("../../", `Time by player for leaderboard ${leaderboard}`, leaderboardDates, "player", bears[leaderboard] ?? missions[leaderboard] ?? races[leaderboard] ?? sublevels[leaderboard]);
-	if (formattedTimeByPlayer == null) {
-		continue;
-	}
-	formattedTimeByPlayerByLeaderboard[leaderboard] = formattedTimeByPlayer;
-}
-const formattedRankByPlayerByLeaderboard = Object.create(null);
-for (const [leaderboard, leaderboardPlayers] of Object.entries(rankByPlayerByLeaderboard)) {
-	const formattedRankByPlayer = plotRankByDatum("../../", `Rank by player for leaderboard ${leaderboard}`, leaderboardPlayers);
-	if (formattedRankByPlayer == null) {
-		continue;
-	}
-	formattedRankByPlayerByLeaderboard[leaderboard] = formattedRankByPlayer;
-}
-const formattedRecordCountByPlayer = plotRecordCountByPlayer("../", "Record count by player", leaderboards, null);
-const formattedRecordCountByPlayerForBears = plotRecordCountByPlayer("../", "Record count by player (bears)", leaderboards, bears);
-const formattedRecordCountByPlayerForMissions = plotRecordCountByPlayer("../", "Record count by player (missions)", leaderboards, missions);
-const formattedRecordCountByPlayerForRaces = plotRecordCountByPlayer("../", "Record count by player (races)", leaderboards, races);
-const formattedRecordCountByPlayerForSublevels = plotRecordCountByPlayer("../", "Record count by player (sublevels)", leaderboards, sublevels);
-const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("../", "Record time by leaderboard", leaderboards, null);
-const formattedRecordTimeByLeaderboardForBears = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (bears)", leaderboards, bears);
-const formattedRecordTimeByLeaderboardForMissions = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (missions)", leaderboards, missions);
-const formattedRecordTimeByLeaderboardForRaces = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (races)", leaderboards, races);
-const formattedRecordTimeByLeaderboardForSublevels = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (sublevels)", leaderboards, sublevels);
-const formattedTotalTimeByPlayerForBears = plotTotalTimeByPlayer("../", "Total time by player (bears)", players, bears);
-const formattedTotalTimeByPlayerForMissions = plotTotalTimeByPlayer("../", "Total time by player (missions)", players, missions);
-const formattedTotalTimeByPlayerForRaces = plotTotalTimeByPlayer("../", "Total time by player (races)", players, races);
-const formattedTotalTimeByPlayerForSublevels = plotTotalTimeByPlayer("../", "Total time by player (sublevels)", players, sublevels);
-const formattedTotalRankByPlayerForBears = plotTotalRankByPlayer("../", "Total rank by player (bears)", rankByLeaderboardByPlayer, bears);
-const formattedTotalRankByPlayerForMissions = plotTotalRankByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, missions);
-const formattedTotalRankByPlayerForRaces = plotTotalRankByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, races);
-const formattedTotalRankByPlayerForSublevels = plotTotalRankByPlayer("../", "Total rank by player (sublevels)", rankByLeaderboardByPlayer, sublevels);
-await mkdir("plot", {
-	recursive: true,
-});
-await rm("plot/players", {
-	force: true,
-	recursive: true,
-});
-await mkdir("plot/players", {
-	recursive: true,
-});
-await rm("plot/leaderboards", {
-	force: true,
-	recursive: true,
-});
-await mkdir("plot/leaderboards", {
-	recursive: true,
-});
-await writeFile(`plot/submissions-and-runs.svg`, `${formattedSubmissionAndRunCounts}\n`);
-await writeFile(`plot/player-runs.svg`, `${formattedRunCountByPlayer}\n`);
-await writeFile(`plot/leaderboard-runs.svg`, `${formattedRunCountByLeaderboard}\n`);
-await writeFile(`plot/player-leaderboards.svg`, `${formattedLeaderboardCountByPlayer}\n`);
-await writeFile(`plot/leaderboard-players.svg`, `${formattedPlayerCountByLeaderboard}\n`);
-for (const [player, formattedTimeByLeaderboard] of Object.entries(formattedTimeByLeaderboardByPlayer)) {
-	await writeFile(`plot/players/${player}-leaderboard-times.svg`, `${formattedTimeByLeaderboard}\n`);
-}
-for (const [player, formattedRankByLeaderboard] of Object.entries(formattedRankByLeaderboardByPlayer)) {
-	await writeFile(`plot/players/${player}-leaderboard-ranks.svg`, `${formattedRankByLeaderboard}\n`);
-}
-for (const [leaderboard, formattedTimeByPlayer] of Object.entries(formattedTimeByPlayerByLeaderboard)) {
-	await writeFile(`plot/leaderboards/${leaderboard}-player-times.svg`, `${formattedTimeByPlayer}\n`);
-}
-for (const [leaderboard, formattedRankByPlayer] of Object.entries(formattedRankByPlayerByLeaderboard)) {
-	await writeFile(`plot/leaderboards/${leaderboard}-player-ranks.svg`, `${formattedRankByPlayer}\n`);
-}
-await writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
-await writeFile(`plot/player-bear-records.svg`, `${formattedRecordCountByPlayerForBears}\n`);
-await writeFile(`plot/player-mission-records.svg`, `${formattedRecordCountByPlayerForMissions}\n`);
-await writeFile(`plot/player-race-records.svg`, `${formattedRecordCountByPlayerForRaces}\n`);
-await writeFile(`plot/player-sublevel-records.svg`, `${formattedRecordCountByPlayerForSublevels}\n`);
-await writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
-await writeFile(`plot/leaderboard-bear-records.svg`, `${formattedRecordTimeByLeaderboardForBears}\n`);
-await writeFile(`plot/leaderboard-missions-records.svg`, `${formattedRecordTimeByLeaderboardForMissions}\n`);
-await writeFile(`plot/leaderboard-race-records.svg`, `${formattedRecordTimeByLeaderboardForRaces}\n`);
-await writeFile(`plot/leaderboard-sublevel-records.svg`, `${formattedRecordTimeByLeaderboardForSublevels}\n`);
-await writeFile(`plot/player-bear-times.svg`, `${formattedTotalTimeByPlayerForBears}\n`);
-await writeFile(`plot/player-mission-times.svg`, `${formattedTotalTimeByPlayerForMissions}\n`);
-await writeFile(`plot/player-race-times.svg`, `${formattedTotalTimeByPlayerForRaces}\n`);
-await writeFile(`plot/player-sublevel-times.svg`, `${formattedTotalTimeByPlayerForSublevels}\n`);
-await writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBears}\n`);
-await writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
-await writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
-await writeFile(`plot/player-sublevel-ranks.svg`, `${formattedTotalRankByPlayerForSublevels}\n`);
-await writeFile(`plot/readme.md`, `\
-# Plot
-
-- [Submission and run counts](submissions-and-runs.svg)
-- [Run count by player](player-runs.svg)
-- [Run count by leaderboard](leaderboard-runs.svg)
-- [Leaderboard count by player](player-leaderboards.svg)
-- [Player count by leaderboard](leaderboard-players.svg)
-- [Record count by player](player-records.svg)
-- [Record count by player (bears)](player-bear-records.svg)
-- [Record count by player (missions)](player-mission-records.svg)
-- [Record count by player (races)](player-race-records.svg)
-- [Record count by player (sublevels)](player-sublevel-records.svg)
-- [Record time by leaderboard](leaderboard-records.svg)
-- [Record time by leaderboard (bears)](leaderboard-bear-records.svg)
-- [Record time by leaderboard (missions)](leaderboard-mission-records.svg)
-- [Record time by leaderboard (races)](leaderboard-race-records.svg)
-- [Record time by leaderboard (sublevels)](leaderboard-sublevel-records.svg)
-- [Total time by player (bears)](player-bear-times.svg)
-- [Total time by player (missions)](player-mission-times.svg)
-- [Total time by player (races)](player-race-times.svg)
-- [Total time by player (sublevels)](player-sublevel-times.svg)
-- [Total rank by player (bears)](player-bear-ranks.svg)
-- [Total rank by player (missions)](player-mission-ranks.svg)
-- [Total rank by player (races)](player-race-ranks.svg)
-- [Total rank by player (sublevels)](player-sublevel-ranks.svg)
-- [Players](players)
-- [Leaderboards](leaderboards)
-`);
-await writeFile(`plot/players/readme.md`, `\
-# Players
-
-${sort(Object.keys(formattedTimeByLeaderboardByPlayer), (player) => {
-	return player;
-}).map((player) => {
-	return `\
-- [Time by leaderboard for player \`${player}\`](${player}-leaderboard-times.svg)
-`;
-}).join("")}\
-${sort(Object.keys(formattedRankByLeaderboardByPlayer), (player) => {
-	return player;
-}).map((player) => {
-	return `\
-- [Rank by leaderboard for player \`${player}\`](${player}-leaderboard-ranks.svg)
-`;
-}).join("")}\
-`);
-await writeFile(`plot/leaderboards/readme.md`, `\
-# Leaderboards
-
-${sort(Object.keys(formattedTimeByPlayerByLeaderboard), (leaderboard) => {
-	return !leaderboard.startsWith("l_") ? `l_-${leaderboard}` : leaderboard;
-}).map((leaderboard) => {
-	return `\
-- [Time by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-times.svg)
-`;
-}).join("")}\
-${sort(Object.keys(formattedRankByPlayerByLeaderboard), (leaderboard) => {
-	return !leaderboard.startsWith("l_") ? `l_-${leaderboard}` : leaderboard;
-}).map((leaderboard) => {
-	return `\
-- [Rank by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-ranks.svg)
-`;
-}).join("")}\
-`);
