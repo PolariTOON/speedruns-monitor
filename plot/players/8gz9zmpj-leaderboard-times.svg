@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-20</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-20</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-08-19</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,18 +1095,23 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:10.36</text>
 		</svg>
-		<svg viewBox="0 0 0 1036" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 30 1036" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 1036) scale(1 -1)" style="--count: 1;">
 				<g style="--index: 0;">
-					<path d="M0,1036" tabindex="0">
+					<path d="M0,1036L30,1036L30,922" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 					</path>
-					<rect x="0" y="1036" width="0" height="0"/>
+					<rect x="0" y="922" width="30" height="114"/>
 					<path d="M0,1036L0,1036" tabindex="0">
 						<title>00:10.36 on 2025-07-20</title>
 					</path>
-					<line x1="0" y1="1036" x2="0" y2="1036"/>
+					<line x1="0" y1="1036" x2="30" y2="1036"/>
 					<line x1="0" y1="0" x2="0" y2="1036"/>
+					<path d="M30,922L30,922" tabindex="0">
+						<title>00:09.22 on 2025-08-19</title>
+					</path>
+					<line x1="0" y1="922" x2="30" y2="922"/>
+					<line x1="30" y1="0" x2="30" y2="1036"/>
 				</g>
 			</g>
 		</svg>

@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-04</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-24</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-08-27</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,19 +1095,19 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">08:25.00</text>
 		</svg>
-		<svg viewBox="0 0 20 50500" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 50500) scale(1 -1)" style="--count: 6;">
+		<svg viewBox="0 0 54 50500" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 50500) scale(1 -1)" style="--count: 7;">
 				<g>
-					<rect x="0" y="0" width="20" height="34500" tabindex="0" data-tier="diamond">
+					<rect x="0" y="0" width="54" height="34500" tabindex="0" data-tier="diamond">
 						<title>05:45.00 for diamond</title>
 					</rect>
-					<rect x="0" y="34500" width="20" height="6000" tabindex="0" data-tier="gold">
+					<rect x="0" y="34500" width="54" height="6000" tabindex="0" data-tier="gold">
 						<title>06:45.00 for gold</title>
 					</rect>
-					<rect x="0" y="40500" width="20" height="10000" tabindex="0" data-tier="silver">
+					<rect x="0" y="40500" width="54" height="10000" tabindex="0" data-tier="silver">
 						<title>09:00.00 for silver</title>
 					</rect>
-					<rect x="0" y="50500" width="20" height="0" tabindex="0" data-tier="bronze">
+					<rect x="0" y="50500" width="54" height="0" tabindex="0" data-tier="bronze">
 						<title>13:30.00 for bronze</title>
 					</rect>
 				</g>
@@ -1119,12 +1119,12 @@
 					<path d="M0,25255L0,25255" tabindex="0">
 						<title>04:12.55 on 2025-07-04</title>
 					</path>
-					<line x1="0" y1="25255" x2="20" y2="25255"/>
+					<line x1="0" y1="25255" x2="54" y2="25255"/>
 					<line x1="0" y1="0" x2="0" y2="50500"/>
 					<path d="M4,25060L4,25060" tabindex="0">
 						<title>04:10.60 on 2025-07-08</title>
 					</path>
-					<line x1="0" y1="25060" x2="20" y2="25060"/>
+					<line x1="0" y1="25060" x2="54" y2="25060"/>
 					<line x1="4" y1="0" x2="4" y2="50500"/>
 				</g>
 				<g style="--index: 1;">
@@ -1135,29 +1135,34 @@
 					<path d="M5,26445L5,26445" tabindex="0">
 						<title>04:24.45 on 2025-07-09</title>
 					</path>
-					<line x1="0" y1="26445" x2="20" y2="26445"/>
+					<line x1="0" y1="26445" x2="54" y2="26445"/>
 					<line x1="5" y1="0" x2="5" y2="50500"/>
 				</g>
 				<g style="--index: 2;">
-					<path d="M6,26529L8,26529L8,26129L10,26129L10,25405" tabindex="0">
+					<path d="M6,26529L8,26529L8,26129L10,26129L10,25405L46,25405L46,24996" tabindex="0">
 						<title>j2p4pel8</title>
 					</path>
-					<rect x="6" y="25405" width="4" height="1124"/>
+					<rect x="6" y="24996" width="40" height="1533"/>
 					<path d="M6,26529L6,26529" tabindex="0">
 						<title>04:25.29 on 2025-07-10</title>
 					</path>
-					<line x1="0" y1="26529" x2="20" y2="26529"/>
+					<line x1="0" y1="26529" x2="54" y2="26529"/>
 					<line x1="6" y1="0" x2="6" y2="50500"/>
 					<path d="M8,26129L8,26129" tabindex="0">
 						<title>04:21.29 on 2025-07-12</title>
 					</path>
-					<line x1="0" y1="26129" x2="20" y2="26129"/>
+					<line x1="0" y1="26129" x2="54" y2="26129"/>
 					<line x1="8" y1="0" x2="8" y2="50500"/>
 					<path d="M10,25405L10,25405" tabindex="0">
 						<title>04:14.05 on 2025-07-14</title>
 					</path>
-					<line x1="0" y1="25405" x2="20" y2="25405"/>
+					<line x1="0" y1="25405" x2="54" y2="25405"/>
 					<line x1="10" y1="0" x2="10" y2="50500"/>
+					<path d="M46,24996L46,24996" tabindex="0">
+						<title>04:09.96 on 2025-08-19</title>
+					</path>
+					<line x1="0" y1="24996" x2="54" y2="24996"/>
+					<line x1="46" y1="0" x2="46" y2="50500"/>
 				</g>
 				<g style="--index: 3;">
 					<path d="M8,30251" tabindex="0">
@@ -1167,19 +1172,24 @@
 					<path d="M8,30251L8,30251" tabindex="0">
 						<title>05:02.51 on 2025-07-12</title>
 					</path>
-					<line x1="0" y1="30251" x2="20" y2="30251"/>
+					<line x1="0" y1="30251" x2="54" y2="30251"/>
 					<line x1="8" y1="0" x2="8" y2="50500"/>
 				</g>
 				<g style="--index: 4;">
-					<path d="M9,50500" tabindex="0">
+					<path d="M9,50500L54,50500L54,44070" tabindex="0">
 						<title>8w3l21qj</title>
 					</path>
-					<rect x="9" y="50500" width="0" height="0"/>
+					<rect x="9" y="44070" width="45" height="6430"/>
 					<path d="M9,50500L9,50500" tabindex="0">
 						<title>08:25.00 on 2025-07-13</title>
 					</path>
-					<line x1="0" y1="50500" x2="20" y2="50500"/>
+					<line x1="0" y1="50500" x2="54" y2="50500"/>
 					<line x1="9" y1="0" x2="9" y2="50500"/>
+					<path d="M54,44070L54,44070" tabindex="0">
+						<title>07:20.70 on 2025-08-27</title>
+					</path>
+					<line x1="0" y1="44070" x2="54" y2="44070"/>
+					<line x1="54" y1="0" x2="54" y2="50500"/>
 				</g>
 				<g style="--index: 5;">
 					<path d="M20,29233" tabindex="0">
@@ -1189,8 +1199,19 @@
 					<path d="M20,29233L20,29233" tabindex="0">
 						<title>04:52.33 on 2025-07-24</title>
 					</path>
-					<line x1="0" y1="29233" x2="20" y2="29233"/>
+					<line x1="0" y1="29233" x2="54" y2="29233"/>
 					<line x1="20" y1="0" x2="20" y2="50500"/>
+				</g>
+				<g style="--index: 6;">
+					<path d="M49,29197" tabindex="0">
+						<title>j2pmdqp8</title>
+					</path>
+					<rect x="49" y="29197" width="0" height="0"/>
+					<path d="M49,29197L49,29197" tabindex="0">
+						<title>04:51.97 on 2025-08-22</title>
+					</path>
+					<line x1="0" y1="29197" x2="54" y2="29197"/>
+					<line x1="49" y1="0" x2="49" y2="50500"/>
 				</g>
 			</g>
 		</svg>
