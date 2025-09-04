@@ -1784,7 +1784,7 @@ await writeFile(`plot/player-race-records.svg`, `${formattedRecordCountByPlayerF
 await writeFile(`plot/player-sublevel-records.svg`, `${formattedRecordCountByPlayerForSublevels}\n`);
 await writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
 await writeFile(`plot/leaderboard-bear-records.svg`, `${formattedRecordTimeByLeaderboardForBears}\n`);
-await writeFile(`plot/leaderboard-missions-records.svg`, `${formattedRecordTimeByLeaderboardForMissions}\n`);
+await writeFile(`plot/leaderboard-mission-records.svg`, `${formattedRecordTimeByLeaderboardForMissions}\n`);
 await writeFile(`plot/leaderboard-race-records.svg`, `${formattedRecordTimeByLeaderboardForRaces}\n`);
 await writeFile(`plot/leaderboard-sublevel-records.svg`, `${formattedRecordTimeByLeaderboardForSublevels}\n`);
 await writeFile(`plot/player-bear-times.svg`, `${formattedTotalTimeByPlayerForBears}\n`);
