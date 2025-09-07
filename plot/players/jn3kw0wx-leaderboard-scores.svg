@@ -1,0 +1,1141 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="en">
+	<title>Rank by leaderboard for player jn3kw0wx</title>
+	<metadata>
+		<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="color-scheme" content="dark light" />
+	</metadata>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
+			background: var(--canvas-background);
+			color: var(--canvas-foreground);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject::before,
+		foreignObject::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			left: 20px;
+			bottom: 20px;
+			pointer-events: auto;
+		}
+		foreignObject::before {
+			width: calc(100% - 40px);
+			height: calc(20px + var(--date-size) * 1px);
+		}
+		foreignObject::after {
+			width: calc(20px + var(--value-size) * 1px);
+			height: calc(100% - 40px);
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			z-index: 4;
+			right: 0;
+			top: 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+			direction: rtl;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+			direction: ltr;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+			direction: ltr;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			position: absolute;
+			z-index: 2;
+			margin: 0;
+			padding: 10px;
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			font-weight: bold;
+			pointer-events: auto;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			border-top: 1px solid #0000;
+			border-bottom: 1px solid var(--canvas-foreground);
+		}
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px dashed #0000;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg {
+			width: calc(20px + var(--date-size) * 1px);
+			height: 42px;
+			bottom: 20px;
+		}
+		foreignObject &gt; svg:first-of-type {
+			left: calc(40px + var(--value-size) * 1px);
+			transform: rotate(90deg) translate(-100%, 0);
+			transform-origin: left bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg {
+			right: 20px;
+			transform: rotate(90deg) translate(0, 100%);
+			transform-origin: right bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			width: calc(20px + var(--value-size) * 1px);
+			height: 42px;
+			left: 20px;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			bottom: calc(40px + var(--date-size) * 1px);
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			top: 20px;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text {
+			fill: var(--canvas-foreground);
+			stroke: none;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text {
+			cursor: vertical-text;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg + svg {
+			position: relative;
+			z-index: 3;
+			width: calc(100% - 60px - var(--value-size) * 1px);
+			height: calc(100% - 60px - var(--date-size) * 1px);
+			margin: 20px 20px calc(40px + var(--date-size) * 1px) calc(40px + var(--value-size) * 1px);
+			border-left: 1px solid var(--canvas-foreground);
+			border-right: 1px dashed var(--canvas-foreground);
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px solid var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: var(--highlighted);
+			stroke: none;
+		}
+		g &gt; rect[tabindex] {
+			fill: var(--tier, #0000);
+			cursor: help;
+		}
+		g &gt; rect[tabindex][data-tier="diamond"] {
+			--tier: var(--diamond);
+		}
+		g &gt; rect[tabindex][data-tier="gold"] {
+			--tier: var(--gold);
+		}
+		g &gt; rect[tabindex][data-tier="silver"] {
+			--tier: var(--silver);
+		}
+		g &gt; rect[tabindex][data-tier="bronze"] {
+			--tier: var(--bronze);
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; path[tabindex]:first-of-type + rect {
+			fill: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line + line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--diamond: #0363;
+				--gold: #6303;
+				--silver: #3633;
+				--bronze: #6363;
+				--highlighted: #6663;
+				--faded: #9993;
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--diamond: #9cf3;
+				--gold: #fc93;
+				--silver: #9c93;
+				--bronze: #c9c3;
+				--highlighted: #9993;
+				--faded: #6663;
+			}
+		}
+	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleError(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
+								});
+							}
+							break;
+						}
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
+				})();
+				await promise;
+				if (session == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const {players, leaderboards} = session;
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<script>
+		"use strict";
+		{
+			document.addEventListener("DOMContentLoaded", (event) =&gt; {
+				const minDateText = document.querySelector("foreignObject &gt; svg:first-of-type &gt; text");
+				const maxDateText = document.querySelector("foreignObject &gt; svg:first-of-type + svg &gt; text");
+				const startX = Math.round(Date.parse(minDateText.textContent) / 86400000);
+				function xToDate(x) {
+					const datetime = new Date((startX + x) * 86400000);
+					const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
+					const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
+					const day = `${datetime.getUTCDate()}`.padStart(2, "0");
+					const date = `${year}-${month}-${day}`;
+					const size = date.length * 10;
+					return {date, size};
+				}
+				function setMinDate(x) {
+					const {date, size} = xToDate(Math.floor(x));
+					minDateText.textLength.baseVal.value = size;
+					minDateText.textContent = date;
+				}
+				function setMaxDate(x) {
+					const {date, size} = xToDate(Math.ceil(x));
+					maxDateText.textLength.baseVal.value = size;
+					maxDateText.textContent = date;
+				}
+				const minValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg &gt; text");
+				const maxValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text");
+				const timed = minValueText.textContent.includes(":");
+				function yToValue(y) {
+					if (timed) {
+						const minutes = `${(y - y % 6000) / 6000}`.padStart(2, "0");
+						const seconds = `${(y - y % 100) / 100 % 60}`.padStart(2, "0");
+						const centiseconds = `${y % 100}`.padStart(2, "0");
+						const value = `${minutes}:${seconds}.${centiseconds}`;
+						const size = value.length * 10;
+						return {value, size};
+					} else {
+						const value = `${y}`;
+						const size = value.length * 10;
+						return {value, size};
+					}
+				}
+				function setMinValue(y) {
+					const {value, size} = yToValue(Math.floor(y));
+					minValueText.textLength.baseVal.value = size;
+					minValueText.textContent = value;
+				}
+				function setMaxValue(y) {
+					const {value, size} = yToValue(Math.ceil(y));
+					maxValueText.textLength.baseVal.value = size;
+					maxValueText.textContent = value;
+				}
+				const svg = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg + svg");
+				svg.tabIndex = -1;
+				svg.style.setProperty("outline", "0");
+				if (CSS.supports("overflow-clip-margin", "8px")) {
+					svg.style.setProperty("overflow", "clip");
+					svg.style.setProperty("overflow-clip-margin", "8px");
+				}
+				svg.style.setProperty("touch-action", "none");
+				const {x: baseX, y: baseY, width: baseWidth, height: baseHeight} = svg.viewBox.baseVal;
+				let pointerCount = 0;
+				const pointers = Object.create(null);
+				const xPointerIds = [];
+				const yPointerIds = [];
+				let x = null;
+				let y = null;
+				let width = null;
+				let height = null;
+				svg.addEventListener("pointerdown", (event) =&gt; {
+					const {pointerId} = event;
+					if (pointerId in pointers) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.setPointerCapture(pointerId);
+					++pointerCount;
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId] = {
+						offsetX,
+						offsetY,
+					};
+					xPointerIds.splice(xPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetX &lt;= offsetX;
+					}) + 1, 0, pointerId);
+					yPointerIds.splice(yPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetY &lt;= offsetY;
+					}) + 1, 0, pointerId);
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					width = Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth);
+					height = Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight);
+					x = Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX);
+					y = Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY);
+				});
+				svg.addEventListener("pointerup", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.releasePointerCapture(pointerId);
+					--pointerCount;
+					delete pointers[pointerId];
+					xPointerIds.splice(xPointerIds.lastIndexOf(pointerId), 1);
+					yPointerIds.splice(yPointerIds.lastIndexOf(pointerId), 1);
+					const minOffsetX = pointerCount !== 0 ? pointers[xPointerIds[0]].offsetX : null;
+					const minOffsetY = pointerCount !== 0 ? pointers[yPointerIds[0]].offsetY : null;
+					const maxClientWidth = pointerCount !== 0 ? pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX : null;
+					const maxClientHeight = pointerCount !== 0 ? pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY : null;
+					width = pointerCount !== 0 ? Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth) : null;
+					height = pointerCount !== 0 ? Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight) : null;
+					x = pointerCount !== 0 ? Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX) : null;
+					y = pointerCount !== 0 ? Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY) : null;
+				});
+				svg.addEventListener("pointermove", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					event.preventDefault();
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId].offsetX = offsetX;
+					pointers[pointerId].offsetY = offsetY;
+					const oldXIndex = xPointerIds.lastIndexOf(pointerId);
+					let newXIndex = oldXIndex;
+					while (newXIndex &gt; 0 &amp;&amp; pointers[xPointerIds[newXIndex - 1]].offsetX &gt; offsetX) {
+						--newXIndex;
+					}
+					xPointerIds.copyWithin(newXIndex + 1, newXIndex, oldXIndex);
+					xPointerIds[newXIndex] = pointerId;
+					while (newXIndex &lt; pointerCount - 1 &amp;&amp; pointers[xPointerIds[newXIndex + 1]].offsetX &lt; offsetX) {
+						++newXIndex;
+					}
+					xPointerIds.copyWithin(oldXIndex, oldXIndex + 1, newXIndex + 1);
+					xPointerIds[newXIndex] = pointerId;
+					const oldYIndex = yPointerIds.lastIndexOf(pointerId);
+					let newYIndex = oldYIndex;
+					while (newYIndex &gt; 0 &amp;&amp; pointers[yPointerIds[newYIndex - 1]].offsetY &gt; offsetY) {
+						--newYIndex;
+					}
+					yPointerIds.copyWithin(newYIndex + 1, newYIndex, oldYIndex);
+					yPointerIds[newYIndex] = pointerId;
+					while (newYIndex &lt; pointerCount - 1 &amp;&amp; pointers[yPointerIds[newYIndex + 1]].offsetY &lt; offsetY) {
+						++newYIndex;
+					}
+					yPointerIds.copyWithin(oldYIndex, oldYIndex + 1, newYIndex + 1);
+					yPointerIds[newYIndex] = pointerId;
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					animWidth = width === 0 ? animWidth : maxClientWidth === 0 ? baseWidth : Math.min(svg.clientWidth / maxClientWidth * width, baseWidth);
+					animHeight = height === 0 ? animHeight : maxClientHeight === 0 ? baseHeight : Math.min(svg.clientHeight / maxClientHeight * height, baseHeight);
+					animX = Math.max(Math.min(x - minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(y - minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+				const zoomIntensity = 1.25;
+				svg.addEventListener("wheel", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					if (!ctrlKey) {
+						const vectorX = (shiftKey ? event.deltaY : event.deltaX) / svg.clientWidth * animWidth;
+						const vectorY = (shiftKey ? 0 : event.deltaY) / svg.clientHeight * animHeight;
+						animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+						animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+						svg.viewBox.baseVal.x = animX;
+						svg.viewBox.baseVal.y = animY;
+						setMinDate(animX);
+						setMaxDate(animX + animWidth);
+						setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+						setMaxValue(baseY * 2 + baseHeight - animY);
+						return;
+					}
+					const ratioX = zoomIntensity ** Math.sign(shiftKey ? event.deltaY : event.deltaX);
+					const ratioY = zoomIntensity ** Math.sign(shiftKey ? 0 : event.deltaY);
+					const positionX = Math.max(0, Math.min(event.offsetX / svg.clientWidth, 1)) * animWidth;
+					const positionY = Math.max(0, Math.min(event.offsetY / svg.clientHeight, 1)) * animHeight;
+					animWidth = Math.min(animWidth * ratioX, baseWidth);
+					animHeight = Math.min(animHeight * ratioY, baseHeight);
+					animX = Math.max(Math.min(animX + positionX * (1 - ratioX), baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(animY + positionY * (1 - ratioY), baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				}, {
+					passive: false,
+				});
+				svg.addEventListener("keydown", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					switch (event.code) {
+						case "Space": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "Equal":
+						case "NumpadAdd":
+						case "Minus":
+						case "NumpadSubtract": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.code === "Minus" || event.code === "NumpadSubtract" ? zoomIntensity : 1 / zoomIntensity;
+							if (!shiftKey) {
+								animHeight = Math.min(animHeight * ratio, baseHeight);
+								animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "Digit0":
+						case "Numpad0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							if (!shiftKey) {
+								animY = baseY;
+								animHeight = baseHeight;
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animX = baseX;
+							animWidth = baseWidth;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+					}
+					switch (event.key) {
+						case "ArrowRight": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = 50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowLeft": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = -50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowDown": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = 50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "End": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY + baseHeight - animHeight;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "ArrowUp": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = -50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "Home": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "PageDown":
+						case "PageUp":
+						case " ": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = event.key === "PageUp" || event.key === " " &amp;&amp; shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "+":
+						case "-": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.key === "-" ? 1 / zoomIntensity : zoomIntensity;
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animHeight = Math.min(animHeight * ratio, baseHeight);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animX = baseX;
+							animY = baseY;
+							animWidth = baseWidth;
+							animHeight = baseHeight;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+					}
+				});
+				svg.addEventListener("focusin", (event) =&gt; {
+					if (!event.target.matches(":focus-visible")) {
+						return;
+					}
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					let {x, y, width, height} = event.target.getBBox();
+					width = Math.round(width);
+					height = Math.round(height);
+					x = Math.round(x);
+					y = baseY * 2 + baseHeight - height - Math.round(y);
+					if (x + width &lt; animX) {
+						animX = x;
+						if (width &gt; animWidth) {
+							animX += (width - animWidth) / 2;
+						}
+					} else if (x &gt; animX + animWidth) {
+						animX = x + width - animWidth;
+						if (width &gt; animWidth) {
+							animX -= (width - animWidth) / 2;
+						}
+					}
+					if (y + height &lt; animY) {
+						animY = y;
+						if (height &gt; animHeight) {
+							animY += (height - animHeight) / 2;
+						}
+					} else if (y &gt; animY + animHeight) {
+						animY = y + height - animHeight;
+						if (height &gt; animHeight) {
+							animY -= (height - animHeight) / 2;
+						}
+					}
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2020-11-24</text>
+		</svg>
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-08-30</text>
+		</svg>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		</svg>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">102</text>
+		</svg>
+		<svg viewBox="0 0 1740 102" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 102) scale(1 -1)" style="--count: 7;">
+				<g>
+					<rect x="0" y="0" width="1740" height="102"/>
+				</g>
+				<g style="--index: 0;">
+					<path d="M0,7L0,7L0,5L1,5L1,6L3,6L3,7L22,7L22,8L568,8L568,9L651,9L651,10L1264,10L1264,11L1302,11L1302,12L1313,12L1313,13L1369,13L1369,14L1413,14L1413,15L1490,15L1490,16L1516,16L1516,17L1522,17L1522,18L1525,18L1525,19L1542,19L1542,20L1557,20L1557,21L1566,21L1566,22L1577,22L1577,23L1590,23L1590,24L1591,24L1591,25L1597,25L1597,26L1616,26L1616,27L1621,27L1621,28L1624,28L1624,29L1634,29L1634,30L1662,30L1662,31L1683,31L1683,32L1685,32L1685,33L1686,33L1686,34L1688,34L1688,35L1691,35L1691,36L1696,36L1696,37L1699,37L1699,38L1702,38L1702,39L1705,39L1705,40L1718,40L1718,41L1723,41L1723,42L1728,42L1728,43L1734,43L1734,44L1737,44L1737,45L1739,45L1739,46L1740,46L1740,47L1740,47" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,16L0,16L0,8L67,8L67,9L115,9L115,10L135,10L135,11L143,11L143,12L156,12L156,13L158,13L158,14L415,14L415,15L420,15L420,16L430,16L430,17L467,17L467,19L471,19L471,20L522,20L522,21L588,21L588,22L592,22L592,23L593,23L593,24L624,24L624,25L640,25L640,26L649,26L649,27L652,27L652,28L708,28L708,29L843,29L843,30L847,30L847,31L858,31L858,32L901,32L901,33L936,33L936,34L948,34L948,35L1110,35L1110,36L1117,36L1117,37L1147,37L1147,38L1272,38L1272,39L1287,39L1287,40L1300,40L1300,41L1302,41L1302,42L1313,42L1313,43L1321,43L1321,45L1375,45L1375,46L1405,46L1405,47L1448,47L1448,48L1464,48L1464,49L1489,49L1489,50L1507,50L1507,51L1512,51L1512,52L1527,52L1527,53L1548,53L1548,54L1552,54L1552,55L1557,55L1557,56L1563,56L1563,58L1573,58L1573,59L1597,59L1597,60L1607,60L1607,62L1608,62L1608,63L1621,63L1621,64L1638,64L1638,65L1682,65L1682,66L1699,66L1699,67L1702,67L1702,69L1721,69L1721,70L1724,70L1724,71L1728,71L1728,72L1731,72L1731,73L1736,73L1736,74L1740,74" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,3L1,3L1,3L10,3L10,4L104,4L104,5L464,5L464,6L576,6L576,7L874,7L874,8L1405,8L1405,9L1561,9L1561,10L1604,10L1604,11L1673,11L1673,12L1678,12L1678,13L1689,13L1689,15L1701,15L1701,16L1740,16" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.21dzoj3l</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,14L1,14L1,5L21,5L21,6L52,6L52,7L592,7L592,8L666,8L666,9L680,9L680,10L746,10L746,11L777,11L777,12L863,12L863,13L1122,13L1122,14L1296,14L1296,15L1350,15L1350,16L1405,16L1405,17L1418,17L1418,18L1493,18L1493,19L1542,19L1542,20L1546,20L1546,21L1553,21L1553,22L1568,22L1568,23L1587,23L1587,25L1609,25L1609,26L1658,26L1658,27L1668,27L1668,28L1674,28L1674,30L1688,30L1688,31L1699,31L1699,32L1700,32L1700,33L1702,33L1702,35L1703,35L1703,36L1706,36L1706,37L1707,37L1707,38L1719,38L1719,39L1726,39L1726,40L1740,40" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.jq60ze3q</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,5L1,5L1,4L37,4L37,5L104,5L104,6L581,6L581,7L863,7L863,8L1260,8L1260,9L1364,9L1364,10L1405,10L1405,11L1534,11L1534,12L1562,12L1562,13L1620,13L1620,14L1678,14L1678,16L1679,16L1679,18L1740,18" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.5q86rxr1</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,7L1,7L1,6L26,6L26,7L53,7L53,8L107,8L107,9L287,9L287,10L592,10L592,11L651,11L651,12L678,12L678,13L747,13L747,14L858,14L858,15L914,15L914,16L1196,16L1196,17L1352,17L1352,18L1405,18L1405,19L1498,19L1498,20L1531,20L1531,21L1596,21L1596,22L1597,22L1597,23L1598,23L1598,24L1609,24L1609,25L1619,25L1619,26L1626,26L1626,27L1689,27L1689,28L1710,28L1710,29L1712,29L1712,30L1731,30L1731,31L1740,31" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,16L1,16L1,8L23,8L23,9L24,9L24,10L64,10L64,11L167,11L167,12L210,12L210,13L218,13L218,14L374,14L374,15L380,15L380,16L393,16L393,17L412,17L412,18L460,18L460,19L461,19L461,20L467,20L467,21L522,21L522,22L590,22L590,23L592,23L592,24L596,24L596,25L638,25L638,26L645,26L645,27L648,27L648,28L667,28L667,29L686,29L686,30L706,30L706,31L740,31L740,32L748,32L748,33L754,33L754,34L767,34L767,35L772,35L772,36L786,36L786,37L791,37L791,38L815,38L815,39L833,39L833,40L843,40L843,41L863,41L863,42L867,42L867,43L901,43L901,44L916,44L916,45L918,45L918,46L952,46L952,47L1036,47L1036,48L1069,48L1069,49L1110,49L1110,50L1139,50L1139,51L1230,51L1230,52L1239,52L1239,53L1262,53L1262,54L1274,54L1274,55L1310,55L1310,56L1313,56L1313,57L1343,57L1343,58L1351,58L1351,59L1364,59L1364,60L1365,60L1365,61L1377,61L1377,62L1383,62L1383,63L1405,63L1405,64L1433,64L1433,65L1438,65L1438,66L1439,66L1439,68L1454,68L1454,69L1472,69L1472,70L1493,70L1493,71L1512,71L1512,72L1530,72L1530,73L1531,73L1531,74L1541,74L1541,75L1543,75L1543,76L1546,76L1546,77L1551,77L1551,78L1569,78L1569,79L1575,79L1575,80L1578,80L1578,81L1585,81L1585,82L1598,82L1598,83L1599,83L1599,84L1601,84L1601,85L1603,85L1603,86L1608,86L1608,87L1610,87L1610,88L1615,88L1615,89L1670,89L1670,90L1676,90L1676,91L1682,91L1682,92L1687,92L1687,93L1694,93L1694,94L1699,94L1699,95L1703,95L1703,96L1707,96L1707,97L1709,97L1709,99L1711,99L1711,100L1724,100L1724,101L1732,101L1732,102L1740,102" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
+</svg>

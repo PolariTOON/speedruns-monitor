@@ -1,0 +1,1291 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="en">
+	<title>Score by player for leaderboard l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+	<metadata>
+		<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="color-scheme" content="dark light" />
+	</metadata>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
+			background: var(--canvas-background);
+			color: var(--canvas-foreground);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject::before,
+		foreignObject::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			left: 20px;
+			bottom: 20px;
+			pointer-events: auto;
+		}
+		foreignObject::before {
+			width: calc(100% - 40px);
+			height: calc(20px + var(--date-size) * 1px);
+		}
+		foreignObject::after {
+			width: calc(20px + var(--value-size) * 1px);
+			height: calc(100% - 40px);
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			z-index: 4;
+			right: 0;
+			top: 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+			direction: rtl;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+			direction: ltr;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+			direction: ltr;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			position: absolute;
+			z-index: 2;
+			margin: 0;
+			padding: 10px;
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			font-weight: bold;
+			pointer-events: auto;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			border-top: 1px solid #0000;
+			border-bottom: 1px solid var(--canvas-foreground);
+		}
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px dashed #0000;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg {
+			width: calc(20px + var(--date-size) * 1px);
+			height: 42px;
+			bottom: 20px;
+		}
+		foreignObject &gt; svg:first-of-type {
+			left: calc(40px + var(--value-size) * 1px);
+			transform: rotate(90deg) translate(-100%, 0);
+			transform-origin: left bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg {
+			right: 20px;
+			transform: rotate(90deg) translate(0, 100%);
+			transform-origin: right bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			width: calc(20px + var(--value-size) * 1px);
+			height: 42px;
+			left: 20px;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			bottom: calc(40px + var(--date-size) * 1px);
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			top: 20px;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text {
+			fill: var(--canvas-foreground);
+			stroke: none;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text {
+			cursor: vertical-text;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg + svg {
+			position: relative;
+			z-index: 3;
+			width: calc(100% - 60px - var(--value-size) * 1px);
+			height: calc(100% - 60px - var(--date-size) * 1px);
+			margin: 20px 20px calc(40px + var(--date-size) * 1px) calc(40px + var(--value-size) * 1px);
+			border-left: 1px solid var(--canvas-foreground);
+			border-right: 1px dashed var(--canvas-foreground);
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px solid var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: var(--highlighted);
+			stroke: none;
+		}
+		g &gt; rect[tabindex] {
+			fill: var(--tier, #0000);
+			cursor: help;
+		}
+		g &gt; rect[tabindex][data-tier="diamond"] {
+			--tier: var(--diamond);
+		}
+		g &gt; rect[tabindex][data-tier="gold"] {
+			--tier: var(--gold);
+		}
+		g &gt; rect[tabindex][data-tier="silver"] {
+			--tier: var(--silver);
+		}
+		g &gt; rect[tabindex][data-tier="bronze"] {
+			--tier: var(--bronze);
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; path[tabindex]:first-of-type + rect {
+			fill: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line + line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--diamond: #0363;
+				--gold: #6303;
+				--silver: #3633;
+				--bronze: #6363;
+				--highlighted: #6663;
+				--faded: #9993;
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--diamond: #9cf3;
+				--gold: #fc93;
+				--silver: #9c93;
+				--bronze: #c9c3;
+				--highlighted: #9993;
+				--faded: #6663;
+			}
+		}
+	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleError(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
+								});
+							}
+							break;
+						}
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
+				})();
+				await promise;
+				if (session == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const {players, leaderboards} = session;
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<script>
+		"use strict";
+		{
+			document.addEventListener("DOMContentLoaded", (event) =&gt; {
+				const minDateText = document.querySelector("foreignObject &gt; svg:first-of-type &gt; text");
+				const maxDateText = document.querySelector("foreignObject &gt; svg:first-of-type + svg &gt; text");
+				const startX = Math.round(Date.parse(minDateText.textContent) / 86400000);
+				function xToDate(x) {
+					const datetime = new Date((startX + x) * 86400000);
+					const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
+					const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
+					const day = `${datetime.getUTCDate()}`.padStart(2, "0");
+					const date = `${year}-${month}-${day}`;
+					const size = date.length * 10;
+					return {date, size};
+				}
+				function setMinDate(x) {
+					const {date, size} = xToDate(Math.floor(x));
+					minDateText.textLength.baseVal.value = size;
+					minDateText.textContent = date;
+				}
+				function setMaxDate(x) {
+					const {date, size} = xToDate(Math.ceil(x));
+					maxDateText.textLength.baseVal.value = size;
+					maxDateText.textContent = date;
+				}
+				const minValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg &gt; text");
+				const maxValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text");
+				const timed = minValueText.textContent.includes(":");
+				function yToValue(y) {
+					if (timed) {
+						const minutes = `${(y - y % 6000) / 6000}`.padStart(2, "0");
+						const seconds = `${(y - y % 100) / 100 % 60}`.padStart(2, "0");
+						const centiseconds = `${y % 100}`.padStart(2, "0");
+						const value = `${minutes}:${seconds}.${centiseconds}`;
+						const size = value.length * 10;
+						return {value, size};
+					} else {
+						const value = `${y}`;
+						const size = value.length * 10;
+						return {value, size};
+					}
+				}
+				function setMinValue(y) {
+					const {value, size} = yToValue(Math.floor(y));
+					minValueText.textLength.baseVal.value = size;
+					minValueText.textContent = value;
+				}
+				function setMaxValue(y) {
+					const {value, size} = yToValue(Math.ceil(y));
+					maxValueText.textLength.baseVal.value = size;
+					maxValueText.textContent = value;
+				}
+				const svg = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg + svg");
+				svg.tabIndex = -1;
+				svg.style.setProperty("outline", "0");
+				if (CSS.supports("overflow-clip-margin", "8px")) {
+					svg.style.setProperty("overflow", "clip");
+					svg.style.setProperty("overflow-clip-margin", "8px");
+				}
+				svg.style.setProperty("touch-action", "none");
+				const {x: baseX, y: baseY, width: baseWidth, height: baseHeight} = svg.viewBox.baseVal;
+				let pointerCount = 0;
+				const pointers = Object.create(null);
+				const xPointerIds = [];
+				const yPointerIds = [];
+				let x = null;
+				let y = null;
+				let width = null;
+				let height = null;
+				svg.addEventListener("pointerdown", (event) =&gt; {
+					const {pointerId} = event;
+					if (pointerId in pointers) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.setPointerCapture(pointerId);
+					++pointerCount;
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId] = {
+						offsetX,
+						offsetY,
+					};
+					xPointerIds.splice(xPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetX &lt;= offsetX;
+					}) + 1, 0, pointerId);
+					yPointerIds.splice(yPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetY &lt;= offsetY;
+					}) + 1, 0, pointerId);
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					width = Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth);
+					height = Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight);
+					x = Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX);
+					y = Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY);
+				});
+				svg.addEventListener("pointerup", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.releasePointerCapture(pointerId);
+					--pointerCount;
+					delete pointers[pointerId];
+					xPointerIds.splice(xPointerIds.lastIndexOf(pointerId), 1);
+					yPointerIds.splice(yPointerIds.lastIndexOf(pointerId), 1);
+					const minOffsetX = pointerCount !== 0 ? pointers[xPointerIds[0]].offsetX : null;
+					const minOffsetY = pointerCount !== 0 ? pointers[yPointerIds[0]].offsetY : null;
+					const maxClientWidth = pointerCount !== 0 ? pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX : null;
+					const maxClientHeight = pointerCount !== 0 ? pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY : null;
+					width = pointerCount !== 0 ? Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth) : null;
+					height = pointerCount !== 0 ? Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight) : null;
+					x = pointerCount !== 0 ? Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX) : null;
+					y = pointerCount !== 0 ? Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY) : null;
+				});
+				svg.addEventListener("pointermove", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					event.preventDefault();
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId].offsetX = offsetX;
+					pointers[pointerId].offsetY = offsetY;
+					const oldXIndex = xPointerIds.lastIndexOf(pointerId);
+					let newXIndex = oldXIndex;
+					while (newXIndex &gt; 0 &amp;&amp; pointers[xPointerIds[newXIndex - 1]].offsetX &gt; offsetX) {
+						--newXIndex;
+					}
+					xPointerIds.copyWithin(newXIndex + 1, newXIndex, oldXIndex);
+					xPointerIds[newXIndex] = pointerId;
+					while (newXIndex &lt; pointerCount - 1 &amp;&amp; pointers[xPointerIds[newXIndex + 1]].offsetX &lt; offsetX) {
+						++newXIndex;
+					}
+					xPointerIds.copyWithin(oldXIndex, oldXIndex + 1, newXIndex + 1);
+					xPointerIds[newXIndex] = pointerId;
+					const oldYIndex = yPointerIds.lastIndexOf(pointerId);
+					let newYIndex = oldYIndex;
+					while (newYIndex &gt; 0 &amp;&amp; pointers[yPointerIds[newYIndex - 1]].offsetY &gt; offsetY) {
+						--newYIndex;
+					}
+					yPointerIds.copyWithin(newYIndex + 1, newYIndex, oldYIndex);
+					yPointerIds[newYIndex] = pointerId;
+					while (newYIndex &lt; pointerCount - 1 &amp;&amp; pointers[yPointerIds[newYIndex + 1]].offsetY &lt; offsetY) {
+						++newYIndex;
+					}
+					yPointerIds.copyWithin(oldYIndex, oldYIndex + 1, newYIndex + 1);
+					yPointerIds[newYIndex] = pointerId;
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					animWidth = width === 0 ? animWidth : maxClientWidth === 0 ? baseWidth : Math.min(svg.clientWidth / maxClientWidth * width, baseWidth);
+					animHeight = height === 0 ? animHeight : maxClientHeight === 0 ? baseHeight : Math.min(svg.clientHeight / maxClientHeight * height, baseHeight);
+					animX = Math.max(Math.min(x - minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(y - minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+				const zoomIntensity = 1.25;
+				svg.addEventListener("wheel", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					if (!ctrlKey) {
+						const vectorX = (shiftKey ? event.deltaY : event.deltaX) / svg.clientWidth * animWidth;
+						const vectorY = (shiftKey ? 0 : event.deltaY) / svg.clientHeight * animHeight;
+						animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+						animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+						svg.viewBox.baseVal.x = animX;
+						svg.viewBox.baseVal.y = animY;
+						setMinDate(animX);
+						setMaxDate(animX + animWidth);
+						setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+						setMaxValue(baseY * 2 + baseHeight - animY);
+						return;
+					}
+					const ratioX = zoomIntensity ** Math.sign(shiftKey ? event.deltaY : event.deltaX);
+					const ratioY = zoomIntensity ** Math.sign(shiftKey ? 0 : event.deltaY);
+					const positionX = Math.max(0, Math.min(event.offsetX / svg.clientWidth, 1)) * animWidth;
+					const positionY = Math.max(0, Math.min(event.offsetY / svg.clientHeight, 1)) * animHeight;
+					animWidth = Math.min(animWidth * ratioX, baseWidth);
+					animHeight = Math.min(animHeight * ratioY, baseHeight);
+					animX = Math.max(Math.min(animX + positionX * (1 - ratioX), baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(animY + positionY * (1 - ratioY), baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				}, {
+					passive: false,
+				});
+				svg.addEventListener("keydown", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					switch (event.code) {
+						case "Space": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "Equal":
+						case "NumpadAdd":
+						case "Minus":
+						case "NumpadSubtract": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.code === "Minus" || event.code === "NumpadSubtract" ? zoomIntensity : 1 / zoomIntensity;
+							if (!shiftKey) {
+								animHeight = Math.min(animHeight * ratio, baseHeight);
+								animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "Digit0":
+						case "Numpad0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							if (!shiftKey) {
+								animY = baseY;
+								animHeight = baseHeight;
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animX = baseX;
+							animWidth = baseWidth;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+					}
+					switch (event.key) {
+						case "ArrowRight": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = 50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowLeft": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = -50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowDown": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = 50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "End": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY + baseHeight - animHeight;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "ArrowUp": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = -50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "Home": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "PageDown":
+						case "PageUp":
+						case " ": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = event.key === "PageUp" || event.key === " " &amp;&amp; shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "+":
+						case "-": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.key === "-" ? 1 / zoomIntensity : zoomIntensity;
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animHeight = Math.min(animHeight * ratio, baseHeight);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animX = baseX;
+							animY = baseY;
+							animWidth = baseWidth;
+							animHeight = baseHeight;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+					}
+				});
+				svg.addEventListener("focusin", (event) =&gt; {
+					if (!event.target.matches(":focus-visible")) {
+						return;
+					}
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					let {x, y, width, height} = event.target.getBBox();
+					width = Math.round(width);
+					height = Math.round(height);
+					x = Math.round(x);
+					y = baseY * 2 + baseHeight - height - Math.round(y);
+					if (x + width &lt; animX) {
+						animX = x;
+						if (width &gt; animWidth) {
+							animX += (width - animWidth) / 2;
+						}
+					} else if (x &gt; animX + animWidth) {
+						animX = x + width - animWidth;
+						if (width &gt; animWidth) {
+							animX -= (width - animWidth) / 2;
+						}
+					}
+					if (y + height &lt; animY) {
+						animY = y;
+						if (height &gt; animHeight) {
+							animY += (height - animHeight) / 2;
+						}
+					} else if (y &gt; animY + animHeight) {
+						animY = y + height - animHeight;
+						if (height &gt; animHeight) {
+							animY -= (height - animHeight) / 2;
+						}
+					}
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-03-06</text>
+		</svg>
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-08-27</text>
+		</svg>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		</svg>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">37</text>
+		</svg>
+		<svg viewBox="0 0 2731 37" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 37) scale(1 -1)" style="--count: 37;">
+				<g>
+					<rect x="0" y="0" width="2731" height="37"/>
+				</g>
+				<g style="--index: 0;">
+					<path d="M0,1L0,1L0,1L16,1L16,2L47,2L47,2L361,2L361,3L785,3L785,3L811,3L811,3L908,3L908,2L973,2L973,2L990,2L990,2L995,2L995,3L1020,3L1020,3L1047,3L1047,3L1101,3L1101,3L1281,3L1281,3L1586,3L1586,3L1645,3L1645,3L1672,3L1672,3L1741,3L1741,3L1852,3L1852,3L1908,3L1908,3L1926,3L1926,4L1993,4L1993,5L2032,5L2032,6L2190,6L2190,6L2252,6L2252,7L2346,7L2346,7L2399,7L2399,7L2492,7L2492,7L2525,7L2525,7L2590,7L2590,7L2591,7L2591,7L2592,7L2592,7L2603,7L2603,7L2613,7L2613,7L2620,7L2620,7L2683,7L2683,7L2704,7L2704,7L2706,7L2706,7L2725,7L2725,7L2731,7" tabindex="0">
+						<title>qj2pq1p8</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,1L16,1L16,1L47,1L47,1L785,1L785,1L811,1L811,1L973,1L973,1L990,1L990,1L995,1L995,1L1020,1L1020,1L1047,1L1047,1L1101,1L1101,1L1281,1L1281,1L1586,1L1586,1L1645,1L1645,1L1672,1L1672,1L1741,1L1741,1L1852,1L1852,1L1908,1L1908,1L1926,1L1926,2L1993,2L1993,2L2032,2L2032,2L2190,2L2190,2L2252,2L2252,3L2346,3L2346,3L2399,3L2399,3L2492,3L2492,3L2525,3L2525,3L2590,3L2590,3L2591,3L2591,3L2592,3L2592,3L2603,3L2603,3L2613,3L2613,3L2620,3L2620,3L2683,3L2683,3L2704,3L2704,3L2706,3L2706,3L2725,3L2725,3L2731,3" tabindex="0">
+						<title>18qg9ndx</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,1L47,1L47,3L361,3L361,2L785,2L785,2L811,2L811,2L908,2L908,5L911,5L911,4L913,4L913,5L973,5L973,6L990,6L990,7L995,7L995,8L1020,8L1020,9L1047,9L1047,9L1049,9L1049,8L1054,8L1054,7L1101,7L1101,7L1281,7L1281,8L1586,8L1586,9L1645,9L1645,8L1672,8L1672,9L1741,9L1741,10L1852,10L1852,11L1908,11L1908,11L1926,11L1926,12L1993,12L1993,13L2032,13L2032,14L2190,14L2190,15L2252,15L2252,16L2346,16L2346,17L2399,17L2399,17L2492,17L2492,18L2515,18L2515,17L2525,17L2525,18L2590,18L2590,18L2591,18L2591,18L2592,18L2592,18L2603,18L2603,19L2613,19L2613,19L2620,19L2620,20L2665,20L2665,19L2683,19L2683,19L2704,19L2704,19L2706,19L2706,20L2725,20L2725,20L2731,20" tabindex="0">
+						<title>y8dgoe98</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,1L785,1L785,4L811,4L811,4L908,4L908,3L911,3L911,5L913,5L913,4L973,4L973,4L990,4L990,4L995,4L995,5L1020,5L1020,5L1047,5L1047,6L1101,6L1101,6L1281,6L1281,7L1519,7L1519,6L1586,6L1586,6L1645,6L1645,6L1672,6L1672,7L1741,7L1741,8L1852,8L1852,9L1908,9L1908,9L1926,9L1926,10L1993,10L1993,11L2032,11L2032,12L2190,12L2190,13L2252,13L2252,14L2346,14L2346,15L2399,15L2399,15L2492,15L2492,16L2515,16L2515,15L2525,15L2525,16L2590,16L2590,16L2591,16L2591,16L2592,16L2592,16L2603,16L2603,17L2613,17L2613,17L2620,17L2620,17L2665,17L2665,16L2683,16L2683,16L2704,16L2704,16L2706,16L2706,16L2725,16L2725,16L2731,16" tabindex="0">
+						<title>8146r4r8</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,1L811,1L811,5L908,5L908,4L911,4L911,3L973,3L973,3L990,3L990,3L995,3L995,4L1020,4L1020,4L1047,4L1047,4L1101,4L1101,4L1281,4L1281,5L1290,5L1290,4L1586,4L1586,4L1645,4L1645,4L1672,4L1672,5L1741,5L1741,6L1852,6L1852,7L1908,7L1908,7L1926,7L1926,8L1993,8L1993,9L2032,9L2032,10L2190,10L2190,11L2252,11L2252,12L2346,12L2346,13L2399,13L2399,13L2492,13L2492,14L2515,14L2515,13L2525,13L2525,14L2590,14L2590,14L2591,14L2591,14L2592,14L2592,14L2603,14L2603,14L2613,14L2613,14L2620,14L2620,14L2665,14L2665,20L2683,20L2683,20L2704,20L2704,20L2706,20L2706,21L2725,21L2725,21L2731,21" tabindex="0">
+						<title>x356nrej</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,1L973,1L973,5L990,5L990,6L995,6L995,7L1020,7L1020,8L1047,8L1047,8L1049,8L1049,7L1054,7L1054,10L1081,10L1081,9L1101,9L1101,9L1116,9L1116,10L1117,10L1117,10L1281,10L1281,11L1586,11L1586,12L1645,12L1645,12L1672,12L1672,13L1678,13L1678,12L1741,12L1741,13L1852,13L1852,14L1908,14L1908,15L1926,15L1926,16L1993,16L1993,17L2032,17L2032,18L2190,18L2190,19L2252,19L2252,20L2346,20L2346,21L2399,21L2399,22L2492,22L2492,23L2525,23L2525,24L2590,24L2590,24L2591,24L2591,24L2592,24L2592,25L2603,25L2603,26L2613,26L2613,26L2620,26L2620,27L2683,27L2683,28L2704,28L2704,28L2706,28L2706,29L2725,29L2725,29L2731,29" tabindex="0">
+						<title>xkon93k8</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,1L990,1L990,5L995,5L995,6L1020,6L1020,6L1047,6L1047,7L1049,7L1049,10L1051,10L1051,9L1054,9L1054,8L1101,8L1101,8L1281,8L1281,9L1586,9L1586,10L1645,10L1645,9L1672,9L1672,10L1741,10L1741,11L1852,11L1852,12L1908,12L1908,12L1926,12L1926,13L1993,13L1993,14L2032,14L2032,15L2190,15L2190,16L2252,16L2252,17L2346,17L2346,18L2399,18L2399,18L2492,18L2492,19L2515,19L2515,18L2525,18L2525,19L2590,19L2590,19L2591,19L2591,19L2592,19L2592,19L2603,19L2603,20L2613,20L2613,20L2620,20L2620,21L2683,21L2683,21L2704,21L2704,21L2706,21L2706,22L2725,22L2725,22L2731,22" tabindex="0">
+						<title>x7q00668</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,1L995,1L995,2L1020,2L1020,2L1047,2L1047,2L1101,2L1101,2L1281,2L1281,2L1586,2L1586,2L1645,2L1645,2L1672,2L1672,2L1741,2L1741,2L1852,2L1852,2L1908,2L1908,2L1926,2L1926,3L1993,3L1993,4L2032,4L2032,5L2190,5L2190,5L2252,5L2252,6L2346,6L2346,6L2399,6L2399,6L2492,6L2492,6L2525,6L2525,6L2590,6L2590,6L2591,6L2591,6L2592,6L2592,6L2603,6L2603,6L2613,6L2613,6L2620,6L2620,6L2683,6L2683,6L2704,6L2704,6L2706,6L2706,6L2725,6L2725,6L2731,6" tabindex="0">
+						<title>jn3kw0wx</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,1L1020,1L1020,7L1047,7L1047,10L1049,10L1049,9L1051,9L1051,10L1054,10L1054,9L1081,9L1081,10L1101,10L1101,10L1116,10L1116,9L1281,9L1281,10L1586,10L1586,11L1645,11L1645,10L1672,10L1672,11L1741,11L1741,12L1852,12L1852,13L1908,13L1908,13L1926,13L1926,14L1993,14L1993,15L2032,15L2032,16L2190,16L2190,17L2252,17L2252,18L2346,18L2346,19L2399,19L2399,20L2492,20L2492,21L2525,21L2525,22L2590,22L2590,22L2591,22L2591,22L2592,22L2592,23L2596,23L2596,22L2603,22L2603,23L2613,23L2613,23L2620,23L2620,24L2683,24L2683,24L2704,24L2704,24L2706,24L2706,25L2725,25L2725,25L2731,25L2731,24L2731,24" tabindex="0">
+						<title>814zn7l8</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,1L1047,1L1047,5L1101,5L1101,5L1125,5L1125,5L1281,5L1281,6L1519,6L1519,5L1586,5L1586,5L1645,5L1645,5L1672,5L1672,6L1741,6L1741,7L1852,7L1852,8L1908,8L1908,8L1926,8L1926,9L1993,9L1993,10L2032,10L2032,11L2190,11L2190,12L2252,12L2252,13L2346,13L2346,14L2399,14L2399,14L2492,14L2492,15L2515,15L2515,14L2525,14L2525,15L2590,15L2590,15L2591,15L2591,15L2592,15L2592,15L2603,15L2603,16L2613,16L2613,16L2620,16L2620,16L2665,16L2665,15L2683,15L2683,15L2704,15L2704,15L2706,15L2706,15L2725,15L2725,15L2731,15" tabindex="0">
+						<title>j0np7or8</title>
+					</path>
+				</g>
+				<g style="--index: 10;">
+					<path d="M0,1L1101,1L1101,11L1116,11L1116,11L1117,11L1117,11L1281,11L1281,12L1584,12L1584,12L1586,12L1586,13L1645,13L1645,14L1672,14L1672,15L1734,15L1734,14L1741,14L1741,15L1852,15L1852,16L1908,16L1908,17L1926,17L1926,18L1993,18L1993,19L2032,19L2032,20L2190,20L2190,21L2252,21L2252,22L2346,22L2346,23L2399,23L2399,24L2492,24L2492,25L2525,25L2525,26L2590,26L2590,26L2591,26L2591,26L2592,26L2592,27L2603,27L2603,28L2613,28L2613,29L2620,29L2620,30L2644,30L2644,29L2683,29L2683,30L2704,30L2704,30L2706,30L2706,31L2725,31L2725,31L2731,31" tabindex="0">
+						<title>j2yr9lp8</title>
+					</path>
+				</g>
+				<g style="--index: 11;">
+					<path d="M0,1L1281,1L1281,4L1290,4L1290,5L1519,5L1519,7L1586,7L1586,8L1645,8L1645,7L1672,7L1672,8L1741,8L1741,9L1852,9L1852,10L1908,10L1908,10L1926,10L1926,11L1993,11L1993,12L2032,12L2032,13L2190,13L2190,14L2252,14L2252,15L2346,15L2346,16L2399,16L2399,16L2492,16L2492,17L2515,17L2515,16L2525,16L2525,17L2590,17L2590,17L2591,17L2591,17L2592,17L2592,17L2603,17L2603,18L2613,18L2613,18L2620,18L2620,18L2665,18L2665,17L2683,17L2683,17L2704,17L2704,17L2706,17L2706,17L2725,17L2725,17L2731,17" tabindex="0">
+						<title>j5vg1ez8</title>
+					</path>
+				</g>
+				<g style="--index: 12;">
+					<path d="M0,1L1586,1L1586,7L1645,7L1645,11L1672,11L1672,12L1678,12L1678,13L1741,13L1741,14L1852,14L1852,15L1908,15L1908,16L1926,16L1926,17L1993,17L1993,18L2032,18L2032,19L2190,19L2190,20L2252,20L2252,21L2346,21L2346,22L2399,22L2399,23L2492,23L2492,24L2525,24L2525,25L2590,25L2590,25L2591,25L2591,25L2592,25L2592,26L2603,26L2603,27L2613,27L2613,28L2620,28L2620,29L2644,29L2644,28L2683,28L2683,29L2704,29L2704,29L2706,29L2706,30L2725,30L2725,30L2731,30" tabindex="0">
+						<title>j4235d5x</title>
+					</path>
+				</g>
+				<g style="--index: 13;">
+					<path d="M0,1L1645,1L1645,13L1672,13L1672,14L1678,14L1678,14L1734,14L1734,15L1741,15L1741,16L1743,16L1743,16L1769,16L1769,16L1836,16L1836,16L1843,16L1843,16L1852,16L1852,17L1893,17L1893,17L1908,17L1908,18L1926,18L1926,19L1993,19L1993,20L2005,20L2005,20L2032,20L2032,21L2190,21L2190,22L2252,22L2252,23L2346,23L2346,24L2399,24L2399,25L2492,25L2492,26L2525,26L2525,27L2590,27L2590,28L2591,28L2591,29L2592,29L2592,30L2603,30L2603,31L2613,31L2613,32L2620,32L2620,33L2683,33L2683,34L2704,34L2704,35L2706,35L2706,36L2725,36L2725,37L2731,37" tabindex="0">
+						<title>jn2m23wj</title>
+					</path>
+				</g>
+				<g style="--index: 14;">
+					<path d="M0,1L1672,1L1672,4L1741,4L1741,5L1852,5L1852,6L1908,6L1908,6L1926,6L1926,7L1993,7L1993,8L2032,8L2032,9L2190,9L2190,10L2252,10L2252,11L2346,11L2346,12L2399,12L2399,12L2492,12L2492,13L2515,13L2515,12L2525,12L2525,13L2590,13L2590,13L2591,13L2591,13L2592,13L2592,13L2603,13L2603,13L2613,13L2613,13L2620,13L2620,13L2683,13L2683,13L2704,13L2704,13L2706,13L2706,13L2725,13L2725,13L2731,13" tabindex="0">
+						<title>xk1oze6j</title>
+					</path>
+				</g>
+				<g style="--index: 15;">
+					<path d="M0,1L1741,1L1741,4L1852,4L1852,4L1908,4L1908,4L1926,4L1926,5L1993,5L1993,6L2032,6L2032,7L2190,7L2190,8L2252,8L2252,9L2346,9L2346,9L2399,9L2399,9L2492,9L2492,9L2515,9L2515,8L2525,8L2525,9L2590,9L2590,9L2591,9L2591,9L2592,9L2592,9L2603,9L2603,9L2613,9L2613,9L2620,9L2620,9L2683,9L2683,9L2704,9L2704,9L2706,9L2706,9L2725,9L2725,9L2731,9" tabindex="0">
+						<title>8lonqn28</title>
+					</path>
+				</g>
+				<g style="--index: 16;">
+					<path d="M0,1L1852,1L1852,5L1908,5L1908,5L1926,5L1926,6L1993,6L1993,7L2032,7L2032,8L2190,8L2190,9L2252,9L2252,10L2346,10L2346,10L2399,10L2399,10L2492,10L2492,11L2515,11L2515,10L2525,10L2525,11L2590,11L2590,11L2591,11L2591,11L2592,11L2592,11L2603,11L2603,11L2613,11L2613,11L2620,11L2620,11L2683,11L2683,11L2704,11L2704,11L2706,11L2706,11L2725,11L2725,11L2731,11" tabindex="0">
+						<title>j20zyvpx</title>
+					</path>
+				</g>
+				<g style="--index: 17;">
+					<path d="M0,1L1908,1L1908,14L1926,14L1926,15L1993,15L1993,16L2032,16L2032,17L2190,17L2190,18L2252,18L2252,19L2346,19L2346,20L2399,20L2399,21L2492,21L2492,22L2525,22L2525,23L2590,23L2590,23L2591,23L2591,23L2592,23L2592,24L2596,24L2596,23L2603,23L2603,24L2613,24L2613,24L2620,24L2620,25L2683,25L2683,26L2704,26L2704,26L2706,26L2706,27L2725,27L2725,27L2731,27" tabindex="0">
+						<title>x3wdlvkj</title>
+					</path>
+				</g>
+				<g style="--index: 18;">
+					<path d="M0,1L1926,1L1926,1L1993,1L1993,1L2032,1L2032,1L2190,1L2190,1L2252,1L2252,1L2346,1L2346,1L2399,1L2399,1L2492,1L2492,1L2525,1L2525,1L2590,1L2590,1L2591,1L2591,1L2592,1L2592,1L2603,1L2603,1L2613,1L2613,1L2620,1L2620,1L2683,1L2683,1L2704,1L2704,1L2706,1L2706,1L2725,1L2725,1L2731,1" tabindex="0">
+						<title>jp65w608</title>
+					</path>
+				</g>
+				<g style="--index: 19;">
+					<path d="M0,1L1993,1L1993,3L2032,3L2032,3L2190,3L2190,3L2252,3L2252,4L2346,4L2346,4L2399,4L2399,4L2492,4L2492,4L2525,4L2525,4L2590,4L2590,4L2591,4L2591,4L2592,4L2592,4L2603,4L2603,4L2613,4L2613,4L2620,4L2620,4L2683,4L2683,4L2704,4L2704,4L2706,4L2706,4L2725,4L2725,4L2731,4" tabindex="0">
+						<title>jng9el48</title>
+					</path>
+				</g>
+				<g style="--index: 20;">
+					<path d="M0,1L2032,1L2032,4L2190,4L2190,4L2252,4L2252,5L2346,5L2346,5L2399,5L2399,5L2492,5L2492,5L2525,5L2525,5L2590,5L2590,5L2591,5L2591,5L2592,5L2592,5L2603,5L2603,5L2613,5L2613,5L2620,5L2620,5L2683,5L2683,5L2704,5L2704,5L2706,5L2706,5L2725,5L2725,5L2731,5" tabindex="0">
+						<title>j59qvzzx</title>
+					</path>
+				</g>
+				<g style="--index: 21;">
+					<path d="M0,1L2190,1L2190,7L2252,7L2252,8L2346,8L2346,8L2399,8L2399,8L2492,8L2492,8L2515,8L2515,19L2525,19L2525,20L2590,20L2590,20L2591,20L2591,20L2592,20L2592,20L2603,20L2603,21L2613,21L2613,21L2620,21L2620,22L2683,22L2683,22L2704,22L2704,22L2706,22L2706,23L2725,23L2725,23L2731,23L2731,26L2731,26" tabindex="0">
+						<title>8w3l21qj</title>
+					</path>
+				</g>
+				<g style="--index: 22;">
+					<path d="M0,1L2252,1L2252,2L2346,2L2346,2L2399,2L2399,2L2492,2L2492,2L2525,2L2525,2L2590,2L2590,2L2591,2L2591,2L2592,2L2592,2L2603,2L2603,2L2613,2L2613,2L2620,2L2620,2L2683,2L2683,2L2704,2L2704,2L2706,2L2706,2L2725,2L2725,2L2731,2" tabindex="0">
+						<title>j465mqd8</title>
+					</path>
+				</g>
+				<g style="--index: 23;">
+					<path d="M0,1L2346,1L2346,11L2399,11L2399,11L2492,11L2492,12L2515,12L2515,11L2525,11L2525,12L2590,12L2590,12L2591,12L2591,12L2592,12L2592,12L2603,12L2603,12L2613,12L2613,12L2620,12L2620,12L2683,12L2683,12L2704,12L2704,12L2706,12L2706,12L2725,12L2725,12L2731,12" tabindex="0">
+						<title>86p6nd5j</title>
+					</path>
+				</g>
+				<g style="--index: 24;">
+					<path d="M0,1L2399,1L2399,19L2492,19L2492,20L2525,20L2525,21L2590,21L2590,21L2591,21L2591,21L2592,21L2592,22L2596,22L2596,21L2603,21L2603,22L2613,22L2613,22L2620,22L2620,23L2683,23L2683,23L2704,23L2704,23L2706,23L2706,24L2725,24L2725,24L2731,24L2731,23L2731,23" tabindex="0">
+						<title>0jmw6wex</title>
+					</path>
+				</g>
+				<g style="--index: 25;">
+					<path d="M0,1L2492,1L2492,10L2515,10L2515,9L2525,9L2525,10L2590,10L2590,10L2591,10L2591,10L2592,10L2592,10L2603,10L2603,10L2613,10L2613,10L2620,10L2620,10L2683,10L2683,10L2704,10L2704,10L2706,10L2706,10L2725,10L2725,10L2731,10" tabindex="0">
+						<title>8l6re6l8</title>
+					</path>
+				</g>
+				<g style="--index: 26;">
+					<path d="M0,1L2525,1L2525,8L2590,8L2590,8L2591,8L2591,8L2592,8L2592,8L2603,8L2603,8L2613,8L2613,8L2620,8L2620,8L2683,8L2683,8L2704,8L2704,8L2706,8L2706,8L2725,8L2725,8L2731,8" tabindex="0">
+						<title>8eod79dj</title>
+					</path>
+				</g>
+				<g style="--index: 27;">
+					<path d="M0,1L2590,1L2590,27L2591,27L2591,27L2592,27L2592,28L2603,28L2603,29L2613,29L2613,30L2620,30L2620,31L2644,31L2644,30L2683,30L2683,31L2704,31L2704,32L2706,32L2706,33L2725,33L2725,33L2731,33" tabindex="0">
+						<title>8gop7k2x</title>
+					</path>
+				</g>
+				<g style="--index: 28;">
+					<path d="M0,1L2591,1L2591,28L2592,28L2592,29L2603,29L2603,30L2613,30L2613,31L2620,31L2620,32L2668,32L2668,31L2683,31L2683,32L2704,32L2704,33L2706,33L2706,34L2725,34L2725,34L2731,34" tabindex="0">
+						<title>81pdyqq8</title>
+					</path>
+				</g>
+				<g style="--index: 29;">
+					<path d="M0,1L2592,1L2592,21L2596,21L2596,24L2603,24L2603,25L2613,25L2613,25L2620,25L2620,26L2683,26L2683,27L2704,27L2704,27L2706,27L2706,28L2725,28L2725,28L2731,28" tabindex="0">
+						<title>j2pzvvp8</title>
+					</path>
+				</g>
+				<g style="--index: 30;">
+					<path d="M0,1L2603,1L2603,15L2613,15L2613,15L2620,15L2620,15L2665,15L2665,14L2683,14L2683,14L2704,14L2704,14L2706,14L2706,14L2725,14L2725,14L2731,14" tabindex="0">
+						<title>8r6739q8</title>
+					</path>
+				</g>
+				<g style="--index: 31;">
+					<path d="M0,1L2613,1L2613,27L2620,27L2620,28L2644,28L2644,31L2668,31L2668,32L2683,32L2683,33L2704,33L2704,34L2706,34L2706,35L2721,35L2721,35L2725,35L2725,36L2731,36" tabindex="0">
+						<title>j2p4pel8</title>
+					</path>
+				</g>
+				<g style="--index: 32;">
+					<path d="M0,1L2620,1L2620,19L2665,19L2665,18L2683,18L2683,18L2704,18L2704,18L2706,18L2706,18L2725,18L2725,18L2731,18" tabindex="0">
+						<title>8r1e9e3j</title>
+					</path>
+				</g>
+				<g style="--index: 33;">
+					<path d="M0,1L2683,1L2683,25L2704,25L2704,25L2706,25L2706,26L2725,26L2725,26L2731,26L2731,25L2731,25" tabindex="0">
+						<title>8qpl62dx</title>
+					</path>
+				</g>
+				<g style="--index: 34;">
+					<path d="M0,1L2704,1L2704,31L2706,31L2706,32L2725,32L2725,32L2731,32" tabindex="0">
+						<title>86pek6wj</title>
+					</path>
+				</g>
+				<g style="--index: 35;">
+					<path d="M0,1L2706,1L2706,19L2725,19L2725,19L2731,19" tabindex="0">
+						<title>j2pmdqp8</title>
+					</path>
+				</g>
+				<g style="--index: 36;">
+					<path d="M0,1L2725,1L2725,35L2731,35" tabindex="0">
+						<title>jo1zrpnx</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
+</svg>
