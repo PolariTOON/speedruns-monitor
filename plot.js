@@ -1670,13 +1670,13 @@ function plotTotalTimeByPlayer(scope, title, players, tiers) {
 	return formattedData;
 }
 function plotTotalRankOrScoreByPlayer(scope, title, players, reversed, tiers) {
-	const tierCount = Object.keys(tiers).length;
+	const tierCount = tiers != null ? Object.keys(tiers).length : Number.POSITIVE_INFINITY;
 	const newPlayers = Object.create(null);
 	for (const [player, playerLeaderboards] of Object.entries(players)) {
 		let leaderboardCount = 0;
 		const playerDates = Object.create(null);
 		for (const [playerLeaderboard, playerLeaderboardDates] of Object.entries(playerLeaderboards)) {
-			if (!(playerLeaderboard in tiers)) {
+			if (tiers != null && !(playerLeaderboard in tiers)) {
 				continue;
 			}
 			++leaderboardCount;
@@ -1785,6 +1785,7 @@ const formattedTotalRankByPlayerForBears = plotTotalRankOrScoreByPlayer("../", "
 const formattedTotalRankByPlayerForMissions = plotTotalRankOrScoreByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, false, missions);
 const formattedTotalRankByPlayerForRaces = plotTotalRankOrScoreByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, false, races);
 const formattedTotalRankByPlayerForSublevels = plotTotalRankOrScoreByPlayer("../", "Total rank by player (sublevels)", rankByLeaderboardByPlayer, false, sublevels);
+const formattedTotalScoreByPlayer = plotTotalRankOrScoreByPlayer("../", "Total score by player", scoreByLeaderboardByPlayer, true, null);
 const formattedTotalScoreByPlayerForBears = plotTotalRankOrScoreByPlayer("../", "Total score by player (bears)", scoreByLeaderboardByPlayer, true, bears);
 const formattedTotalScoreByPlayerForMissions = plotTotalRankOrScoreByPlayer("../", "Total score by player (missions)", scoreByLeaderboardByPlayer, true, missions);
 const formattedTotalScoreByPlayerForRaces = plotTotalRankOrScoreByPlayer("../", "Total score by player (races)", scoreByLeaderboardByPlayer, true, races);
@@ -1847,6 +1848,7 @@ await writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBe
 await writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
 await writeFile(`plot/player-sublevel-ranks.svg`, `${formattedTotalRankByPlayerForSublevels}\n`);
+await writeFile(`plot/player-scores.svg`, `${formattedTotalScoreByPlayer}\n`);
 await writeFile(`plot/player-bear-scores.svg`, `${formattedTotalScoreByPlayerForBears}\n`);
 await writeFile(`plot/player-mission-scores.svg`, `${formattedTotalScoreByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-scores.svg`, `${formattedTotalScoreByPlayerForRaces}\n`);
@@ -1877,6 +1879,7 @@ await writeFile(`plot/readme.md`, `\
 - [Total rank by player (missions)](player-mission-ranks.svg)
 - [Total rank by player (races)](player-race-ranks.svg)
 - [Total rank by player (sublevels)](player-sublevel-ranks.svg)
+- [Total score by player](player-scores.svg)
 - [Total score by player (bears)](player-bear-scores.svg)
 - [Total score by player (missions)](player-mission-scores.svg)
 - [Total score by player (races)](player-race-scores.svg)

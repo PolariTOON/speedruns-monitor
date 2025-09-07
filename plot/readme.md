@@ -23,6 +23,7 @@
 - [Total rank by player (missions)](player-mission-ranks.svg)
 - [Total rank by player (races)](player-race-ranks.svg)
 - [Total rank by player (sublevels)](player-sublevel-ranks.svg)
+- [Total score by player](player-scores.svg)
 - [Total score by player (bears)](player-bear-scores.svg)
 - [Total score by player (missions)](player-mission-scores.svg)
 - [Total score by player (races)](player-race-scores.svg)
