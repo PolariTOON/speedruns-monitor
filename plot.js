@@ -1518,10 +1518,10 @@ function computeRankAndScoreByLeaderboardByPlayerAndByPlayerByLeaderboard(player
 					}
 					lowerPlayer = player;
 					const rankedPlayerDates = rankedPlayers[lowerPlayer] ??= Object.assign(Object.create(null), {
-						"": rank,
+						"": ranks.length,
 					});
 					const scoredPlayerDates = scoredPlayers[lowerPlayer] ??= Object.assign(Object.create(null), {
-						"": score + 1,
+						"": 0,
 					});
 					rankedPlayerDates[date] = currentRank;
 					scoredPlayerDates[date] = currentScore + 1;
