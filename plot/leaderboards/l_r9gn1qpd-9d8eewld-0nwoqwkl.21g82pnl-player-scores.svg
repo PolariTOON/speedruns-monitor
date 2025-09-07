@@ -1,0 +1,1386 @@
+<svg xmlns="http://www.w3.org/2000/svg" lang="en">
+	<title>Score by player for leaderboard l_r9gn1qpd-9d8eewld-0nwoqwkl.21g82pnl</title>
+	<metadata>
+		<meta xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="viewport" content="width=device-width" />
+		<meta xmlns="http://www.w3.org/1999/xhtml" name="color-scheme" content="dark light" />
+	</metadata>
+	<style>
+		*,
+		::before,
+		::after {
+			box-sizing: border-box;
+		}
+		:root {
+			background: var(--canvas-background);
+			color: var(--canvas-foreground);
+			fill: var(--canvas-background);
+			stroke: var(--canvas-foreground);
+			stroke-linejoin: round;
+			stroke-linecap: round;
+		}
+		foreignObject {
+			pointer-events: none;
+		}
+		foreignObject::before,
+		foreignObject::after {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			left: 20px;
+			bottom: 20px;
+			pointer-events: auto;
+		}
+		foreignObject::before {
+			width: calc(100% - 40px);
+			height: calc(20px + var(--date-size) * 1px);
+		}
+		foreignObject::after {
+			width: calc(20px + var(--value-size) * 1px);
+			height: calc(100% - 40px);
+		}
+		foreignObject &gt; div {
+			position: absolute;
+			z-index: 4;
+			right: 0;
+			top: 0;
+			margin: 20px;
+			border: 1px solid var(--canvas-foreground);
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			transition: opacity 1s;
+			pointer-events: auto;
+		}
+		foreignObject:is(:hover, :focus-within) &gt; div:not(:hover, :focus-within) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		foreignObject &gt; div &gt; p {
+			margin: 0;
+		}
+		label {
+			display: table;
+			border-collapse: separate;
+			border-spacing: 10px;
+			direction: rtl;
+		}
+		progress,
+		input[type="checkbox"] {
+			display: table-cell;
+			width: 16px;
+			height: 16px;
+			margin: 2px;
+			accent-color: var(--canvas-foreground);
+			vertical-align: top;
+			direction: ltr;
+		}
+		progress + span,
+		input[type="checkbox"] + span {
+			display: table-cell;
+			vertical-align: top;
+			direction: ltr;
+		}
+		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
+			text-decoration: underline;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			position: absolute;
+			z-index: 2;
+			margin: 0;
+			padding: 10px;
+			background: var(--highlighted);
+			font: 16px / 1.25 serif;
+			font-weight: bold;
+			pointer-events: auto;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			border-top: 1px solid #0000;
+			border-bottom: 1px solid var(--canvas-foreground);
+		}
+		foreignObject &gt; svg:first-of-type + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px dashed #0000;
+		}
+		foreignObject &gt; svg:first-of-type,
+		foreignObject &gt; svg:first-of-type + svg {
+			width: calc(20px + var(--date-size) * 1px);
+			height: 42px;
+			bottom: 20px;
+		}
+		foreignObject &gt; svg:first-of-type {
+			left: calc(40px + var(--value-size) * 1px);
+			transform: rotate(90deg) translate(-100%, 0);
+			transform-origin: left bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg {
+			right: 20px;
+			transform: rotate(90deg) translate(0, 100%);
+			transform-origin: right bottom;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			width: calc(20px + var(--value-size) * 1px);
+			height: 42px;
+			left: 20px;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg {
+			bottom: calc(40px + var(--date-size) * 1px);
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg {
+			top: 20px;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg &gt; text,
+		foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text {
+			fill: var(--canvas-foreground);
+			stroke: none;
+		}
+		foreignObject &gt; svg:first-of-type &gt; text,
+		foreignObject &gt; svg:first-of-type + svg &gt; text {
+			cursor: vertical-text;
+		}
+		foreignObject &gt; svg:first-of-type + svg + svg + svg + svg {
+			position: relative;
+			z-index: 3;
+			width: calc(100% - 60px - var(--value-size) * 1px);
+			height: calc(100% - 60px - var(--date-size) * 1px);
+			margin: 20px 20px calc(40px + var(--date-size) * 1px) calc(40px + var(--value-size) * 1px);
+			border-left: 1px solid var(--canvas-foreground);
+			border-right: 1px dashed var(--canvas-foreground);
+			border-top: 1px dashed var(--canvas-foreground);
+			border-bottom: 1px solid var(--canvas-foreground);
+			background: var(--canvas-background);
+			pointer-events: auto;
+		}
+		g &gt; rect {
+			vector-effect: non-scaling-stroke;
+			fill: var(--highlighted);
+			stroke: none;
+		}
+		g &gt; rect[tabindex] {
+			fill: var(--tier, #0000);
+			cursor: help;
+		}
+		g &gt; rect[tabindex][data-tier="diamond"] {
+			--tier: var(--diamond);
+		}
+		g &gt; rect[tabindex][data-tier="gold"] {
+			--tier: var(--gold);
+		}
+		g &gt; rect[tabindex][data-tier="silver"] {
+			--tier: var(--silver);
+		}
+		g &gt; rect[tabindex][data-tier="bronze"] {
+			--tier: var(--bronze);
+		}
+		g &gt; path[tabindex] {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: hsl(calc(var(--index) / var(--count) * 360), 50%, 50%);
+			cursor: help;
+		}
+		g:is(:hover, :focus-within) &gt; path[tabindex] {
+			stroke: var(--canvas-foreground);
+		}
+		g &gt; path[tabindex]:is(:hover, :focus-within) {
+			outline: 0;
+		}
+		g &gt; path[tabindex]:first-of-type {
+			stroke-width: 2;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) {
+			stroke-width: 4;
+		}
+		g &gt; path[tabindex]:first-of-type:not(:last-of-type) {
+			stroke-dasharray: 4 8;
+		}
+		g &gt; path[tabindex]:first-of-type + rect {
+			fill: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect {
+			fill: var(--highlighted);
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] {
+			stroke-width: 8;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) {
+			stroke-width: 16;
+		}
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex] + line + line {
+			vector-effect: non-scaling-stroke;
+			fill: none;
+			stroke: none;
+			stroke-width: 2;
+			stroke-dasharray: 4 8;
+			pointer-events: none;
+		}
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) + rect + path[tabindex] + line + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line,
+		g &gt; path[tabindex]:first-of-type:is(:hover, :focus-within) ~ path[tabindex]:last-of-type + line + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line,
+		g &gt; path[tabindex]:first-of-type ~ path[tabindex]:is(:hover, :focus-within) + line + line {
+			stroke: var(--faded);
+		}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--canvas-background: #000;
+				--canvas-foreground: #ccc;
+				--diamond: #0363;
+				--gold: #6303;
+				--silver: #3633;
+				--bronze: #6363;
+				--highlighted: #6663;
+				--faded: #9993;
+			}
+		}
+		@media (prefers-color-scheme: light) {
+			:root {
+				--canvas-background: #fff;
+				--canvas-foreground: #333;
+				--diamond: #9cf3;
+				--gold: #fc93;
+				--silver: #9c93;
+				--bronze: #c9c3;
+				--highlighted: #9993;
+				--faded: #6663;
+			}
+		}
+	</style>
+	<script>
+		"use strict";
+		{
+			const script = document.currentScript;
+			const documentUrl = location.href;
+			const scope = new URL("../../", documentUrl).pathname;
+			const playersKey = `${scope}#players`;
+			const leaderboardsKey = `${scope}#leaderboards`;
+			const sessionKey = `${scope}#session`;
+			const lockKey = `${scope}#lock`;
+			async function importDataScript(dataScriptUrl, signal) {
+				signal.throwIfAborted();
+				if (documentUrl.protocol !== "file:") {
+					const response = await fetch(dataScriptUrl, {
+						signal,
+					});
+					if (!response.ok) {
+						throw new Error(response.statusText);
+					}
+					const data = await response.json();
+					return data;
+				}
+				return await new Promise((resolve, reject) =&gt; {
+					const name = `callback${Math.random() * 2 ** 53}`;
+					let called = false;
+					let data = null;
+					function callback(value) {
+						if (!called) {
+							called = true;
+							data = value;
+						}
+					}
+					window[name] = callback;
+					const dataScript = document.createElementNS("http://www.w3.org/2000/svg", "script");
+					dataScript.href = `${dataScriptUrl}&amp;callback=${name}`;
+					function handleAbort(event) {
+						delete window[name];
+						dataScript.removeEventListener("error", handleError);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleError(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("load", handleLoad);
+						dataScript.remove();
+						const error = event.error;
+						reject(error);
+					}
+					function handleLoad(event) {
+						delete window[name];
+						signal.removeEventListener("abort", handleAbort);
+						dataScript.removeEventListener("error", handleError);
+						dataScript.remove();
+						resolve(data);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					dataScript.addEventListener("error", handleError, {
+						once: true,
+					});
+					dataScript.addEventListener("load", handleLoad, {
+						once: true,
+					});
+					script.after(dataScript);
+				});
+			}
+			async function waitForTimeout(delay, signal) {
+				signal.throwIfAborted();
+				return await new Promise((resolve, reject) =&gt; {
+					let timeout = null;
+					function handleAbort() {
+						clearTimeout(timeout);
+						const reason = signal.reason;
+						reject(reason);
+					}
+					function handleTimeout() {
+						signal.removeEventListener("abort", handleAbort);
+						resolve(delay);
+					}
+					signal.addEventListener("abort", handleAbort, {
+						once: true,
+					});
+					timeout = setTimeout(handleTimeout, delay);
+				});
+			}
+			window.addEventListener("pageshow", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully restored page from cache`);
+				} else {
+					console.log(`Unsuccessfully restored page from cache`);
+				}
+			});
+			window.addEventListener("pagehide", (event) =&gt; {
+				if (event.persisted) {
+					console.log(`Successfully saved page to cache`);
+				} else {
+					console.log(`Unsuccessfully saved page to cache`);
+				}
+			});
+			window.addEventListener("pageshow", async (event) =&gt; {
+				const rootTitleElement = document.querySelector("title");
+				const rootTitleContent = rootTitleElement.textContent;
+				const pathTitleElements = Array.from(document.querySelectorAll("g &gt; path[tabindex]:first-of-type &gt; title"));
+				const pathTitleContents = pathTitleElements.map((pathTitleElement) =&gt; {
+					const pathTitleContent = pathTitleElement.textContent;
+					return pathTitleContent;
+				});
+				const foreignObject = document.querySelector("foreignObject");
+				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
+				div.dir = "ltr";
+				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
+				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
+				label.append(progress);
+				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
+				span.textContent = "Loading names";
+				label.append(span);
+				p.append(label);
+				div.append(p);
+				foreignObject.prepend(div);
+				let lock = false;
+				let session = null;
+				const broadcastChannel = new BroadcastChannel(sessionKey);
+				const abortController = new AbortController();
+				const signal = abortController.signal;
+				const abort = abortController.abort.bind(abortController);
+				const {promise, resolve} = Promise.withResolvers();
+				broadcastChannel.addEventListener("message", (event) =&gt; {
+					const data = event.data;
+					const type = data.type;
+					switch (type) {
+						case "request": {
+							if (lock &amp;&amp; signal.aborted) {
+								broadcastChannel.postMessage({
+									type: "response",
+									session,
+								});
+							}
+							break;
+						}
+						case "response": {
+							if (!signal.aborted) {
+								session = data.session;
+								if (session != null) {
+									const {players, leaderboards} = session;
+									try {
+										const cachedPlayers = JSON.stringify(players);
+										const cachedLeaderboards = JSON.stringify(leaderboards);
+										sessionStorage.setItem(playersKey, cachedPlayers);
+										sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+									} catch {}
+									console.log(`Successfully loaded names from peer`);
+									abort();
+									resolve();
+								} else {
+									console.log(`Unsuccessfully loaded names from peer`);
+									abort();
+									resolve();
+								}
+							}
+							break;
+						}
+					}
+				});
+				try {
+					const cachedPlayers = sessionStorage.getItem(playersKey);
+					const cachedLeaderboards = sessionStorage.getItem(leaderboardsKey);
+					if (cachedPlayers == null || cachedLeaderboards == null) {
+						throw new Error();
+					}
+					const players = JSON.parse(cachedPlayers);
+					const leaderboards = JSON.parse(cachedLeaderboards);
+					session = {players, leaderboards};
+				} catch {}
+				if (session != null) {
+					broadcastChannel.postMessage({
+						type: "response",
+						session,
+					});
+					console.log(`Successfully loaded names from local`);
+					abort();
+					resolve();
+				} else {
+					broadcastChannel.postMessage({
+						type: "request",
+					});
+					console.log(`Unsuccessfully loaded names from local`);
+				}
+				(async () =&gt; {
+					for (;;) {
+						await navigator.locks.request(lockKey, async () =&gt; {
+							lock = true;
+							console.log(`Acquired lock`);
+							if (!signal.aborted) {
+								try {
+									const players = Object.create(null);
+									const leaderboards = Object.create(null);
+									const games = ["9d3rrxyd", "w6jl2ned"];
+									for (const gameId of games) {
+										const {data} = await importDataScript(`https://www.speedrun.com/api/v1/games/${gameId}?embed=categories,levels,variables`, signal);
+										const versions = data.variables.data.find((variable) =&gt; {
+											return variable.name === "Version";
+										});
+										const levels = Object.fromEntries(data.levels.data.map((level) =&gt; {
+											return [level.id, level];
+										}));
+										const categories = Object.fromEntries(data.categories.data.map((category) =&gt; {
+											return [category.id, category];
+										}));
+										const variables = Object.fromEntries(data.variables.data.map((variable) =&gt; {
+											return [variable.id, variable];
+										}));
+										console.log(`Got game`);
+										await waitForTimeout(800, signal);
+										const slice = 200;
+										for (let offset = 0;; offset += slice) {
+											const {data, pagination} = await importDataScript(`https://www.speedrun.com/api/v1/runs?game=${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=${offset}&amp;max=${slice}`, signal);
+											const {size} = pagination;
+											if (size === 0) {
+												break;
+											}
+											for (const run of data) {
+												const status = run.status.status;
+												if (status == null || status === "new") {
+													continue;
+												}
+												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
+												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												players[player] ??= playerName;
+												const level = run.level;
+												const category = run.category;
+												const values = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return `-${variable}.${value}`;
+												});
+												const leaderboard = `${level != null ? `l_${level}-` : ""}${category}${values.join("")}`;
+												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+												const categoryName = categories[run.category]?.name ?? null;
+												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+													return variables[variable]?.["is-subcategory"] ?? false;
+												}).map(([variable, value]) =&gt; {
+													return variables[variable]?.values.values[value]?.label ?? null;
+												}).filter((valueName) =&gt; {
+													return valueName != null;
+												});
+												const leaderboardName = `${levelName != null ? `${levelName}: ` : ""}${categoryName ?? ""}${values.length !== 0 ? ` - ${valueNames.join(", ")}` : ""}`;
+												leaderboards[leaderboard] ??= leaderboardName;
+											}
+											console.log(`Got runs ${offset}-${offset + size - 1}`);
+											await waitForTimeout(800, signal);
+										}
+									}
+									session = {players, leaderboards};
+								} catch {}
+								if (!signal.aborted) {
+									if (session != null) {
+										const {players, leaderboards} = session;
+										try {
+											const cachedPlayers = JSON.stringify(players);
+											const cachedLeaderboards = JSON.stringify(leaderboards);
+											sessionStorage.setItem(playersKey, cachedPlayers);
+											sessionStorage.setItem(leaderboardsKey, cachedLeaderboards);
+										} catch {}
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Successfully loaded names from remote`);
+										abort();
+										resolve();
+									} else {
+										broadcastChannel.postMessage({
+											type: "response",
+											session,
+										});
+										console.log(`Unsuccessfully loaded names from remote`);
+										abort();
+										resolve();
+									}
+								}
+							}
+							await new Promise((resolve) =&gt; {
+								window.addEventListener("beforeunload", () =&gt; {
+									resolve();
+								}, {
+									once: true,
+								});
+							});
+						});
+						lock = false;
+						console.log(`Released lock`);
+						await new Promise((resolve) =&gt; {
+							window.addEventListener("pagehide", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+						await new Promise((resolve) =&gt;{
+							window.addEventListener("pageshow", () =&gt; {
+								resolve();
+							}, {
+								once: true,
+							});
+						});
+					}
+				})();
+				await promise;
+				if (session == null) {
+					const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+					input.type = "checkbox";
+					input.autocomplete = "off";
+					input.disabled = true;
+					input.indeterminate = true;
+					progress.replaceWith(input);
+					span.textContent = "Unavailable names";
+					return;
+				}
+				const {players, leaderboards} = session;
+				const hasPlayerRoot = rootTitleContent.includes(" for player");
+				const hasLeaderboardRoot = rootTitleContent.includes(" for leaderboard");
+				const rootTitle = {
+					element: rootTitleElement,
+					contentWithIds: rootTitleContent,
+					contentWithNames: hasPlayerRoot ? rootTitleContent.replace(/ for player ([0-9_a-z]+)/, ($0, $1) =&gt; {
+						return ` for player ${players[$1] ?? $1}`;
+					}) : hasLeaderboardRoot ? rootTitleContent.replace(/ for leaderboard ((?:l_[0-9_a-z]+-)?[0-9_a-z]+(-[0-9_a-z]+\.[0-9_a-z]+)*)/, ($0, $1) =&gt; {
+						return ` for leaderboard ${leaderboards[$1] ?? $1}`;
+					}) : rootTitleContent,
+				};
+				const hasPlayerPaths = rootTitleContent.includes(" by player");
+				const hasLeaderboardPaths = rootTitleContent.includes(" by leaderboard");
+				const pathTitles = pathTitleElements.map((pathTitleElement, k) =&gt; {
+					const pathTitleContent = pathTitleContents[k];
+					const pathTitle = {
+						element: pathTitleElement,
+						contentWithIds: pathTitleContent,
+						contentWithNames: hasPlayerPaths ? players[pathTitleContent] ?? pathTitleContent : hasLeaderboardPaths ? leaderboards[pathTitleContent] ?? pathTitleContent : pathTitleContent,
+					};
+					return pathTitle;
+				});
+				const input = document.createElementNS("http://www.w3.org/1999/xhtml", "input");
+				input.type = "checkbox";
+				input.autocomplete = "off";
+				input.addEventListener("change", () =&gt; {
+					input.disabled = true;
+					if (input.checked) {
+						rootTitle.element.textContent = rootTitle.contentWithNames;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithNames;
+						}
+					} else {
+						rootTitle.element.textContent = rootTitle.contentWithIds;
+						for (const pathTitle of pathTitles) {
+							pathTitle.element.textContent = pathTitle.contentWithIds;
+						}
+					}
+					input.disabled = false;
+				});
+				progress.replaceWith(input);
+				span.textContent = "Reveal names";
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<script>
+		"use strict";
+		{
+			document.addEventListener("DOMContentLoaded", (event) =&gt; {
+				const minDateText = document.querySelector("foreignObject &gt; svg:first-of-type &gt; text");
+				const maxDateText = document.querySelector("foreignObject &gt; svg:first-of-type + svg &gt; text");
+				const startX = Math.round(Date.parse(minDateText.textContent) / 86400000);
+				function xToDate(x) {
+					const datetime = new Date((startX + x) * 86400000);
+					const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
+					const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
+					const day = `${datetime.getUTCDate()}`.padStart(2, "0");
+					const date = `${year}-${month}-${day}`;
+					const size = date.length * 10;
+					return {date, size};
+				}
+				function setMinDate(x) {
+					const {date, size} = xToDate(Math.floor(x));
+					minDateText.textLength.baseVal.value = size;
+					minDateText.textContent = date;
+				}
+				function setMaxDate(x) {
+					const {date, size} = xToDate(Math.ceil(x));
+					maxDateText.textLength.baseVal.value = size;
+					maxDateText.textContent = date;
+				}
+				const minValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg &gt; text");
+				const maxValueText = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg &gt; text");
+				const timed = minValueText.textContent.includes(":");
+				function yToValue(y) {
+					if (timed) {
+						const minutes = `${(y - y % 6000) / 6000}`.padStart(2, "0");
+						const seconds = `${(y - y % 100) / 100 % 60}`.padStart(2, "0");
+						const centiseconds = `${y % 100}`.padStart(2, "0");
+						const value = `${minutes}:${seconds}.${centiseconds}`;
+						const size = value.length * 10;
+						return {value, size};
+					} else {
+						const value = `${y}`;
+						const size = value.length * 10;
+						return {value, size};
+					}
+				}
+				function setMinValue(y) {
+					const {value, size} = yToValue(Math.floor(y));
+					minValueText.textLength.baseVal.value = size;
+					minValueText.textContent = value;
+				}
+				function setMaxValue(y) {
+					const {value, size} = yToValue(Math.ceil(y));
+					maxValueText.textLength.baseVal.value = size;
+					maxValueText.textContent = value;
+				}
+				const svg = document.querySelector("foreignObject &gt; svg:first-of-type + svg + svg + svg + svg");
+				svg.tabIndex = -1;
+				svg.style.setProperty("outline", "0");
+				if (CSS.supports("overflow-clip-margin", "8px")) {
+					svg.style.setProperty("overflow", "clip");
+					svg.style.setProperty("overflow-clip-margin", "8px");
+				}
+				svg.style.setProperty("touch-action", "none");
+				const {x: baseX, y: baseY, width: baseWidth, height: baseHeight} = svg.viewBox.baseVal;
+				let pointerCount = 0;
+				const pointers = Object.create(null);
+				const xPointerIds = [];
+				const yPointerIds = [];
+				let x = null;
+				let y = null;
+				let width = null;
+				let height = null;
+				svg.addEventListener("pointerdown", (event) =&gt; {
+					const {pointerId} = event;
+					if (pointerId in pointers) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.setPointerCapture(pointerId);
+					++pointerCount;
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId] = {
+						offsetX,
+						offsetY,
+					};
+					xPointerIds.splice(xPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetX &lt;= offsetX;
+					}) + 1, 0, pointerId);
+					yPointerIds.splice(yPointerIds.findLastIndex((pointerId) =&gt; {
+						return pointers[pointerId].offsetY &lt;= offsetY;
+					}) + 1, 0, pointerId);
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					width = Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth);
+					height = Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight);
+					x = Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX);
+					y = Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY);
+				});
+				svg.addEventListener("pointerup", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					svg.releasePointerCapture(pointerId);
+					--pointerCount;
+					delete pointers[pointerId];
+					xPointerIds.splice(xPointerIds.lastIndexOf(pointerId), 1);
+					yPointerIds.splice(yPointerIds.lastIndexOf(pointerId), 1);
+					const minOffsetX = pointerCount !== 0 ? pointers[xPointerIds[0]].offsetX : null;
+					const minOffsetY = pointerCount !== 0 ? pointers[yPointerIds[0]].offsetY : null;
+					const maxClientWidth = pointerCount !== 0 ? pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX : null;
+					const maxClientHeight = pointerCount !== 0 ? pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY : null;
+					width = pointerCount !== 0 ? Math.min(maxClientWidth / svg.clientWidth * animWidth, baseWidth) : null;
+					height = pointerCount !== 0 ? Math.min(maxClientHeight / svg.clientHeight * animHeight, baseHeight) : null;
+					x = pointerCount !== 0 ? Math.max(Math.min(animX + minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth), baseX) : null;
+					y = pointerCount !== 0 ? Math.max(Math.min(animY + minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight), baseY) : null;
+				});
+				svg.addEventListener("pointermove", (event) =&gt; {
+					const {pointerId} = event;
+					if (!(pointerId in pointers)) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					event.preventDefault();
+					const offsetX = event.offsetX;
+					const offsetY = event.offsetY;
+					pointers[pointerId].offsetX = offsetX;
+					pointers[pointerId].offsetY = offsetY;
+					const oldXIndex = xPointerIds.lastIndexOf(pointerId);
+					let newXIndex = oldXIndex;
+					while (newXIndex &gt; 0 &amp;&amp; pointers[xPointerIds[newXIndex - 1]].offsetX &gt; offsetX) {
+						--newXIndex;
+					}
+					xPointerIds.copyWithin(newXIndex + 1, newXIndex, oldXIndex);
+					xPointerIds[newXIndex] = pointerId;
+					while (newXIndex &lt; pointerCount - 1 &amp;&amp; pointers[xPointerIds[newXIndex + 1]].offsetX &lt; offsetX) {
+						++newXIndex;
+					}
+					xPointerIds.copyWithin(oldXIndex, oldXIndex + 1, newXIndex + 1);
+					xPointerIds[newXIndex] = pointerId;
+					const oldYIndex = yPointerIds.lastIndexOf(pointerId);
+					let newYIndex = oldYIndex;
+					while (newYIndex &gt; 0 &amp;&amp; pointers[yPointerIds[newYIndex - 1]].offsetY &gt; offsetY) {
+						--newYIndex;
+					}
+					yPointerIds.copyWithin(newYIndex + 1, newYIndex, oldYIndex);
+					yPointerIds[newYIndex] = pointerId;
+					while (newYIndex &lt; pointerCount - 1 &amp;&amp; pointers[yPointerIds[newYIndex + 1]].offsetY &lt; offsetY) {
+						++newYIndex;
+					}
+					yPointerIds.copyWithin(oldYIndex, oldYIndex + 1, newYIndex + 1);
+					yPointerIds[newYIndex] = pointerId;
+					const minOffsetX = pointers[xPointerIds[0]].offsetX;
+					const minOffsetY = pointers[yPointerIds[0]].offsetY;
+					const maxClientWidth = pointers[xPointerIds[pointerCount - 1]].offsetX - minOffsetX;
+					const maxClientHeight = pointers[yPointerIds[pointerCount - 1]].offsetY - minOffsetY;
+					animWidth = width === 0 ? animWidth : maxClientWidth === 0 ? baseWidth : Math.min(svg.clientWidth / maxClientWidth * width, baseWidth);
+					animHeight = height === 0 ? animHeight : maxClientHeight === 0 ? baseHeight : Math.min(svg.clientHeight / maxClientHeight * height, baseHeight);
+					animX = Math.max(Math.min(x - minOffsetX / svg.clientWidth * animWidth, baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(y - minOffsetY / svg.clientHeight * animHeight, baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+				const zoomIntensity = 1.25;
+				svg.addEventListener("wheel", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					if (!ctrlKey) {
+						const vectorX = (shiftKey ? event.deltaY : event.deltaX) / svg.clientWidth * animWidth;
+						const vectorY = (shiftKey ? 0 : event.deltaY) / svg.clientHeight * animHeight;
+						animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+						animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+						svg.viewBox.baseVal.x = animX;
+						svg.viewBox.baseVal.y = animY;
+						setMinDate(animX);
+						setMaxDate(animX + animWidth);
+						setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+						setMaxValue(baseY * 2 + baseHeight - animY);
+						return;
+					}
+					const ratioX = zoomIntensity ** Math.sign(shiftKey ? event.deltaY : event.deltaX);
+					const ratioY = zoomIntensity ** Math.sign(shiftKey ? 0 : event.deltaY);
+					const positionX = Math.max(0, Math.min(event.offsetX / svg.clientWidth, 1)) * animWidth;
+					const positionY = Math.max(0, Math.min(event.offsetY / svg.clientHeight, 1)) * animHeight;
+					animWidth = Math.min(animWidth * ratioX, baseWidth);
+					animHeight = Math.min(animHeight * ratioY, baseHeight);
+					animX = Math.max(Math.min(animX + positionX * (1 - ratioX), baseX + baseWidth - animWidth), baseX);
+					animY = Math.max(Math.min(animY + positionY * (1 - ratioY), baseY + baseHeight - animHeight), baseY);
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					svg.viewBox.baseVal.width = animWidth;
+					svg.viewBox.baseVal.height = animHeight;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				}, {
+					passive: false,
+				});
+				svg.addEventListener("keydown", (event) =&gt; {
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					const {ctrlKey, shiftKey} = event;
+					switch (event.code) {
+						case "Space": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "Equal":
+						case "NumpadAdd":
+						case "Minus":
+						case "NumpadSubtract": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.code === "Minus" || event.code === "NumpadSubtract" ? zoomIntensity : 1 / zoomIntensity;
+							if (!shiftKey) {
+								animHeight = Math.min(animHeight * ratio, baseHeight);
+								animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "Digit0":
+						case "Numpad0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							if (!shiftKey) {
+								animY = baseY;
+								animHeight = baseHeight;
+								svg.viewBox.baseVal.y = animY;
+								svg.viewBox.baseVal.height = animHeight;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+							animX = baseX;
+							animWidth = baseWidth;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.width = animWidth;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+					}
+					switch (event.key) {
+						case "ArrowRight": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = 50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowLeft": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorX = -50 / svg.clientWidth * animWidth;
+							animX = Math.max(Math.min(animX + vectorX, baseX + baseWidth - animWidth), baseX);
+							svg.viewBox.baseVal.x = animX;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							return;
+						}
+						case "ArrowDown": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = 50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "End": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY + baseHeight - animHeight;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "ArrowUp": {
+							if (!ctrlKey) {
+								event.preventDefault();
+								if (pointerCount !== 0) {
+									return;
+								}
+								const vectorY = -50 / svg.clientHeight * animHeight;
+								animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+								svg.viewBox.baseVal.y = animY;
+								setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+								setMaxValue(baseY * 2 + baseHeight - animY);
+								return;
+							}
+						}
+						case "Home": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animY = baseY;
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "PageDown":
+						case "PageUp":
+						case " ": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const vectorY = event.key === "PageUp" || event.key === " " &amp;&amp; shiftKey ? -animHeight : animHeight;
+							animY = Math.max(Math.min(animY + vectorY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.y = animY;
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "+":
+						case "-": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							const ratio = event.key === "-" ? 1 / zoomIntensity : zoomIntensity;
+							animWidth = Math.min(animWidth * ratio, baseWidth);
+							animHeight = Math.min(animHeight * ratio, baseHeight);
+							animX = Math.max(Math.min(animX, baseX + baseWidth - animWidth), baseX);
+							animY = Math.max(Math.min(animY, baseY + baseHeight - animHeight), baseY);
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+						case "0": {
+							event.preventDefault();
+							if (pointerCount !== 0) {
+								return;
+							}
+							animX = baseX;
+							animY = baseY;
+							animWidth = baseWidth;
+							animHeight = baseHeight;
+							svg.viewBox.baseVal.x = animX;
+							svg.viewBox.baseVal.y = animY;
+							svg.viewBox.baseVal.width = animWidth;
+							svg.viewBox.baseVal.height = animHeight;
+							setMinDate(animX);
+							setMaxDate(animX + animWidth);
+							setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+							setMaxValue(baseY * 2 + baseHeight - animY);
+							return;
+						}
+					}
+				});
+				svg.addEventListener("focusin", (event) =&gt; {
+					if (!event.target.matches(":focus-visible")) {
+						return;
+					}
+					event.preventDefault();
+					if (pointerCount !== 0) {
+						return;
+					}
+					let {x: animX, y: animY, width: animWidth, height: animHeight} = svg.viewBox.baseVal;
+					let {x, y, width, height} = event.target.getBBox();
+					width = Math.round(width);
+					height = Math.round(height);
+					x = Math.round(x);
+					y = baseY * 2 + baseHeight - height - Math.round(y);
+					if (x + width &lt; animX) {
+						animX = x;
+						if (width &gt; animWidth) {
+							animX += (width - animWidth) / 2;
+						}
+					} else if (x &gt; animX + animWidth) {
+						animX = x + width - animWidth;
+						if (width &gt; animWidth) {
+							animX -= (width - animWidth) / 2;
+						}
+					}
+					if (y + height &lt; animY) {
+						animY = y;
+						if (height &gt; animHeight) {
+							animY += (height - animHeight) / 2;
+						}
+					} else if (y &gt; animY + animHeight) {
+						animY = y + height - animHeight;
+						if (height &gt; animHeight) {
+							animY -= (height - animHeight) / 2;
+						}
+					}
+					svg.viewBox.baseVal.x = animX;
+					svg.viewBox.baseVal.y = animY;
+					setMinDate(animX);
+					setMaxDate(animX + animWidth);
+					setMinValue(baseY * 2 + baseHeight - animHeight - animY);
+					setMaxValue(baseY * 2 + baseHeight - animY);
+				});
+			}, {
+				once: true,
+			});
+		}
+	</script>
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2018-01-09</text>
+		</svg>
+		<svg viewBox="0 0 100 20">
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-08-22</text>
+		</svg>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		</svg>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">56</text>
+		</svg>
+		<svg viewBox="0 0 2782 56" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 56) scale(1 -1)" style="--count: 56;">
+				<g>
+					<rect x="0" y="0" width="2782" height="56"/>
+				</g>
+				<g style="--index: 0;">
+					<path d="M0,1L0,1L0,1L9,1L9,1L58,1L58,2L72,2L72,3L98,3L98,3L582,3L582,4L863,4L863,4L1026,4L1026,4L1049,4L1049,4L1372,4L1372,4L1522,4L1522,4L1550,4L1550,5L1565,5L1565,5L1620,5L1620,6L1640,6L1640,6L1661,6L1661,7L1673,7L1673,8L1687,8L1687,9L1715,9L1715,10L1793,10L1793,10L1842,10L1842,11L1862,11L1862,10L1892,10L1892,10L1897,10L1897,11L1951,11L1951,12L2009,12L2009,13L2043,13L2043,14L2049,14L2049,15L2084,15L2084,15L2160,15L2160,15L2166,15L2166,16L2172,16L2172,15L2261,15L2261,16L2334,16L2334,16L2378,16L2378,16L2406,16L2406,16L2428,16L2428,16L2498,16L2498,16L2548,16L2548,17L2581,17L2581,17L2582,17L2582,17L2647,17L2647,17L2653,17L2653,18L2658,18L2658,18L2669,18L2669,19L2684,19L2684,19L2701,19L2701,19L2717,19L2717,20L2733,20L2733,20L2741,20L2741,21L2750,21L2750,21L2752,21L2752,21L2753,21L2753,21L2754,21L2754,21L2759,21L2759,21L2766,21L2766,21L2778,21L2778,22L2782,22" tabindex="0">
+						<title>qj2pq1p8</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,1L9,1L9,2L58,2L58,1L72,1L72,2L98,2L98,2L582,2L582,3L863,3L863,3L1026,3L1026,3L1049,3L1049,3L1372,3L1372,3L1522,3L1522,3L1550,3L1550,4L1565,4L1565,4L1620,4L1620,5L1640,5L1640,5L1661,5L1661,6L1673,6L1673,7L1674,7L1674,6L1687,6L1687,6L1715,6L1715,6L1793,6L1793,6L1842,6L1842,7L1892,7L1892,7L1897,7L1897,8L1951,8L1951,8L2009,8L2009,9L2043,9L2043,10L2049,10L2049,11L2084,11L2084,11L2160,11L2160,11L2166,11L2166,12L2172,12L2172,11L2261,11L2261,12L2334,12L2334,12L2378,12L2378,12L2406,12L2406,12L2428,12L2428,12L2498,12L2498,12L2548,12L2548,13L2581,13L2581,13L2582,13L2582,13L2647,13L2647,13L2653,13L2653,14L2658,14L2658,14L2669,14L2669,15L2684,15L2684,15L2701,15L2701,15L2717,15L2717,16L2733,16L2733,16L2741,16L2741,17L2750,17L2750,17L2752,17L2752,17L2753,17L2753,17L2754,17L2754,17L2759,17L2759,17L2766,17L2766,17L2778,17L2778,18L2782,18" tabindex="0">
+						<title>0jm3onz8</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,1L72,1L72,1L98,1L98,1L582,1L582,2L863,2L863,2L1026,2L1026,2L1049,2L1049,2L1372,2L1372,2L1522,2L1522,2L1550,2L1550,3L1565,3L1565,3L1620,3L1620,3L1640,3L1640,3L1661,3L1661,3L1673,3L1673,4L1687,4L1687,4L1715,4L1715,4L1793,4L1793,4L1842,4L1842,5L1892,5L1892,5L1897,5L1897,5L1951,5L1951,5L2009,5L2009,5L2043,5L2043,6L2049,6L2049,7L2084,7L2084,7L2160,7L2160,7L2166,7L2166,8L2172,8L2172,7L2261,7L2261,8L2334,8L2334,8L2378,8L2378,8L2406,8L2406,8L2428,8L2428,8L2498,8L2498,8L2548,8L2548,8L2581,8L2581,8L2582,8L2582,8L2647,8L2647,8L2653,8L2653,8L2658,8L2658,8L2669,8L2669,9L2684,9L2684,9L2701,9L2701,9L2717,9L2717,10L2733,10L2733,10L2741,10L2741,11L2750,11L2750,11L2752,11L2752,11L2753,11L2753,11L2754,11L2754,11L2759,11L2759,11L2766,11L2766,11L2778,11L2778,12L2782,12" tabindex="0">
+						<title>18qg9ndx</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,1L98,1L98,4L582,4L582,5L843,5L843,5L863,5L863,6L1026,6L1026,7L1049,7L1049,8L1372,8L1372,8L1522,8L1522,9L1550,9L1550,10L1565,10L1565,11L1577,11L1577,10L1620,10L1620,11L1640,11L1640,11L1661,11L1661,12L1673,12L1673,13L1687,13L1687,14L1715,14L1715,15L1793,15L1793,16L1842,16L1842,17L1892,17L1892,17L1897,17L1897,18L1951,18L1951,19L2009,19L2009,20L2043,20L2043,21L2049,21L2049,22L2084,22L2084,23L2160,23L2160,24L2166,24L2166,25L2261,25L2261,26L2334,26L2334,27L2378,27L2378,28L2406,28L2406,29L2428,29L2428,30L2452,30L2452,29L2498,29L2498,30L2548,30L2548,31L2581,31L2581,32L2582,32L2582,32L2647,32L2647,32L2653,32L2653,33L2658,33L2658,34L2669,34L2669,35L2684,35L2684,36L2685,36L2685,35L2701,35L2701,36L2717,36L2717,37L2720,37L2720,36L2730,36L2730,35L2733,35L2733,36L2741,36L2741,37L2750,37L2750,38L2752,38L2752,39L2753,39L2753,39L2754,39L2754,40L2759,40L2759,40L2766,40L2766,41L2776,41L2776,40L2778,40L2778,41L2782,41L2782,40L2782,40" tabindex="0">
+						<title>y8dgoe98</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,1L582,1L582,1L863,1L863,1L1026,1L1026,1L1049,1L1049,1L1372,1L1372,1L1522,1L1522,1L1550,1L1550,2L1565,2L1565,2L1620,2L1620,2L1640,2L1640,2L1661,2L1661,2L1673,2L1673,3L1687,3L1687,3L1715,3L1715,3L1793,3L1793,3L1842,3L1842,3L1892,3L1892,3L1897,3L1897,3L1951,3L1951,3L2009,3L2009,3L2043,3L2043,4L2049,4L2049,5L2084,5L2084,5L2160,5L2160,5L2166,5L2166,5L2261,5L2261,5L2334,5L2334,5L2378,5L2378,5L2406,5L2406,5L2428,5L2428,5L2498,5L2498,5L2548,5L2548,5L2581,5L2581,5L2582,5L2582,5L2647,5L2647,5L2653,5L2653,5L2658,5L2658,5L2669,5L2669,5L2684,5L2684,5L2701,5L2701,5L2717,5L2717,5L2733,5L2733,5L2741,5L2741,5L2750,5L2750,5L2752,5L2752,5L2753,5L2753,5L2754,5L2754,5L2759,5L2759,5L2766,5L2766,5L2778,5L2778,6L2782,6" tabindex="0">
+						<title>j9rlkzoj</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,1L863,1L863,5L929,5L929,5L1026,5L1026,6L1049,6L1049,7L1372,7L1372,7L1522,7L1522,8L1550,8L1550,9L1565,9L1565,10L1577,10L1577,9L1620,9L1620,10L1640,10L1640,10L1661,10L1661,11L1673,11L1673,12L1687,12L1687,13L1715,13L1715,14L1793,14L1793,15L1842,15L1842,16L1892,16L1892,16L1897,16L1897,17L1951,17L1951,18L2009,18L2009,19L2043,19L2043,20L2049,20L2049,21L2084,21L2084,22L2160,22L2160,23L2166,23L2166,24L2261,24L2261,25L2334,25L2334,26L2378,26L2378,27L2406,27L2406,28L2428,28L2428,29L2452,29L2452,28L2498,28L2498,29L2548,29L2548,30L2581,30L2581,31L2582,31L2582,31L2647,31L2647,31L2653,31L2653,32L2658,32L2658,33L2669,33L2669,34L2684,34L2684,35L2685,35L2685,34L2701,34L2701,35L2717,35L2717,36L2720,36L2720,40L2730,40L2730,39L2733,39L2733,40L2741,40L2741,41L2750,41L2750,42L2752,42L2752,43L2753,43L2753,44L2754,44L2754,45L2759,45L2759,46L2765,46L2765,45L2766,45L2766,46L2776,46L2776,45L2778,45L2778,46L2782,46" tabindex="0">
+						<title>x356nrej</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,1L1026,1L1026,5L1049,5L1049,5L1372,5L1372,5L1522,5L1522,5L1550,5L1550,6L1565,6L1565,6L1620,6L1620,7L1640,7L1640,7L1661,7L1661,8L1673,8L1673,9L1687,9L1687,10L1715,10L1715,11L1793,11L1793,12L1842,12L1842,13L1892,13L1892,13L1897,13L1897,14L1951,14L1951,15L2009,15L2009,16L2043,16L2043,17L2049,17L2049,18L2084,18L2084,19L2160,19L2160,20L2166,20L2166,21L2261,21L2261,22L2334,22L2334,22L2378,22L2378,23L2406,23L2406,23L2428,23L2428,24L2460,24L2460,23L2498,23L2498,23L2548,23L2548,24L2581,24L2581,25L2582,25L2582,25L2647,25L2647,25L2653,25L2653,26L2658,26L2658,27L2669,27L2669,28L2684,28L2684,28L2701,28L2701,28L2717,28L2717,29L2730,29L2730,28L2733,28L2733,28L2741,28L2741,29L2750,29L2750,29L2752,29L2752,29L2753,29L2753,29L2754,29L2754,30L2759,30L2759,30L2766,30L2766,30L2778,30L2778,31L2782,31" tabindex="0">
+						<title>j0np7or8</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,1L1049,1L1049,6L1372,6L1372,6L1522,6L1522,6L1550,6L1550,7L1565,7L1565,8L1577,8L1577,7L1620,7L1620,8L1640,8L1640,8L1661,8L1661,9L1673,9L1673,10L1687,10L1687,11L1715,11L1715,12L1793,12L1793,13L1842,13L1842,14L1892,14L1892,14L1897,14L1897,15L1951,15L1951,16L2009,16L2009,17L2043,17L2043,18L2049,18L2049,19L2084,19L2084,20L2160,20L2160,21L2166,21L2166,22L2261,22L2261,23L2334,23L2334,23L2378,23L2378,24L2406,24L2406,25L2428,25L2428,26L2463,26L2463,25L2498,25L2498,26L2548,26L2548,27L2581,27L2581,28L2582,28L2582,28L2647,28L2647,28L2653,28L2653,29L2658,29L2658,30L2669,30L2669,31L2684,31L2684,32L2685,32L2685,31L2701,31L2701,31L2717,31L2717,32L2730,32L2730,31L2733,31L2733,32L2741,32L2741,33L2750,33L2750,33L2752,33L2752,33L2753,33L2753,33L2754,33L2754,34L2759,34L2759,34L2766,34L2766,35L2778,35L2778,36L2782,36" tabindex="0">
+						<title>x7q00668</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,1L1372,1L1372,9L1522,9L1522,10L1550,10L1550,11L1565,11L1565,12L1592,12L1592,11L1620,11L1620,12L1640,12L1640,12L1661,12L1661,13L1673,13L1673,14L1687,14L1687,15L1715,15L1715,16L1793,16L1793,17L1842,17L1842,18L1892,18L1892,18L1897,18L1897,19L1951,19L1951,20L2009,20L2009,21L2043,21L2043,22L2049,22L2049,23L2084,23L2084,24L2160,24L2160,25L2166,25L2166,26L2261,26L2261,27L2334,27L2334,28L2378,28L2378,29L2406,29L2406,30L2428,30L2428,31L2452,31L2452,30L2498,30L2498,31L2548,31L2548,32L2581,32L2581,33L2582,33L2582,33L2647,33L2647,33L2653,33L2653,34L2658,34L2658,35L2669,35L2669,36L2684,36L2684,37L2701,37L2701,38L2717,38L2717,39L2720,39L2720,38L2730,38L2730,37L2733,37L2733,38L2741,38L2741,39L2750,39L2750,40L2752,40L2752,41L2753,41L2753,42L2754,42L2754,43L2759,43L2759,43L2766,43L2766,44L2776,44L2776,43L2778,43L2778,44L2782,44L2782,43L2782,43" tabindex="0">
+						<title>814zn7l8</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,1L1522,1L1522,7L1550,7L1550,8L1565,8L1565,9L1577,9L1577,8L1620,8L1620,9L1640,9L1640,9L1661,9L1661,10L1673,10L1673,11L1687,11L1687,12L1715,12L1715,13L1793,13L1793,14L1842,14L1842,15L1892,15L1892,15L1897,15L1897,16L1951,16L1951,17L2009,17L2009,18L2043,18L2043,19L2049,19L2049,20L2084,20L2084,21L2160,21L2160,22L2166,22L2166,23L2261,23L2261,24L2334,24L2334,24L2378,24L2378,25L2406,25L2406,26L2428,26L2428,27L2463,27L2463,26L2498,26L2498,27L2548,27L2548,28L2581,28L2581,29L2582,29L2582,29L2647,29L2647,29L2653,29L2653,30L2658,30L2658,31L2669,31L2669,32L2684,32L2684,33L2685,33L2685,32L2701,32L2701,32L2717,32L2717,33L2730,33L2730,32L2733,32L2733,33L2741,33L2741,34L2750,34L2750,34L2752,34L2752,34L2753,34L2753,34L2754,34L2754,35L2759,35L2759,35L2766,35L2766,36L2778,36L2778,37L2782,37" tabindex="0">
+						<title>81qlgylj</title>
+					</path>
+				</g>
+				<g style="--index: 10;">
+					<path d="M0,1L1550,1L1550,1L1565,1L1565,1L1620,1L1620,1L1640,1L1640,1L1661,1L1661,1L1673,1L1673,2L1687,2L1687,2L1715,2L1715,2L1793,2L1793,2L1842,2L1842,2L1892,2L1892,2L1897,2L1897,2L1951,2L1951,2L2009,2L2009,2L2043,2L2043,3L2049,3L2049,4L2084,4L2084,4L2160,4L2160,4L2166,4L2166,4L2261,4L2261,4L2334,4L2334,4L2378,4L2378,4L2406,4L2406,4L2428,4L2428,4L2498,4L2498,4L2548,4L2548,4L2581,4L2581,4L2582,4L2582,4L2647,4L2647,4L2653,4L2653,4L2658,4L2658,4L2669,4L2669,4L2684,4L2684,4L2701,4L2701,4L2717,4L2717,4L2733,4L2733,4L2741,4L2741,4L2750,4L2750,4L2752,4L2752,4L2753,4L2753,4L2754,4L2754,4L2759,4L2759,4L2766,4L2766,4L2778,4L2778,4L2782,4" tabindex="0">
+						<title>j956o5n8</title>
+					</path>
+				</g>
+				<g style="--index: 11;">
+					<path d="M0,1L1565,1L1565,7L1577,7L1577,11L1592,11L1592,12L1620,12L1620,13L1640,13L1640,13L1661,13L1661,14L1673,14L1673,15L1687,15L1687,16L1715,16L1715,17L1793,17L1793,18L1842,18L1842,19L1892,19L1892,19L1897,19L1897,20L1951,20L1951,21L2009,21L2009,22L2043,22L2043,23L2049,23L2049,24L2084,24L2084,25L2160,25L2160,26L2166,26L2166,27L2261,27L2261,28L2334,28L2334,29L2378,29L2378,30L2406,30L2406,31L2428,31L2428,32L2452,32L2452,31L2498,31L2498,32L2548,32L2548,33L2581,33L2581,34L2582,34L2582,34L2647,34L2647,34L2653,34L2653,35L2658,35L2658,36L2669,36L2669,37L2684,37L2684,38L2701,38L2701,39L2717,39L2717,40L2720,40L2720,39L2730,39L2730,38L2733,38L2733,39L2741,39L2741,40L2750,40L2750,41L2752,41L2752,42L2753,42L2753,43L2754,43L2754,44L2759,44L2759,44L2766,44L2766,45L2776,45L2776,44L2778,44L2778,45L2782,45L2782,44L2782,44" tabindex="0">
+						<title>xk3m6d68</title>
+					</path>
+				</g>
+				<g style="--index: 12;">
+					<path d="M0,1L1620,1L1620,4L1640,4L1640,4L1661,4L1661,5L1673,5L1673,6L1674,6L1674,7L1687,7L1687,7L1715,7L1715,7L1793,7L1793,7L1842,7L1842,8L1892,8L1892,8L1897,8L1897,9L1951,9L1951,9L2009,9L2009,10L2043,10L2043,11L2049,11L2049,12L2084,12L2084,12L2160,12L2160,12L2166,12L2166,13L2172,13L2172,12L2261,12L2261,13L2334,13L2334,13L2378,13L2378,13L2406,13L2406,13L2428,13L2428,13L2498,13L2498,13L2548,13L2548,14L2581,14L2581,14L2582,14L2582,14L2647,14L2647,14L2653,14L2653,15L2658,15L2658,15L2669,15L2669,16L2684,16L2684,16L2701,16L2701,16L2717,16L2717,17L2733,17L2733,17L2741,17L2741,18L2750,18L2750,18L2752,18L2752,18L2753,18L2753,18L2754,18L2754,18L2759,18L2759,18L2766,18L2766,18L2778,18L2778,19L2782,19" tabindex="0">
+						<title>x7wer7v8</title>
+					</path>
+				</g>
+				<g style="--index: 13;">
+					<path d="M0,1L1640,1L1640,14L1661,14L1661,15L1673,15L1673,16L1687,16L1687,17L1715,17L1715,18L1793,18L1793,19L1842,19L1842,20L1892,20L1892,20L1897,20L1897,21L1951,21L1951,22L2009,22L2009,23L2043,23L2043,24L2049,24L2049,25L2084,25L2084,26L2160,26L2160,27L2166,27L2166,28L2261,28L2261,29L2334,29L2334,30L2378,30L2378,31L2406,31L2406,32L2428,32L2428,33L2452,33L2452,32L2498,32L2498,33L2548,33L2548,34L2581,34L2581,35L2582,35L2582,35L2647,35L2647,35L2653,35L2653,36L2658,36L2658,37L2669,37L2669,38L2684,38L2684,39L2701,39L2701,40L2717,40L2717,41L2730,41L2730,40L2733,40L2733,41L2741,41L2741,42L2750,42L2750,43L2752,43L2752,44L2753,44L2753,45L2754,45L2754,46L2759,46L2759,47L2765,47L2765,46L2766,46L2766,47L2776,47L2776,46L2778,46L2778,47L2782,47" tabindex="0">
+						<title>j2yr9lp8</title>
+					</path>
+				</g>
+				<g style="--index: 14;">
+					<path d="M0,1L1661,1L1661,4L1673,4L1673,5L1687,5L1687,5L1715,5L1715,5L1793,5L1793,5L1842,5L1842,6L1892,6L1892,6L1897,6L1897,6L1951,6L1951,6L2009,6L2009,7L2043,7L2043,8L2049,8L2049,9L2084,9L2084,9L2160,9L2160,9L2166,9L2166,10L2172,10L2172,9L2261,9L2261,10L2334,10L2334,10L2378,10L2378,10L2406,10L2406,10L2428,10L2428,10L2498,10L2498,10L2548,10L2548,11L2581,11L2581,11L2582,11L2582,11L2647,11L2647,11L2653,11L2653,12L2658,12L2658,12L2669,12L2669,13L2684,13L2684,13L2701,13L2701,13L2717,13L2717,14L2733,14L2733,14L2741,14L2741,15L2750,15L2750,15L2752,15L2752,15L2753,15L2753,15L2754,15L2754,15L2759,15L2759,15L2766,15L2766,15L2778,15L2778,16L2782,16" tabindex="0">
+						<title>j0grn39x</title>
+					</path>
+				</g>
+				<g style="--index: 15;">
+					<path d="M0,1L1673,1L1673,1L1687,1L1687,1L1715,1L1715,1L1793,1L1793,1L1842,1L1842,1L1892,1L1892,1L1897,1L1897,1L1951,1L1951,1L2009,1L2009,1L2043,1L2043,2L2049,2L2049,2L2084,2L2084,2L2160,2L2160,2L2166,2L2166,2L2261,2L2261,2L2334,2L2334,2L2378,2L2378,2L2406,2L2406,2L2428,2L2428,2L2498,2L2498,2L2548,2L2548,2L2581,2L2581,2L2582,2L2582,2L2647,2L2647,2L2653,2L2653,2L2658,2L2658,2L2669,2L2669,2L2684,2L2684,2L2701,2L2701,2L2717,2L2717,2L2733,2L2733,2L2741,2L2741,2L2750,2L2750,2L2752,2L2752,2L2753,2L2753,2L2754,2L2754,2L2759,2L2759,2L2766,2L2766,2L2778,2L2778,2L2782,2" tabindex="0">
+						<title>xz13gmrj</title>
+					</path>
+				</g>
+				<g style="--index: 16;">
+					<path d="M0,1L1687,1L1687,8L1715,8L1715,8L1793,8L1793,8L1842,8L1842,9L1862,9L1862,12L1892,12L1892,12L1897,12L1897,13L1951,13L1951,14L2009,14L2009,15L2043,15L2043,16L2049,16L2049,17L2084,17L2084,18L2160,18L2160,18L2166,18L2166,19L2172,19L2172,18L2261,18L2261,19L2334,19L2334,19L2378,19L2378,20L2406,20L2406,20L2428,20L2428,21L2498,21L2498,21L2548,21L2548,22L2581,22L2581,22L2582,22L2582,22L2647,22L2647,22L2653,22L2653,23L2658,23L2658,23L2669,23L2669,24L2684,24L2684,24L2701,24L2701,24L2717,24L2717,25L2730,25L2730,24L2733,24L2733,24L2741,24L2741,25L2750,25L2750,25L2752,25L2752,25L2753,25L2753,25L2754,25L2754,25L2759,25L2759,25L2766,25L2766,25L2778,25L2778,26L2782,26" tabindex="0">
+						<title>xk1oze6j</title>
+					</path>
+				</g>
+				<g style="--index: 17;">
+					<path d="M0,1L1715,1L1715,9L1793,9L1793,9L1842,9L1842,10L1862,10L1862,9L1892,9L1892,9L1897,9L1897,10L1951,10L1951,10L2009,10L2009,11L2043,11L2043,12L2049,12L2049,13L2084,13L2084,13L2160,13L2160,13L2166,13L2166,14L2172,14L2172,13L2261,13L2261,14L2334,14L2334,14L2378,14L2378,14L2406,14L2406,14L2428,14L2428,14L2498,14L2498,14L2548,14L2548,15L2581,15L2581,15L2582,15L2582,15L2647,15L2647,15L2653,15L2653,16L2658,16L2658,16L2669,16L2669,17L2684,17L2684,17L2701,17L2701,17L2717,17L2717,18L2733,18L2733,18L2741,18L2741,19L2750,19L2750,19L2752,19L2752,19L2753,19L2753,19L2754,19L2754,19L2759,19L2759,19L2766,19L2766,19L2778,19L2778,20L2782,20" tabindex="0">
+						<title>x766z2rj</title>
+					</path>
+				</g>
+				<g style="--index: 18;">
+					<path d="M0,1L1793,1L1793,11L1842,11L1842,12L1862,12L1862,11L1892,11L1892,11L1897,11L1897,12L1951,12L1951,13L2009,13L2009,14L2043,14L2043,15L2049,15L2049,16L2084,16L2084,16L2160,16L2160,16L2166,16L2166,17L2172,17L2172,16L2261,16L2261,17L2334,17L2334,17L2378,17L2378,17L2406,17L2406,17L2428,17L2428,18L2498,18L2498,18L2548,18L2548,19L2581,19L2581,19L2582,19L2582,19L2647,19L2647,19L2653,19L2653,20L2658,20L2658,20L2669,20L2669,21L2684,21L2684,21L2701,21L2701,21L2717,21L2717,22L2730,22L2730,21L2733,21L2733,21L2741,21L2741,22L2750,22L2750,22L2752,22L2752,22L2753,22L2753,22L2754,22L2754,22L2759,22L2759,22L2766,22L2766,22L2778,22L2778,23L2782,23" tabindex="0">
+						<title>8w0275lj</title>
+					</path>
+				</g>
+				<g style="--index: 19;">
+					<path d="M0,1L1842,1L1842,4L1892,4L1892,4L1897,4L1897,4L1951,4L1951,4L2009,4L2009,4L2043,4L2043,5L2049,5L2049,6L2084,6L2084,6L2160,6L2160,6L2166,6L2166,6L2261,6L2261,6L2334,6L2334,6L2378,6L2378,6L2406,6L2406,6L2428,6L2428,6L2498,6L2498,6L2548,6L2548,6L2581,6L2581,6L2582,6L2582,6L2647,6L2647,6L2653,6L2653,6L2658,6L2658,6L2669,6L2669,6L2684,6L2684,6L2701,6L2701,6L2717,6L2717,7L2733,7L2733,7L2741,7L2741,7L2750,7L2750,7L2752,7L2752,7L2753,7L2753,7L2754,7L2754,7L2759,7L2759,7L2766,7L2766,7L2778,7L2778,8L2782,8" tabindex="0">
+						<title>8ewm6dd8</title>
+					</path>
+				</g>
+				<g style="--index: 20;">
+					<path d="M0,1L1892,1L1892,21L1897,21L1897,22L1951,22L1951,23L2009,23L2009,24L2043,24L2043,25L2049,25L2049,26L2084,26L2084,27L2098,27L2098,28L2160,28L2160,29L2166,29L2166,30L2261,30L2261,31L2334,31L2334,32L2378,32L2378,33L2406,33L2406,34L2428,34L2428,35L2498,35L2498,36L2548,36L2548,37L2581,37L2581,39L2582,39L2582,40L2647,40L2647,41L2653,41L2653,42L2658,42L2658,43L2669,43L2669,44L2684,44L2684,45L2701,45L2701,46L2717,46L2717,47L2733,47L2733,48L2741,48L2741,49L2750,49L2750,50L2752,50L2752,51L2753,51L2753,52L2754,52L2754,53L2759,53L2759,54L2766,54L2766,55L2778,55L2778,56L2782,56" tabindex="0">
+						<title>jn2m23wj</title>
+					</path>
+				</g>
+				<g style="--index: 21;">
+					<path d="M0,1L1897,1L1897,7L1951,7L1951,7L2009,7L2009,8L2043,8L2043,9L2049,9L2049,10L2084,10L2084,10L2160,10L2160,10L2166,10L2166,11L2172,11L2172,10L2261,10L2261,11L2334,11L2334,11L2378,11L2378,11L2406,11L2406,11L2428,11L2428,11L2498,11L2498,11L2548,11L2548,12L2581,12L2581,12L2582,12L2582,12L2647,12L2647,12L2653,12L2653,13L2658,13L2658,13L2669,13L2669,14L2684,14L2684,14L2701,14L2701,14L2717,14L2717,15L2733,15L2733,15L2741,15L2741,16L2750,16L2750,16L2752,16L2752,16L2753,16L2753,16L2754,16L2754,16L2759,16L2759,16L2766,16L2766,16L2778,16L2778,17L2782,17" tabindex="0">
+						<title>810z203x</title>
+					</path>
+				</g>
+				<g style="--index: 22;">
+					<path d="M0,1L1951,1L1951,11L2009,11L2009,12L2043,12L2043,13L2049,13L2049,14L2084,14L2084,14L2160,14L2160,14L2166,14L2166,15L2172,15L2172,14L2261,14L2261,15L2334,15L2334,15L2378,15L2378,15L2406,15L2406,15L2428,15L2428,15L2498,15L2498,15L2548,15L2548,16L2581,16L2581,16L2582,16L2582,16L2647,16L2647,16L2653,16L2653,17L2658,17L2658,17L2669,17L2669,18L2684,18L2684,18L2701,18L2701,18L2717,18L2717,19L2733,19L2733,19L2741,19L2741,20L2750,20L2750,20L2752,20L2752,20L2753,20L2753,20L2754,20L2754,20L2759,20L2759,20L2766,20L2766,20L2778,20L2778,21L2782,21" tabindex="0">
+						<title>xk1wl26j</title>
+					</path>
+				</g>
+				<g style="--index: 23;">
+					<path d="M0,1L2009,1L2009,6L2043,6L2043,7L2049,7L2049,8L2084,8L2084,8L2160,8L2160,8L2166,8L2166,9L2172,9L2172,8L2261,8L2261,9L2334,9L2334,9L2378,9L2378,9L2406,9L2406,9L2428,9L2428,9L2498,9L2498,9L2548,9L2548,10L2581,10L2581,10L2582,10L2582,10L2647,10L2647,10L2653,10L2653,11L2658,11L2658,11L2669,11L2669,12L2684,12L2684,12L2701,12L2701,12L2717,12L2717,13L2733,13L2733,13L2741,13L2741,14L2750,14L2750,14L2752,14L2752,14L2753,14L2753,14L2754,14L2754,14L2759,14L2759,14L2766,14L2766,14L2778,14L2778,15L2782,15" tabindex="0">
+						<title>j9k252w8</title>
+					</path>
+				</g>
+				<g style="--index: 24;">
+					<path d="M0,1L2043,1L2043,1L2049,1L2049,1L2084,1L2084,1L2160,1L2160,1L2166,1L2166,1L2261,1L2261,1L2334,1L2334,1L2378,1L2378,1L2406,1L2406,1L2428,1L2428,1L2498,1L2498,1L2548,1L2548,1L2581,1L2581,1L2582,1L2582,1L2647,1L2647,1L2653,1L2653,1L2658,1L2658,1L2669,1L2669,1L2684,1L2684,1L2701,1L2701,1L2717,1L2717,1L2733,1L2733,1L2741,1L2741,1L2750,1L2750,1L2752,1L2752,1L2753,1L2753,1L2754,1L2754,1L2759,1L2759,1L2766,1L2766,1L2778,1L2778,1L2782,1" tabindex="0">
+						<title>jon6e378</title>
+					</path>
+				</g>
+				<g style="--index: 25;">
+					<path d="M0,1L2049,1L2049,3L2084,3L2084,3L2160,3L2160,3L2166,3L2166,3L2261,3L2261,3L2334,3L2334,3L2378,3L2378,3L2406,3L2406,3L2428,3L2428,3L2498,3L2498,3L2548,3L2548,3L2581,3L2581,3L2582,3L2582,3L2647,3L2647,3L2653,3L2653,3L2658,3L2658,3L2669,3L2669,3L2684,3L2684,3L2701,3L2701,3L2717,3L2717,3L2733,3L2733,3L2741,3L2741,3L2750,3L2750,3L2752,3L2752,3L2753,3L2753,3L2754,3L2754,3L2759,3L2759,3L2766,3L2766,3L2778,3L2778,3L2782,3" tabindex="0">
+						<title>8g2med1j</title>
+					</path>
+				</g>
+				<g style="--index: 26;">
+					<path d="M0,1L2084,1L2084,28L2098,28L2098,27L2160,27L2160,28L2166,28L2166,29L2261,29L2261,30L2334,30L2334,31L2378,31L2378,32L2406,32L2406,33L2428,33L2428,34L2498,34L2498,35L2548,35L2548,36L2581,36L2581,37L2582,37L2582,37L2647,37L2647,37L2653,37L2653,38L2658,38L2658,39L2669,39L2669,40L2684,40L2684,41L2701,41L2701,42L2717,42L2717,43L2733,43L2733,44L2741,44L2741,45L2750,45L2750,46L2752,46L2752,47L2753,47L2753,48L2754,48L2754,49L2758,49L2758,48L2759,48L2759,49L2766,49L2766,50L2776,50L2776,49L2778,49L2778,50L2782,50" tabindex="0">
+						<title>0jmw6wex</title>
+					</path>
+				</g>
+				<g style="--index: 27;">
+					<path d="M0,1L2084,1L2084,17L2160,17L2160,17L2166,17L2166,18L2172,18L2172,17L2261,17L2261,18L2334,18L2334,18L2378,18L2378,19L2406,19L2406,19L2428,19L2428,20L2498,20L2498,20L2548,20L2548,21L2581,21L2581,21L2582,21L2582,21L2647,21L2647,21L2653,21L2653,22L2658,22L2658,22L2669,22L2669,23L2684,23L2684,23L2701,23L2701,23L2717,23L2717,24L2730,24L2730,23L2733,23L2733,23L2741,23L2741,24L2750,24L2750,24L2752,24L2752,24L2753,24L2753,24L2754,24L2754,24L2759,24L2759,24L2766,24L2766,24L2778,24L2778,25L2782,25" tabindex="0">
+						<title>j2qq3mlj</title>
+					</path>
+				</g>
+				<g style="--index: 28;">
+					<path d="M0,1L2160,1L2160,19L2166,19L2166,20L2172,20L2172,19L2219,19L2219,19L2261,19L2261,20L2334,20L2334,20L2378,20L2378,21L2406,21L2406,21L2428,21L2428,22L2435,22L2435,23L2456,23L2456,23L2460,23L2460,24L2463,24L2463,27L2498,27L2498,28L2548,28L2548,29L2581,29L2581,30L2582,30L2582,30L2647,30L2647,30L2653,30L2653,31L2658,31L2658,32L2669,32L2669,33L2684,33L2684,34L2685,34L2685,33L2701,33L2701,33L2717,33L2717,34L2730,34L2730,33L2733,33L2733,34L2741,34L2741,35L2750,35L2750,35L2752,35L2752,35L2753,35L2753,35L2754,35L2754,36L2759,36L2759,36L2766,36L2766,37L2778,37L2778,38L2782,38L2782,45L2782,45" tabindex="0">
+						<title>8w3l21qj</title>
+					</path>
+				</g>
+				<g style="--index: 29;">
+					<path d="M0,1L2166,1L2166,7L2172,7L2172,20L2261,20L2261,21L2334,21L2334,21L2378,21L2378,22L2406,22L2406,22L2428,22L2428,23L2435,23L2435,22L2498,22L2498,22L2548,22L2548,23L2581,23L2581,24L2582,24L2582,24L2647,24L2647,24L2653,24L2653,25L2658,25L2658,25L2669,25L2669,26L2684,26L2684,26L2701,26L2701,26L2717,26L2717,27L2730,27L2730,26L2733,26L2733,26L2741,26L2741,27L2750,27L2750,27L2752,27L2752,27L2753,27L2753,27L2754,27L2754,27L2759,27L2759,27L2766,27L2766,27L2778,27L2778,28L2782,28" tabindex="0">
+						<title>8v0m9e5x</title>
+					</path>
+				</g>
+				<g style="--index: 30;">
+					<path d="M0,1L2261,1L2261,7L2334,7L2334,7L2378,7L2378,7L2406,7L2406,7L2428,7L2428,7L2498,7L2498,7L2548,7L2548,7L2581,7L2581,7L2582,7L2582,7L2647,7L2647,7L2653,7L2653,7L2658,7L2658,7L2669,7L2669,8L2684,8L2684,8L2701,8L2701,8L2717,8L2717,9L2733,9L2733,9L2741,9L2741,9L2750,9L2750,9L2752,9L2752,9L2753,9L2753,9L2754,9L2754,9L2759,9L2759,9L2766,9L2766,9L2778,9L2778,10L2782,10" tabindex="0">
+						<title>86rz9rw8</title>
+					</path>
+				</g>
+				<g style="--index: 31;">
+					<path d="M0,1L2334,1L2334,25L2378,25L2378,26L2406,26L2406,27L2428,27L2428,28L2452,28L2452,33L2498,33L2498,34L2548,34L2548,35L2581,35L2581,36L2582,36L2582,36L2647,36L2647,36L2653,36L2653,37L2658,37L2658,38L2669,38L2669,39L2684,39L2684,40L2701,40L2701,41L2717,41L2717,42L2733,42L2733,43L2741,43L2741,44L2750,44L2750,45L2752,45L2752,46L2753,46L2753,47L2754,47L2754,48L2758,48L2758,47L2759,47L2759,48L2765,48L2765,47L2766,47L2766,48L2776,48L2776,47L2778,47L2778,48L2782,48" tabindex="0">
+						<title>8v0mryvx</title>
+					</path>
+				</g>
+				<g style="--index: 32;">
+					<path d="M0,1L2378,1L2378,18L2406,18L2406,18L2428,18L2428,19L2498,19L2498,19L2548,19L2548,20L2581,20L2581,20L2582,20L2582,20L2647,20L2647,20L2653,20L2653,21L2658,21L2658,21L2669,21L2669,22L2684,22L2684,22L2701,22L2701,22L2717,22L2717,23L2730,23L2730,22L2733,22L2733,22L2741,22L2741,23L2750,23L2750,23L2752,23L2752,23L2753,23L2753,23L2754,23L2754,23L2759,23L2759,23L2766,23L2766,23L2778,23L2778,24L2782,24" tabindex="0">
+						<title>8r1g0owj</title>
+					</path>
+				</g>
+				<g style="--index: 33;">
+					<path d="M0,1L2406,1L2406,24L2428,24L2428,25L2463,25L2463,24L2498,24L2498,25L2548,25L2548,26L2581,26L2581,27L2582,27L2582,27L2647,27L2647,27L2653,27L2653,28L2658,28L2658,29L2669,29L2669,30L2684,30L2684,31L2685,31L2685,30L2701,30L2701,30L2717,30L2717,31L2730,31L2730,30L2733,30L2733,31L2741,31L2741,32L2750,32L2750,32L2752,32L2752,32L2753,32L2753,32L2754,32L2754,33L2759,33L2759,33L2766,33L2766,34L2778,34L2778,35L2782,35" tabindex="0">
+						<title>x3p3rkk8</title>
+					</path>
+				</g>
+				<g style="--index: 34;">
+					<path d="M0,1L2428,1L2428,17L2498,17L2498,17L2548,17L2548,18L2581,18L2581,18L2582,18L2582,18L2647,18L2647,18L2653,18L2653,19L2658,19L2658,19L2669,19L2669,20L2684,20L2684,20L2701,20L2701,20L2717,20L2717,21L2730,21L2730,41L2733,41L2733,42L2741,42L2741,43L2750,43L2750,44L2752,44L2752,45L2753,45L2753,46L2754,46L2754,47L2758,47L2758,50L2759,50L2759,51L2766,51L2766,52L2778,52L2778,53L2782,53" tabindex="0">
+						<title>j2p4pel8</title>
+					</path>
+				</g>
+				<g style="--index: 35;">
+					<path d="M0,1L2498,1L2498,24L2548,24L2548,25L2581,25L2581,26L2582,26L2582,26L2647,26L2647,26L2653,26L2653,27L2658,27L2658,28L2669,28L2669,29L2684,29L2684,29L2701,29L2701,29L2717,29L2717,30L2730,30L2730,29L2733,29L2733,30L2741,30L2741,31L2750,31L2750,31L2752,31L2752,31L2753,31L2753,31L2754,31L2754,32L2759,32L2759,32L2766,32L2766,33L2778,33L2778,34L2782,34" tabindex="0">
+						<title>jpz7kp0x</title>
+					</path>
+				</g>
+				<g style="--index: 36;">
+					<path d="M0,1L2548,1L2548,9L2581,9L2581,9L2582,9L2582,9L2647,9L2647,9L2653,9L2653,10L2658,10L2658,10L2669,10L2669,11L2684,11L2684,11L2701,11L2701,11L2717,11L2717,12L2733,12L2733,12L2741,12L2741,13L2750,13L2750,13L2752,13L2752,13L2753,13L2753,13L2754,13L2754,13L2759,13L2759,13L2766,13L2766,13L2778,13L2778,14L2782,14" tabindex="0">
+						<title>8vrdr1nx</title>
+					</path>
+				</g>
+				<g style="--index: 37;">
+					<path d="M0,1L2581,1L2581,23L2582,23L2582,23L2647,23L2647,23L2653,23L2653,24L2658,24L2658,24L2669,24L2669,25L2684,25L2684,25L2701,25L2701,25L2717,25L2717,26L2730,26L2730,25L2733,25L2733,25L2741,25L2741,26L2750,26L2750,26L2752,26L2752,26L2753,26L2753,26L2754,26L2754,26L2759,26L2759,26L2766,26L2766,26L2778,26L2778,27L2782,27" tabindex="0">
+						<title>j2p712o8</title>
+					</path>
+				</g>
+				<g style="--index: 38;">
+					<path d="M0,1L2581,1L2581,38L2582,38L2582,38L2647,38L2647,39L2653,39L2653,40L2658,40L2658,41L2669,41L2669,42L2684,42L2684,43L2701,43L2701,44L2717,44L2717,45L2733,45L2733,46L2741,46L2741,47L2750,47L2750,48L2752,48L2752,49L2753,49L2753,50L2754,50L2754,51L2759,51L2759,52L2766,52L2766,53L2778,53L2778,54L2782,54" tabindex="0">
+						<title>xkon93k8</title>
+					</path>
+				</g>
+				<g style="--index: 39;">
+					<path d="M0,1L2582,1L2582,39L2647,39L2647,40L2653,40L2653,41L2658,41L2658,42L2669,42L2669,43L2684,43L2684,44L2701,44L2701,45L2717,45L2717,46L2733,46L2733,47L2741,47L2741,48L2750,48L2750,49L2752,49L2752,50L2753,50L2753,51L2754,51L2754,52L2759,52L2759,53L2766,53L2766,54L2778,54L2778,55L2782,55" tabindex="0">
+						<title>8g2pg71j</title>
+					</path>
+				</g>
+				<g style="--index: 40;">
+					<path d="M0,1L2647,1L2647,38L2653,38L2653,39L2658,39L2658,40L2669,40L2669,41L2684,41L2684,42L2701,42L2701,43L2717,43L2717,44L2733,44L2733,45L2741,45L2741,46L2750,46L2750,47L2752,47L2752,48L2753,48L2753,49L2754,49L2754,50L2758,50L2758,49L2759,49L2759,50L2766,50L2766,51L2778,51L2778,52L2782,52" tabindex="0">
+						<title>8gop7k2x</title>
+					</path>
+				</g>
+				<g style="--index: 41;">
+					<path d="M0,1L2653,1L2653,9L2658,9L2658,9L2669,9L2669,10L2684,10L2684,10L2701,10L2701,10L2717,10L2717,11L2733,11L2733,11L2741,11L2741,12L2750,12L2750,12L2752,12L2752,12L2753,12L2753,12L2754,12L2754,12L2759,12L2759,12L2766,12L2766,12L2778,12L2778,13L2782,13" tabindex="0">
+						<title>81pg9mr8</title>
+					</path>
+				</g>
+				<g style="--index: 42;">
+					<path d="M0,1L2658,1L2658,26L2669,26L2669,27L2684,27L2684,27L2701,27L2701,27L2717,27L2717,28L2730,28L2730,27L2733,27L2733,27L2741,27L2741,28L2750,28L2750,28L2752,28L2752,28L2753,28L2753,28L2754,28L2754,29L2759,29L2759,29L2766,29L2766,29L2778,29L2778,30L2782,30" tabindex="0">
+						<title>8r6739q8</title>
+					</path>
+				</g>
+				<g style="--index: 43;">
+					<path d="M0,1L2669,1L2669,7L2684,7L2684,7L2701,7L2701,7L2717,7L2717,8L2733,8L2733,8L2741,8L2741,8L2750,8L2750,8L2752,8L2752,8L2753,8L2753,8L2754,8L2754,8L2759,8L2759,8L2766,8L2766,8L2778,8L2778,9L2782,9" tabindex="0">
+						<title>81vq0e38</title>
+					</path>
+				</g>
+				<g style="--index: 44;">
+					<path d="M0,1L2684,1L2684,30L2685,30L2685,36L2701,36L2701,37L2717,37L2717,38L2720,38L2720,37L2730,37L2730,36L2733,36L2733,37L2741,37L2741,38L2750,38L2750,39L2752,39L2752,40L2753,40L2753,40L2754,40L2754,41L2759,41L2759,41L2766,41L2766,42L2776,42L2776,41L2778,41L2778,42L2782,42L2782,41L2782,41" tabindex="0">
+						<title>j4v29mdj</title>
+					</path>
+				</g>
+				<g style="--index: 45;">
+					<path d="M0,1L2701,1L2701,34L2717,34L2717,35L2730,35L2730,34L2733,34L2733,35L2741,35L2741,36L2750,36L2750,37L2752,37L2752,37L2753,37L2753,37L2754,37L2754,38L2759,38L2759,38L2766,38L2766,39L2776,39L2776,50L2778,50L2778,51L2782,51" tabindex="0">
+						<title>jo1zrpnx</title>
+					</path>
+				</g>
+				<g style="--index: 46;">
+					<path d="M0,1L2717,1L2717,6L2733,6L2733,6L2741,6L2741,6L2750,6L2750,6L2752,6L2752,6L2753,6L2753,6L2754,6L2754,6L2759,6L2759,6L2766,6L2766,6L2778,6L2778,7L2782,7" tabindex="0">
+						<title>x7g7ngyx</title>
+					</path>
+				</g>
+				<g style="--index: 47;">
+					<path d="M0,1L2733,1L2733,29L2741,29L2741,30L2750,30L2750,30L2752,30L2752,30L2753,30L2753,30L2754,30L2754,31L2759,31L2759,31L2766,31L2766,32L2778,32L2778,33L2782,33" tabindex="0">
+						<title>8g5l7n2j</title>
+					</path>
+				</g>
+				<g style="--index: 48;">
+					<path d="M0,1L2741,1L2741,10L2750,10L2750,10L2752,10L2752,10L2753,10L2753,10L2754,10L2754,10L2759,10L2759,10L2766,10L2766,10L2778,10L2778,11L2782,11" tabindex="0">
+						<title>x7g22qrx</title>
+					</path>
+				</g>
+				<g style="--index: 49;">
+					<path d="M0,1L2750,1L2750,36L2752,36L2752,36L2753,36L2753,36L2754,36L2754,37L2759,37L2759,37L2766,37L2766,38L2778,38L2778,39L2782,39L2782,38L2782,38" tabindex="0">
+						<title>xz55p24x</title>
+					</path>
+				</g>
+				<g style="--index: 50;">
+					<path d="M0,1L2752,1L2752,38L2753,38L2753,38L2754,38L2754,39L2759,39L2759,39L2766,39L2766,40L2776,40L2776,39L2778,39L2778,40L2782,40L2782,39L2782,39" tabindex="0">
+						<title>86pek6wj</title>
+					</path>
+				</g>
+				<g style="--index: 51;">
+					<path d="M0,1L2753,1L2753,41L2754,41L2754,42L2759,42L2759,42L2760,42L2760,42L2766,42L2766,43L2776,43L2776,42L2778,42L2778,43L2782,43L2782,42L2782,42" tabindex="0">
+						<title>x7ggd6rx</title>
+					</path>
+				</g>
+				<g style="--index: 52;">
+					<path d="M0,1L2754,1L2754,28L2759,28L2759,28L2766,28L2766,28L2778,28L2778,29L2782,29" tabindex="0">
+						<title>j2pmdqp8</title>
+					</path>
+				</g>
+				<g style="--index: 53;">
+					<path d="M0,1L2759,1L2759,45L2765,45L2765,48L2766,48L2766,49L2776,49L2776,48L2778,48L2778,49L2782,49" tabindex="0">
+						<title>8qpl62dx</title>
+					</path>
+				</g>
+				<g style="--index: 54;">
+					<path d="M0,1L2766,1L2766,31L2778,31L2778,32L2782,32" tabindex="0">
+						<title>81vel658</title>
+					</path>
+				</g>
+				<g style="--index: 55;">
+					<path d="M0,1L2778,1L2778,5L2782,5" tabindex="0">
+						<title>jm069qo8</title>
+					</path>
+				</g>
+			</g>
+		</svg>
+	</foreignObject>
+</svg>

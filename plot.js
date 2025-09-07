@@ -1469,13 +1469,17 @@ function plotTimeByDatumKey(scope, title, datumDates, key, times) {
 	const formattedData = plot(scope, title, keyData, false, false, true, goals);
 	return formattedData;
 }
-function computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards) {
-	const newPlayers = Object.create(null);
-	const newLeaderboards = Object.create(null);
+function computeRankAndScoreByLeaderboardByPlayerAndByPlayerByLeaderboard(players, leaderboards) {
+	const newRankedPlayers = Object.create(null);
+	const newScoredPlayers = Object.create(null);
+	const newRankedLeaderboards = Object.create(null);
+	const newScoredLeaderboards = Object.create(null);
 	for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
-		const players = Object.create(null);
+		const rankedPlayers = Object.create(null);
+		const scoredPlayers = Object.create(null);
 		const times = Object.create(null);
 		const ranks = [];
+		const scores = [];
 		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
 			for (const run of dateRuns) {
 				if (run.status !== "verified") {
@@ -1483,47 +1487,69 @@ function computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, l
 				}
 				const time = run.time;
 				const player = run.player;
-				let lowerTime = player in players ? times[player] : null;
+				let lowerTime = player in rankedPlayers ? times[player] : null;
 				if (lowerTime == null || time.length < lowerTime.length || time < lowerTime) {
+					const rank = lowerTime != null ? rankedPlayers[player][Object.keys(rankedPlayers[player])[Object.keys(rankedPlayers[player]).length - 1]] : ranks.push(null) - 1;
+					if (lowerTime == null) {
+						for (const scoredPlayerDates of Object.values(scoredPlayers)) {
+							let currentScore = scoredPlayerDates[Object.keys(scoredPlayerDates)[Object.keys(scoredPlayerDates).length - 1]];
+							++currentScore;
+							scoredPlayerDates[date] = currentScore;
+						}
+					}
+					const score = lowerTime != null ? scoredPlayers[player][Object.keys(scoredPlayers[player])[Object.keys(scoredPlayers[player]).length - 1]] - 1 : scores.unshift(null) && 0;
 					lowerTime = time;
 					times[player] = lowerTime;
-					const rank = player in players ? players[player][Object.keys(players[player])[Object.keys(players[player]).length - 1]] : ranks.push(null) - 1;
 					let currentRank = rank;
+					let currentScore = score;
 					let lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
 					lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
 					while (lowerTime != null && (time.length < lowerTime.length || time < lowerTime)) {
-						const playerDates = players[lowerPlayer];
-						playerDates[date] = currentRank;
+						const rankedPlayerDates = rankedPlayers[lowerPlayer];
+						const scoredPlayerDates = scoredPlayers[lowerPlayer];
+						rankedPlayerDates[date] = currentRank;
+						scoredPlayerDates[date] = currentScore + 1;
 						ranks[currentRank] = lowerPlayer;
+						scores[currentScore] = lowerPlayer;
 						--currentRank;
+						++currentScore;
 						lowerPlayer = currentRank >= 1 ? ranks[currentRank - 1] : null;
 						lowerTime = lowerPlayer != null ? times[lowerPlayer] : null;
 					}
 					lowerPlayer = player;
-					const playerDates = players[lowerPlayer] ??= Object.assign(Object.create(null), {
+					const rankedPlayerDates = rankedPlayers[lowerPlayer] ??= Object.assign(Object.create(null), {
 						"": rank,
 					});
-					playerDates[date] = currentRank;
+					const scoredPlayerDates = scoredPlayers[lowerPlayer] ??= Object.assign(Object.create(null), {
+						"": score + 1,
+					});
+					rankedPlayerDates[date] = currentRank;
+					scoredPlayerDates[date] = currentScore + 1;
 					ranks[currentRank] = lowerPlayer;
+					scores[currentScore] = lowerPlayer;
 				}
 			}
 		}
-		newLeaderboards[leaderboard] = players;
+		newRankedLeaderboards[leaderboard] = rankedPlayers;
+		newScoredLeaderboards[leaderboard] = scoredPlayers;
 	}
 	for (const [player, playerDates] of Object.entries(players)) {
-		const leaderboards = Object.create(null);
+		const rankedLeaderboards = Object.create(null);
+		const scoredLeaderboards = Object.create(null);
 		for (const dateRuns of Object.values(playerDates)) {
 			for (const run of dateRuns) {
 				if (run.status !== "verified") {
 					continue;
 				}
 				const leaderboard = run.leaderboard;
-				leaderboards[leaderboard] ??= newLeaderboards[leaderboard][player];
+				rankedLeaderboards[leaderboard] ??= newRankedLeaderboards[leaderboard][player];
+				scoredLeaderboards[leaderboard] ??= newScoredLeaderboards[leaderboard][player];
 			}
 		}
-		newPlayers[player] = leaderboards;
+		newRankedPlayers[player] = rankedLeaderboards;
+		newScoredPlayers[player] = scoredLeaderboards;
 	}
-	return [newPlayers, newLeaderboards];
+	return [newRankedPlayers, newScoredPlayers, newRankedLeaderboards, newScoredLeaderboards];
 }
 function plotRankByDatum(scope, title, data) {
 	if (Object.keys(data).length === 0) {
@@ -1643,7 +1669,7 @@ function plotTotalTimeByPlayer(scope, title, players, tiers) {
 	const formattedData = plot(scope, title, newPlayers, false, false, true, goals);
 	return formattedData;
 }
-function plotTotalRankByPlayer(scope, title, players, tiers) {
+function plotTotalRankOrScoreByPlayer(scope, title, players, reversed, tiers) {
 	const tierCount = Object.keys(tiers).length;
 	const newPlayers = Object.create(null);
 	for (const [player, playerLeaderboards] of Object.entries(players)) {
@@ -1662,7 +1688,7 @@ function plotTotalRankByPlayer(scope, title, players, tiers) {
 				}));
 			}
 		}
-		if (leaderboardCount !== tierCount) {
+		if (!reversed && leaderboardCount !== tierCount) {
 			continue;
 		}
 		const sortedPlayerDates = Object.fromEntries(sortDatumDates(Object.entries(playerDates)));
@@ -1692,7 +1718,7 @@ const formattedRunCountByPlayer = plotRunCountByDatum("../", "Run count by playe
 const formattedRunCountByLeaderboard = plotRunCountByDatum("../", "Run count by leaderboard", leaderboards);
 const formattedLeaderboardCountByPlayer = plotKeyCountByDatum("../", "Leaderboard count by player", players, "leaderboard");
 const formattedPlayerCountByLeaderboard = plotKeyCountByDatum("../", "Player count by leaderboard", leaderboards, "player");
-const [rankByLeaderboardByPlayer, rankByPlayerByLeaderboard] = computeRankByLeaderboardByPlayerAndRankByPlayerByLeaderboard(players, leaderboards);
+const [rankByLeaderboardByPlayer, scoreByLeaderboardByPlayer, rankByPlayerByLeaderboard, scoreByPlayerByLeaderboard] = computeRankAndScoreByLeaderboardByPlayerAndByPlayerByLeaderboard(players, leaderboards);
 const formattedTimeByLeaderboardByPlayer = Object.create(null);
 for (const [player, playerDates] of Object.entries(players)) {
 	const formattedTimeByLeaderboard = plotTimeByDatumKey("../../", `Time by leaderboard for player ${player}`, playerDates, "leaderboard", null);
@@ -1708,6 +1734,14 @@ for (const [player, playerLeaderboards] of Object.entries(rankByLeaderboardByPla
 		continue;
 	}
 	formattedRankByLeaderboardByPlayer[player] = formattedRankByLeaderboard;
+}
+const formattedScoreByLeaderboardByPlayer = Object.create(null);
+for (const [player, scoredPlayerLeaderboards] of Object.entries(scoreByLeaderboardByPlayer)) {
+	const formattedScoreByLeaderboard = plotRankByDatum("../../", `Score by leaderboard for player ${player}`, scoredPlayerLeaderboards);
+	if (formattedScoreByLeaderboard == null) {
+		continue;
+	}
+	formattedScoreByLeaderboardByPlayer[player] = formattedScoreByLeaderboard;
 }
 const formattedTimeByPlayerByLeaderboard = Object.create(null);
 for (const [leaderboard, leaderboardDates] of Object.entries(leaderboards)) {
@@ -1725,6 +1759,14 @@ for (const [leaderboard, leaderboardPlayers] of Object.entries(rankByPlayerByLea
 	}
 	formattedRankByPlayerByLeaderboard[leaderboard] = formattedRankByPlayer;
 }
+const formattedScoreByPlayerByLeaderboard = Object.create(null);
+for (const [leaderboard, scoredLeaderboardPlayers] of Object.entries(scoreByPlayerByLeaderboard)) {
+	const formattedScoreByPlayer = plotRankByDatum("../../", `Score by player for leaderboard ${leaderboard}`, scoredLeaderboardPlayers);
+	if (formattedScoreByPlayer == null) {
+		continue;
+	}
+	formattedScoreByPlayerByLeaderboard[leaderboard] = formattedScoreByPlayer;
+}
 const formattedRecordCountByPlayer = plotRecordCountByPlayer("../", "Record count by player", leaderboards, null);
 const formattedRecordCountByPlayerForBears = plotRecordCountByPlayer("../", "Record count by player (bears)", leaderboards, bears);
 const formattedRecordCountByPlayerForMissions = plotRecordCountByPlayer("../", "Record count by player (missions)", leaderboards, missions);
@@ -1739,10 +1781,14 @@ const formattedTotalTimeByPlayerForBears = plotTotalTimeByPlayer("../", "Total t
 const formattedTotalTimeByPlayerForMissions = plotTotalTimeByPlayer("../", "Total time by player (missions)", players, missions);
 const formattedTotalTimeByPlayerForRaces = plotTotalTimeByPlayer("../", "Total time by player (races)", players, races);
 const formattedTotalTimeByPlayerForSublevels = plotTotalTimeByPlayer("../", "Total time by player (sublevels)", players, sublevels);
-const formattedTotalRankByPlayerForBears = plotTotalRankByPlayer("../", "Total rank by player (bears)", rankByLeaderboardByPlayer, bears);
-const formattedTotalRankByPlayerForMissions = plotTotalRankByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, missions);
-const formattedTotalRankByPlayerForRaces = plotTotalRankByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, races);
-const formattedTotalRankByPlayerForSublevels = plotTotalRankByPlayer("../", "Total rank by player (sublevels)", rankByLeaderboardByPlayer, sublevels);
+const formattedTotalRankByPlayerForBears = plotTotalRankOrScoreByPlayer("../", "Total rank by player (bears)", rankByLeaderboardByPlayer, false, bears);
+const formattedTotalRankByPlayerForMissions = plotTotalRankOrScoreByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, false, missions);
+const formattedTotalRankByPlayerForRaces = plotTotalRankOrScoreByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, false, races);
+const formattedTotalRankByPlayerForSublevels = plotTotalRankOrScoreByPlayer("../", "Total rank by player (sublevels)", rankByLeaderboardByPlayer, false, sublevels);
+const formattedTotalScoreByPlayerForBears = plotTotalRankOrScoreByPlayer("../", "Total score by player (bears)", scoreByLeaderboardByPlayer, true, bears);
+const formattedTotalScoreByPlayerForMissions = plotTotalRankOrScoreByPlayer("../", "Total score by player (missions)", scoreByLeaderboardByPlayer, true, missions);
+const formattedTotalScoreByPlayerForRaces = plotTotalRankOrScoreByPlayer("../", "Total score by player (races)", scoreByLeaderboardByPlayer, true, races);
+const formattedTotalScoreByPlayerForSublevels = plotTotalRankOrScoreByPlayer("../", "Total score by player (sublevels)", scoreByLeaderboardByPlayer, true, sublevels);
 await mkdir("plot", {
 	recursive: true,
 });
@@ -1771,11 +1817,17 @@ for (const [player, formattedTimeByLeaderboard] of Object.entries(formattedTimeB
 for (const [player, formattedRankByLeaderboard] of Object.entries(formattedRankByLeaderboardByPlayer)) {
 	await writeFile(`plot/players/${player}-leaderboard-ranks.svg`, `${formattedRankByLeaderboard}\n`);
 }
+for (const [player, formattedScoreByLeaderboard] of Object.entries(formattedRankByLeaderboardByPlayer)) {
+	await writeFile(`plot/players/${player}-leaderboard-scores.svg`, `${formattedScoreByLeaderboard}\n`);
+}
 for (const [leaderboard, formattedTimeByPlayer] of Object.entries(formattedTimeByPlayerByLeaderboard)) {
 	await writeFile(`plot/leaderboards/${leaderboard}-player-times.svg`, `${formattedTimeByPlayer}\n`);
 }
 for (const [leaderboard, formattedRankByPlayer] of Object.entries(formattedRankByPlayerByLeaderboard)) {
 	await writeFile(`plot/leaderboards/${leaderboard}-player-ranks.svg`, `${formattedRankByPlayer}\n`);
+}
+for (const [leaderboard, formattedScoreByPlayer] of Object.entries(formattedScoreByPlayerByLeaderboard)) {
+	await writeFile(`plot/leaderboards/${leaderboard}-player-scores.svg`, `${formattedScoreByPlayer}\n`);
 }
 await writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
 await writeFile(`plot/player-bear-records.svg`, `${formattedRecordCountByPlayerForBears}\n`);
@@ -1795,6 +1847,10 @@ await writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBe
 await writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
 await writeFile(`plot/player-sublevel-ranks.svg`, `${formattedTotalRankByPlayerForSublevels}\n`);
+await writeFile(`plot/player-bear-scores.svg`, `${formattedTotalScoreByPlayerForBears}\n`);
+await writeFile(`plot/player-mission-scores.svg`, `${formattedTotalScoreByPlayerForMissions}\n`);
+await writeFile(`plot/player-race-scores.svg`, `${formattedTotalScoreByPlayerForRaces}\n`);
+await writeFile(`plot/player-sublevel-scores.svg`, `${formattedTotalScoreByPlayerForSublevels}\n`);
 await writeFile(`plot/readme.md`, `\
 # Plot
 
@@ -1821,6 +1877,10 @@ await writeFile(`plot/readme.md`, `\
 - [Total rank by player (missions)](player-mission-ranks.svg)
 - [Total rank by player (races)](player-race-ranks.svg)
 - [Total rank by player (sublevels)](player-sublevel-ranks.svg)
+- [Total score by player (bears)](player-bear-scores.svg)
+- [Total score by player (missions)](player-mission-scores.svg)
+- [Total score by player (races)](player-race-scores.svg)
+- [Total score by player (sublevels)](player-sublevel-scores.svg)
 - [Players](players)
 - [Leaderboards](leaderboards)
 `);
@@ -1841,6 +1901,13 @@ ${sort(Object.keys(formattedRankByLeaderboardByPlayer), (player) => {
 - [Rank by leaderboard for player \`${player}\`](${player}-leaderboard-ranks.svg)
 `;
 }).join("")}\
+${sort(Object.keys(formattedScoreByLeaderboardByPlayer), (player) => {
+	return player;
+}).map((player) => {
+	return `\
+- [Score by leaderboard for player \`${player}\`](${player}-leaderboard-scores.svg)
+`;
+}).join("")}\
 `);
 await writeFile(`plot/leaderboards/readme.md`, `\
 # Leaderboards
@@ -1857,6 +1924,13 @@ ${sort(Object.keys(formattedRankByPlayerByLeaderboard), (leaderboard) => {
 }).map((leaderboard) => {
 	return `\
 - [Rank by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-ranks.svg)
+`;
+}).join("")}\
+${sort(Object.keys(formattedScoreByPlayerByLeaderboard), (leaderboard) => {
+	return !leaderboard.startsWith("l_") ? `l_-${leaderboard}` : leaderboard;
+}).map((leaderboard) => {
+	return `\
+- [Score by player for leaderboard \`${leaderboard}\`](${leaderboard}-player-scores.svg)
 `;
 }).join("")}\
 `);
