@@ -1093,20 +1093,20 @@
 			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">1</text>
+			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2</text>
 		</svg>
-		<svg viewBox="0 0 235 1" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 1) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 235 2" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 2) scale(1 -1)" style="--count: 2;">
 				<g>
-					<rect x="0" y="0" width="235" height="1"/>
+					<rect x="0" y="0" width="235" height="2"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,0L48,0L48,1L156,1L156,0L235,0L235,0L235,0" tabindex="0">
+					<path d="M0,1L0,1L0,0L48,0L48,1L156,1L156,0L235,0L235,0L235,0" tabindex="0">
 						<title>x356nrej</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,1L48,1L48,0L156,0L156,1L235,1" tabindex="0">
+					<path d="M0,2L48,2L48,0L156,0L156,1L235,1" tabindex="0">
 						<title>xkon93k8</title>
 					</path>
 				</g>
