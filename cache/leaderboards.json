@@ -59259,123 +59259,6 @@
 				"status": "verified",
 				"annotation": null
 			}
-		],
-		"2023-10-10": [
-			{
-				"href": "https://www.speedrun.com/sbace/run/y8k681ny",
-				"time": "00:39.72",
-				"player": "8w3l21qj",
-				"version": "10.4.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
-		"2024-08-30": [
-			{
-				"href": "https://www.speedrun.com/sbace/run/mrx76n7m",
-				"time": "00:15.86",
-				"player": "x3wdlvkj",
-				"version": "11.1.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			},
-			{
-				"href": "https://www.speedrun.com/sbace/run/y8p8jjnz",
-				"time": "00:16.82",
-				"player": "86rpw3p8",
-				"version": "11.1.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
-		"2025-06-13": [
-			{
-				"href": "https://www.speedrun.com/api/v1/runs/zx0og88z",
-				"time": "01:30.03",
-				"player": "81vm30q8",
-				"version": "10.0.0",
-				"platform": "android",
-				"status": "rejected",
-				"annotation": "A video record of the full run is required to appear on these leaderboards."
-			}
-		],
-		"2025-07-15": [
-			{
-				"href": "https://www.speedrun.com/api/v1/runs/y6jew76m",
-				"time": "00:18.82",
-				"player": "j2pmdqp8",
-				"version": "12.0.1",
-				"platform": "android",
-				"status": "rejected",
-				"annotation": "One of the bug this speedrun exploits has been quickly fixed in the next version, 12.0.2. This run is thus rejected to keep the competition going"
-			}
-		],
-		"2025-07-26": [
-			{
-				"href": "https://www.speedrun.com/sbace/run/mrdvv77z",
-				"time": "00:16.73",
-				"player": "jo1zrpnx",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
-		"2025-08-06": [
-			{
-				"href": "https://www.speedrun.com/sbace/run/m7le0wwy",
-				"time": "00:17.28",
-				"player": "j2pmdqp8",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			},
-			{
-				"href": "https://www.speedrun.com/sbace/run/yjqe2d3m",
-				"time": "00:15.84",
-				"player": "j2p4pel8",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
-		"2025-08-07": [
-			{
-				"href": "https://www.speedrun.com/sbace/run/y6jg2gpm",
-				"time": "00:15.34",
-				"player": "j2p4pel8",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
-		"2025-08-09": [
-			{
-				"href": "https://www.speedrun.com/sbace/run/y8gg8j5z",
-				"time": "00:17.03",
-				"player": "x356nrej",
-				"version": "11.1.1",
-				"platform": "switch",
-				"status": "verified",
-				"annotation": null
-			}
-		],
-		"2025-08-28": [
-			{
-				"href": "https://www.speedrun.com/sbace/run/yoeg287z",
-				"time": "00:18.30",
-				"player": "8logk9r8",
-				"version": "12.0.4",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
 		]
 	},
 	"l_ldykv1zw-rkl3znrk-wl3059ol.mlnwjz0l": {
@@ -72019,6 +71902,125 @@
 				"href": "https://www.speedrun.com/sbace/run/yd4xg8qy",
 				"time": "01:34.12",
 				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		]
+	},
+	"l_r9gnozkd-rkl3znrk-wledz9en.1dkg795l": {
+		"2023-10-10": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y8k681ny",
+				"time": "00:39.72",
+				"player": "8w3l21qj",
+				"version": "10.4.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2024-08-30": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mrx76n7m",
+				"time": "00:15.86",
+				"player": "x3wdlvkj",
+				"version": "11.1.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/y8p8jjnz",
+				"time": "00:16.82",
+				"player": "86rpw3p8",
+				"version": "11.1.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-06-13": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zx0og88z",
+				"time": "01:30.03",
+				"player": "81vm30q8",
+				"version": "10.0.0",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			}
+		],
+		"2025-07-15": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y6jew76m",
+				"time": "00:18.82",
+				"player": "j2pmdqp8",
+				"version": "12.0.1",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "One of the bug this speedrun exploits has been quickly fixed in the next version, 12.0.2. This run is thus rejected to keep the competition going"
+			}
+		],
+		"2025-07-26": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mrdvv77z",
+				"time": "00:16.73",
+				"player": "jo1zrpnx",
+				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-08-06": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/m7le0wwy",
+				"time": "00:17.28",
+				"player": "j2pmdqp8",
+				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/yjqe2d3m",
+				"time": "00:15.84",
+				"player": "j2p4pel8",
+				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-08-07": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y6jg2gpm",
+				"time": "00:15.34",
+				"player": "j2p4pel8",
+				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-08-09": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y8gg8j5z",
+				"time": "00:17.03",
+				"player": "x356nrej",
+				"version": "11.1.1",
+				"platform": "switch",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-08-28": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yoeg287z",
+				"time": "00:18.30",
+				"player": "8logk9r8",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
