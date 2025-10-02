@@ -388,6 +388,26 @@
 				"status": "rejected",
 				"annotation": "Runs should be done in the latest version available that is allowed by the (sub)category, which is 1.3.4.2 here.."
 			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y8g5pj5z",
+				"time": "01:07.00",
+				"player": "j5rkqz6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yjqn9p3m",
+				"time": "303:06.00",
+				"player": "j5rkqz6x",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
 		]
 	},
 	"8246j8md": {
@@ -3456,6 +3476,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yjq084nm",
+				"time": "00:33.19",
+				"player": "j2p4pel8",
+				"version": "1.3.4.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_o9xo3rp9-xd144xzd-ql69e17l.qyz3jjd1": {
@@ -5372,17 +5403,6 @@
 				"annotation": null
 			}
 		],
-		"2025-07-08": [
-			{
-				"href": "https://www.speedrun.com/sba/run/z5wee95z",
-				"time": "00:08.94",
-				"player": "x7ggd6rx",
-				"version": "12.0.0",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
 		"2025-07-13": [
 			{
 				"href": "https://www.speedrun.com/sba/run/yjq21wgm",
@@ -5567,18 +5587,18 @@
 				"annotation": null
 			},
 			{
-				"href": "https://www.speedrun.com/sba/run/z166k8rm",
-				"time": "00:08.58",
-				"player": "81v3d938",
+				"href": "https://www.speedrun.com/sba/run/y9erqpkz",
+				"time": "00:07.87",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
 			},
 			{
-				"href": "https://www.speedrun.com/sba/run/zx00qkgz",
-				"time": "00:07.87",
-				"player": "x7ggd6rx",
+				"href": "https://www.speedrun.com/sba/run/z166k8rm",
+				"time": "00:08.58",
+				"player": "81v3d938",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -5683,6 +5703,83 @@
 				"href": "https://www.speedrun.com/sba/run/yw27nv0y",
 				"time": "00:08.72",
 				"player": "8wg64rvx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y2848l7y",
+				"time": "00:11.35",
+				"player": "j9y4r2vx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
+		],
+		"2025-09-05": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g7j4nz",
+				"time": "00:08.63",
+				"player": "8r6ykpd8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5wqx85z",
+				"time": "00:08.86",
+				"player": "8gzn56rj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zpo7wnrm",
+				"time": "00:08.28",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-18": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y8g575dz",
+				"time": "00:11.35",
+				"player": "j9y4r2vx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3291vwy",
+				"time": "00:10.79",
+				"player": "x7g50mvx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-26": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7v1k7wm",
+				"time": "00:13.79",
+				"player": "j9yo26ox",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -6822,6 +6919,15 @@
 		],
 		"2020-12-16": [
 			{
+				"href": "https://www.speedrun.com/api/v1/runs/y6rg6q1y",
+				"time": "00:18.36",
+				"player": "0jmw6wex",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Automatically moved to the new individual level"
+			},
+			{
 				"href": "https://www.speedrun.com/api/v1/runs/y8rov71m",
 				"time": "01:33.85",
 				"player": "86ngl5wx",
@@ -6843,15 +6949,6 @@
 				"href": "https://www.speedrun.com/api/v1/runs/yd0vej0z",
 				"time": "00:17.62",
 				"player": "0jmw6wex",
-				"version": "?",
-				"platform": "android",
-				"status": "rejected",
-				"annotation": "Automatically moved to the new individual level"
-			},
-			{
-				"href": "https://www.speedrun.com/api/v1/runs/zn39og8y",
-				"time": "00:17.68",
-				"player": "xkon93k8",
 				"version": "?",
 				"platform": "android",
 				"status": "rejected",
@@ -8320,10 +8417,10 @@
 		],
 		"2025-07-21": [
 			{
-				"href": "https://www.speedrun.com/sba/run/m7l3e89y",
+				"href": "https://www.speedrun.com/sba/run/mkwj5qlm",
 				"time": "00:10.72",
-				"player": "x7ggd6rx",
-				"version": "12.0.1",
+				"player": "8gzloyyj",
+				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -8588,9 +8685,62 @@
 		],
 		"2025-08-29": [
 			{
+				"href": "https://www.speedrun.com/sba/run/me2rwl3m",
+				"time": "00:07.50",
+				"player": "jn2m23wj",
+				"version": "12.0.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
 				"href": "https://www.speedrun.com/sba/run/y9eq3rnz",
 				"time": "00:08.94",
 				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3vpwrqz",
+				"time": "00:07.63",
+				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yjq0kngm",
+				"time": "00:08.59",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3297lgy",
+				"time": "00:10.57",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zp5qklry",
+				"time": "00:07.44",
+				"player": "jn2m23wj",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -11415,15 +11565,6 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
-			},
-			{
-				"href": "https://www.speedrun.com/sba/run/z00njn8z",
-				"time": "00:10.51",
-				"player": "x7ggd6rx",
-				"version": "12.0.0",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
 			}
 		],
 		"2025-07-13": [
@@ -11750,6 +11891,179 @@
 				"href": "https://www.speedrun.com/sba/run/zx0rwpkz",
 				"time": "00:10.45",
 				"player": "8gzn56rj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zngnw98m",
+				"time": "00:12.23",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/m7lk0o4y",
+				"time": "00:10.89",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y6j12g6m",
+				"time": "00:10.89",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yw29rwny",
+				"time": "00:10.89",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zx0130kz",
+				"time": "00:10.89",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zngnvx7m",
+				"time": "00:10.89",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yjq0947m",
+				"time": "00:10.89",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zngd949m",
+				"time": "00:13.75",
+				"player": "8ezmnv28",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw5e8x9y",
+				"time": "00:14.20",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y2r95jjm",
+				"time": "00:10.89",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4097g2z",
+				"time": "00:10.11",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/sba/run/ydoq60xz",
+				"time": "00:11.70",
+				"player": "x7g1m1rx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mepk983y",
+				"time": "00:14.01",
+				"player": "j4wn0glx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mepkx72y",
+				"time": "00:11.70",
+				"player": "x7g1m1rx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y2r3vq9m",
+				"time": "00:14.10",
+				"player": "j4wn0glx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yo5494dz",
+				"time": "00:14.01",
+				"player": "j4wn0glx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-29": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8nqd75y",
+				"time": "00:11.58",
+				"player": "x7g1666x",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -13266,6 +13580,61 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-08-29": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yjqno2gm",
+				"time": "00:09.56",
+				"player": "jn2m23wj",
+				"version": "12.0.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mkwj95lm",
+				"time": "00:13.13",
+				"player": "8lz19y4x",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zpo7d2gm",
+				"time": "00:13.58",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zp5n4v8y",
+				"time": "00:09.88",
+				"player": "8gop7k2x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z17357gz",
+				"time": "00:13.90",
+				"player": "8d9vg15x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gn1qpd-9d8eewld-0nwoqwkl.21g82pnl": {
@@ -14219,26 +14588,6 @@
 				"annotation": null
 			}
 		],
-		"2025-07-24": [
-			{
-				"href": "https://www.speedrun.com/sba/run/m3v051wz",
-				"time": "00:11.97",
-				"player": "x7ggd6rx",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			},
-			{
-				"href": "https://www.speedrun.com/sba/run/me2w9l0m",
-				"time": "00:11.50",
-				"player": "x7ggd6rx",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
 		"2025-07-25": [
 			{
 				"href": "https://www.speedrun.com/sba/run/mrdvrr2z",
@@ -14274,9 +14623,9 @@
 		],
 		"2025-07-31": [
 			{
-				"href": "https://www.speedrun.com/sba/run/yjq9dvom",
+				"href": "https://www.speedrun.com/sba/run/m3vp12qz",
 				"time": "00:11.32",
-				"player": "x7ggd6rx",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -14350,6 +14699,99 @@
 				"href": "https://www.speedrun.com/sba/run/y2861kjy",
 				"time": "00:10.64",
 				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z16e10gm",
+				"time": "00:20.00",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zngnrj9m",
+				"time": "00:13.21",
+				"player": "x7g07eyx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-04": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g7redz",
+				"time": "00:12.49",
+				"player": "x7g07eyx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zngd693m",
+				"time": "00:20.56",
+				"player": "x7g5g50x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/m7lrjley",
+				"time": "00:24.25",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-22": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yj7jdwoy",
+				"time": "00:13.00",
+				"player": "jng34ld8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y4059vdz",
+				"time": "00:14.06",
+				"player": "8ez2n028",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zx5v9p5m",
+				"time": "00:00.06",
+				"player": "8ez2n028",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z173jlrz",
+				"time": "00:13.37",
+				"player": "xkz0y59x",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -16525,9 +16967,9 @@
 		],
 		"2025-08-11": [
 			{
-				"href": "https://www.speedrun.com/sba/run/zg66lnjm",
+				"href": "https://www.speedrun.com/sba/run/zx01rj5z",
 				"time": "00:13.35",
-				"player": "x7ggd6rx",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -16622,6 +17064,15 @@
 		],
 		"2025-08-26": [
 			{
+				"href": "https://www.speedrun.com/sba/run/y8g591dz",
+				"time": "00:11.92",
+				"player": "jn2m23wj",
+				"version": "12.0.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
 				"href": "https://www.speedrun.com/sba/run/z5wn6pgz",
 				"time": "00:15.47",
 				"player": "8gzzkr1j",
@@ -16636,6 +17087,205 @@
 				"href": "https://www.speedrun.com/sba/run/y4n46qnm",
 				"time": "00:12.20",
 				"player": "81pdyqq8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-02": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y9eqr6nz",
+				"time": "00:17.50",
+				"player": "j9y4r2vx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/ylj835km",
+				"time": "00:16.55",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-05": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/m7lk7v5y",
+				"time": "00:18.09",
+				"player": "j9y4zkvx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Videos should not be cropped."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mkw65r3m",
+				"time": "300:00.00",
+				"player": "j9y4zkvx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Videos should not be cropped."
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zg64dpem",
+				"time": "00:11.82",
+				"player": "86pek6wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx010kgz",
+				"time": "00:12.15",
+				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-09": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y9erq92z",
+				"time": "00:12.93",
+				"player": "8gzn56rj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zg6515em",
+				"time": "00:13.38",
+				"player": "8gzn56rj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/me2rxeqm",
+				"time": "00:12.45",
+				"player": "8gop7k2x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3ven54z",
+				"time": "00:12.09",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/mrd3212z",
+				"time": "00:11.82",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yjqnrjom",
+				"time": "00:11.78",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yjqnpwom",
+				"time": "00:15.93",
+				"player": "8ezmnv28",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yj7jl9ny",
+				"time": "00:18.54",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-18": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zg6454em",
+				"time": "00:17.50",
+				"player": "j9y4r2vx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
+		],
+		"2025-09-19": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zn5wr0vz",
+				"time": "00:14.90",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mepvj93y",
+				"time": "00:12.67",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y6839o0z",
+				"time": "00:13.79",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zq5kjdrz",
+				"time": "00:12.62",
+				"player": "jn1vy4w8",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -21582,15 +22232,6 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
-			},
-			{
-				"href": "https://www.speedrun.com/sba/run/yjq8893m",
-				"time": "00:09.51",
-				"player": "x7ggd6rx",
-				"version": "12.0.0",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
 			}
 		],
 		"2025-07-10": [
@@ -21716,15 +22357,6 @@
 				"href": "https://www.speedrun.com/sba/run/m3vk3k4z",
 				"time": "00:10.36",
 				"player": "8gz9zmpj",
-				"version": "12.0.1",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			},
-			{
-				"href": "https://www.speedrun.com/sba/run/mrd27o2z",
-				"time": "00:09.27",
-				"player": "x7ggd6rx",
 				"version": "12.0.1",
 				"platform": "android",
 				"status": "verified",
@@ -22214,6 +22846,301 @@
 				"platform": "android",
 				"status": "rejected",
 				"annotation": "Duplicate"
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y9eqe52z",
+				"time": "00:10.56",
+				"player": "x31lqlq8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yjqvr4om",
+				"time": "00:08.63",
+				"player": "xz55p24x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mkw696vm",
+				"time": "00:09.68",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-05": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zngn06lm",
+				"time": "00:13.02",
+				"player": "j9y4zkvx",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Videos should not be cropped."
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw29n89y",
+				"time": "00:10.48",
+				"player": "xz544nrx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4ndneqm",
+				"time": "00:09.63",
+				"player": "81v3d938",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w907nz",
+				"time": "00:08.27",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z00v9loz",
+				"time": "00:10.60",
+				"player": "8r6yz938",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g500dz",
+				"time": "00:09.41",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mkwjwdvm",
+				"time": "00:09.86",
+				"player": "867y4d3j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y8g5gj5z",
+				"time": "00:09.86",
+				"player": "867y4d3j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yoe1ep7z",
+				"time": "00:09.86",
+				"player": "867y4d3j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zpo7od8m",
+				"time": "00:09.86",
+				"player": "867y4d3j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zqpxp05m",
+				"time": "00:09.86",
+				"player": "867y4d3j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/me2rd19m",
+				"time": "00:09.86",
+				"player": "x7g56yyx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/z0kw5q8m",
+				"time": "00:11.56",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-18": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8n332xy",
+				"time": "00:10.02",
+				"player": "jpp2kwyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y2r952wm",
+				"time": "00:08.78",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mkrlpk1z",
+				"time": "00:10.01",
+				"player": "8q0vwyqj",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z17d9p9z",
+				"time": "00:10.01",
+				"player": "8q0vwyqj",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yj7jwr7y",
+				"time": "00:10.54",
+				"player": "jpp2kwyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zx593wem",
+				"time": "00:11.19",
+				"player": "jn1vy4w8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zp5q0qxy",
+				"time": "00:11.87",
+				"player": "jpp2kwyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yw51dv2y",
+				"time": "00:08.92",
+				"player": "x7g51eqx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y8nqr6wy",
+				"time": "00:08.92",
+				"player": "x7g51eqx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-29": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y405rjkz",
+				"time": "00:09.92",
+				"player": "x7g51eqx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/ydoq9kwz",
+				"time": "00:09.92",
+				"player": "x7g51eqx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y405773z",
+				"time": "00:30.21",
+				"player": "xzy23d4j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-30": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y40580kz",
+				"time": "00:09.32",
+				"player": "xkz0y59x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
 			}
 		]
 	},
@@ -23398,6 +24325,61 @@
 				"href": "https://www.speedrun.com/sba/run/zx0rqkgz",
 				"time": "00:14.61",
 				"player": "8gzn56rj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z0040g9z",
+				"time": "00:20.32",
+				"player": "j9y4r2vx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w9005z",
+				"time": "00:12.26",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw2l633y",
+				"time": "00:14.14",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-18": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y9e4r4ez",
+				"time": "00:20.32",
+				"player": "j9y4r2vx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y2r3ql9m",
+				"time": "00:12.84",
+				"player": "j595m2qx",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -28554,6 +29536,99 @@
 				"status": "rejected",
 				"annotation": "Duplicate"
 			}
+		],
+		"2025-09-02": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z00gwx8z",
+				"time": "00:56.41",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y6j1gx1m",
+				"time": "6010:02.00",
+				"player": "xz54k14x",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Spam"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y8g7ox5z",
+				"time": "6010:02.00",
+				"player": "xz54k14x",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Spam"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yv7dn84y",
+				"time": "6010:02.00",
+				"player": "xz54k14x",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Spam"
+			}
+		],
+		"2025-09-10": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yd4kq0xy",
+				"time": "00:56.03",
+				"player": "joz7m608",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "Videos should not be cropped."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zqpx641m",
+				"time": "00:56.03",
+				"player": "joz7m608",
+				"version": "?",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "Videos should not be cropped."
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w9dgdz",
+				"time": "00:53.56",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y9wo0pnz",
+				"time": "01:00.23",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zn5wok7z",
+				"time": "00:55.39",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_o9xo3rp9-9d8eewld-7896y468.810zwdwq": {
@@ -30516,6 +31591,59 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-04": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zngn37vm",
+				"time": "01:30.90",
+				"player": "x3wdlvkj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4ndnxnm",
+				"time": "01:31.69",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z16wgq7m",
+				"time": "01:36.51",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zngdp99m",
+				"time": "01:37.12",
+				"player": "8ezmnv28",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zp5nrkry",
+				"time": "01:35.36",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gn1qpd-9d8eewld-0nwoqwkl.21dz3e4l": {
@@ -32256,17 +33384,6 @@
 				"annotation": null
 			}
 		],
-		"2025-07-19": [
-			{
-				"href": "https://www.speedrun.com/sba/run/y9ek39nz",
-				"time": "00:17.07",
-				"player": "x7ggd6rx",
-				"version": "12.0.1",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
 		"2025-07-31": [
 			{
 				"href": "https://www.speedrun.com/sba/run/mkw1kp1m",
@@ -32367,9 +33484,9 @@
 		],
 		"2025-08-11": [
 			{
-				"href": "https://www.speedrun.com/sba/run/m3vv0ogz",
+				"href": "https://www.speedrun.com/sba/run/m7lk4eey",
 				"time": "00:15.97",
-				"player": "x7ggd6rx",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -32485,6 +33602,201 @@
 				"href": "https://www.speedrun.com/sba/run/me2dpx2m",
 				"time": "00:13.96",
 				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4n402qm",
+				"time": "00:12.97",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7lrpp4y",
+				"time": "00:12.95",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-04": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3vp53gz",
+				"time": "00:19.09",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w98enz",
+				"time": "00:12.83",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yv7w266y",
+				"time": "00:13.79",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zn5wkxlz",
+				"time": "00:20.69",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/ydo85n0z",
+				"time": "00:16.60",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yj7jl87y",
+				"time": "00:17.82",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/z17do9jz",
+				"time": "00:14.67",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/z56531ny",
+				"time": "00:14.99",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zn5w0jvz",
+				"time": "00:14.47",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zx59lgem",
+				"time": "00:14.22",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mr5j234y",
+				"time": "00:14.20",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-25": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y2r9r1jm",
+				"time": "00:13.72",
+				"player": "8gzn56rj",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zn5w6e3z",
+				"time": "00:14.00",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8nq941y",
+				"time": "00:13.32",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yl5949nz",
+				"time": "00:14.27",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zg9nwp0m",
+				"time": "00:13.62",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-29": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y687nrpz",
+				"time": "00:21.51",
+				"player": "jm056z48",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -34162,17 +35474,6 @@
 				"annotation": null
 			}
 		],
-		"2025-07-19": [
-			{
-				"href": "https://www.speedrun.com/sba/run/z16kxk9m",
-				"time": "00:16.75",
-				"player": "x7ggd6rx",
-				"version": "12.0.1",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
 		"2025-07-20": [
 			{
 				"href": "https://www.speedrun.com/api/v1/runs/m7l3xney",
@@ -34272,9 +35573,9 @@
 		],
 		"2025-08-11": [
 			{
-				"href": "https://www.speedrun.com/sba/run/y8ggw9wz",
+				"href": "https://www.speedrun.com/sba/run/mkw6no1m",
 				"time": "00:16.37",
-				"player": "x7ggd6rx",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -34388,6 +35689,198 @@
 				"href": "https://www.speedrun.com/sba/run/y284qq9y",
 				"time": "00:14.04",
 				"player": "86pek6wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y6jk2opm",
+				"time": "00:13.48",
+				"player": "81pdyqq8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yv7keoey",
+				"time": "00:13.33",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-02": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z16w117m",
+				"time": "00:13.32",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-04": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y28o577y",
+				"time": "00:19.55",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-05": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4ndlrkm",
+				"time": "00:13.09",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g5kd5z",
+				"time": "00:13.02",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/me2r9o3m",
+				"time": "00:13.76",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z0kw728m",
+				"time": "00:13.22",
+				"player": "81pdyqq8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8n32pny",
+				"time": "00:22.15",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx5963gm",
+				"time": "00:14.65",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mr5j1x4y",
+				"time": "00:14.65",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z17dkwjz",
+				"time": "00:14.45",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-26": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y2r9l26m",
+				"time": "00:13.83",
+				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yo54kp1z",
+				"time": "00:13.90",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yw51p13y",
+				"time": "00:14.13",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z0ke5x8m",
+				"time": "00:13.72",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/z56o32jy",
+				"time": "00:14.30",
+				"player": "j595m2qx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-29": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zp5q2n8y",
+				"time": "00:13.59",
+				"player": "8qpl62dx",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -34655,6 +36148,28 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z16en67m",
+				"time": "01:20.70",
+				"player": "j2p4pel8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zg6490em",
+				"time": "01:13.36",
+				"player": "jn2m23wj",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_o9xo3rp9-xd144xzd-ql69e17l.ln8rzznl": {
@@ -34793,6 +36308,17 @@
 				"href": "https://www.speedrun.com/sba/run/yjenr0om",
 				"time": "02:20.02",
 				"player": "8eeod1p8",
+				"version": "1.9.7.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yd4koxvy",
+				"time": "02:17.47",
+				"player": "jn2m23wj",
 				"version": "1.9.7.3",
 				"platform": "android",
 				"status": "verified",
@@ -35658,6 +37184,50 @@
 				"href": "https://www.speedrun.com/sba/run/y4n424km",
 				"time": "01:56.66",
 				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yoew20jz",
+				"time": "04:53.01",
+				"player": "j01k6orx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zg64r1nm",
+				"time": "02:18.85",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx592j8m",
+				"time": "04:30.77",
+				"player": "xkzvzkkx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-24": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8n3wnxy",
+				"time": "02:26.96",
+				"player": "xkz0y59x",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -36672,6 +38242,83 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mrdpwwdz",
+				"time": "00:11.46",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yd4k5jqy",
+				"time": "00:11.03",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-05": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7lrj99y",
+				"time": "00:10.94",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w90jnz",
+				"time": "00:11.92",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mkwjdkxm",
+				"time": "00:15.04",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zg64e2em",
+				"time": "00:11.83",
+				"player": "81pdyqq8",
+				"version": "10.1.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in the latest version available."
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yj7kelny",
+				"time": "00:10.88",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_o9xo3rp9-9d8eewld-7896y468.5lermx5q": {
@@ -37361,18 +39008,18 @@
 		],
 		"2025-07-24": [
 			{
-				"href": "https://www.speedrun.com/sba/run/mkwp7e1m",
-				"time": "00:18.28",
-				"player": "j2pmdqp8",
+				"href": "https://www.speedrun.com/sba/run/m3vp4w4z",
+				"time": "00:18.57",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
 			},
 			{
-				"href": "https://www.speedrun.com/sba/run/yljdvkkm",
-				"time": "00:18.57",
-				"player": "x7ggd6rx",
+				"href": "https://www.speedrun.com/sba/run/mkwp7e1m",
+				"time": "00:18.28",
+				"player": "j2pmdqp8",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -37519,6 +39166,17 @@
 				"href": "https://www.speedrun.com/sba/run/zpoe8jrm",
 				"time": "00:15.68",
 				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mrd34kdz",
+				"time": "00:14.88",
+				"player": "8qpl62dx",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -38341,17 +39999,6 @@
 				"annotation": null
 			}
 		],
-		"2025-07-08": [
-			{
-				"href": "https://www.speedrun.com/sba/run/yd4gj20y",
-				"time": "00:17.54",
-				"player": "x7ggd6rx",
-				"version": "12.0.0",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			}
-		],
 		"2025-07-09": [
 			{
 				"href": "https://www.speedrun.com/sba/run/m7l2ep4y",
@@ -38587,23 +40234,12 @@
 				"annotation": null
 			}
 		],
-		"2025-08-13": [
-			{
-				"href": "https://www.speedrun.com/api/v1/runs/m7llnq5y",
-				"time": "00:17.00",
-				"player": "x7ggd6rx",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "rejected",
-				"annotation": "The muscle car is not allowed in speedruns as it is pay to win"
-			}
-		],
 		"2025-08-16": [
 			{
-				"href": "https://www.speedrun.com/sba/run/z00k1r9z",
+				"href": "https://www.speedrun.com/sba/run/yd47xvjy",
 				"time": "00:13.70",
-				"player": "x7ggd6rx",
-				"version": "12.0.2",
+				"player": "8gzloyyj",
+				"version": "12.0.3",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -38674,6 +40310,99 @@
 				"href": "https://www.speedrun.com/sba/run/y9eqxwrz",
 				"time": "00:13.54",
 				"player": "8d951qgx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4np2wdm",
+				"time": "00:12.14",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7lrnd0y",
+				"time": "00:14.31",
+				"player": "jppk5gkj",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zg64j6em",
+				"time": "00:14.03",
+				"player": "jppk5gkj",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zn5w3glz",
+				"time": "00:17.08",
+				"player": "xz5vgn4x",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The muscle car is not allowed in speedruns as it is pay to win"
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mkrldplz",
+				"time": "00:12.57",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/m3293r4y",
+				"time": "00:11.99",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zq5k7r5z",
+				"time": "00:13.22",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-22": [
+			{
+				"href": "https://www.speedrun.com/sba/run/ydo81qwz",
+				"time": "00:12.57",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/ydo8g5wz",
+				"time": "00:15.98",
+				"player": "j9y9geox",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -39647,6 +41376,88 @@
 				"time": "00:14.70",
 				"player": "8gop7k2x",
 				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y6jk6r6m",
+				"time": "00:14.78",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yd4kj60y",
+				"time": "00:18.92",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yljglw2m",
+				"time": "00:17.47",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7v17vwm",
+				"time": "00:24.82",
+				"player": "8wgzrelx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/z17dxgwz",
+				"time": "00:16.48",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zp5nwpxy",
+				"time": "00:15.76",
+				"player": "j9y9geox",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-29": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8nq8ddy",
+				"time": "00:14.68",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yv5gqqom",
+				"time": "00:14.75",
+				"player": "j595m2qx",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -40660,6 +42471,57 @@
 				"href": "https://www.speedrun.com/sba/run/yljw6nrm",
 				"time": "00:24.95",
 				"player": "xkzy0d7x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yoe186jz",
+				"time": "00:16.92",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/sba/run/me25de8m",
+				"time": "00:21.22",
+				"player": "xz55p24x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g71nnz",
+				"time": "00:21.13",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z00vjnez",
+				"time": "00:24.45",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y2r9gg5m",
+				"time": "00:23.55",
+				"player": "j9y9geox",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -43714,15 +45576,6 @@
 				"platform": "android",
 				"status": "rejected",
 				"annotation": "The video is not available."
-			},
-			{
-				"href": "https://www.speedrun.com/sba/run/yw2vg70y",
-				"time": "00:14.91",
-				"player": "x7ggd6rx",
-				"version": "12.0.0",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
 			}
 		],
 		"2025-07-10": [
@@ -43967,9 +45820,9 @@
 		],
 		"2025-08-11": [
 			{
-				"href": "https://www.speedrun.com/sba/run/zpoo64nm",
+				"href": "https://www.speedrun.com/sba/run/z5wq4lnz",
 				"time": "00:14.47",
-				"player": "x7ggd6rx",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -44109,6 +45962,124 @@
 				"href": "https://www.speedrun.com/sba/run/zqpoj9xm",
 				"time": "00:15.20",
 				"player": "xkzy0d7x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-04": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yjq068om",
+				"time": "00:14.08",
+				"player": "8gzlzlyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Videos should not be cropped."
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w9pxnz",
+				"time": "00:16.85",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-22": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y409xq3z",
+				"time": "00:16.10",
+				"player": "j9y9geox",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yw5e6j3y",
+				"time": "00:16.10",
+				"player": "j9y9geox",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z17dgx9z",
+				"time": "00:16.10",
+				"player": "j9y9geox",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zq5k91xz",
+				"time": "00:16.10",
+				"player": "8d9n1mlx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zq5k97rz",
+				"time": "00:16.10",
+				"player": "j9y9geox",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zq5k9w5z",
+				"time": "00:16.10",
+				"player": "8d9n1mlx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/mkrlddxz",
+				"time": "00:15.50",
+				"player": "j9y9geox",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx5v4lgm",
+				"time": "00:13.29",
+				"player": "j595m2qx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/m32dgl6y",
+				"time": "00:16.00",
+				"player": "jpp2kwyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yw51de0y",
+				"time": "00:13.07",
+				"player": "x7g52m6x",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -44596,6 +46567,28 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-05": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3ve8dgz",
+				"time": "00:16.34",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zpo7pvvm",
+				"time": "00:26.28",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gn1qpd-9kv66g32-onv7r45n.9qj08g7l": {
@@ -45060,6 +47053,48 @@
 				"href": "https://www.speedrun.com/sba/run/y2860r7y",
 				"time": "02:14.91",
 				"player": "j2pmdqp8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-04": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g7dowz",
+				"time": "01:45.02",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx59d1qm",
+				"time": "02:02.00",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7v10l9m",
+				"time": "02:25.88",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y9w70x2z",
+				"time": "02:07.88",
+				"player": "x7g52m6x",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -45915,6 +47950,79 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-10": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mkwj47lm",
+				"time": "01:36.05",
+				"player": "8d9kovox",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yoe1461z",
+				"time": "01:29.06",
+				"player": "8d9kovox",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y9e479rz",
+				"time": "01:29.66",
+				"player": "8d9kovox",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zpo73lxm",
+				"time": "00:55.33",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zx0ed2ez",
+				"time": "01:29.06",
+				"player": "8d9kovox",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y6jkq1qm",
+				"time": "01:13.05",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yw5ek1py",
+				"time": "47:09.10",
+				"player": "8wgzrelx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Please enable the in-game timer and make sure the final time is included at the end."
+			}
 		]
 	},
 	"l_495zlx39-9d8eewld-2lgr793n.p12dx07q": {
@@ -46406,6 +48514,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4np69qm",
+				"time": "05:08.61",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gn1qpd-xd144xwd": {
@@ -46858,6 +48977,50 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw29212y",
+				"time": "03:30.79",
+				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-18": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yljgg4xm",
+				"time": "00:13.00",
+				"player": "x7g5ynrx",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in the latest version available."
+			}
+		],
+		"2025-09-25": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zq5k595z",
+				"time": "360:00.00",
+				"player": "jpp2vkkj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This is not a speedrun."
+			}
+		],
+		"2025-09-30": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z173qkwz",
+				"time": "959:07.08",
+				"player": "j012gymx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Parts of the runs are missing."
+			}
 		]
 	},
 	"l_o9xo3rp9-9d8eewld-7896y468.5lmkgmjq": {
@@ -47280,6 +49443,28 @@
 				"href": "https://www.speedrun.com/sba/run/zg60r5nm",
 				"time": "02:18.19",
 				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zqpl218m",
+				"time": "02:06.76",
+				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zngdqj7m",
+				"time": "02:42.63",
+				"player": "8gzloyyj",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -48299,6 +50484,28 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-10": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw5e06ny",
+				"time": "12:48.26",
+				"player": "81v0nq38",
+				"version": "1.6.6.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-26": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z17de8jz",
+				"time": "12:24.70",
+				"player": "8eeod1p8",
+				"version": "1.6.6.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_o9xo3rp9-9kv66g32-onv7r45n.9qj08g7l": {
@@ -48439,6 +50646,17 @@
 				"href": "https://www.speedrun.com/sba/run/zpoeno8m",
 				"time": "02:32.96",
 				"player": "x361ozex",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mkwj721m",
+				"time": "02:27.31",
+				"player": "jo1zrpnx",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -48929,6 +51147,17 @@
 				"time": "00:17.84",
 				"player": "8gop7k2x",
 				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw5eko9y",
+				"time": "00:16.44",
+				"player": "81pdyqq8",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -49525,6 +51754,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w981ez",
+				"time": "00:24.92",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_rdqo542w-9d8eewld-wl30kw9l.klrp6ejq": {
@@ -49884,6 +52124,50 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y4np223m",
+				"time": "00:55.86",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/m3velqdz",
+				"time": "00:50.43",
+				"player": "jonzwk38",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "The whistle emote is not allowed."
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yw5eqw9y",
+				"time": "00:53.03",
+				"player": "j4wgnodx",
+				"version": "12.04",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zx5vkvem",
+				"time": "01:01.55",
+				"player": "jng6pld8",
+				"version": "11.1.3",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "As per the rules, going out of bounds by getting pushed by the robotic vacuum cleaner is not allowed."
+			}
 		]
 	},
 	"l_rdqo542w-9d8eewld-wl30kw9l.21g8owxl": {
@@ -50163,6 +52447,28 @@
 				"href": "https://www.speedrun.com/sba/run/mrd5g74z",
 				"time": "03:49.53",
 				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mrd3vk7z",
+				"time": "05:12.08",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx59d3gm",
+				"time": "03:58.57",
+				"player": "jo1zrpnx",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -51627,6 +53933,88 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3vp2pdz",
+				"time": "15:31.70",
+				"player": "j2p4pel8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-10": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7lrj7wy",
+				"time": "14:16.61",
+				"player": "jn2m23wj",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yd4kpw0y",
+				"time": "13:57.20",
+				"player": "jn2m23wj",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yljg1orm",
+				"time": "16:26.89",
+				"player": "x361opqx",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw2ljo9y",
+				"time": "15:04.60",
+				"player": "81v0nq38",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yw5edd3y",
+				"time": "16:29.41",
+				"player": "x77gv70x",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zqpx0q1m",
+				"time": "16:44.91",
+				"player": "x77gv70x",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yj7jgeny",
+				"time": "14:44.20",
+				"player": "81v0nq38",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_rdqo542w-9d8eewld-wl30kw9l.jqzpyrgl": {
@@ -52341,6 +54729,81 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z00g09jz",
+				"time": "02:38.99",
+				"player": "81v3d938",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-10": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z00v83jz",
+				"time": "02:38.28",
+				"player": "81v3d938",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx0epo8z",
+				"time": "02:28.09",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mkwjw6lm",
+				"time": "02:55.00",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yw2lw12y",
+				"time": "153:33.00",
+				"player": "8v7z2p28",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zpo7knnm",
+				"time": "153:33.00",
+				"player": "8v7z2p28",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yl59krxz",
+				"time": "153:05.00",
+				"player": "8v7z2p28",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
 			}
 		]
 	},
@@ -53187,18 +55650,18 @@
 		],
 		"2021-02-09": [
 			{
+				"href": "https://www.speedrun.com/api/v1/runs/yv2o37em",
+				"time": "00:16.05",
+				"player": "j0np7or8",
+				"version": "1.9.6.1",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Videos should not be cropped."
+			},
+			{
 				"href": "https://www.speedrun.com/sbace/run/yo96347y",
 				"time": "00:15.00",
 				"player": "x356nrej",
-				"version": "1.9.6.1",
-				"platform": "android",
-				"status": "verified",
-				"annotation": null
-			},
-			{
-				"href": "https://www.speedrun.com/sbace/run/yv2o37em",
-				"time": "00:16.05",
-				"player": "j0np7or8",
 				"version": "1.9.6.1",
 				"platform": "android",
 				"status": "verified",
@@ -53236,33 +55699,33 @@
 		],
 		"2021-02-21": [
 			{
-				"href": "https://www.speedrun.com/sbace/run/ylo17j2y",
+				"href": "https://www.speedrun.com/api/v1/runs/ylo17j2y",
 				"time": "00:13.80",
 				"player": "xkon93k8",
 				"version": "1.9.6.1",
 				"platform": "android",
-				"status": "verified",
-				"annotation": null
+				"status": "rejected",
+				"annotation": "The timer bug this speedrun exploits has been fixed in a later version."
 			}
 		],
 		"2021-02-23": [
 			{
-				"href": "https://www.speedrun.com/sbace/run/mk7vl1vy",
+				"href": "https://www.speedrun.com/api/v1/runs/mk7vl1vy",
 				"time": "00:13.60",
 				"player": "xkon93k8",
 				"version": "1.9.6.1",
 				"platform": "android",
-				"status": "verified",
-				"annotation": null
+				"status": "rejected",
+				"annotation": "The timer bug this speedrun exploits has been fixed in a later version."
 			},
 			{
-				"href": "https://www.speedrun.com/sbace/run/mk7vlovy",
+				"href": "https://www.speedrun.com/api/v1/runs/mk7vlovy",
 				"time": "00:13.52",
 				"player": "xkon93k8",
 				"version": "1.9.6.1",
 				"platform": "android",
-				"status": "verified",
-				"annotation": null
+				"status": "rejected",
+				"annotation": "The timer bug this speedrun exploits has been fixed in a later version."
 			}
 		],
 		"2021-03-04": [
@@ -53642,6 +56105,37 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/me2qee0m",
+				"time": "00:14.81",
+				"player": "j2p4pel8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in the latest version available that is allowed by the (sub)category, which is 10.3.0 here."
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/mkw61g5m",
+				"time": "00:14.22",
+				"player": "j2p4pel8",
+				"version": "10.3.0",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zp5nl2vy",
+				"time": "00:13.96",
+				"player": "jn2m23wj",
+				"version": "1.9.7.3",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in the latest version available that is allowed by the (sub)category, which is 10.3.0 here."
 			}
 		]
 	},
@@ -54036,6 +56530,39 @@
 				"time": "00:22.89",
 				"player": "j2p4pel8",
 				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-10": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z00gvv9z",
+				"time": "00:24.47",
+				"player": "x3wdlvkj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y9e4n1ez",
+				"time": "00:23.80",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zqpx8k9m",
+				"time": "00:28.87",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -54451,6 +56978,39 @@
 				"time": "00:16.91",
 				"player": "jo1zrpnx",
 				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zx0r5vkz",
+				"time": "00:15.82",
+				"player": "8gzl52yj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This is not your run."
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yd4k90vy",
+				"time": "00:16.66",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zg64lvnm",
+				"time": "00:22.17",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -54967,23 +57527,23 @@
 				"annotation": null
 			}
 		],
-		"2025-08-05": [
-			{
-				"href": "https://www.speedrun.com/sba/run/z16vrvwm",
-				"time": "00:20.35",
-				"player": "8d97d99x",
-				"version": "12.0.2",
-				"platform": "ios",
-				"status": "verified",
-				"annotation": null
-			}
-		],
 		"2025-08-16": [
 			{
 				"href": "https://www.speedrun.com/sba/run/y6j8pgjm",
 				"time": "00:22.75",
 				"player": "jo1zrpnx",
 				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx0eq48z",
+				"time": "00:25.90",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -55763,6 +58323,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-22": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m7v128em",
+				"time": "03:36.39",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_ldykv1zw-rkl3znrk-wl3059ol.9qj0kxel": {
@@ -56096,6 +58667,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-18": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/zq5kkd8z",
+				"time": "00:31.93",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_495zlx39-xd144xzd-onvyv77n.lmozgg01": {
@@ -56212,6 +58794,37 @@
 				"href": "https://www.speedrun.com/sba/run/y6gq92pm",
 				"time": "02:24.90",
 				"player": "8eeod1p8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sba/run/mkwjrnxm",
+				"time": "02:14.83",
+				"player": "jn2m23wj",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zqpxw28m",
+				"time": "02:22.02",
+				"player": "8eeod1p8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y9e4xprz",
+				"time": "02:21.84",
+				"player": "j2p4pel8",
 				"version": "1.9.9.1",
 				"platform": "android",
 				"status": "verified",
@@ -56356,6 +58969,28 @@
 				"time": "04:51.81",
 				"player": "jo19m63x",
 				"version": "11.1.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z16eg6wm",
+				"time": "04:44.60",
+				"player": "8eeod1p8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw2lj22y",
+				"time": "04:40.45",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -57248,6 +59883,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y8g5vddz",
+				"time": "00:10.49",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gnozkd-rkl3znrk-wledz9en.zqop6rp1": {
@@ -57462,6 +60108,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y28lvx5y",
+				"time": "00:32.45",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gnozkd-rkl3znrk-wledz9en.0138n5dq": {
@@ -57666,6 +60323,28 @@
 				"href": "https://www.speedrun.com/sbace/run/z002wpoz",
 				"time": "00:14.23",
 				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y8g4lewz",
+				"time": "00:14.01",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y4np2r3m",
+				"time": "00:14.82",
+				"player": "8qpl62dx",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -58073,6 +60752,17 @@
 				"time": "00:09.58",
 				"player": "jn2m23wj",
 				"version": "12.0.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/z16w887m",
+				"time": "00:09.94",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -58668,6 +61358,39 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5wqkodz",
+				"time": "03:44.44",
+				"player": "j2p4pel8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yd4kokxy",
+				"time": "03:27.78",
+				"player": "jn2m23wj",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-27": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yv5ggrem",
+				"time": "03:34.09",
+				"player": "j2p4pel8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gnozkd-rkl3znrk-wledz9en.814y0701": {
@@ -59010,6 +61733,28 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mrd344gz",
+				"time": "00:16.51",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-15": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/zqpx8exm",
+				"time": "00:15.76",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_495zlx39-xd144xzd-onvyv77n.1w43556q": {
@@ -59099,6 +61844,17 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-25": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yl53jgxz",
+				"time": "13:07.07",
+				"player": "xkz0v39x",
+				"version": "10.5.2",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in an unmodded version of the game."
 			}
 		]
 	},
@@ -59254,6 +62010,26 @@
 				"href": "https://www.speedrun.com/sbace/run/yvqv6nem",
 				"time": "00:13.96",
 				"player": "j2yr9lp8",
+				"version": "1.9.7.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yljg2r3m",
+				"time": "00:13.74",
+				"player": "jn2m23wj",
+				"version": "1.9.7.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/z5w9jpdz",
+				"time": "00:13.96",
+				"player": "jn2m23wj",
 				"version": "1.9.7.3",
 				"platform": "android",
 				"status": "verified",
@@ -60402,6 +63178,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z17d2gwz",
+				"time": "03:35.05",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gn1qpd-9kv66g32-onv7r45n.810zdxoq": {
@@ -60525,6 +63312,59 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z00vo79z",
+				"time": "02:34.49",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y409873z",
+				"time": "02:00.00",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "You forgot to rescue Bob and Madeline."
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y6839n6z",
+				"time": "03:26.26",
+				"player": "xz55p24x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m329k64y",
+				"time": "03:27.32",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yj7k603y",
+				"time": "02:51.68",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_495zlx39-9kv66g32-onv7r45n.810zdxoq": {
@@ -60614,6 +63454,28 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zp5n2pvy",
+				"time": "05:00.00",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "You forgot to rescue Numerobis."
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mepv033y",
+				"time": "04:00.00",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "You forgot to rescue Alexander."
 			}
 		]
 	},
@@ -60711,6 +63573,17 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z5w9v0nz",
+				"time": "05:16.06",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "You forgot to rescue Blossom."
 			}
 		]
 	},
@@ -65495,15 +68368,6 @@
 				"platform": "android",
 				"status": "rejected",
 				"annotation": "Runs should be done in the latest version available."
-			},
-			{
-				"href": "https://www.speedrun.com/api/v1/runs/zg6l84em",
-				"time": "13:13.00",
-				"player": "x7ggd6rx",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "rejected",
-				"annotation": "The muscle car is not allowed in speedruns as it is pay to win"
 			}
 		],
 		"2025-07-27": [
@@ -65834,6 +68698,15 @@
 				"annotation": "Duplicate"
 			},
 			{
+				"href": "https://www.speedrun.com/api/v1/runs/zq5kw55z",
+				"time": "12:38.04",
+				"player": "jn17mzd8",
+				"version": "12.0.2",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
+			},
+			{
 				"href": "https://www.speedrun.com/sba/run/y6jgjqjm",
 				"time": "15:52.03",
 				"player": "jn17o9q8",
@@ -65899,17 +68772,6 @@
 				"platform": "ios",
 				"status": "verified",
 				"annotation": null
-			}
-		],
-		"2025-08-14": [
-			{
-				"href": "https://www.speedrun.com/api/v1/runs/zqpppj8m",
-				"time": "15:00.00",
-				"player": "x7ggd6rx",
-				"version": "12.0.2",
-				"platform": "android",
-				"status": "rejected",
-				"annotation": "The muscle car is not allowed in speedruns as it is pay to win"
 			}
 		],
 		"2025-08-16": [
@@ -66208,6 +69070,15 @@
 		],
 		"2025-08-31": [
 			{
+				"href": "https://www.speedrun.com/sba/run/y2846pwy",
+				"time": "23:44.70",
+				"player": "xzylng9j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
 				"href": "https://www.speedrun.com/sba/run/y6j4e9jm",
 				"time": "12:32.27",
 				"player": "x31ewl28",
@@ -66215,6 +69086,350 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-01": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y284nr5y",
+				"time": "12:31.82",
+				"player": "x31ewl28",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yoege15z",
+				"time": "10:22.48",
+				"player": "xyklwnm8",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-02": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y4nd98qm",
+				"time": "11:37.03",
+				"player": "x31ewl28",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zngln3vm",
+				"time": "10:12.49",
+				"player": "xyklwnm8",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sba/run/me2qvn9m",
+				"time": "13:24.40",
+				"player": "x77gv70x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-04": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yw29dk3y",
+				"time": "00:12.49",
+				"player": "x7g07eyx",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/me2qerqm",
+				"time": "16:09.50",
+				"player": "81mn4338",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y9er6drz",
+				"time": "11:24.02",
+				"player": "x31ewl28",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw29wp2y",
+				"time": "11:14.96",
+				"player": "x361ozex",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-09": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yjq0r5nm",
+				"time": "14:18.75",
+				"player": "j215zyo8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zx011xqz",
+				"time": "14:18.75",
+				"player": "j215zyo8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-10": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yjq0n0gm",
+				"time": "11:35.00",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/m3ve5pwz",
+				"time": "11:13.11",
+				"player": "x361opqx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z5w9jqgz",
+				"time": "11:13.11",
+				"player": "x361opqx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zx0e21qz",
+				"time": "11:13.11",
+				"player": "x361opqx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/me2rj40m",
+				"time": "14:24.06",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-19": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z17dj37z",
+				"time": "68:08.15",
+				"player": "8q0vqwoj",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in the latest version available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zx59kgkm",
+				"time": "68:08.15",
+				"player": "8q0vqwoj",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in the latest version available."
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y6835ejz",
+				"time": "10:08.20",
+				"player": "81v0nq38",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/z17dr4rz",
+				"time": "11:23.84",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y683nd6z",
+				"time": "16:28.00",
+				"player": "x317n1e8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y9wolvez",
+				"time": "16:28.00",
+				"player": "x317n1e8",
+				"version": "A",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z17d2p7z",
+				"time": "16:28.00",
+				"player": "x317n1e8",
+				"version": "A",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yl53eorz",
+				"time": "16:28.00",
+				"player": "x317n1e8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/yw5e34py",
+				"time": "12:27.13",
+				"player": "8l62vo78",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-22": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y683oq6z",
+				"time": "16:31.40",
+				"player": "jn214k1j",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/y8n3095y",
+				"time": "10:55.07",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y2r9k09m",
+				"time": "10:57.24",
+				"player": "x361ozex",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zx59wo5m",
+				"time": "14:36.59",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-25": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yj7j783y",
+				"time": "360:00.00",
+				"player": "jpp2vkkj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This is not a speedrun."
+			}
+		],
+		"2025-09-28": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y8nq2dxy",
+				"time": "17:01.95",
+				"player": "j4wdlmvx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zx5v2gkm",
+				"time": "17:01.95",
+				"player": "j4wdlmvx",
+				"version": "12.0.4",
+				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-29": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yv5g20xm",
+				"time": "23:23.46",
+				"player": "8v732ey8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "This site does not support direct upload. Please upload your video on a dedicated hosting platform then resubmit with a link leading to it."
+			}
+		],
+		"2025-09-30": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/y2r3pd9m",
+				"time": "26:25.64",
+				"player": "8lzy6vlx",
+				"version": "?",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
 			}
 		]
 	},
@@ -66427,6 +69642,46 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y8g70oxz",
+				"time": "00:33.36",
+				"player": "j2p4pel8",
+				"version": "10.3.0",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/yoewll0z",
+				"time": "00:33.88",
+				"player": "j2p4pel8",
+				"version": "10.3.0",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/z16eqk7m",
+				"time": "00:33.83",
+				"player": "j2p4pel8",
+				"version": "10.3.0",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zqpxnk1m",
+				"time": "00:33.63",
+				"player": "jn2m23wj",
+				"version": "1.9.7.3",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Runs should be done in the latest version available that is allowed by the (sub)category, which is 10.3.0 here."
 			}
 		]
 	},
@@ -67126,6 +70381,17 @@
 				"status": "rejected",
 				"annotation": "In this category, you also need to beat the boss and rescue Barry after collecting all the stickers."
 			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g5gx5z",
+				"time": "01:34.78",
+				"player": "x3pk7pk8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_o9xo3rp9-xd144xzd-ql69e17l.qj7jxxoq": {
@@ -67396,6 +70662,39 @@
 				"href": "https://www.speedrun.com/sba/run/z16026wm",
 				"time": "02:13.29",
 				"player": "j2pmdqp8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx0108qz",
+				"time": "02:15.35",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-09": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zpojvjxm",
+				"time": "02:17.46",
+				"player": "81v3d938",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yw2lo1ny",
+				"time": "02:32.49",
+				"player": "x3pk7pk8",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -67770,6 +71069,17 @@
 				"annotation": null
 			}
 		],
+		"2025-08-28": [
+			{
+				"href": "https://www.speedrun.com/sba/run/yv7wlp6y",
+				"time": "03:22.50",
+				"player": "jn2m23wj",
+				"version": "12.0.3",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
 		"2025-08-30": [
 			{
 				"href": "https://www.speedrun.com/sba/run/yoegd81z",
@@ -67885,6 +71195,26 @@
 				"href": "https://www.speedrun.com/sbace/run/zqpnjexm",
 				"time": "00:26.58",
 				"player": "8gzkpr2j",
+				"version": "1.6.6.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/m7lk080y",
+				"time": "00:19.14",
+				"player": "j2p4pel8",
+				"version": "1.6.6.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/ylj867rm",
+				"time": "00:18.79",
+				"player": "j2p4pel8",
 				"version": "1.6.6.2",
 				"platform": "android",
 				"status": "verified",
@@ -68242,6 +71572,17 @@
 				"status": "rejected",
 				"annotation": "This is not a speedrun."
 			}
+		],
+		"2025-09-23": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z17dk7wz",
+				"time": "28:10.36",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"xd1v018d-68k7x44l.mlno8vjq": {
@@ -68462,6 +71803,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-24": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y9woeeez",
+				"time": "35:09.96",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"rkl9qwrk-6njkg4el.81p5ym8l": {
@@ -68502,6 +71854,28 @@
 			{
 				"href": "https://www.speedrun.com/sbace/run/zpk2oery",
 				"time": "00:43.84",
+				"player": "8eeod1p8",
+				"version": "1.6.6.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yjq02pgm",
+				"time": "00:43.24",
+				"player": "j2p4pel8",
+				"version": "1.6.6.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-26": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mepvq6qy",
+				"time": "00:42.43",
 				"player": "8eeod1p8",
 				"version": "1.6.6.2",
 				"platform": "android",
@@ -69386,6 +72760,81 @@
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
+			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/me2r4q8m",
+				"time": "04:21.18",
+				"player": "8logk9r8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/zngnrr7m",
+				"time": "04:21.18",
+				"player": "8logk9r8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y28l736y",
+				"time": "04:07.71",
+				"player": "8q0kl5oj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/m7lr2v9y",
+				"time": "03:53.01",
+				"player": "x361opqx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y9e4eqrz",
+				"time": "04:51.85",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/m32960gy",
+				"time": "03:43.66",
+				"player": "jo1zrpnx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-26": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mr5jg14y",
+				"time": "05:21.48",
+				"player": "8r60pp38",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "A video record of the full run is required to appear on these leaderboards."
 			}
 		]
 	},
@@ -70648,18 +74097,18 @@
 		],
 		"2025-08-13": [
 			{
-				"href": "https://www.speedrun.com/sbace/run/zg66exnm",
-				"time": "00:05.49",
-				"player": "8gop7k2x",
+				"href": "https://www.speedrun.com/sbace/run/mrd3n28z",
+				"time": "00:07.14",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
 			},
 			{
-				"href": "https://www.speedrun.com/sbace/run/zx00qnqz",
-				"time": "00:07.14",
-				"player": "x7ggd6rx",
+				"href": "https://www.speedrun.com/sbace/run/zg66exnm",
+				"time": "00:05.49",
+				"player": "8gop7k2x",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -70746,6 +74195,17 @@
 				"href": "https://www.speedrun.com/sbace/run/yoeglpdz",
 				"time": "00:10.08",
 				"player": "8gzn56rj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-02": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/y8g73rxz",
+				"time": "00:09.00",
+				"player": "8v7p6328",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -71383,18 +74843,18 @@
 		],
 		"2025-08-13": [
 			{
-				"href": "https://www.speedrun.com/sbace/run/y9ee8nnz",
-				"time": "00:25.40",
-				"player": "8gop7k2x",
+				"href": "https://www.speedrun.com/sbace/run/y28l7k7y",
+				"time": "00:29.16",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
 			},
 			{
-				"href": "https://www.speedrun.com/sbace/run/yoee015z",
-				"time": "00:29.16",
-				"player": "x7ggd6rx",
+				"href": "https://www.speedrun.com/sbace/run/y9ee8nnz",
+				"time": "00:25.40",
+				"player": "8gop7k2x",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -71417,6 +74877,17 @@
 				"href": "https://www.speedrun.com/sbace/run/mkwxkl5m",
 				"time": "00:35.72",
 				"player": "8gzkpr2j",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/ydo848qz",
+				"time": "00:24.45",
+				"player": "jn2m23wj",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -71907,6 +75378,59 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-03": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/me2qo0qm",
+				"time": "01:25.04",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-24": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yw5ewl2y",
+				"time": "01:18.30",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-25": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yw51dkny",
+				"time": "01:13.47",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-26": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mepk642y",
+				"time": "01:12.81",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/z173vorz",
+				"time": "01:11.98",
+				"player": "jn2m23wj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_r9gnozkd-rkl3znrk-wledz9en.1dkg795l": {
@@ -71936,6 +75460,17 @@
 				"time": "00:16.82",
 				"player": "86rpw3p8",
 				"version": "11.1.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-04-08": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yd4kxd0y",
+				"time": "00:19.80",
+				"player": "8ezm5928",
+				"version": "11.1.3",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null
@@ -72021,6 +75556,37 @@
 				"href": "https://www.speedrun.com/sbace/run/yoeg287z",
 				"time": "00:18.30",
 				"player": "8logk9r8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/zpo733xm",
+				"time": "00:15.57",
+				"player": "8qpl62dx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-30": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mepk32qy",
+				"time": "00:19.85",
+				"player": "8lzyz54x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/z173gjgz",
+				"time": "00:26.82",
+				"player": "jpp2kwyj",
 				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
@@ -72571,6 +76137,37 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-13": [
+			{
+				"href": "https://www.speedrun.com/sba/run/y8g5eowz",
+				"time": "00:37.25",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-22": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/mr5jrv8y",
+				"time": "00:34.84",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "Duplicate"
+			},
+			{
+				"href": "https://www.speedrun.com/sba/run/zq5k935z",
+				"time": "00:34.84",
+				"player": "x7g52m6x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"zdn9m472-2lge53e8.qzn0z9gq": {
@@ -72636,6 +76233,17 @@
 				"player": "8l6zoll8",
 				"version": "11.1.1",
 				"platform": "ios",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-17": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/zqpxopxm",
+				"time": "12:52.13",
+				"player": "j2p4pel8",
+				"version": "12.0.4",
+				"platform": "android",
 				"status": "verified",
 				"annotation": null
 			}
@@ -72743,6 +76351,26 @@
 				"platform": "android",
 				"status": "rejected",
 				"annotation": "The in-game timer is required for runs in this category. Please consider using another emulator that supports it. Also new runs have to be done in the latest version allowed by the category, which is 1.8.2."
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/m3vp0k4z",
+				"time": "03:21.09",
+				"player": "j2p4pel8",
+				"version": "1.8.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			},
+			{
+				"href": "https://www.speedrun.com/sbace/run/mrd3vodz",
+				"time": "03:17.31",
+				"player": "jn2m23wj",
+				"version": "1.8.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
 			}
 		]
 	},
@@ -73071,9 +76699,9 @@
 		],
 		"2025-08-13": [
 			{
-				"href": "https://www.speedrun.com/sbace/run/z000dn4z",
+				"href": "https://www.speedrun.com/sbace/run/z5w9dkjz",
 				"time": "00:34.72",
-				"player": "x7ggd6rx",
+				"player": "8gzloyyj",
 				"version": "12.0.2",
 				"platform": "android",
 				"status": "verified",
@@ -73089,6 +76717,17 @@
 				"platform": "android",
 				"status": "rejected",
 				"annotation": "In this category you have to escape to end the run."
+			}
+		],
+		"2025-09-07": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/zg65oxnm",
+				"time": "00:19.69",
+				"player": "8ez5d5o8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The whistle emote is not allowed."
 			}
 		]
 	},
@@ -73142,6 +76781,50 @@
 				"href": "https://www.speedrun.com/sba/run/yjenowdm",
 				"time": "02:40.58",
 				"player": "8gop7k2x",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z16elvwm",
+				"time": "02:33.09",
+				"player": "j2p4pel8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-11": [
+			{
+				"href": "https://www.speedrun.com/sba/run/m3ve5wqz",
+				"time": "02:31.94",
+				"player": "8eeod1p8",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sba/run/z5w96q5z",
+				"time": "02:29.38",
+				"player": "jn2m23wj",
+				"version": "1.9.9.1",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sba/run/zx0e8xkz",
+				"time": "02:31.38",
+				"player": "j2p4pel8",
 				"version": "1.9.9.1",
 				"platform": "android",
 				"status": "verified",
@@ -73373,6 +77056,59 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-08": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/z5wq62ez",
+				"time": "01:53.93",
+				"player": "j2pmdqp8",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-09": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/m3vp4edz",
+				"time": "02:54.58",
+				"player": "j4wd7emx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			},
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/z5wq495z",
+				"time": "02:54.58",
+				"player": "j4wd7emx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The video is not available."
+			}
+		],
+		"2025-09-12": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mkwj821m",
+				"time": "01:48.72",
+				"player": "x361opqx",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-14": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yd4k1nxy",
+				"time": "02:27.31",
+				"player": "8gzloyyj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"zd39lqyd-yn26k2jl.1w4w8yoq": {
@@ -73407,6 +77143,17 @@
 				"platform": "android",
 				"status": "rejected",
 				"annotation": "In this category you have to escape to end the run. This category won't be kept though due to it being too similar to newer Backrooms% categories."
+			}
+		],
+		"2025-09-06": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/mkw6vj3m",
+				"time": "00:30.79",
+				"player": "j2p4pel8",
+				"version": "10.3.0",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
 			}
 		]
 	},
@@ -73538,6 +77285,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-20": [
+			{
+				"href": "https://www.speedrun.com/api/v1/runs/yo5v95jz",
+				"time": "02:18.55",
+				"player": "j4wggk5x",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "rejected",
+				"annotation": "The whistle emote is not allowed."
+			}
 		]
 	},
 	"l_dy1gjkkd-rkl3znrk-wle345e8.lmojn041": {
@@ -73604,6 +77362,17 @@
 				"status": "verified",
 				"annotation": null
 			}
+		],
+		"2025-09-16": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/me2rn39m",
+				"time": "03:45.72",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
 		]
 	},
 	"l_drpxgo6w-rkl3znrk-68kwx3z8.qoxwn62q": {
@@ -73624,6 +77393,17 @@
 				"time": "06:54.66",
 				"player": "x356nrej",
 				"version": "12.0.2",
+				"platform": "android",
+				"status": "verified",
+				"annotation": null
+			}
+		],
+		"2025-09-21": [
+			{
+				"href": "https://www.speedrun.com/sbace/run/yj7jx1gy",
+				"time": "07:26.65",
+				"player": "8w3l21qj",
+				"version": "12.0.4",
 				"platform": "android",
 				"status": "verified",
 				"annotation": null

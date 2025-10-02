@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-13</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-28</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-09-21</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,18 +1095,23 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">09:23.10</text>
 		</svg>
-		<svg viewBox="0 0 15 56310" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 70 56310" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 56310) scale(1 -1)" style="--count: 2;">
 				<g style="--index: 0;">
-					<path d="M0,56310" tabindex="0">
+					<path d="M0,56310L70,56310L70,44665" tabindex="0">
 						<title>8w3l21qj</title>
 					</path>
-					<rect x="0" y="56310" width="0" height="0"/>
+					<rect x="0" y="44665" width="70" height="11645"/>
 					<path d="M0,56310L0,56310" tabindex="0">
 						<title>09:23.10 on 2025-07-13</title>
 					</path>
-					<line x1="0" y1="56310" x2="15" y2="56310"/>
+					<line x1="0" y1="56310" x2="70" y2="56310"/>
 					<line x1="0" y1="0" x2="0" y2="56310"/>
+					<path d="M70,44665L70,44665" tabindex="0">
+						<title>07:26.65 on 2025-09-21</title>
+					</path>
+					<line x1="0" y1="44665" x2="70" y2="44665"/>
+					<line x1="70" y1="0" x2="70" y2="56310"/>
 				</g>
 				<g style="--index: 1;">
 					<path d="M15,41466" tabindex="0">
@@ -1116,7 +1121,7 @@
 					<path d="M15,41466L15,41466" tabindex="0">
 						<title>06:54.66 on 2025-07-28</title>
 					</path>
-					<line x1="0" y1="41466" x2="15" y2="41466"/>
+					<line x1="0" y1="41466" x2="70" y2="41466"/>
 					<line x1="15" y1="0" x2="15" y2="56310"/>
 				</g>
 			</g>

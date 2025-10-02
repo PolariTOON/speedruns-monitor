@@ -1087,27 +1087,37 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-09-07</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-09-08</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-09-07</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
 			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2</text>
+			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">4</text>
 		</svg>
-		<svg viewBox="0 0 1 2" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 2) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 365 4" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 4) scale(1 -1)" style="--count: 4;">
 				<g>
-					<rect x="0" y="0" width="1" height="2"/>
+					<rect x="0" y="0" width="365" height="4"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,1L0,1L0,0L1,0L1,1L1,1" tabindex="0">
+					<path d="M0,1L0,1L0,0L1,0L1,1L365,1L365,2L365,2" tabindex="0">
 						<title>x356nrej</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,2L1,2L1,0L1,0" tabindex="0">
+					<path d="M0,2L1,2L1,0L365,0L365,1L365,1" tabindex="0">
 						<title>jonm5ol8</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,3L365,3L365,3L365,3" tabindex="0">
+						<title>j2p4pel8</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,4L365,4L365,0L365,0" tabindex="0">
+						<title>jn2m23wj</title>
 					</path>
 				</g>
 			</g>
