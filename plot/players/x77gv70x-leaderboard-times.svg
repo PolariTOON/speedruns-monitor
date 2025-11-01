@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-09-03</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-09-14</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-05</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,18 +1095,23 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">16:29.41</text>
 		</svg>
-		<svg viewBox="0 0 11 98941" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 32 98941" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 98941) scale(1 -1)" style="--count: 2;">
 				<g style="--index: 0;">
-					<path d="M0,80440" tabindex="0">
+					<path d="M0,80440L32,80440L32,66517" tabindex="0">
 						<title>xd17x94d-9l71pv4l.21gpn081</title>
 					</path>
-					<rect x="0" y="80440" width="0" height="0"/>
+					<rect x="0" y="66517" width="32" height="13923"/>
 					<path d="M0,80440L0,80440" tabindex="0">
 						<title>13:24.40 on 2025-09-03</title>
 					</path>
-					<line x1="0" y1="80440" x2="11" y2="80440"/>
+					<line x1="0" y1="80440" x2="32" y2="80440"/>
 					<line x1="0" y1="0" x2="0" y2="98941"/>
+					<path d="M32,66517L32,66517" tabindex="0">
+						<title>11:05.17 on 2025-10-05</title>
+					</path>
+					<line x1="0" y1="66517" x2="32" y2="66517"/>
+					<line x1="32" y1="0" x2="32" y2="98941"/>
 				</g>
 				<g style="--index: 1;">
 					<path d="M11,98941" tabindex="0">
@@ -1116,7 +1121,7 @@
 					<path d="M11,98941L11,98941" tabindex="0">
 						<title>16:29.41 on 2025-09-14</title>
 					</path>
-					<line x1="0" y1="98941" x2="11" y2="98941"/>
+					<line x1="0" y1="98941" x2="32" y2="98941"/>
 					<line x1="11" y1="0" x2="11" y2="98941"/>
 				</g>
 			</g>

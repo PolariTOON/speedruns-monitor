@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2020-11-14</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2021-07-09</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-07</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,8 +1095,8 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">47:20.14</text>
 		</svg>
-		<svg viewBox="0 0 237 284014" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 284014) scale(1 -1)" style="--count: 3;">
+		<svg viewBox="0 0 1788 284014" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 284014) scale(1 -1)" style="--count: 5;">
 				<g style="--index: 0;">
 					<path d="M0,284014" tabindex="0">
 						<title>0jmw6wex</title>
@@ -1105,7 +1105,7 @@
 					<path d="M0,284014L0,284014" tabindex="0">
 						<title>47:20.14 on 2020-11-14</title>
 					</path>
-					<line x1="0" y1="284014" x2="237" y2="284014"/>
+					<line x1="0" y1="284014" x2="1788" y2="284014"/>
 					<line x1="0" y1="0" x2="0" y2="284014"/>
 				</g>
 				<g style="--index: 1;">
@@ -1116,7 +1116,7 @@
 					<path d="M44,260163L44,260163" tabindex="0">
 						<title>43:21.63 on 2020-12-28</title>
 					</path>
-					<line x1="0" y1="260163" x2="237" y2="260163"/>
+					<line x1="0" y1="260163" x2="1788" y2="260163"/>
 					<line x1="44" y1="0" x2="44" y2="284014"/>
 				</g>
 				<g style="--index: 2;">
@@ -1127,13 +1127,35 @@
 					<path d="M229,248771L229,248771" tabindex="0">
 						<title>41:27.71 on 2021-07-01</title>
 					</path>
-					<line x1="0" y1="248771" x2="237" y2="248771"/>
+					<line x1="0" y1="248771" x2="1788" y2="248771"/>
 					<line x1="229" y1="0" x2="229" y2="284014"/>
 					<path d="M237,244591L237,244591" tabindex="0">
 						<title>40:45.91 on 2021-07-09</title>
 					</path>
-					<line x1="0" y1="244591" x2="237" y2="244591"/>
+					<line x1="0" y1="244591" x2="1788" y2="244591"/>
 					<line x1="237" y1="0" x2="237" y2="284014"/>
+				</g>
+				<g style="--index: 3;">
+					<path d="M1783,234696" tabindex="0">
+						<title>8eeod1p8</title>
+					</path>
+					<rect x="1783" y="234696" width="0" height="0"/>
+					<path d="M1783,234696L1783,234696" tabindex="0">
+						<title>39:06.96 on 2025-10-02</title>
+					</path>
+					<line x1="0" y1="234696" x2="1788" y2="234696"/>
+					<line x1="1783" y1="0" x2="1783" y2="284014"/>
+				</g>
+				<g style="--index: 4;">
+					<path d="M1788,229975" tabindex="0">
+						<title>81v0nq38</title>
+					</path>
+					<rect x="1788" y="229975" width="0" height="0"/>
+					<path d="M1788,229975L1788,229975" tabindex="0">
+						<title>38:19.75 on 2025-10-07</title>
+					</path>
+					<line x1="0" y1="229975" x2="1788" y2="229975"/>
+					<line x1="1788" y1="0" x2="1788" y2="284014"/>
 				</g>
 			</g>
 		</svg>

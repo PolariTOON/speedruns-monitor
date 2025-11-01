@@ -425,13 +425,22 @@ try {
 	throw error;
 }
 try {
+	const levelResponse = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/levels.json`);
+	if (!levelResponse.ok) {
+		throw new Error(levelResponse.statusText);
+	}
+	const levels = await levelResponse.json();
+	console.log(`Got levels`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
 	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/sublevels.json`);
 	if (!response.ok) {
 		throw new Error(response.statusText);
 	}
 	const sublevels = await response.json();
 	for (const sublevel of sublevels) {
-		const {diamond, gold, name} = sublevel;
+		const {diamond, gold, level} = sublevel;
 		const silver = Math.ceil(gold * 4 / 3);
 		const bronze = gold * 2;
 		const goals = {
@@ -447,6 +456,7 @@ try {
 			const time = `${minutes}:${seconds}.${centiseconds}`;
 			return [tier, time];
 		}));
+		const name = levels[level].name;
 		const englishName = name["en-US"];
 		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
 			return leaderboardName.startsWith(`${englishName}: `) && (leaderboardName.endsWith(" Escape") || leaderboardName.includes(" Escape ")) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));

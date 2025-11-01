@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-09-07</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-12-31</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-21</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,8 +1095,8 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:18.71</text>
 		</svg>
-		<svg viewBox="0 0 115 1871" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 1871) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 409 1871" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 1871) scale(1 -1)" style="--count: 3;">
 				<g style="--index: 0;">
 					<path d="M0,947" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
@@ -1105,7 +1105,7 @@
 					<path d="M0,947L0,947" tabindex="0">
 						<title>00:09.47 on 2024-09-07</title>
 					</path>
-					<line x1="0" y1="947" x2="115" y2="947"/>
+					<line x1="0" y1="947" x2="409" y2="947"/>
 					<line x1="0" y1="0" x2="0" y2="1871"/>
 				</g>
 				<g style="--index: 1;">
@@ -1116,8 +1116,19 @@
 					<path d="M115,1871L115,1871" tabindex="0">
 						<title>00:18.71 on 2024-12-31</title>
 					</path>
-					<line x1="0" y1="1871" x2="115" y2="1871"/>
+					<line x1="0" y1="1871" x2="409" y2="1871"/>
 					<line x1="115" y1="0" x2="115" y2="1871"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M409,874" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
+					</path>
+					<rect x="409" y="874" width="0" height="0"/>
+					<path d="M409,874L409,874" tabindex="0">
+						<title>00:08.74 on 2025-10-21</title>
+					</path>
+					<line x1="0" y1="874" x2="409" y2="874"/>
+					<line x1="409" y1="0" x2="409" y2="1871"/>
 				</g>
 			</g>
 		</svg>

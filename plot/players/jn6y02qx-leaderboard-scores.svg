@@ -1082,26 +1082,26 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-02-03</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-09-30</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-31</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">97</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">101</text>
 		</svg>
-		<svg viewBox="0 0 239 97" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 97) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 270 101" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 101) scale(1 -1)" style="--count: 1;">
 				<g>
-					<rect x="0" y="0" width="239" height="97"/>
+					<rect x="0" y="0" width="270" height="101"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,71L11,71L11,72L13,72L13,72L15,72L15,72L17,72L17,73L18,73L18,73L28,73L28,74L33,74L33,74L37,74L37,74L39,74L39,74L43,74L43,74L46,74L46,74L50,74L50,74L55,74L55,75L60,75L60,75L63,75L63,75L65,75L65,75L71,75L71,76L74,76L74,77L76,77L76,77L82,77L82,77L87,77L87,78L90,78L90,78L93,78L93,79L96,79L96,80L97,80L97,80L101,80L101,81L102,81L102,81L104,81L104,81L109,81L109,81L111,81L111,82L120,82L120,82L125,82L125,82L132,82L132,82L133,82L133,84L140,84L140,84L142,84L142,84L147,84L147,84L149,84L149,84L154,84L154,84L155,84L155,84L157,84L157,84L158,84L158,85L164,85L164,85L166,85L166,86L167,86L167,86L170,86L170,86L172,86L172,87L176,87L176,88L177,88L177,90L181,90L181,90L188,90L188,91L189,91L189,92L192,92L192,92L193,92L193,93L195,93L195,93L200,93L200,94L203,94L203,94L204,94L204,94L206,94L206,95L210,95L210,94L212,94L212,94L216,94L216,94L217,94L217,94L221,94L221,94L223,94L223,94L225,94L225,94L226,94L226,95L227,95L227,95L232,95L232,96L237,96L237,96L238,96L238,97L239,97L239,97L239,97" tabindex="0">
+					<path d="M0,0L0,0L0,71L11,71L11,72L13,72L13,72L15,72L15,72L17,72L17,73L18,73L18,73L28,73L28,74L33,74L33,74L37,74L37,74L39,74L39,74L43,74L43,74L46,74L46,74L50,74L50,74L55,74L55,75L60,75L60,75L63,75L63,75L65,75L65,75L71,75L71,76L74,76L74,77L76,77L76,77L82,77L82,77L87,77L87,78L90,78L90,78L93,78L93,79L96,79L96,80L97,80L97,80L101,80L101,81L102,81L102,81L104,81L104,81L109,81L109,81L111,81L111,82L120,82L120,82L125,82L125,82L132,82L132,82L133,82L133,84L140,84L140,84L142,84L142,84L147,84L147,84L149,84L149,84L154,84L154,84L155,84L155,84L157,84L157,84L158,84L158,85L164,85L164,85L166,85L166,86L167,86L167,86L170,86L170,86L172,86L172,87L176,87L176,88L177,88L177,90L181,90L181,90L188,90L188,91L189,91L189,92L192,92L192,92L193,92L193,93L195,93L195,93L200,93L200,94L203,94L203,94L204,94L204,94L206,94L206,95L210,95L210,94L212,94L212,94L216,94L216,94L217,94L217,94L221,94L221,94L223,94L223,94L225,94L225,94L226,94L226,95L227,95L227,95L232,95L232,96L237,96L237,96L238,96L238,97L239,97L239,97L240,97L240,97L242,97L242,97L249,97L249,97L250,97L250,99L251,99L251,100L256,100L256,100L257,100L257,100L261,100L261,100L265,100L265,100L269,100L269,101L270,101L270,101L270,101" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 					</path>
 				</g>
