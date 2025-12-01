@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-05-24</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-05-24</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-11-29</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,18 +1095,34 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">52:31.44</text>
 		</svg>
-		<svg viewBox="0 0 0 315144" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 315144) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 189 315144" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 315144) scale(1 -1)" style="--count: 2;">
 				<g style="--index: 0;">
-					<path d="M0,315144" tabindex="0">
+					<path d="M0,315144L189,315144L189,217611" tabindex="0">
 						<title>jo1zrpnx</title>
 					</path>
-					<rect x="0" y="315144" width="0" height="0"/>
+					<rect x="0" y="217611" width="189" height="97533"/>
 					<path d="M0,315144L0,315144" tabindex="0">
 						<title>52:31.44 on 2025-05-24</title>
 					</path>
-					<line x1="0" y1="315144" x2="0" y2="315144"/>
+					<line x1="0" y1="315144" x2="189" y2="315144"/>
 					<line x1="0" y1="0" x2="0" y2="315144"/>
+					<path d="M189,217611L189,217611" tabindex="0">
+						<title>36:16.11 on 2025-11-29</title>
+					</path>
+					<line x1="0" y1="217611" x2="189" y2="217611"/>
+					<line x1="189" y1="0" x2="189" y2="315144"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M187,239017" tabindex="0">
+						<title>8qpl62dx</title>
+					</path>
+					<rect x="187" y="239017" width="0" height="0"/>
+					<path d="M187,239017L187,239017" tabindex="0">
+						<title>39:50.17 on 2025-11-27</title>
+					</path>
+					<line x1="0" y1="239017" x2="189" y2="239017"/>
+					<line x1="187" y1="0" x2="187" y2="315144"/>
 				</g>
 			</g>
 		</svg>

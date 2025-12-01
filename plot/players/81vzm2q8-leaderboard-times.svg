@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-28</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-28</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-11-02</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,18 +1095,28 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">19:10.78</text>
 		</svg>
-		<svg viewBox="0 0 0 115078" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 5 115078" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 115078) scale(1 -1)" style="--count: 1;">
 				<g style="--index: 0;">
-					<path d="M0,115078" tabindex="0">
+					<path d="M0,115078L4,115078L4,109855L5,109855L5,105308" tabindex="0">
 						<title>xd17x94d-9l71pv4l.21gpn081</title>
 					</path>
-					<rect x="0" y="115078" width="0" height="0"/>
+					<rect x="0" y="105308" width="5" height="9770"/>
 					<path d="M0,115078L0,115078" tabindex="0">
 						<title>19:10.78 on 2025-10-28</title>
 					</path>
-					<line x1="0" y1="115078" x2="0" y2="115078"/>
+					<line x1="0" y1="115078" x2="5" y2="115078"/>
 					<line x1="0" y1="0" x2="0" y2="115078"/>
+					<path d="M4,109855L4,109855" tabindex="0">
+						<title>18:18.55 on 2025-11-01</title>
+					</path>
+					<line x1="0" y1="109855" x2="5" y2="109855"/>
+					<line x1="4" y1="0" x2="4" y2="115078"/>
+					<path d="M5,105308L5,105308" tabindex="0">
+						<title>17:33.08 on 2025-11-02</title>
+					</path>
+					<line x1="0" y1="105308" x2="5" y2="105308"/>
+					<line x1="5" y1="0" x2="5" y2="115078"/>
 				</g>
 			</g>
 		</svg>

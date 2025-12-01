@@ -1087,32 +1087,42 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-26</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-31</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-11-27</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
 			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">3</text>
+			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">5</text>
 		</svg>
-		<svg viewBox="0 0 5 3" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 3) scale(1 -1)" style="--count: 3;">
+		<svg viewBox="0 0 32 5" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 5) scale(1 -1)" style="--count: 5;">
 				<g>
-					<rect x="0" y="0" width="5" height="3"/>
+					<rect x="0" y="0" width="32" height="5"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,1L0,1L0,0L5,0L5,1L5,1" tabindex="0">
+					<path d="M0,1L0,1L0,0L5,0L5,1L31,1L31,2L32,2L32,3L32,3" tabindex="0">
 						<title>8qpl62dx</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,2L4,2L4,1L5,1L5,2L5,2" tabindex="0">
+					<path d="M0,2L4,2L4,1L5,1L5,2L31,2L31,3L32,3L32,4L32,4" tabindex="0">
 						<title>8gz4zv1j</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,3L5,3L5,0L5,0" tabindex="0">
+					<path d="M0,3L5,3L5,0L32,0" tabindex="0">
 						<title>x356nrej</title>
+					</path>
+				</g>
+				<g style="--index: 3;">
+					<path d="M0,4L31,4L31,1L32,1L32,2L32,2" tabindex="0">
+						<title>8logk9r8</title>
+					</path>
+				</g>
+				<g style="--index: 4;">
+					<path d="M0,5L32,5L32,1L32,1" tabindex="0">
+						<title>x7g9q60x</title>
 					</path>
 				</g>
 			</g>

@@ -1082,62 +1082,72 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 10;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2020-11-01</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-08-24</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-11-29</text>
 		</svg>
-		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">8</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">10</text>
 		</svg>
-		<svg viewBox="0 0 1757 8" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 8) scale(1 -1)" style="--count: 8;">
+		<svg viewBox="0 0 1854 10" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 10) scale(1 -1)" style="--count: 10;">
 				<g>
-					<rect x="0" y="0" width="1757" height="8"/>
+					<rect x="0" y="0" width="1854" height="10"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,1L0,1L0,0L30,0L30,1L118,1L118,3L1702,3L1702,4L1736,4L1736,5L1737,5L1737,6L1743,6L1743,0L1757,0" tabindex="0">
+					<path d="M0,1L0,1L0,0L30,0L30,1L118,1L118,3L1702,3L1702,4L1736,4L1736,5L1737,5L1737,6L1743,6L1743,0L1854,0" tabindex="0">
 						<title>x356nrej</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,2L6,2L6,1L30,1L30,2L62,2L62,2L118,2L118,2L1702,2L1702,3L1736,3L1736,4L1737,4L1737,5L1743,5L1743,6L1757,6" tabindex="0">
+					<path d="M0,2L6,2L6,1L30,1L30,2L62,2L62,2L118,2L118,2L1702,2L1702,3L1736,3L1736,4L1737,4L1737,5L1743,5L1743,6L1836,6L1836,7L1854,7L1854,8L1854,8" tabindex="0">
 						<title>j0np7or8</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,3L30,3L30,0L118,0L118,1L119,1L119,0L140,0L140,1L1743,1L1743,2L1757,2" tabindex="0">
+					<path d="M0,3L30,3L30,0L118,0L118,1L119,1L119,0L140,0L140,1L1743,1L1743,2L1854,2" tabindex="0">
 						<title>x7q00668</title>
 					</path>
 				</g>
 				<g style="--index: 3;">
-					<path d="M0,4L118,4L118,0L119,0L119,1L140,1L140,0L1743,0L1743,1L1757,1" tabindex="0">
+					<path d="M0,4L118,4L118,0L119,0L119,1L140,1L140,0L1743,0L1743,1L1854,1" tabindex="0">
 						<title>j2yr9lp8</title>
 					</path>
 				</g>
 				<g style="--index: 4;">
-					<path d="M0,5L1702,5L1702,2L1743,2L1743,3L1757,3" tabindex="0">
+					<path d="M0,5L1702,5L1702,2L1743,2L1743,3L1836,3L1836,5L1854,5" tabindex="0">
 						<title>jo1zrpnx</title>
 					</path>
 				</g>
 				<g style="--index: 5;">
-					<path d="M0,6L1736,6L1736,3L1737,3L1737,4L1743,4L1743,5L1757,5" tabindex="0">
+					<path d="M0,6L1736,6L1736,3L1737,3L1737,4L1743,4L1743,5L1836,5L1836,6L1854,6L1854,7L1854,7" tabindex="0">
 						<title>86pek6wj</title>
 					</path>
 				</g>
 				<g style="--index: 6;">
-					<path d="M0,7L1737,7L1737,3L1743,3L1743,4L1757,4" tabindex="0">
+					<path d="M0,7L1737,7L1737,3L1743,3L1743,4L1836,4L1836,3L1854,3" tabindex="0">
 						<title>j2p4pel8</title>
 					</path>
 				</g>
 				<g style="--index: 7;">
-					<path d="M0,8L1757,8L1757,7L1757,7" tabindex="0">
+					<path d="M0,8L1757,8L1757,7L1826,7L1826,7L1836,7L1836,8L1854,8L1854,6L1854,6" tabindex="0">
 						<title>8logk9r8</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,9L1836,9L1836,4L1853,4L1853,4L1854,4" tabindex="0">
+						<title>8qpl62dx</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,10L1840,10L1840,9L1854,9" tabindex="0">
+						<title>8d9nwllx</title>
 					</path>
 				</g>
 			</g>
