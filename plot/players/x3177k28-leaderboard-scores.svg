@@ -1082,26 +1082,26 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-19</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-11-29</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-31</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">99</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">101</text>
 		</svg>
-		<svg viewBox="0 0 41 99" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 99) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 73 101" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 101) scale(1 -1)" style="--count: 1;">
 				<g>
-					<rect x="0" y="0" width="41" height="99"/>
+					<rect x="0" y="0" width="73" height="101"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,87L1,87L1,88L4,88L4,88L5,88L5,89L6,89L6,90L8,90L8,92L9,92L9,91L10,91L10,93L13,93L13,94L15,94L15,95L22,95L22,95L26,95L26,95L28,95L28,95L29,95L29,96L35,96L35,97L36,97L36,98L38,98L38,98L40,98L40,99L41,99L41,98L41,98" tabindex="0">
+					<path d="M0,0L0,0L0,87L1,87L1,88L4,88L4,88L5,88L5,89L6,89L6,90L8,90L8,92L9,92L9,91L10,91L10,93L13,93L13,94L15,94L15,95L22,95L22,95L26,95L26,95L28,95L28,95L29,95L29,96L35,96L35,97L36,97L36,98L38,98L38,98L40,98L40,99L41,99L41,98L44,98L44,98L45,98L45,98L46,98L46,98L47,98L47,98L51,98L51,98L54,98L54,98L55,98L55,99L64,99L64,99L68,99L68,100L70,100L70,100L71,100L71,101L73,101L73,101L73,101" tabindex="0">
 						<title>xd17x94d-9l71pv4l.21gpn081</title>
 					</path>
 				</g>

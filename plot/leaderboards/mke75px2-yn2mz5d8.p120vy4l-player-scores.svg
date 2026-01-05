@@ -1087,27 +1087,32 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-05-24</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-11-29</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-29</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
 			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
 		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2</text>
+			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">3</text>
 		</svg>
-		<svg viewBox="0 0 189 2" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 2) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 219 3" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 3) scale(1 -1)" style="--count: 3;">
 				<g>
-					<rect x="0" y="0" width="189" height="2"/>
+					<rect x="0" y="0" width="219" height="3"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,1L187,1L187,1L189,1L189,2L189,2" tabindex="0">
+					<path d="M0,0L0,0L0,1L187,1L187,1L189,1L189,2L213,2L213,3L216,3L216,2L219,2" tabindex="0">
 						<title>jo1zrpnx</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,0L187,0L187,2L189,2L189,1L189,1" tabindex="0">
+					<path d="M0,0L187,0L187,2L189,2L189,1L213,1L213,1L219,1" tabindex="0">
 						<title>8qpl62dx</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,0L213,0L213,2L216,2L216,3L219,3L219,3L219,3" tabindex="0">
+						<title>8w3l21qj</title>
 					</path>
 				</g>
 			</g>

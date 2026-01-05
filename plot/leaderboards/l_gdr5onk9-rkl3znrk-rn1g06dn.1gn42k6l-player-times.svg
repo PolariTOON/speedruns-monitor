@@ -1087,7 +1087,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2024-09-07</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-09-07</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-10</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1095,8 +1095,8 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">03:21.09</text>
 		</svg>
-		<svg viewBox="0 0 365 20109" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 20109) scale(1 -1)" style="--count: 4;">
+		<svg viewBox="0 0 459 20109" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 20109) scale(1 -1)" style="--count: 5;">
 				<g style="--index: 0;">
 					<path d="M0,20034" tabindex="0">
 						<title>x356nrej</title>
@@ -1105,7 +1105,7 @@
 					<path d="M0,20034L0,20034" tabindex="0">
 						<title>03:20.34 on 2024-09-07</title>
 					</path>
-					<line x1="0" y1="20034" x2="365" y2="20034"/>
+					<line x1="0" y1="20034" x2="459" y2="20034"/>
 					<line x1="0" y1="0" x2="0" y2="20109"/>
 				</g>
 				<g style="--index: 1;">
@@ -1116,7 +1116,7 @@
 					<path d="M1,19901L1,19901" tabindex="0">
 						<title>03:19.01 on 2024-09-08</title>
 					</path>
-					<line x1="0" y1="19901" x2="365" y2="19901"/>
+					<line x1="0" y1="19901" x2="459" y2="19901"/>
 					<line x1="1" y1="0" x2="1" y2="20109"/>
 				</g>
 				<g style="--index: 2;">
@@ -1127,7 +1127,7 @@
 					<path d="M365,20109L365,20109" tabindex="0">
 						<title>03:21.09 on 2025-09-07</title>
 					</path>
-					<line x1="0" y1="20109" x2="365" y2="20109"/>
+					<line x1="0" y1="20109" x2="459" y2="20109"/>
 					<line x1="365" y1="0" x2="365" y2="20109"/>
 				</g>
 				<g style="--index: 3;">
@@ -1138,8 +1138,19 @@
 					<path d="M365,19731L365,19731" tabindex="0">
 						<title>03:17.31 on 2025-09-07</title>
 					</path>
-					<line x1="0" y1="19731" x2="365" y2="19731"/>
+					<line x1="0" y1="19731" x2="459" y2="19731"/>
 					<line x1="365" y1="0" x2="365" y2="20109"/>
+				</g>
+				<g style="--index: 4;">
+					<path d="M459,19695" tabindex="0">
+						<title>8gz4zv1j</title>
+					</path>
+					<rect x="459" y="19695" width="0" height="0"/>
+					<path d="M459,19695L459,19695" tabindex="0">
+						<title>03:16.95 on 2025-12-10</title>
+					</path>
+					<line x1="0" y1="19695" x2="459" y2="19695"/>
+					<line x1="459" y1="0" x2="459" y2="20109"/>
 				</g>
 			</g>
 		</svg>

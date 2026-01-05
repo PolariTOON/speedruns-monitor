@@ -1082,67 +1082,342 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-29</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-11-29</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-31</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">31</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">349</text>
 		</svg>
-		<svg viewBox="0 0 123 31" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 31) scale(1 -1)" style="--count: 9;">
+		<svg viewBox="0 0 155 349" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 349) scale(1 -1)" style="--count: 64;">
 				<g>
-					<rect x="0" y="0" width="123" height="31"/>
+					<rect x="0" y="0" width="155" height="349"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,11L0,11L0,5L11,5L11,6L17,6L17,7L45,7L45,8L123,8" tabindex="0">
+					<path d="M0,11L0,11L0,5L11,5L11,6L17,6L17,7L45,7L45,8L132,8L132,9L155,9" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.zqop6rp1</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,10L1,10L1,5L2,5L2,6L11,6L11,7L44,7L44,8L123,8" tabindex="0">
+					<path d="M0,10L1,10L1,5L2,5L2,6L11,6L11,7L44,7L44,8L155,8" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.0138n5dq</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,5L5,5L5,3L6,3L6,4L12,4L12,5L27,5L27,3L123,3" tabindex="0">
+					<path d="M0,5L5,5L5,3L6,3L6,4L12,4L12,5L27,5L27,3L155,3" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.4lxp7e2q</title>
 					</path>
 				</g>
 				<g style="--index: 3;">
-					<path d="M0,16L6,16L6,12L7,12L7,13L17,13L17,14L44,14L44,15L100,15L100,16L123,16" tabindex="0">
+					<path d="M0,16L6,16L6,12L7,12L7,13L17,13L17,14L44,14L44,15L100,15L100,16L125,16L125,11L153,11L153,12L155,12" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.814y0701</title>
 					</path>
 				</g>
 				<g style="--index: 4;">
-					<path d="M0,9L20,9L20,5L123,5" tabindex="0">
+					<path d="M0,9L20,9L20,5L155,5" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.5lmk0gjq</title>
 					</path>
 				</g>
 				<g style="--index: 5;">
-					<path d="M0,8L26,8L26,7L95,7L95,7L105,7L105,8L123,8L123,6L123,6" tabindex="0">
+					<path d="M0,8L26,8L26,7L95,7L95,7L105,7L105,8L123,8L123,6L155,6" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.0q5njgmq</title>
 					</path>
 				</g>
 				<g style="--index: 6;">
-					<path d="M0,9L30,9L30,6L44,6L44,7L99,7L99,8L114,8L114,10L115,10L115,11L123,11" tabindex="0">
+					<path d="M0,9L30,9L30,6L44,6L44,7L99,7L99,8L114,8L114,10L115,10L115,11L155,11" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.1dkg795l</title>
 					</path>
 				</g>
 				<g style="--index: 7;">
-					<path d="M0,31L36,31L36,14L46,14L46,15L47,15L47,16L54,16L54,17L70,17L70,18L87,18L87,19L89,19L89,20L107,20L107,21L118,21L118,23L123,23L123,24L123,24" tabindex="0">
+					<path d="M0,31L36,31L36,14L46,14L46,15L47,15L47,16L54,16L54,17L70,17L70,18L87,18L87,19L89,19L89,20L107,20L107,21L118,21L118,23L123,23L123,24L130,24L130,25L149,25L149,26L155,26" tabindex="0">
 						<title>l_gdr5onk9-rkl3znrk-rn1g06dn.qj77o50q</title>
 					</path>
 				</g>
 				<g style="--index: 8;">
-					<path d="M0,4L120,4L120,1L121,1L121,2L123,2" tabindex="0">
+					<path d="M0,4L120,4L120,1L121,1L121,2L135,2L135,2L150,2L150,3L155,3" tabindex="0">
 						<title>l_r9gnozkd-rkl3znrk-wledz9en.qyzog2d1</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,4L127,4L127,2L155,2L155,3L155,3" tabindex="0">
+						<title>l_r9gnozkd-rkl3znrk-wledz9en.10vjknpl</title>
+					</path>
+				</g>
+				<g style="--index: 10;">
+					<path d="M0,260L130,260L130,27L136,27L136,28L155,28" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
+					</path>
+				</g>
+				<g style="--index: 11;">
+					<path d="M0,193L130,193L130,42L132,42L132,43L137,43L137,44L143,44L143,45L146,45L146,46L155,46" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
+					</path>
+				</g>
+				<g style="--index: 12;">
+					<path d="M0,25L131,25L131,9L132,9L132,10L155,10" tabindex="0">
+						<title>l_r9gn1qpd-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+				</g>
+				<g style="--index: 13;">
+					<path d="M0,107L131,107L131,24L141,24L141,25L155,25" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
+					</path>
+				</g>
+				<g style="--index: 14;">
+					<path d="M0,25L131,25L131,10L155,10" tabindex="0">
+						<title>l_r9gn1qpd-xd144xzd-38dz6v1n.5leogx5q</title>
+					</path>
+				</g>
+				<g style="--index: 15;">
+					<path d="M0,107L131,107L131,22L139,22L139,23L141,23L141,24L155,24" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21dz3e4l</title>
+					</path>
+				</g>
+				<g style="--index: 16;">
+					<path d="M0,69L131,69L131,39L134,39L134,40L153,40L153,41L155,41" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21g82pnl</title>
+					</path>
+				</g>
+				<g style="--index: 17;">
+					<path d="M0,147L131,147L131,15L136,15L136,16L155,16" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
+					</path>
+				</g>
+				<g style="--index: 18;">
+					<path d="M0,42L131,42L131,18L137,18L137,19L147,19L147,20L155,20" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.gq7jrxvq</title>
+					</path>
+				</g>
+				<g style="--index: 19;">
+					<path d="M0,12L131,12L131,7L155,7" tabindex="0">
+						<title>l_r9gn1qpd-9kv66g32-onv7r45n.810zdxoq</title>
+					</path>
+				</g>
+				<g style="--index: 20;">
+					<path d="M0,349L131,349L131,44L155,44" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
+					</path>
+				</g>
+				<g style="--index: 21;">
+					<path d="M0,23L131,23L131,7L155,7" tabindex="0">
+						<title>l_r9gn1qpd-xd144xwd</title>
+					</path>
+				</g>
+				<g style="--index: 22;">
+					<path d="M0,14L132,14L132,9L155,9" tabindex="0">
+						<title>l_o9xo3rp9-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+				</g>
+				<g style="--index: 23;">
+					<path d="M0,89L132,89L132,41L155,41" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+					</path>
+				</g>
+				<g style="--index: 24;">
+					<path d="M0,62L132,62L132,36L152,36L152,37L155,37" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.rqvpey7q</title>
+					</path>
+				</g>
+				<g style="--index: 25;">
+					<path d="M0,106L132,106L132,30L140,30L140,31L150,31L150,32L155,32" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.810zwdwq</title>
+					</path>
+				</g>
+				<g style="--index: 26;">
+					<path d="M0,41L132,41L132,20L150,20L150,21L152,21L152,22L155,22" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+					</path>
+				</g>
+				<g style="--index: 27;">
+					<path d="M0,129L132,129L132,34L155,34" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.013856dq</title>
+					</path>
+				</g>
+				<g style="--index: 28;">
+					<path d="M0,9L132,9L132,5L155,5" tabindex="0">
+						<title>l_o9xo3rp9-xd144xzd-ql69e17l.10v3wwpl</title>
+					</path>
+				</g>
+				<g style="--index: 29;">
+					<path d="M0,9L132,9L132,5L155,5" tabindex="0">
+						<title>l_o9xo3rp9-xd144xwd</title>
+					</path>
+				</g>
+				<g style="--index: 30;">
+					<path d="M0,88L132,88L132,28L153,28L153,29L155,29" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.jq60ze3q</title>
+					</path>
+				</g>
+				<g style="--index: 31;">
+					<path d="M0,9L132,9L132,6L155,6" tabindex="0">
+						<title>l_o9xo3rp9-9kv66g32-onv7r45n.810zdxoq</title>
+					</path>
+				</g>
+				<g style="--index: 32;">
+					<path d="M0,21L132,21L132,11L155,11" tabindex="0">
+						<title>l_o9xo3rp9-xd144xzd-ql69e17l.qj7jxxoq</title>
+					</path>
+				</g>
+				<g style="--index: 33;">
+					<path d="M0,22L132,22L132,14L137,14L137,15L155,15" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.5lmkgmjq</title>
+					</path>
+				</g>
+				<g style="--index: 34;">
+					<path d="M0,75L132,75L132,33L138,33L138,34L146,34L146,35L149,35L149,36L153,36L153,37L155,37L155,38L155,38" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
+					</path>
+				</g>
+				<g style="--index: 35;">
+					<path d="M0,44L132,44L132,25L140,25L140,26L155,26" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.5lermx5q</title>
+					</path>
+				</g>
+				<g style="--index: 36;">
+					<path d="M0,20L133,20L133,17L142,17L142,18L155,18" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.p12dx07q</title>
+					</path>
+				</g>
+				<g style="--index: 37;">
+					<path d="M0,64L133,64L133,30L135,30L135,31L144,31L144,32L155,32" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
+					</path>
+				</g>
+				<g style="--index: 38;">
+					<path d="M0,44L133,44L133,34L155,34" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.81ppd5g1</title>
+					</path>
+				</g>
+				<g style="--index: 39;">
+					<path d="M0,30L133,30L133,23L153,23L153,24L155,24" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.xqkjmnnl</title>
+					</path>
+				</g>
+				<g style="--index: 40;">
+					<path d="M0,31L133,31L133,22L149,22L149,23L155,23" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.qj7zdm3q</title>
+					</path>
+				</g>
+				<g style="--index: 41;">
+					<path d="M0,36L133,36L133,20L138,20L138,21L155,21" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.4lxpe62q</title>
+					</path>
+				</g>
+				<g style="--index: 42;">
+					<path d="M0,54L133,54L133,32L137,32L137,33L154,33L154,34L155,34" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.gq7jzvvq</title>
+					</path>
+				</g>
+				<g style="--index: 43;">
+					<path d="M0,7L134,7L134,6L155,6" tabindex="0">
+						<title>l_495zlx39-9kv66g32-onv7r45n.810zdxoq</title>
+					</path>
+				</g>
+				<g style="--index: 44;">
+					<path d="M0,11L134,11L134,7L155,7" tabindex="0">
+						<title>l_495zlx39-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+				</g>
+				<g style="--index: 45;">
+					<path d="M0,9L134,9L134,6L155,6" tabindex="0">
+						<title>l_495zlx39-xd144xzd-onvyv77n.1w43556q</title>
+					</path>
+				</g>
+				<g style="--index: 46;">
+					<path d="M0,14L134,14L134,10L155,10" tabindex="0">
+						<title>l_495zlx39-xd144xzd-onvyv77n.qoxdrr4q</title>
+					</path>
+				</g>
+				<g style="--index: 47;">
+					<path d="M0,8L134,8L134,6L155,6" tabindex="0">
+						<title>l_495zlx39-xd144xwd</title>
+					</path>
+				</g>
+				<g style="--index: 48;">
+					<path d="M0,8L136,8L136,7L140,7L140,8L155,8" tabindex="0">
+						<title>xd1v018d-68k7x44l.mlno8vjq</title>
+					</path>
+				</g>
+				<g style="--index: 49;">
+					<path d="M0,37L136,37L136,10L155,10" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.jqzpyrgl</title>
+					</path>
+				</g>
+				<g style="--index: 50;">
+					<path d="M0,8L136,8L136,6L155,6" tabindex="0">
+						<title>7dg65oxk-r8r1zm0n.5q89kv31</title>
+					</path>
+				</g>
+				<g style="--index: 51;">
+					<path d="M0,9L136,9L136,7L155,7" tabindex="0">
+						<title>l_rdqo542w-9kv66g32-onv7r45n.9qj08g7l</title>
+					</path>
+				</g>
+				<g style="--index: 52;">
+					<path d="M0,31L136,31L136,22L152,22L152,23L155,23" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.5q86rxr1</title>
+					</path>
+				</g>
+				<g style="--index: 53;">
+					<path d="M0,21L136,21L136,19L155,19L155,20L155,20" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.gq7jzvnq</title>
+					</path>
+				</g>
+				<g style="--index: 54;">
+					<path d="M0,4L136,4L136,3L155,3" tabindex="0">
+						<title>l_rdqo542w-9kv66g32-onv7r45n.810zdxoq</title>
+					</path>
+				</g>
+				<g style="--index: 55;">
+					<path d="M0,16L136,16L136,13L155,13" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.21g8owxl</title>
+					</path>
+				</g>
+				<g style="--index: 56;">
+					<path d="M0,225L136,225L136,66L141,66L141,67L142,67L142,68L143,68L143,69L146,69L146,70L152,70L152,71L155,71L155,72L155,72" tabindex="0">
+						<title>xd17x94d-9l71pv4l.21gpn081</title>
+					</path>
+				</g>
+				<g style="--index: 57;">
+					<path d="M0,18L136,18L136,16L155,16" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.klrp6ejq</title>
+					</path>
+				</g>
+				<g style="--index: 58;">
+					<path d="M0,24L136,24L136,22L144,22L144,23L146,23L146,24L155,24" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.jqzpyr4l</title>
+					</path>
+				</g>
+				<g style="--index: 59;">
+					<path d="M0,20L136,20L136,19L153,19L153,20L155,20" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.klrp6e0q</title>
+					</path>
+				</g>
+				<g style="--index: 60;">
+					<path d="M0,20L136,20L136,17L153,17L153,18L155,18" tabindex="0">
+						<title>l_rdqo542w-9d8eewld-wl30kw9l.21dzoj3l</title>
+					</path>
+				</g>
+				<g style="--index: 61;">
+					<path d="M0,7L137,7L137,4L155,4" tabindex="0">
+						<title>l_rdqo542w-xd144xwd</title>
+					</path>
+				</g>
+				<g style="--index: 62;">
+					<path d="M0,10L137,10L137,7L155,7" tabindex="0">
+						<title>l_rdqo542w-xd144xzd-ylpk6768.q5vkg7vl</title>
+					</path>
+				</g>
+				<g style="--index: 63;">
+					<path d="M0,7L137,7L137,5L143,5L143,6L155,6" tabindex="0">
+						<title>l_rdqo542w-xd144xzd-ylpk6768.le2dmv6l</title>
 					</path>
 				</g>
 			</g>
