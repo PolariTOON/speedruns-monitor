@@ -1082,27 +1082,32 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-20</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-20</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-01-27</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">66</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">155</text>
 		</svg>
-		<svg viewBox="0 0 0 66" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 66) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 38 155" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 155) scale(1 -1)" style="--count: 2;">
 				<g>
-					<rect x="0" y="0" width="0" height="66"/>
+					<rect x="0" y="0" width="38" height="155"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,66L0,66L0,20L0,20" tabindex="0">
+					<path d="M0,66L0,66L0,20L32,20L32,21L33,21L33,22L38,22" tabindex="0">
 						<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,155L14,155L14,24L17,24L17,25L20,25L20,26L22,26L22,27L37,27L37,28L38,28L38,29L38,29" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
 					</path>
 				</g>
 			</g>
