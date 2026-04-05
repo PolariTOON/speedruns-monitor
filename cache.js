@@ -99,8 +99,9 @@ for (const [gameId, game] of Object.entries(games)) {
 					}
 					const date = run.date;
 					dates[date] ??= Object.create(null);
-					const playerId = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-					const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+					const anonymous = (run.players.data[0]?.rel ?? "guest") !== "user";
+					const playerId = !anonymous ? run.players.data[0].id : "814p2558";
+					const playerName = !anonymous ? run.players.data[0].names.international : "anonymous";
 					playersById[playerId] ??= playerName;
 					playersByName[playerName] ??= playerId;
 					const playerDates = players[playerId] ??= Object.create(null);
@@ -194,8 +195,9 @@ for (const [gameId, game] of Object.entries(games)) {
 						break;
 					}
 					for (const player of playerList) {
-						const playerId = player.id;
-						const playerName = player.name;
+						const anonymous = player.id.startsWith("u-");
+						const playerId = !anonymous ? player.id : "814p2558";
+						const playerName = !anonymous ? player.name : "anonymous";
 						playersById[playerId] ??= playerName;
 						playersByName[playerName] ??= playerId;
 						players[playerId] ??= Object.create(null);
@@ -208,8 +210,9 @@ for (const [gameId, game] of Object.entries(games)) {
 						const day = `${datetime.getUTCDate()}`.padStart(2, "0");
 						const date = `${year}-${month}-${day}`;
 						dates[date] ??= Object.create(null);
-						const playerId = run.playerIds[0] ?? "814p2558";
-						const playerName = run.playerIds[0] != null ? playersById[run.playerIds[0]] : "anonymous";
+						const anonymous = run.playerIds[0]?.startsWith("u-") ?? true;
+						const playerId = !anonymous ? run.playerIds[0] : "814p2558";
+						const playerName = !anonymous ? playersById[run.playerIds[0]] : "anonymous";
 						playersById[playerId] ??= playerName;
 						playersByName[playerName] ??= playerId;
 						const playerDates = players[playerId] ??= Object.create(null);
@@ -569,7 +572,9 @@ const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([dat
 		Object.fromEntries(sortDatePlatforms(Object.entries(platforms))),
 	];
 })));
-const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).map(([player, dates]) => {
+const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).filter(([player, dates]) => {
+	return Object.keys(dates).length !== 0;
+}).map(([player, dates]) => {
 	return [
 		player,
 		Object.fromEntries(sortPlayerDates(Object.entries(dates).map(([date, runs]) => {
@@ -580,7 +585,9 @@ const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).map
 		}))),
 	];
 })));
-const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(leaderboards).map(([leaderboard, dates]) => {
+const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(leaderboards).filter(([leaderboard, dates]) => {
+	return Object.keys(dates).length !== 0;
+}).map(([leaderboard, dates]) => {
 	return [
 		leaderboard,
 		Object.fromEntries(sortLeaderboardDates(Object.entries(dates).map(([date, runs]) => {

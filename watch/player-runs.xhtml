@@ -504,8 +504,9 @@
 													if (status == null || status === "new") {
 														continue;
 													}
-													const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-													const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+													const anonymous = (run.players.data[0]?.rel ?? "guest") !== "user";
+													const player = !anonymous ? run.players.data[0].id : "814p2558";
+													const playerName = !anonymous ? run.players.data[0].names.international : "anonymous";
 													players[player] ??= playerName;
 													const level = run.level;
 													const category = run.category;
@@ -8947,19 +8948,19 @@
 					<td colspan="410"></td>
 				</tr>
 				<tr>
-					<th scope="row">jopeoglx</th>
+					<th scope="row">xk4d7g6j</th>
 					<td colspan="388"></td>
 					<td>
-						<p><a href="https://www.speedrun.com/sba/run/y42p1ekm" data-platform="android" data-status="verified">1.9.7.3</a></p>
+						<p><a href="https://www.speedrun.com/sba/run/me9ror2z" data-platform="android" data-status="verified">1.9.7.3</a></p>
 					</td>
 					<td colspan="1000"></td>
 					<td colspan="403"></td>
 				</tr>
 				<tr>
-					<th scope="row">xk4d7g6j</th>
+					<th scope="row">jopeoglx</th>
 					<td colspan="388"></td>
 					<td>
-						<p><a href="https://www.speedrun.com/sba/run/me9ror2z" data-platform="android" data-status="verified">1.9.7.3</a></p>
+						<p><a href="https://www.speedrun.com/sba/run/y42p1ekm" data-platform="android" data-status="verified">1.9.7.3</a></p>
 					</td>
 					<td colspan="1000"></td>
 					<td colspan="403"></td>
@@ -17301,18 +17302,18 @@
 					<td colspan="796"></td>
 				</tr>
 				<tr>
-					<th scope="row">jngg5p28</th>
-					<td colspan="998"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/zpp4gwnz" data-platform="android" data-status="verified">10.4.2</a></p>
-					</td>
-					<td colspan="793"></td>
-				</tr>
-				<tr>
 					<th scope="row">xkpp4kkj</th>
 					<td colspan="998"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8k1xwny" data-platform="android" data-status="verified">10.4.2</a></p>
+					</td>
+					<td colspan="793"></td>
+				</tr>
+				<tr>
+					<th scope="row">jngg5p28</th>
+					<td colspan="998"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/zpp4gwnz" data-platform="android" data-status="verified">10.4.2</a></p>
 					</td>
 					<td colspan="793"></td>
 				</tr>
@@ -19273,21 +19274,21 @@
 					<td colspan="613"></td>
 				</tr>
 				<tr>
-					<th scope="row">j596yknx</th>
-					<td colspan="1000"></td>
-					<td colspan="168"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/zq8q3n8z" data-platform="android" data-status="verified">11.1.1</a></p>
-					</td>
-					<td colspan="623"></td>
-				</tr>
-				<tr>
 					<th scope="row">8lr9gvv8</th>
 					<td colspan="1000"></td>
 					<td colspan="168"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/mrvx44dz" data-platform="android" data-status="verified">11.1.1</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z0dq69ey" data-platform="android" data-status="verified">11.1.1</a></p>
+					</td>
+					<td colspan="623"></td>
+				</tr>
+				<tr>
+					<th scope="row">j596yknx</th>
+					<td colspan="1000"></td>
+					<td colspan="168"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/zq8q3n8z" data-platform="android" data-status="verified">11.1.1</a></p>
 					</td>
 					<td colspan="623"></td>
 				</tr>
@@ -27837,15 +27838,6 @@
 					</td>
 				</tr>
 				<tr>
-					<th scope="row">j01wn93x</th>
-					<td colspan="1000"></td>
-					<td colspan="521"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/zg6gll0m" data-platform="ios" data-status="verified">11.1.1</a></p>
-					</td>
-					<td colspan="270"></td>
-				</tr>
-				<tr>
 					<th scope="row">j0164l3x</th>
 					<td colspan="1000"></td>
 					<td colspan="521"></td>
@@ -27877,6 +27869,15 @@
 						<p><a href="https://www.speedrun.com/sba/run/m7ln0r4y" data-platform="android" data-status="verified">12.0.2</a></p>
 					</td>
 					<td colspan="217"></td>
+				</tr>
+				<tr>
+					<th scope="row">j01wn93x</th>
+					<td colspan="1000"></td>
+					<td colspan="521"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/zg6gll0m" data-platform="ios" data-status="verified">11.1.1</a></p>
+					</td>
+					<td colspan="270"></td>
 				</tr>
 				<tr>
 					<th scope="row">8r6l4vd8</th>
@@ -28015,16 +28016,6 @@
 					<td colspan="259"></td>
 				</tr>
 				<tr>
-					<th scope="row">8d9pne9x</th>
-					<td colspan="1000"></td>
-					<td colspan="533"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/m3v7k06z" data-platform="android" data-status="verified">11.1.3</a></p>
-						<p><a href="https://www.speedrun.com/sba/run/y8ge6l5z" data-platform="android" data-status="verified">11.1.3</a></p>
-					</td>
-					<td colspan="258"></td>
-				</tr>
-				<tr>
 					<th scope="row">8ezk9od8</th>
 					<td colspan="1000"></td>
 					<td colspan="533"></td>
@@ -28035,6 +28026,16 @@
 						<p><a href="https://www.speedrun.com/sba/run/yd4eo70y" data-platform="android" data-status="verified">11.1.3</a></p>
 					</td>
 					<td colspan="257"></td>
+				</tr>
+				<tr>
+					<th scope="row">8d9pne9x</th>
+					<td colspan="1000"></td>
+					<td colspan="533"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/m3v7k06z" data-platform="android" data-status="verified">11.1.3</a></p>
+						<p><a href="https://www.speedrun.com/sba/run/y8ge6l5z" data-platform="android" data-status="verified">11.1.3</a></p>
+					</td>
+					<td colspan="258"></td>
 				</tr>
 				<tr>
 					<th scope="row">j01wkyrx</th>
@@ -29126,6 +29127,15 @@
 					<td colspan="223"></td>
 				</tr>
 				<tr>
+					<th scope="row">8r6rkgq8</th>
+					<td colspan="1000"></td>
+					<td colspan="568"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/z00xleoz" data-platform="android" data-status="verified">12.0.1</a></p>
+					</td>
+					<td colspan="223"></td>
+				</tr>
+				<tr>
 					<th scope="row">8gz9zmpj</th>
 					<td colspan="1000"></td>
 					<td colspan="568"></td>
@@ -29142,15 +29152,6 @@
 						<p><a href="https://www.speedrun.com/sba/run/m7lvep9y" data-platform="android" data-status="verified">12.0.3</a></p>
 					</td>
 					<td colspan="193"></td>
-				</tr>
-				<tr>
-					<th scope="row">8r6rkgq8</th>
-					<td colspan="1000"></td>
-					<td colspan="568"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/z00xleoz" data-platform="android" data-status="verified">12.0.1</a></p>
-					</td>
-					<td colspan="223"></td>
 				</tr>
 				<tr>
 					<th scope="row">8wg52dlx</th>
@@ -30067,24 +30068,6 @@
 					<td colspan="205"></td>
 				</tr>
 				<tr>
-					<th scope="row">x7go250x</th>
-					<td colspan="1000"></td>
-					<td colspan="587"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/mkwow61m" data-platform="android" data-status="verified">12.0.2</a></p>
-					</td>
-					<td colspan="204"></td>
-				</tr>
-				<tr>
-					<th scope="row">jpp7o52j</th>
-					<td colspan="1000"></td>
-					<td colspan="587"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/yljp2l3m" data-platform="android" data-status="verified">12.0.2</a></p>
-					</td>
-					<td colspan="204"></td>
-				</tr>
-				<tr>
 					<th scope="row">8w7p5n4x</th>
 					<td colspan="1000"></td>
 					<td colspan="587"></td>
@@ -30128,6 +30111,24 @@
 						<p><a href="https://www.speedrun.com/sba/run/y9wgorvz" data-platform="android" data-status="verified">12.1.3</a></p>
 					</td>
 					<td colspan="35"></td>
+				</tr>
+				<tr>
+					<th scope="row">x7go250x</th>
+					<td colspan="1000"></td>
+					<td colspan="587"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/mkwow61m" data-platform="android" data-status="verified">12.0.2</a></p>
+					</td>
+					<td colspan="204"></td>
+				</tr>
+				<tr>
+					<th scope="row">jpp7o52j</th>
+					<td colspan="1000"></td>
+					<td colspan="587"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/yljp2l3m" data-platform="android" data-status="verified">12.0.2</a></p>
+					</td>
+					<td colspan="204"></td>
 				</tr>
 				<tr>
 					<th scope="row">jn17o9q8</th>
@@ -30604,15 +30605,6 @@
 					<td colspan="189"></td>
 				</tr>
 				<tr>
-					<th scope="row">8gznkw1j</th>
-					<td colspan="1000"></td>
-					<td colspan="603"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/z002lnez" data-platform="android" data-status="verified">12.0.4</a></p>
-					</td>
-					<td colspan="188"></td>
-				</tr>
-				<tr>
 					<th scope="row">8l6k1wv8</th>
 					<td colspan="1000"></td>
 					<td colspan="603"></td>
@@ -30654,6 +30646,15 @@
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y6jw0e6m" data-platform="android" data-status="verified">12.0.4</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/y6jwopjm" data-platform="android" data-status="verified">12.0.4</a></p>
+					</td>
+					<td colspan="188"></td>
+				</tr>
+				<tr>
+					<th scope="row">8gznkw1j</th>
+					<td colspan="1000"></td>
+					<td colspan="603"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/z002lnez" data-platform="android" data-status="verified">12.0.4</a></p>
 					</td>
 					<td colspan="188"></td>
 				</tr>
@@ -34467,6 +34468,25 @@
 					<td colspan="72"></td>
 				</tr>
 				<tr>
+					<th scope="row">8q0wlzoj</th>
+					<td colspan="1000"></td>
+					<td colspan="720"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sbace/run/y6825r1z" data-platform="android" data-status="verified">12.1.3</a></p>
+					</td>
+					<td colspan="26"></td>
+					<td></td>
+					<td colspan="33"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sbace/run/y269p16m" data-platform="android" data-status="verified">12.1.3</a></p>
+					</td>
+					<td colspan="4"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/m38dgewy" data-platform="android" data-status="verified">12.1.3</a></p>
+					</td>
+					<td colspan="5"></td>
+				</tr>
+				<tr>
 					<th scope="row">jppwzr5j</th>
 					<td colspan="1000"></td>
 					<td colspan="720"></td>
@@ -34494,25 +34514,6 @@
 						<p><a href="https://www.speedrun.com/sba/run/mr5l9q4y" data-platform="android" data-status="verified">12.1.3</a></p>
 					</td>
 					<td colspan="71"></td>
-				</tr>
-				<tr>
-					<th scope="row">8q0wlzoj</th>
-					<td colspan="1000"></td>
-					<td colspan="720"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sbace/run/y6825r1z" data-platform="android" data-status="verified">12.1.3</a></p>
-					</td>
-					<td colspan="26"></td>
-					<td></td>
-					<td colspan="33"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sbace/run/y269p16m" data-platform="android" data-status="verified">12.1.3</a></p>
-					</td>
-					<td colspan="4"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/m38dgewy" data-platform="android" data-status="verified">12.1.3</a></p>
-					</td>
-					<td colspan="5"></td>
 				</tr>
 				<tr>
 					<th scope="row">xz5rqd0x</th>
@@ -36436,6 +36437,16 @@
 					<td colspan="21"></td>
 				</tr>
 				<tr>
+					<th scope="row">x3rqgq7x</th>
+					<td colspan="1000"></td>
+					<td colspan="771"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/mkr6565z" data-platform="android" data-status="verified">12.1.3</a></p>
+						<p><a href="https://www.speedrun.com/sba/run/yl58ennz" data-platform="android" data-status="verified">12.1.3</a></p>
+					</td>
+					<td colspan="20"></td>
+				</tr>
+				<tr>
 					<th scope="row">8e5n3y68</th>
 					<td colspan="1000"></td>
 					<td colspan="771"></td>
@@ -36455,16 +36466,6 @@
 						<p><a href="https://www.speedrun.com/sba/run/y9wrjwez" data-platform="android" data-status="verified">12.1.3</a></p>
 					</td>
 					<td colspan="19"></td>
-				</tr>
-				<tr>
-					<th scope="row">x3rqgq7x</th>
-					<td colspan="1000"></td>
-					<td colspan="771"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/mkr6565z" data-platform="android" data-status="verified">12.1.3</a></p>
-						<p><a href="https://www.speedrun.com/sba/run/yl58ennz" data-platform="android" data-status="verified">12.1.3</a></p>
-					</td>
-					<td colspan="20"></td>
 				</tr>
 				<tr>
 					<th scope="row">xkzem96x</th>
@@ -36704,6 +36705,15 @@
 					<td colspan="14"></td>
 				</tr>
 				<tr>
+					<th scope="row">8dy3lyo8</th>
+					<td colspan="1000"></td>
+					<td colspan="778"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/zx5e04gm" data-platform="android" data-status="verified">12.1.3</a></p>
+					</td>
+					<td colspan="13"></td>
+				</tr>
+				<tr>
 					<th scope="row">jp9m7o48</th>
 					<td colspan="1000"></td>
 					<td colspan="778"></td>
@@ -36730,15 +36740,6 @@
 					<td colspan="778"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/y8n5l1wy" data-platform="android" data-status="verified">12.1.3</a></p>
-					</td>
-					<td colspan="13"></td>
-				</tr>
-				<tr>
-					<th scope="row">8dy3lyo8</th>
-					<td colspan="1000"></td>
-					<td colspan="778"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/zx5e04gm" data-platform="android" data-status="verified">12.1.3</a></p>
 					</td>
 					<td colspan="13"></td>
 				</tr>
@@ -36907,21 +36908,21 @@
 					<td colspan="8"></td>
 				</tr>
 				<tr>
+					<th scope="row">8qpe44ox</th>
+					<td colspan="1000"></td>
+					<td colspan="784"></td>
+					<td>
+						<p><a href="https://www.speedrun.com/sba/run/zqnklr1z" data-platform="android" data-status="verified">12.1.3</a></p>
+					</td>
+					<td colspan="7"></td>
+				</tr>
+				<tr>
 					<th scope="row">8e56rop8</th>
 					<td colspan="1000"></td>
 					<td colspan="784"></td>
 					<td>
 						<p><a href="https://www.speedrun.com/sba/run/yjrjr7dz" data-platform="android" data-status="verified">12.1.3</a></p>
 						<p><a href="https://www.speedrun.com/sba/run/z02w2j4m" data-platform="android" data-status="verified">12.1.3</a></p>
-					</td>
-					<td colspan="7"></td>
-				</tr>
-				<tr>
-					<th scope="row">8qpe44ox</th>
-					<td colspan="1000"></td>
-					<td colspan="784"></td>
-					<td>
-						<p><a href="https://www.speedrun.com/sba/run/zqnklr1z" data-platform="android" data-status="verified">12.1.3</a></p>
 					</td>
 					<td colspan="7"></td>
 				</tr>

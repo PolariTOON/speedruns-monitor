@@ -485,8 +485,9 @@
 												if (status == null || status === "new") {
 													continue;
 												}
-												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												const anonymous = (run.players.data[0]?.rel ?? "guest") !== "user";
+												const player = !anonymous ? run.players.data[0].id : "814p2558";
+												const playerName = !anonymous ? run.players.data[0].names.international : "anonymous";
 												players[player] ??= playerName;
 												const level = run.level;
 												const category = run.category;
@@ -1487,12 +1488,12 @@
 				</g>
 				<g style="--index: 77;">
 					<path d="M0,0L1198,0L1198,1L2987,1" tabindex="0">
-						<title>jopeoglx</title>
+						<title>xk4d7g6j</title>
 					</path>
 				</g>
 				<g style="--index: 78;">
 					<path d="M0,0L1198,0L1198,1L2987,1" tabindex="0">
-						<title>xk4d7g6j</title>
+						<title>jopeoglx</title>
 					</path>
 				</g>
 				<g style="--index: 79;">
@@ -3487,12 +3488,12 @@
 				</g>
 				<g style="--index: 477;">
 					<path d="M0,0L2102,0L2102,1L2987,1" tabindex="0">
-						<title>jngg5p28</title>
+						<title>xkpp4kkj</title>
 					</path>
 				</g>
 				<g style="--index: 478;">
 					<path d="M0,0L2102,0L2102,1L2987,1" tabindex="0">
-						<title>xkpp4kkj</title>
+						<title>jngg5p28</title>
 					</path>
 				</g>
 				<g style="--index: 479;">
@@ -4056,13 +4057,13 @@
 					</path>
 				</g>
 				<g style="--index: 591;">
-					<path d="M0,0L2337,0L2337,1L2987,1" tabindex="0">
-						<title>j596yknx</title>
+					<path d="M0,0L2337,0L2337,2L2987,2" tabindex="0">
+						<title>8lr9gvv8</title>
 					</path>
 				</g>
 				<g style="--index: 592;">
-					<path d="M0,0L2337,0L2337,2L2987,2" tabindex="0">
-						<title>8lr9gvv8</title>
+					<path d="M0,0L2337,0L2337,1L2987,1" tabindex="0">
+						<title>j596yknx</title>
 					</path>
 				</g>
 				<g style="--index: 593;">
@@ -5896,13 +5897,13 @@
 					</path>
 				</g>
 				<g style="--index: 959;">
-					<path d="M0,0L2717,0L2717,1L2987,1" tabindex="0">
-						<title>j01wn93x</title>
+					<path d="M0,0L2717,0L2717,1L2769,1L2769,2L2770,2L2770,3L2987,3" tabindex="0">
+						<title>j0164l3x</title>
 					</path>
 				</g>
 				<g style="--index: 960;">
-					<path d="M0,0L2717,0L2717,1L2769,1L2769,2L2770,2L2770,3L2987,3" tabindex="0">
-						<title>j0164l3x</title>
+					<path d="M0,0L2717,0L2717,1L2987,1" tabindex="0">
+						<title>j01wn93x</title>
 					</path>
 				</g>
 				<g style="--index: 961;">
@@ -5946,13 +5947,13 @@
 					</path>
 				</g>
 				<g style="--index: 969;">
-					<path d="M0,0L2729,0L2729,2L2987,2" tabindex="0">
-						<title>8d9pne9x</title>
+					<path d="M0,0L2729,0L2729,1L2730,1L2730,2L2987,2" tabindex="0">
+						<title>8ezk9od8</title>
 					</path>
 				</g>
 				<g style="--index: 970;">
-					<path d="M0,0L2729,0L2729,1L2730,1L2730,2L2987,2" tabindex="0">
-						<title>8ezk9od8</title>
+					<path d="M0,0L2729,0L2729,2L2987,2" tabindex="0">
+						<title>8d9pne9x</title>
 					</path>
 				</g>
 				<g style="--index: 971;">
@@ -6246,13 +6247,13 @@
 					</path>
 				</g>
 				<g style="--index: 1029;">
-					<path d="M0,0L2764,0L2764,1L2794,1L2794,1L2987,1" tabindex="0">
-						<title>8gz9zmpj</title>
+					<path d="M0,0L2764,0L2764,1L2987,1" tabindex="0">
+						<title>8r6rkgq8</title>
 					</path>
 				</g>
 				<g style="--index: 1030;">
-					<path d="M0,0L2764,0L2764,1L2987,1" tabindex="0">
-						<title>8r6rkgq8</title>
+					<path d="M0,0L2764,0L2764,1L2794,1L2794,1L2987,1" tabindex="0">
+						<title>8gz9zmpj</title>
 					</path>
 				</g>
 				<g style="--index: 1031;">
@@ -6482,22 +6483,22 @@
 				</g>
 				<g style="--index: 1076;">
 					<path d="M0,0L2783,0L2783,1L2987,1" tabindex="0">
-						<title>x7go250x</title>
+						<title>8w7p5n4x</title>
 					</path>
 				</g>
 				<g style="--index: 1077;">
-					<path d="M0,0L2783,0L2783,1L2987,1" tabindex="0">
-						<title>jpp7o52j</title>
+					<path d="M0,0L2783,0L2783,1L2952,1L2952,1L2987,1" tabindex="0">
+						<title>86pvkvqj</title>
 					</path>
 				</g>
 				<g style="--index: 1078;">
 					<path d="M0,0L2783,0L2783,1L2987,1" tabindex="0">
-						<title>8w7p5n4x</title>
+						<title>x7go250x</title>
 					</path>
 				</g>
 				<g style="--index: 1079;">
-					<path d="M0,0L2783,0L2783,1L2952,1L2952,1L2987,1" tabindex="0">
-						<title>86pvkvqj</title>
+					<path d="M0,0L2783,0L2783,1L2987,1" tabindex="0">
+						<title>jpp7o52j</title>
 					</path>
 				</g>
 				<g style="--index: 1080;">
@@ -6676,18 +6677,18 @@
 					</path>
 				</g>
 				<g style="--index: 1115;">
-					<path d="M0,0L2799,0L2799,1L2987,1" tabindex="0">
-						<title>8gznkw1j</title>
-					</path>
-				</g>
-				<g style="--index: 1116;">
 					<path d="M0,0L2799,0L2799,1L2853,1L2853,2L2935,2L2935,3L2938,3L2938,4L2987,4" tabindex="0">
 						<title>8l6k1wv8</title>
 					</path>
 				</g>
-				<g style="--index: 1117;">
+				<g style="--index: 1116;">
 					<path d="M0,0L2799,0L2799,2L2987,2" tabindex="0">
 						<title>j01don3x</title>
+					</path>
+				</g>
+				<g style="--index: 1117;">
+					<path d="M0,0L2799,0L2799,1L2987,1" tabindex="0">
+						<title>8gznkw1j</title>
 					</path>
 				</g>
 				<g style="--index: 1118;">
@@ -7941,18 +7942,18 @@
 					</path>
 				</g>
 				<g style="--index: 1368;">
+					<path d="M0,0L2916,0L2916,1L2977,1L2977,2L2982,2L2982,3L2987,3" tabindex="0">
+						<title>8q0wlzoj</title>
+					</path>
+				</g>
+				<g style="--index: 1369;">
 					<path d="M0,0L2916,0L2916,1L2924,1L2924,5L2926,5L2926,6L2987,6" tabindex="0">
 						<title>jppwzr5j</title>
 					</path>
 				</g>
-				<g style="--index: 1369;">
+				<g style="--index: 1370;">
 					<path d="M0,0L2916,0L2916,1L2987,1" tabindex="0">
 						<title>x7gvvqrx</title>
-					</path>
-				</g>
-				<g style="--index: 1370;">
-					<path d="M0,0L2916,0L2916,1L2977,1L2977,2L2982,2L2982,3L2987,3" tabindex="0">
-						<title>8q0wlzoj</title>
 					</path>
 				</g>
 				<g style="--index: 1371;">
@@ -8666,18 +8667,18 @@
 					</path>
 				</g>
 				<g style="--index: 1513;">
+					<path d="M0,0L2967,0L2967,2L2987,2" tabindex="0">
+						<title>x3rqgq7x</title>
+					</path>
+				</g>
+				<g style="--index: 1514;">
 					<path d="M0,0L2967,0L2967,1L2987,1" tabindex="0">
 						<title>8e5n3y68</title>
 					</path>
 				</g>
-				<g style="--index: 1514;">
+				<g style="--index: 1515;">
 					<path d="M0,0L2967,0L2967,1L2968,1L2968,2L2987,2" tabindex="0">
 						<title>86kn9opx</title>
-					</path>
-				</g>
-				<g style="--index: 1515;">
-					<path d="M0,0L2967,0L2967,2L2987,2" tabindex="0">
-						<title>x3rqgq7x</title>
 					</path>
 				</g>
 				<g style="--index: 1516;">
@@ -8776,23 +8777,23 @@
 					</path>
 				</g>
 				<g style="--index: 1535;">
+					<path d="M0,0L2974,0L2974,1L2987,1" tabindex="0">
+						<title>8dy3lyo8</title>
+					</path>
+				</g>
+				<g style="--index: 1536;">
 					<path d="M0,0L2974,0L2974,1L2975,1L2975,1L2987,1" tabindex="0">
 						<title>jp9m7o48</title>
 					</path>
 				</g>
-				<g style="--index: 1536;">
+				<g style="--index: 1537;">
 					<path d="M0,0L2974,0L2974,1L2987,1" tabindex="0">
 						<title>jpzyq72x</title>
 					</path>
 				</g>
-				<g style="--index: 1537;">
-					<path d="M0,0L2974,0L2974,1L2987,1" tabindex="0">
-						<title>j0lvol3j</title>
-					</path>
-				</g>
 				<g style="--index: 1538;">
 					<path d="M0,0L2974,0L2974,1L2987,1" tabindex="0">
-						<title>8dy3lyo8</title>
+						<title>j0lvol3j</title>
 					</path>
 				</g>
 				<g style="--index: 1539;">
@@ -8872,12 +8873,12 @@
 				</g>
 				<g style="--index: 1554;">
 					<path d="M0,0L2980,0L2980,1L2987,1" tabindex="0">
-						<title>8e56rop8</title>
+						<title>8qpe44ox</title>
 					</path>
 				</g>
 				<g style="--index: 1555;">
 					<path d="M0,0L2980,0L2980,1L2987,1" tabindex="0">
-						<title>8qpe44ox</title>
+						<title>8e56rop8</title>
 					</path>
 				</g>
 				<g style="--index: 1556;">

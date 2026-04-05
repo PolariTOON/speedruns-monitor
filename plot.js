@@ -595,8 +595,9 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 												if (status == null || status === "new") {
 													continue;
 												}
-												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												const anonymous = (run.players.data[0]?.rel ?? "guest") !== "user";
+												const player = !anonymous ? run.players.data[0].id : "814p2558";
+												const playerName = !anonymous ? run.players.data[0].names.international : "anonymous";
 												players[player] ??= playerName;
 												const level = run.level;
 												const category = run.category;

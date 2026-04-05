@@ -485,8 +485,9 @@
 												if (status == null || status === "new") {
 													continue;
 												}
-												const player = run.players.data[0].rel === "user" ? run.players.data[0].id : "814p2558";
-												const playerName = run.players.data[0].rel === "user" ? run.players.data[0].names.international : "anonymous";
+												const anonymous = (run.players.data[0]?.rel ?? "guest") !== "user";
+												const player = !anonymous ? run.players.data[0].id : "814p2558";
+												const playerName = !anonymous ? run.players.data[0].names.international : "anonymous";
 												players[player] ??= playerName;
 												const level = run.level;
 												const category = run.category;
@@ -1101,13 +1102,13 @@
 					<rect x="0" y="0" width="237" height="41"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,2L1,2L1,3L2,3L2,4L5,4L5,5L6,5L6,8L7,8L7,9L8,9L8,10L9,10L9,11L10,11L10,13L11,13L11,12L21,12L21,13L46,13L46,14L50,14L50,15L51,15L51,16L71,16L71,17L73,17L73,18L93,18L93,19L103,19L103,20L116,20L116,21L120,21L120,22L148,22L148,23L163,23L163,24L169,24L169,25L174,25L174,28L175,28L175,28L177,28L177,29L178,29L178,30L180,30L180,30L181,30L181,29L184,29L184,32L185,32L185,31L187,31L187,34L189,34L189,33L197,33L197,35L204,35L204,36L209,36L209,38L213,38L213,39L235,39L235,40L237,40L237,41L237,41" tabindex="0">
-						<title>81pdyqq8</title>
+					<path d="M0,0L0,0L0,1L1,1L1,1L4,1L4,2L6,2L6,2L7,2L7,3L8,3L8,4L10,4L10,6L11,6L11,5L50,5L50,6L163,6L163,6L169,6L169,7L177,7L177,7L187,7L187,7L197,7L197,7L209,7L209,9L235,9L235,10L237,10" tabindex="0">
+						<title>x3wdlvkj</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,0L0,0L0,1L1,1L1,1L4,1L4,2L6,2L6,2L7,2L7,3L8,3L8,4L10,4L10,6L11,6L11,5L50,5L50,6L163,6L163,6L169,6L169,7L177,7L177,7L187,7L187,7L197,7L197,7L209,7L209,9L235,9L235,10L237,10" tabindex="0">
-						<title>x3wdlvkj</title>
+					<path d="M0,0L0,0L0,2L1,2L1,3L2,3L2,4L5,4L5,5L6,5L6,8L7,8L7,9L8,9L8,10L9,10L9,11L10,11L10,13L11,13L11,12L21,12L21,13L46,13L46,14L50,14L50,15L51,15L51,16L71,16L71,17L73,17L73,18L93,18L93,19L103,19L103,20L116,20L116,21L120,21L120,22L148,22L148,23L163,23L163,24L169,24L169,25L174,25L174,28L175,28L175,28L177,28L177,29L178,29L178,30L180,30L180,30L181,30L181,29L184,29L184,32L185,32L185,31L187,31L187,34L189,34L189,33L197,33L197,35L204,35L204,36L209,36L209,38L213,38L213,39L235,39L235,40L237,40L237,41L237,41" tabindex="0">
+						<title>81pdyqq8</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
