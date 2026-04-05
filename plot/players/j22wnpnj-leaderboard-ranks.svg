@@ -1088,7 +1088,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-02-09</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-02-22</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-03-31</text>
 		</svg>
 		<svg viewBox="0 0 20 20">
 			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
@@ -1096,14 +1096,24 @@
 		<svg viewBox="0 0 20 20">
 			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">99</text>
 		</svg>
-		<svg viewBox="0 0 13 99" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 99) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 50 99" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 99) scale(1 -1)" style="--count: 3;">
 				<g>
-					<rect x="0" y="0" width="13" height="99"/>
+					<rect x="0" y="0" width="50" height="99"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,99L0,99L0,69L3,69L3,70L6,70L6,71L13,71L13,72L13,72" tabindex="0">
+					<path d="M0,99L0,99L0,69L3,69L3,70L6,70L6,71L13,71L13,72L21,72L21,73L26,73L26,74L27,74L27,75L31,75L31,76L33,76L33,77L50,77L50,78L50,78" tabindex="0">
 						<title>l_495zlx39-9d8eewld-2lgr793n.814y7w01</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,78L35,78L35,51L39,51L39,52L40,52L40,53L50,53L50,54L50,54" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.z19m8p0l</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,67L35,67L35,44L50,44L50,45L50,45" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.gq7jzvvq</title>
 					</path>
 				</g>
 			</g>
