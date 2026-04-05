@@ -1083,57 +1083,72 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 10;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-10-26</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-02-06</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-03-24</text>
 		</svg>
-		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">7</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">10</text>
 		</svg>
-		<svg viewBox="0 0 103 7" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 7) scale(1 -1)" style="--count: 7;">
+		<svg viewBox="0 0 149 10" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 10) scale(1 -1)" style="--count: 10;">
 				<g>
-					<rect x="0" y="0" width="103" height="7"/>
+					<rect x="0" y="0" width="149" height="10"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,1L4,1L4,2L5,2L5,2L31,2L31,2L32,2L32,2L61,2L61,2L103,2L103,3L103,3" tabindex="0">
+					<path d="M0,0L0,0L0,1L4,1L4,2L5,2L5,2L31,2L31,2L32,2L32,2L61,2L61,2L103,2L103,3L144,3L144,3L145,3L145,3L149,3L149,3L149,3" tabindex="0">
 						<title>8qpl62dx</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,0L4,0L4,1L5,1L5,1L31,1L31,1L32,1L32,1L61,1L61,1L103,1L103,1L103,1" tabindex="0">
+					<path d="M0,0L4,0L4,1L5,1L5,1L31,1L31,1L32,1L32,1L61,1L61,1L103,1L103,1L144,1L144,1L145,1L145,1L149,1L149,1L149,1" tabindex="0">
 						<title>8gz4zv1j</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,0L5,0L5,3L31,3L31,4L32,4L32,5L61,5L61,6L103,6L103,7L103,7" tabindex="0">
+					<path d="M0,0L5,0L5,3L31,3L31,4L32,4L32,5L61,5L61,6L103,6L103,7L144,7L144,8L145,8L145,9L149,9L149,9L149,9" tabindex="0">
 						<title>x356nrej</title>
 					</path>
 				</g>
 				<g style="--index: 3;">
-					<path d="M0,0L31,0L31,3L32,3L32,3L46,3L46,3L61,3L61,3L74,3L74,5L103,5L103,6L103,6" tabindex="0">
+					<path d="M0,0L31,0L31,3L32,3L32,3L46,3L46,3L61,3L61,3L74,3L74,5L103,5L103,6L144,6L144,7L145,7L145,8L149,8L149,8L149,8" tabindex="0">
 						<title>8logk9r8</title>
 					</path>
 				</g>
 				<g style="--index: 4;">
-					<path d="M0,0L32,0L32,4L61,4L61,4L74,4L74,3L103,3L103,4L103,4" tabindex="0">
+					<path d="M0,0L32,0L32,4L61,4L61,4L74,4L74,3L103,3L103,4L144,4L144,5L145,5L145,6L149,6L149,6L149,6" tabindex="0">
 						<title>x7g9q60x</title>
 					</path>
 				</g>
 				<g style="--index: 5;">
-					<path d="M0,0L61,0L61,5L74,5L74,4L103,4L103,5L103,5" tabindex="0">
+					<path d="M0,0L61,0L61,5L74,5L74,4L103,4L103,5L144,5L144,6L145,6L145,7L149,7L149,7L149,7" tabindex="0">
 						<title>j2p4pel8</title>
 					</path>
 				</g>
 				<g style="--index: 6;">
-					<path d="M0,0L103,0L103,2L103,2" tabindex="0">
+					<path d="M0,0L103,0L103,2L144,2L144,2L145,2L145,2L149,2L149,2L149,2" tabindex="0">
 						<title>xkzeny9x</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,0L144,0L144,4L145,4L145,5L149,5L149,5L149,5" tabindex="0">
+						<title>j9l6qooj</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,0L145,0L145,4L149,4L149,4L149,4" tabindex="0">
+						<title>81v0nq38</title>
+					</path>
+				</g>
+				<g style="--index: 9;">
+					<path d="M0,0L149,0L149,10L149,10" tabindex="0">
+						<title>jm7eon4j</title>
 					</path>
 				</g>
 			</g>
