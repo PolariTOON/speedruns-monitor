@@ -1088,7 +1088,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-03</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-12-03</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-04-20</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1096,8 +1096,8 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">15:37.42</text>
 		</svg>
-		<svg viewBox="0 0 0 93742" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 93742) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 138 93742" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 93742) scale(1 -1)" style="--count: 3;">
 				<g style="--index: 0;">
 					<path d="M0,93742" tabindex="0">
 						<title>xd17x94d-9l71pv4l.21gpn081</title>
@@ -1106,8 +1106,30 @@
 					<path d="M0,93742L0,93742" tabindex="0">
 						<title>15:37.42 on 2025-12-03</title>
 					</path>
-					<line x1="0" y1="93742" x2="0" y2="93742"/>
+					<line x1="0" y1="93742" x2="138" y2="93742"/>
 					<line x1="0" y1="0" x2="0" y2="93742"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M138,973" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
+					</path>
+					<rect x="138" y="973" width="0" height="0"/>
+					<path d="M138,973L138,973" tabindex="0">
+						<title>00:09.73 on 2026-04-20</title>
+					</path>
+					<line x1="0" y1="973" x2="138" y2="973"/>
+					<line x1="138" y1="0" x2="138" y2="93742"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M138,1443" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
+					</path>
+					<rect x="138" y="1443" width="0" height="0"/>
+					<path d="M138,1443L138,1443" tabindex="0">
+						<title>00:14.43 on 2026-04-20</title>
+					</path>
+					<line x1="0" y1="1443" x2="138" y2="1443"/>
+					<line x1="138" y1="0" x2="138" y2="93742"/>
 				</g>
 			</g>
 		</svg>

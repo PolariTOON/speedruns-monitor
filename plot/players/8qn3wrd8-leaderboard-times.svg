@@ -1088,26 +1088,42 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-02-27</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-02-27</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-04-05</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
-			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:21.23</text>
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:25.35</text>
 		</svg>
-		<svg viewBox="0 0 0 2123" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 2123) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 37 2535" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 2535) scale(1 -1)" style="--count: 2;">
 				<g style="--index: 0;">
-					<path d="M0,2123" tabindex="0">
+					<path d="M0,2123L37,2123L37,1048" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
 					</path>
-					<rect x="0" y="2123" width="0" height="0"/>
+					<rect x="0" y="1048" width="37" height="1075"/>
 					<path d="M0,2123L0,2123" tabindex="0">
 						<title>00:21.23 on 2026-02-27</title>
 					</path>
-					<line x1="0" y1="2123" x2="0" y2="2123"/>
-					<line x1="0" y1="0" x2="0" y2="2123"/>
+					<line x1="0" y1="2123" x2="37" y2="2123"/>
+					<line x1="0" y1="0" x2="0" y2="2535"/>
+					<path d="M37,1048L37,1048" tabindex="0">
+						<title>00:10.48 on 2026-04-05</title>
+					</path>
+					<line x1="0" y1="1048" x2="37" y2="1048"/>
+					<line x1="37" y1="0" x2="37" y2="2535"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M37,2535" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21dz3e4l</title>
+					</path>
+					<rect x="37" y="2535" width="0" height="0"/>
+					<path d="M37,2535L37,2535" tabindex="0">
+						<title>00:25.35 on 2026-04-05</title>
+					</path>
+					<line x1="0" y1="2535" x2="37" y2="2535"/>
+					<line x1="37" y1="0" x2="37" y2="2535"/>
 				</g>
 			</g>
 		</svg>
