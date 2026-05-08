@@ -584,43 +584,46 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 										console.log(\`Got game\`);
 										await waitForTimeout(800, signal);
 										const slice = 200;
-										for (let offset = 0;; offset += slice) {
-											const {data, pagination} = await importDataScript(\`https://www.speedrun.com/api/v1/runs?game=\${gameId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=\${offset}&amp;max=\${slice}\`, signal);
-											const {size} = pagination;
-											if (size === 0) {
-												break;
-											}
-											for (const run of data) {
-												const status = run.status.status;
-												if (status == null || status === "new") {
-													continue;
+										for (const categoryId of Object.keys(categories)) {
+											for (let offset = 0;; offset += slice) {
+												const {data, pagination} = await importDataScript(\`https://www.speedrun.com/api/v1/runs?game=\${gameId}&amp;category=\${categoryId}&amp;orderby=date&amp;direction=asc&amp;embed=players&amp;offset=\${offset}&amp;max=\${slice}\`, signal);
+												const {size} = pagination;
+												if (size === 0) {
+													break;
 												}
-												const anonymous = (run.players.data[0]?.rel ?? "guest") !== "user";
-												const player = !anonymous ? run.players.data[0].id : "814p2558";
-												const playerName = !anonymous ? run.players.data[0].names.international : "anonymous";
-												players[player] ??= playerName;
-												const level = run.level;
-												const category = run.category;
-												const values = Object.entries(run.values).filter(([variable]) =&gt; {
-													return variables[variable]?.["is-subcategory"] ?? false;
-												}).map(([variable, value]) =&gt; {
-													return \`-\${variable}.\${value}\`;
-												});
-												const leaderboard = \`\${level != null ? \`l_\${level}-\` : ""}\${category}\${values.join("")}\`;
-												const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
-												const categoryName = categories[run.category]?.name ?? null;
-												const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
-													return variables[variable]?.["is-subcategory"] ?? false;
-												}).map(([variable, value]) =&gt; {
-													return variables[variable]?.values.values[value]?.label ?? null;
-												}).filter((valueName) =&gt; {
-													return valueName != null;
-												});
-												const leaderboardName = \`\${levelName != null ? \`\${levelName}: \` : ""}\${categoryName ?? ""}\${values.length !== 0 ? \` - \${valueNames.join(", ")}\` : ""}\`;
-												leaderboards[leaderboard] ??= leaderboardName;
+												for (const run of data) {
+													const status = run.status.status;
+													if (status == null || status === "new") {
+														continue;
+													}
+													const anonymous = (run.players.data[0]?.rel ?? "guest") !== "user";
+													const player = !anonymous ? run.players.data[0].id : "814p2558";
+													const playerName = !anonymous ? run.players.data[0].names.international : "anonymous";
+													players[player] ??= playerName;
+													const level = run.level;
+													const category = run.category;
+													const values = Object.entries(run.values).filter(([variable]) =&gt; {
+														return variables[variable]?.["is-subcategory"] ?? false;
+													}).map(([variable, value]) =&gt; {
+														return \`-\${variable}.\${value}\`;
+													});
+													const leaderboard = \`\${level != null ? \`l_\${level}-\` : ""}\${category}\${values.join("")}\`;
+													const levelName = run.level != null ? levels[run.level]?.name ?? null : null;
+													const categoryName = categories[run.category]?.name ?? null;
+													const valueNames = Object.entries(run.values).filter(([variable]) =&gt; {
+														return variables[variable]?.["is-subcategory"] ?? false;
+													}).map(([variable, value]) =&gt; {
+														return variables[variable]?.values.values[value]?.label ?? null;
+													}).filter((valueName) =&gt; {
+														return valueName != null;
+													});
+													const leaderboardName = \`\${levelName != null ? \`\${levelName}: \` : ""}\${categoryName ?? ""}\${values.length !== 0 ? \` - \${valueNames.join(", ")}\` : ""}\`;
+													leaderboards[leaderboard] ??= leaderboardName;
+												}
+												console.log(\`Got runs \${offset}-\${offset + size - 1}\`);
+												await waitForTimeout(800, signal);
 											}
-											console.log(\`Got runs \${offset}-\${offset + size - 1}\`);
-											await waitForTimeout(800, signal);
+											console.log(\`Got category \${categoryId}\`);
 										}
 									}
 									session = {players, leaderboards};
