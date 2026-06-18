@@ -1086,27 +1086,32 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 10;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-04-29</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-04-29</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-05-28</text>
 		</svg>
-		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 10 20">
-			<text x="5" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">3</text>
+		<svg viewBox="0 0 20 20">
+			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">20</text>
 		</svg>
-		<svg viewBox="0 0 0 3" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 3) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 29 20" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 20) scale(1 -1)" style="--count: 2;">
 				<g>
-					<rect x="0" y="0" width="0" height="3"/>
+					<rect x="0" y="0" width="29" height="20"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,3L0,3" tabindex="0">
+					<path d="M0,0L0,0L0,3L4,3L4,3L10,3L10,3L25,3L25,3L27,3L27,3L29,3" tabindex="0">
 						<title>l_r9gn1qpd-xd144xwd</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,0L12,0L12,20L13,20L13,20L15,20L15,20L17,20L17,20L19,20L19,20L22,20L22,20L25,20L25,20L26,20L26,20L27,20L27,20L28,20L28,20L29,20L29,20L29,20" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
 					</path>
 				</g>
 			</g>

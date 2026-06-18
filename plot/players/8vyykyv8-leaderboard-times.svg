@@ -1091,7 +1091,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-04-18</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-04-29</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-05-23</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1099,40 +1099,60 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:30.69</text>
 		</svg>
-		<svg viewBox="0 0 11 3069" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 35 3069" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 3069) scale(1 -1)" style="--count: 4;">
 				<g style="--index: 0;">
-					<path d="M0,2180" tabindex="0">
+					<path d="M0,2180L13,2180L13,2172" tabindex="0">
 						<title>l_ldykv1zw-rkl3znrk-wl3059ol.4qypgj4q</title>
 					</path>
-					<rect x="0" y="2180" width="0" height="0"/>
+					<rect x="0" y="2172" width="13" height="8"/>
 					<path d="M0,2180L0,2180" tabindex="0">
 						<title>00:21.80 on 2026-04-18</title>
 					</path>
-					<line x1="0" y1="2180" x2="11" y2="2180"/>
+					<line x1="0" y1="2180" x2="35" y2="2180"/>
 					<line x1="0" y1="0" x2="0" y2="3069"/>
+					<path d="M13,2172L13,2172" tabindex="0">
+						<title>00:21.72 on 2026-05-01</title>
+					</path>
+					<line x1="0" y1="2172" x2="35" y2="2172"/>
+					<line x1="13" y1="0" x2="13" y2="3069"/>
 				</g>
 				<g style="--index: 1;">
-					<path d="M3,1352" tabindex="0">
+					<path d="M3,1352L13,1352L13,1348" tabindex="0">
 						<title>l_ldykv1zw-rkl3znrk-wl3059ol.810zkwwq</title>
 					</path>
-					<rect x="3" y="1352" width="0" height="0"/>
+					<rect x="3" y="1348" width="10" height="4"/>
 					<path d="M3,1352L3,1352" tabindex="0">
 						<title>00:13.52 on 2026-04-21</title>
 					</path>
-					<line x1="0" y1="1352" x2="11" y2="1352"/>
+					<line x1="0" y1="1352" x2="35" y2="1352"/>
 					<line x1="3" y1="0" x2="3" y2="3069"/>
+					<path d="M13,1348L13,1348" tabindex="0">
+						<title>00:13.48 on 2026-05-01</title>
+					</path>
+					<line x1="0" y1="1348" x2="35" y2="1348"/>
+					<line x1="13" y1="0" x2="13" y2="3069"/>
 				</g>
 				<g style="--index: 2;">
-					<path d="M4,3069" tabindex="0">
+					<path d="M4,3069L24,3069L24,3066L35,3066L35,3065" tabindex="0">
 						<title>l_ldykv1zw-rkl3znrk-wl3059ol.mlnwjz0l</title>
 					</path>
-					<rect x="4" y="3069" width="0" height="0"/>
+					<rect x="4" y="3065" width="31" height="4"/>
 					<path d="M4,3069L4,3069" tabindex="0">
 						<title>00:30.69 on 2026-04-22</title>
 					</path>
-					<line x1="0" y1="3069" x2="11" y2="3069"/>
+					<line x1="0" y1="3069" x2="35" y2="3069"/>
 					<line x1="4" y1="0" x2="4" y2="3069"/>
+					<path d="M24,3066L24,3066" tabindex="0">
+						<title>00:30.66 on 2026-05-12</title>
+					</path>
+					<line x1="0" y1="3066" x2="35" y2="3066"/>
+					<line x1="24" y1="0" x2="24" y2="3069"/>
+					<path d="M35,3065L35,3065" tabindex="0">
+						<title>00:30.65 on 2026-05-23</title>
+					</path>
+					<line x1="0" y1="3065" x2="35" y2="3065"/>
+					<line x1="35" y1="0" x2="35" y2="3069"/>
 				</g>
 				<g style="--index: 3;">
 					<path d="M10,2997L11,2997L11,2988" tabindex="0">
@@ -1142,12 +1162,12 @@
 					<path d="M10,2997L10,2997" tabindex="0">
 						<title>00:29.97 on 2026-04-28</title>
 					</path>
-					<line x1="0" y1="2997" x2="11" y2="2997"/>
+					<line x1="0" y1="2997" x2="35" y2="2997"/>
 					<line x1="10" y1="0" x2="10" y2="3069"/>
 					<path d="M11,2988L11,2988" tabindex="0">
 						<title>00:29.88 on 2026-04-29</title>
 					</path>
-					<line x1="0" y1="2988" x2="11" y2="2988"/>
+					<line x1="0" y1="2988" x2="35" y2="2988"/>
 					<line x1="11" y1="0" x2="11" y2="3069"/>
 				</g>
 			</g>
