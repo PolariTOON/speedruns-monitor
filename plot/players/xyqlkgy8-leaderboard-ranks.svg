@@ -1086,26 +1086,26 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2023-08-08</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-05-28</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-28</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">99</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">103</text>
 		</svg>
-		<svg viewBox="0 0 1024 99" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 99) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 1055 103" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 103) scale(1 -1)" style="--count: 1;">
 				<g>
-					<rect x="0" y="0" width="1024" height="99"/>
+					<rect x="0" y="0" width="1055" height="103"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,73L0,73L0,22L33,22L33,23L47,23L47,24L64,24L64,25L127,25L127,26L181,26L181,27L183,27L183,28L336,28L336,29L339,29L339,30L341,30L341,31L363,31L363,32L380,32L380,33L459,33L459,34L589,34L589,35L600,35L600,36L620,36L620,37L626,37L626,38L634,38L634,39L686,39L686,40L696,40L696,41L698,41L698,42L699,42L699,44L712,44L712,45L722,45L722,46L754,46L754,47L775,47L775,48L786,48L786,49L795,49L795,50L826,50L826,51L837,51L837,53L842,53L842,54L845,54L845,56L851,56L851,57L854,57L854,58L858,58L858,59L864,59L864,60L867,60L867,61L869,61L869,62L882,62L882,63L884,63L884,64L885,64L885,65L902,65L902,66L903,66L903,68L905,68L905,69L908,69L908,70L917,70L917,71L922,71L922,72L923,72L923,73L935,73L935,74L955,74L955,75L956,75L956,76L971,76L971,77L976,77L976,78L978,78L978,79L983,79L983,80L986,80L986,81L992,81L992,82L997,82L997,85L1003,85L1003,86L1004,86L1004,87L1005,87L1005,88L1008,88L1008,89L1010,89L1010,90L1012,90L1012,92L1014,92L1014,93L1017,93L1017,95L1020,95L1020,96L1021,96L1021,97L1023,97L1023,98L1024,98L1024,99L1024,99" tabindex="0">
+					<path d="M0,73L0,73L0,22L33,22L33,23L47,23L47,24L64,24L64,25L127,25L127,26L181,26L181,27L183,27L183,28L336,28L336,29L339,29L339,30L341,30L341,31L363,31L363,32L380,32L380,33L459,33L459,34L589,34L589,35L600,35L600,36L620,36L620,37L626,37L626,38L634,38L634,39L686,39L686,40L696,40L696,41L698,41L698,42L699,42L699,44L712,44L712,45L722,45L722,46L754,46L754,47L775,47L775,48L786,48L786,49L795,49L795,50L826,50L826,51L837,51L837,53L842,53L842,54L845,54L845,56L851,56L851,57L854,57L854,58L858,58L858,59L864,59L864,60L867,60L867,61L869,61L869,62L882,62L882,63L884,63L884,64L885,64L885,65L902,65L902,66L903,66L903,68L905,68L905,69L908,69L908,70L917,70L917,71L922,71L922,72L923,72L923,73L935,73L935,74L955,74L955,75L956,75L956,76L971,76L971,77L976,77L976,78L978,78L978,79L983,79L983,80L986,80L986,81L992,81L992,82L997,82L997,85L1003,85L1003,86L1004,86L1004,87L1005,87L1005,88L1008,88L1008,89L1010,89L1010,90L1012,90L1012,92L1014,92L1014,93L1017,93L1017,95L1020,95L1020,96L1021,96L1021,97L1023,97L1023,98L1024,98L1024,99L1034,99L1034,100L1042,100L1042,101L1055,101L1055,103L1055,103" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.81ppdgg1</title>
 					</path>
 				</g>

@@ -1086,47 +1086,67 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-05-16</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-05-31</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-30</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">77</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">309</text>
 		</svg>
-		<svg viewBox="0 0 15 77" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 77) scale(1 -1)" style="--count: 5;">
+		<svg viewBox="0 0 45 309" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 309) scale(1 -1)" style="--count: 9;">
 				<g>
-					<rect x="0" y="0" width="15" height="77"/>
+					<rect x="0" y="0" width="45" height="309"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,69L2,69L2,69L4,69L4,70L8,70L8,71L11,71L11,72L12,72L12,71L13,71L13,72L14,72L14,76L15,76L15,77L15,77" tabindex="0">
+					<path d="M0,0L0,0L0,69L2,69L2,69L4,69L4,70L8,70L8,71L11,71L11,72L12,72L12,71L13,71L13,72L14,72L14,76L15,76L15,77L16,77L16,78L28,78L28,79L29,79L29,80L35,80L35,84L37,84L37,85L45,85" tabindex="0">
 						<title>l_gdr5onk9-rkl3znrk-rn1g06dn.qj77o50q</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,0L5,0L5,23L11,23L11,24L15,24" tabindex="0">
+					<path d="M0,0L5,0L5,23L11,23L11,24L16,24L16,25L45,25" tabindex="0">
 						<title>l_dy1gjkkd-rkl3znrk-wle345e8.q65k767l</title>
 					</path>
 				</g>
 				<g style="--index: 2;">
-					<path d="M0,0L14,0L14,15L15,15" tabindex="0">
+					<path d="M0,0L14,0L14,15L17,15L17,14L18,14L18,14L19,14L19,13L28,13L28,13L44,13L44,14L45,14" tabindex="0">
 						<title>l_xd0mnpjw-rkl3znrk-wley4prn.192xe54q</title>
 					</path>
 				</g>
 				<g style="--index: 3;">
-					<path d="M0,0L15,0L15,15L15,15" tabindex="0">
+					<path d="M0,0L15,0L15,15L20,15L20,15L22,15L22,14L45,14" tabindex="0">
 						<title>l_495zlx39-xd144xzd-onvyv77n.qoxdrr4q</title>
 					</path>
 				</g>
 				<g style="--index: 4;">
-					<path d="M0,0L15,0L15,8L15,8" tabindex="0">
+					<path d="M0,0L15,0L15,8L45,8" tabindex="0">
 						<title>l_gdr5onk9-rkl3znrk-rn1g06dn.lmooe9y1</title>
+					</path>
+				</g>
+				<g style="--index: 5;">
+					<path d="M0,0L36,0L36,304L37,304L37,305L38,305L38,306L39,306L39,307L40,307L40,309L45,309" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.p12dx87q</title>
+					</path>
+				</g>
+				<g style="--index: 6;">
+					<path d="M0,0L43,0L43,126L44,126L44,127L45,127L45,128L45,128" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
+					</path>
+				</g>
+				<g style="--index: 7;">
+					<path d="M0,0L45,0L45,168L45,168" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21dz3e4l</title>
+					</path>
+				</g>
+				<g style="--index: 8;">
+					<path d="M0,0L45,0L45,167L45,167" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
 					</path>
 				</g>
 			</g>
