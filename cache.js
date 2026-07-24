@@ -321,7 +321,7 @@ try {
 		throw new Error(response.statusText);
 	}
 	const bears = await response.json();
-	for (const bear of bears) {
+	for (const bear of Object.values(bears)) {
 		const {diamond, gold, name} = bear;
 		const silver = Math.ceil(gold * 4 / 3);
 		const bronze = gold * 2;
@@ -379,7 +379,7 @@ try {
 		throw new Error(response.statusText);
 	}
 	const missions = await response.json();
-	for (const mission of missions) {
+	for (const mission of Object.values(missions)) {
 		const {challenge, level} = mission;
 		const challengeName = challenges[challenge].name;
 		const englishChallengeName = challengeName["en-US"];
@@ -408,7 +408,7 @@ try {
 		throw new Error(response.statusText);
 	}
 	const races = await response.json();
-	for (const race of races) {
+	for (const race of Object.values(races)) {
 		const {name} = race;
 		const englishName = name["en-US"];
 		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
@@ -442,7 +442,7 @@ try {
 		throw new Error(response.statusText);
 	}
 	const sublevels = await response.json();
-	for (const sublevel of sublevels) {
+	for (const sublevel of Object.values(sublevels)) {
 		const {diamond, gold, level} = sublevel;
 		const silver = Math.ceil(gold * 4 / 3);
 		const bronze = gold * 2;
@@ -483,17 +483,17 @@ try {
 		throw new Error(response.statusText);
 	}
 	const updates = await response.json();
-	for (const update of updates) {
-		const {date, name} = update;
+	for (const [key, update] of Object.entries(updates)) {
+		const {date} = update;
 		const {android, ios, switch: _switch} = date;
 		if (android != null) {
-			(dates[android] ??= Object.create(null)).android = name
+			(dates[android] ??= Object.create(null)).android = key;
 		}
 		if (ios != null) {
-			(dates[ios] ??= Object.create(null)).ios = name
+			(dates[ios] ??= Object.create(null)).ios = key;
 		}
 		if (_switch != null) {
-			(dates[_switch] ??= Object.create(null)).switch = name
+			(dates[_switch] ??= Object.create(null)).switch = key;
 		}
 	}
 	console.log(`Got updates`);
