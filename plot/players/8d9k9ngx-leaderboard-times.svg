@@ -1091,7 +1091,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-01</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-02</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-07-28</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1099,23 +1099,28 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:22.83</text>
 		</svg>
-		<svg viewBox="0 0 1 2283" preserveAspectRatio="none" overflow="visible">
+		<svg viewBox="0 0 57 2283" preserveAspectRatio="none" overflow="visible">
 			<g transform="translate(0 2283) scale(1 -1)" style="--count: 1;">
 				<g style="--index: 0;">
-					<path d="M0,2283L1,2283L1,1370" tabindex="0">
+					<path d="M0,2283L1,2283L1,1370L57,1370L57,1087" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.jqzpx3gl</title>
 					</path>
-					<rect x="0" y="1370" width="1" height="913"/>
+					<rect x="0" y="1087" width="57" height="1196"/>
 					<path d="M0,2283L0,2283" tabindex="0">
 						<title>00:22.83 on 2026-06-01</title>
 					</path>
-					<line x1="0" y1="2283" x2="1" y2="2283"/>
+					<line x1="0" y1="2283" x2="57" y2="2283"/>
 					<line x1="0" y1="0" x2="0" y2="2283"/>
 					<path d="M1,1370L1,1370" tabindex="0">
 						<title>00:13.70 on 2026-06-02</title>
 					</path>
-					<line x1="0" y1="1370" x2="1" y2="1370"/>
+					<line x1="0" y1="1370" x2="57" y2="1370"/>
 					<line x1="1" y1="0" x2="1" y2="2283"/>
+					<path d="M57,1087L57,1087" tabindex="0">
+						<title>00:10.87 on 2026-07-28</title>
+					</path>
+					<line x1="0" y1="1087" x2="57" y2="1087"/>
+					<line x1="57" y1="0" x2="57" y2="2283"/>
 				</g>
 			</g>
 		</svg>

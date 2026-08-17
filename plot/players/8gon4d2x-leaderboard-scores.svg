@@ -1086,26 +1086,26 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2025-07-05</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-30</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-07-28</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">99</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">101</text>
 		</svg>
-		<svg viewBox="0 0 360 99" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 99) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 388 101" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 101) scale(1 -1)" style="--count: 1;">
 				<g>
-					<rect x="0" y="0" width="360" height="99"/>
+					<rect x="0" y="0" width="388" height="101"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,67L1,67L1,67L2,67L2,67L7,67L7,68L8,68L8,69L13,69L13,69L17,69L17,70L18,70L18,70L22,70L22,70L23,70L23,70L26,70L26,70L28,70L28,70L34,70L34,70L36,70L36,70L46,70L46,71L47,71L47,72L49,72L49,73L53,73L53,72L61,72L61,72L71,72L71,74L77,74L77,75L91,75L91,74L92,74L92,74L101,74L101,75L113,75L113,76L117,76L117,76L121,76L121,76L122,76L122,77L129,77L129,77L156,77L156,78L164,78L164,78L170,78L170,79L174,79L174,79L180,79L180,80L182,80L182,80L195,80L195,80L196,80L196,81L203,81L203,82L206,82L206,83L212,83L212,84L221,84L221,84L228,84L228,85L234,85L234,85L240,85L240,85L244,85L244,85L246,85L246,86L249,86L249,87L252,87L252,88L253,88L253,89L269,89L269,90L270,90L270,90L271,90L271,90L275,90L275,91L279,91L279,91L282,91L282,92L286,92L286,94L287,94L287,94L289,94L289,93L300,93L300,93L301,93L301,93L312,93L312,93L313,93L313,93L315,93L315,93L317,93L317,94L320,94L320,95L322,95L322,96L328,96L328,96L334,96L334,97L343,97L343,97L351,97L351,97L352,97L352,98L353,98L353,99L356,99L356,98L359,98L359,99L360,99L360,99L360,99" tabindex="0">
+					<path d="M0,0L0,0L0,67L1,67L1,67L2,67L2,67L7,67L7,68L8,68L8,69L13,69L13,69L17,69L17,70L18,70L18,70L22,70L22,70L23,70L23,70L26,70L26,70L28,70L28,70L34,70L34,70L36,70L36,70L46,70L46,71L47,71L47,72L49,72L49,73L53,73L53,72L61,72L61,72L71,72L71,74L77,74L77,75L91,75L91,74L92,74L92,74L101,74L101,75L113,75L113,76L117,76L117,76L121,76L121,76L122,76L122,77L129,77L129,77L156,77L156,78L164,78L164,78L170,78L170,79L174,79L174,79L180,79L180,80L182,80L182,80L195,80L195,80L196,80L196,81L203,81L203,82L206,82L206,83L212,83L212,84L221,84L221,84L228,84L228,85L234,85L234,85L240,85L240,85L244,85L244,85L246,85L246,86L249,86L249,87L252,87L252,88L253,88L253,89L269,89L269,90L270,90L270,90L271,90L271,90L275,90L275,91L279,91L279,91L282,91L282,92L286,92L286,94L287,94L287,94L289,94L289,93L300,93L300,93L301,93L301,93L312,93L312,93L313,93L313,93L315,93L315,93L317,93L317,94L320,94L320,95L322,95L322,96L328,96L328,96L334,96L334,97L343,97L343,97L351,97L351,97L352,97L352,98L353,98L353,99L356,99L356,98L359,98L359,99L360,99L360,99L365,99L365,99L367,99L367,99L371,99L371,98L373,98L373,98L374,98L374,98L375,98L375,98L376,98L376,99L378,99L378,99L380,99L380,100L382,100L382,101L386,101L386,101L388,101L388,101L388,101" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.810zwdwq</title>
 					</path>
 				</g>

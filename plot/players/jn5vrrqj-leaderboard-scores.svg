@@ -1086,26 +1086,26 @@
 			});
 		}
 	</script>
-	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 20;">
+	<foreignObject x="0" y="0" width="100%" height="100%" style="--date-size: 100; --value-size: 30;">
 		<svg viewBox="0 0 100 20">
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-22</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-30</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-07-30</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
 		</svg>
-		<svg viewBox="0 0 20 20">
-			<text x="10" y="10" dx="0" dy="2" textLength="20" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">93</text>
+		<svg viewBox="0 0 30 20">
+			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">102</text>
 		</svg>
-		<svg viewBox="0 0 8 93" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 93) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 38 102" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 102) scale(1 -1)" style="--count: 1;">
 				<g>
-					<rect x="0" y="0" width="8" height="93"/>
+					<rect x="0" y="0" width="38" height="102"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,0L0,0L0,90L1,90L1,92L5,92L5,92L6,92L6,92L7,92L7,93L8,93L8,93L8,93" tabindex="0">
+					<path d="M0,0L0,0L0,91L1,91L1,93L5,93L5,94L6,94L6,94L7,94L7,95L8,95L8,95L9,95L9,96L10,96L10,97L13,97L13,98L14,98L14,98L15,98L15,98L17,98L17,98L18,98L18,97L19,97L19,97L21,97L21,98L23,98L23,99L33,99L33,100L34,100L34,101L35,101L35,101L37,101L37,102L38,102L38,102L38,102" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
 					</path>
 				</g>

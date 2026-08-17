@@ -1091,16 +1091,16 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-05-29</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-15</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-07-24</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
-			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:13.57</text>
+			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:14.41</text>
 		</svg>
-		<svg viewBox="0 0 17 1357" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 1357) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 56 1441" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 1441) scale(1 -1)" style="--count: 3;">
 				<g style="--index: 0;">
 					<path d="M0,1352" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.21dz3e4l</title>
@@ -1109,8 +1109,8 @@
 					<path d="M0,1352L0,1352" tabindex="0">
 						<title>00:13.52 on 2026-05-29</title>
 					</path>
-					<line x1="0" y1="1352" x2="17" y2="1352"/>
-					<line x1="0" y1="0" x2="0" y2="1357"/>
+					<line x1="0" y1="1352" x2="56" y2="1352"/>
+					<line x1="0" y1="0" x2="0" y2="1441"/>
 				</g>
 				<g style="--index: 1;">
 					<path d="M3,1357L17,1357L17,1347" tabindex="0">
@@ -1120,13 +1120,24 @@
 					<path d="M3,1357L3,1357" tabindex="0">
 						<title>00:13.57 on 2026-06-01</title>
 					</path>
-					<line x1="0" y1="1357" x2="17" y2="1357"/>
-					<line x1="3" y1="0" x2="3" y2="1357"/>
+					<line x1="0" y1="1357" x2="56" y2="1357"/>
+					<line x1="3" y1="0" x2="3" y2="1441"/>
 					<path d="M17,1347L17,1347" tabindex="0">
 						<title>00:13.47 on 2026-06-15</title>
 					</path>
-					<line x1="0" y1="1347" x2="17" y2="1347"/>
-					<line x1="17" y1="0" x2="17" y2="1357"/>
+					<line x1="0" y1="1347" x2="56" y2="1347"/>
+					<line x1="17" y1="0" x2="17" y2="1441"/>
+				</g>
+				<g style="--index: 2;">
+					<path d="M56,1441" tabindex="0">
+						<title>l_495zlx39-9d8eewld-2lgr793n.gq7jzvvq</title>
+					</path>
+					<rect x="56" y="1441" width="0" height="0"/>
+					<path d="M56,1441L56,1441" tabindex="0">
+						<title>00:14.41 on 2026-07-24</title>
+					</path>
+					<line x1="0" y1="1441" x2="56" y2="1441"/>
+					<line x1="56" y1="0" x2="56" y2="1441"/>
 				</g>
 			</g>
 		</svg>
