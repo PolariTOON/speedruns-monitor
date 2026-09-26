@@ -7,6 +7,7 @@ const leaderboards = Object.create(null);
 const leaderboardsById = Object.create(null);
 const leaderboardsByName = Object.create(null);
 const bearTiers = Object.create(null);
+const hardmodeTiers = Object.create(null);
 const missionTiers = Object.create(null);
 const raceTiers = Object.create(null);
 const sublevelTiers = Object.create(null);
@@ -22,6 +23,7 @@ const platforms = {
 	"lq60nl94": "android",
 	"gde3xgek": "ios",
 	"7m6ylw9p": "switch",
+	"3167lw9q": "switch",
 };
 for (const [gameId, game] of Object.entries(games)) {
 	try {
@@ -356,6 +358,56 @@ try {
 	throw error;
 }
 try {
+	const levelResponse = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/levels.json`);
+	if (!levelResponse.ok) {
+		throw new Error(levelResponse.statusText);
+	}
+	const levels = await levelResponse.json();
+	console.log(`Got levels`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+	const response = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/hardmodes.json`);
+	if (!response.ok) {
+		throw new Error(response.statusText);
+	}
+	const hardmodes = await response.json();
+	for (const hardmode of Object.values(hardmodes)) {
+		const {diamond, gold, level} = hardmode;
+		const silver = Math.ceil(gold * 4 / 3);
+		const bronze = gold * 2;
+		const goals = {
+			diamond,
+			gold,
+			silver,
+			bronze,
+		};
+		const times = Object.fromEntries(Object.entries(goals).map(([tier, goal]) => {
+			const minutes = `${goal / 60 | 0}`.padStart(2, "0");
+			const seconds = `${goal % 60 | 0}`.padStart(2, "0");
+			const centiseconds = `${goal * 100 % 100 | 0}`.padStart(2, "0");
+			const time = `${minutes}:${seconds}.${centiseconds}`;
+			return [tier, time];
+		}));
+		const name = levels[level].name;
+		const englishName = name["en-US"];
+		const leaderboardName = Object.keys(leaderboardsByName).find((leaderboardName) => {
+			return leaderboardName.startsWith(`${englishName}: `) && (leaderboardName.endsWith(" Hardcore Mode") || leaderboardName.includes(" Hardcore Mode ")) && (!leaderboardName.includes("(") && !leaderboardName.includes(")") || leaderboardName.includes("+"));
+		});
+		if (leaderboardName != null) {
+			const leaderboard = leaderboardsByName[leaderboardName];
+			hardmodeTiers[leaderboard] ??= times;
+		}
+	}
+	console.log(`Got hardmodes`);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 800);
+	});
+} catch (error) {
+	console.warn(`Error while getting hardmodes`);
+	throw error;
+}
+try {
 	const challengeResponse = await fetch(`https://raw.githubusercontent.com/SuperBearAdventure/shicka/master/src/bindings/challenges.json`);
 	if (!challengeResponse.ok) {
 		throw new Error(challengeResponse.statusText);
@@ -599,6 +651,7 @@ const sortedLeaderboards = Object.fromEntries(sortLeaderboards(Object.entries(le
 	];
 })));
 const sortedBears = bearTiers;
+const sortedHardmodes = hardmodeTiers;
 const sortedMissions = missionTiers;
 const sortedRaces = raceTiers;
 const sortedSublevels = sublevelTiers;
@@ -613,6 +666,7 @@ await writeFile(`cache/leaderboards.json`, `${JSON.stringify(sortedLeaderboards,
 await writeFile(`cache/leaderboards-by-id.json`, `${JSON.stringify(leaderboardsById, null, "\t")}\n`);
 await writeFile(`cache/leaderboards-by-name.json`, `${JSON.stringify(leaderboardsByName, null, "\t")}\n`);
 await writeFile(`cache/bears.json`, `${JSON.stringify(sortedBears, null, "\t")}\n`);
+await writeFile(`cache/hardmodes.json`, `${JSON.stringify(sortedHardmodes, null, "\t")}\n`);
 await writeFile(`cache/missions.json`, `${JSON.stringify(sortedMissions, null, "\t")}\n`);
 await writeFile(`cache/races.json`, `${JSON.stringify(sortedRaces, null, "\t")}\n`);
 await writeFile(`cache/sublevels.json`, `${JSON.stringify(sortedSublevels, null, "\t")}\n`);
@@ -623,6 +677,7 @@ await writeFile(`cache/readme.md`, `\
 - [Players](players.json)
 - [Leaderboards](leaderboards.json)
 - [Bears](bears.json)
+- [Hardmodes](hardmodes.json)
 - [Missions](missions.json)
 - [Races](races.json)
 - [Sublevels](sublevels.json)

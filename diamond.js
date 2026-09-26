@@ -1,5 +1,6 @@
 import {writeFile} from "node:fs/promises";
 import bears from "./cache/bears.json" with {type: "json"};
+import hardmodes from "./cache/hardmodes.json" with {type: "json"};
 import sublevels from "./cache/sublevels.json" with {type: "json"};
 import leaderboards from "./cache/leaderboards.json" with {type: "json"};
 function computeNewTiers(oldTiers, leaderboards) {
@@ -79,6 +80,8 @@ ${Object.entries(times).map(([tier, time]) => {
 }
 const newBears = computeNewTiers(bears, leaderboards);
 const formattedBears = formatTiersDiff(bears, newBears);
+const newHardmodes = computeNewTiers(hardmodes, leaderboards);
+const formattedHardmodes = formatTiersDiff(hardmodes, newHardmodes);
 const newSublevels = computeNewTiers(sublevels, leaderboards);
 const formattedSublevels = formatTiersDiff(sublevels, newSublevels);
-await writeFile(`diamond.txt`, [formattedBears, formattedSublevels].join(""));
+await writeFile(`diamond.txt`, [formattedBears, formattedHardmodes, formattedSublevels].join(""));

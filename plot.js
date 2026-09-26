@@ -3,6 +3,7 @@ import {DOMParser} from "linkedom";
 import players from "./cache/players.json" with {type: "json"};
 import leaderboards from "./cache/leaderboards.json" with {type: "json"};
 import bears from "./cache/bears.json" with {type: "json"};
+import hardmodes from "./cache/hardmodes.json" with {type: "json"};
 import missions from "./cache/missions.json" with {type: "json"};
 import races from "./cache/races.json" with {type: "json"};
 import sublevels from "./cache/sublevels.json" with {type: "json"};
@@ -1778,24 +1779,29 @@ for (const [leaderboard, scoredLeaderboardPlayers] of Object.entries(scoreByPlay
 }
 const formattedRecordCountByPlayer = plotRecordCountByPlayer("../", "Record count by player", leaderboards, null);
 const formattedRecordCountByPlayerForBears = plotRecordCountByPlayer("../", "Record count by player (bears)", leaderboards, bears);
+const formattedRecordCountByPlayerForHardmodes = plotRecordCountByPlayer("../", "Record count by player (hardmodes)", leaderboards, hardmodes);
 const formattedRecordCountByPlayerForMissions = plotRecordCountByPlayer("../", "Record count by player (missions)", leaderboards, missions);
 const formattedRecordCountByPlayerForRaces = plotRecordCountByPlayer("../", "Record count by player (races)", leaderboards, races);
 const formattedRecordCountByPlayerForSublevels = plotRecordCountByPlayer("../", "Record count by player (sublevels)", leaderboards, sublevels);
 const formattedRecordTimeByLeaderboard = plotRecordTimeByLeaderboard("../", "Record time by leaderboard", leaderboards, null);
 const formattedRecordTimeByLeaderboardForBears = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (bears)", leaderboards, bears);
+const formattedRecordTimeByLeaderboardForHardmodes = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (hardmodes)", leaderboards, hardmodes);
 const formattedRecordTimeByLeaderboardForMissions = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (missions)", leaderboards, missions);
 const formattedRecordTimeByLeaderboardForRaces = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (races)", leaderboards, races);
 const formattedRecordTimeByLeaderboardForSublevels = plotRecordTimeByLeaderboard("../", "Record time by leaderboard (sublevels)", leaderboards, sublevels);
 const formattedTotalTimeByPlayerForBears = plotTotalTimeByPlayer("../", "Total time by player (bears)", players, bears);
+const formattedTotalTimeByPlayerForHardmodes = plotTotalTimeByPlayer("../", "Total time by player (hardmodes)", players, hardmodes);
 const formattedTotalTimeByPlayerForMissions = plotTotalTimeByPlayer("../", "Total time by player (missions)", players, missions);
 const formattedTotalTimeByPlayerForRaces = plotTotalTimeByPlayer("../", "Total time by player (races)", players, races);
 const formattedTotalTimeByPlayerForSublevels = plotTotalTimeByPlayer("../", "Total time by player (sublevels)", players, sublevels);
 const formattedTotalRankByPlayerForBears = plotTotalRankOrScoreByPlayer("../", "Total rank by player (bears)", rankByLeaderboardByPlayer, false, bears);
+const formattedTotalRankByPlayerForHardmodes = plotTotalRankOrScoreByPlayer("../", "Total rank by player (hardmodes)", rankByLeaderboardByPlayer, false, hardmodes);
 const formattedTotalRankByPlayerForMissions = plotTotalRankOrScoreByPlayer("../", "Total rank by player (missions)", rankByLeaderboardByPlayer, false, missions);
 const formattedTotalRankByPlayerForRaces = plotTotalRankOrScoreByPlayer("../", "Total rank by player (races)", rankByLeaderboardByPlayer, false, races);
 const formattedTotalRankByPlayerForSublevels = plotTotalRankOrScoreByPlayer("../", "Total rank by player (sublevels)", rankByLeaderboardByPlayer, false, sublevels);
 const formattedTotalScoreByPlayer = plotTotalRankOrScoreByPlayer("../", "Total score by player", scoreByLeaderboardByPlayer, true, null);
 const formattedTotalScoreByPlayerForBears = plotTotalRankOrScoreByPlayer("../", "Total score by player (bears)", scoreByLeaderboardByPlayer, true, bears);
+const formattedTotalScoreByPlayerForHardmodes = plotTotalRankOrScoreByPlayer("../", "Total score by player (hardmodes)", scoreByLeaderboardByPlayer, true, hardmodes);
 const formattedTotalScoreByPlayerForMissions = plotTotalRankOrScoreByPlayer("../", "Total score by player (missions)", scoreByLeaderboardByPlayer, true, missions);
 const formattedTotalScoreByPlayerForRaces = plotTotalRankOrScoreByPlayer("../", "Total score by player (races)", scoreByLeaderboardByPlayer, true, races);
 const formattedTotalScoreByPlayerForSublevels = plotTotalRankOrScoreByPlayer("../", "Total score by player (sublevels)", scoreByLeaderboardByPlayer, true, sublevels);
@@ -1841,24 +1847,29 @@ for (const [leaderboard, formattedScoreByPlayer] of Object.entries(formattedScor
 }
 await writeFile(`plot/player-records.svg`, `${formattedRecordCountByPlayer}\n`);
 await writeFile(`plot/player-bear-records.svg`, `${formattedRecordCountByPlayerForBears}\n`);
+await writeFile(`plot/player-hardmode-records.svg`, `${formattedRecordCountByPlayerForHardmodes}\n`);
 await writeFile(`plot/player-mission-records.svg`, `${formattedRecordCountByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-records.svg`, `${formattedRecordCountByPlayerForRaces}\n`);
 await writeFile(`plot/player-sublevel-records.svg`, `${formattedRecordCountByPlayerForSublevels}\n`);
 await writeFile(`plot/leaderboard-records.svg`, `${formattedRecordTimeByLeaderboard}\n`);
 await writeFile(`plot/leaderboard-bear-records.svg`, `${formattedRecordTimeByLeaderboardForBears}\n`);
+await writeFile(`plot/leaderboard-hardmode-records.svg`, `${formattedRecordTimeByLeaderboardForHardmodes}\n`);
 await writeFile(`plot/leaderboard-mission-records.svg`, `${formattedRecordTimeByLeaderboardForMissions}\n`);
 await writeFile(`plot/leaderboard-race-records.svg`, `${formattedRecordTimeByLeaderboardForRaces}\n`);
 await writeFile(`plot/leaderboard-sublevel-records.svg`, `${formattedRecordTimeByLeaderboardForSublevels}\n`);
 await writeFile(`plot/player-bear-times.svg`, `${formattedTotalTimeByPlayerForBears}\n`);
+await writeFile(`plot/player-hardmode-times.svg`, `${formattedTotalTimeByPlayerForHardmodes}\n`);
 await writeFile(`plot/player-mission-times.svg`, `${formattedTotalTimeByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-times.svg`, `${formattedTotalTimeByPlayerForRaces}\n`);
 await writeFile(`plot/player-sublevel-times.svg`, `${formattedTotalTimeByPlayerForSublevels}\n`);
 await writeFile(`plot/player-bear-ranks.svg`, `${formattedTotalRankByPlayerForBears}\n`);
+await writeFile(`plot/player-hardmode-ranks.svg`, `${formattedTotalRankByPlayerForHardmodes}\n`);
 await writeFile(`plot/player-mission-ranks.svg`, `${formattedTotalRankByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-ranks.svg`, `${formattedTotalRankByPlayerForRaces}\n`);
 await writeFile(`plot/player-sublevel-ranks.svg`, `${formattedTotalRankByPlayerForSublevels}\n`);
 await writeFile(`plot/player-scores.svg`, `${formattedTotalScoreByPlayer}\n`);
 await writeFile(`plot/player-bear-scores.svg`, `${formattedTotalScoreByPlayerForBears}\n`);
+await writeFile(`plot/player-hardmode-scores.svg`, `${formattedTotalScoreByPlayerForHardmodes}\n`);
 await writeFile(`plot/player-mission-scores.svg`, `${formattedTotalScoreByPlayerForMissions}\n`);
 await writeFile(`plot/player-race-scores.svg`, `${formattedTotalScoreByPlayerForRaces}\n`);
 await writeFile(`plot/player-sublevel-scores.svg`, `${formattedTotalScoreByPlayerForSublevels}\n`);
@@ -1872,24 +1883,29 @@ await writeFile(`plot/readme.md`, `\
 - [Player count by leaderboard](leaderboard-players.svg)
 - [Record count by player](player-records.svg)
 - [Record count by player (bears)](player-bear-records.svg)
+- [Record count by player (hardmodes)](player-hardmode-records.svg)
 - [Record count by player (missions)](player-mission-records.svg)
 - [Record count by player (races)](player-race-records.svg)
 - [Record count by player (sublevels)](player-sublevel-records.svg)
 - [Record time by leaderboard](leaderboard-records.svg)
 - [Record time by leaderboard (bears)](leaderboard-bear-records.svg)
+- [Record time by leaderboard (hardmodes)](leaderboard-hardmode-records.svg)
 - [Record time by leaderboard (missions)](leaderboard-mission-records.svg)
 - [Record time by leaderboard (races)](leaderboard-race-records.svg)
 - [Record time by leaderboard (sublevels)](leaderboard-sublevel-records.svg)
 - [Total time by player (bears)](player-bear-times.svg)
+- [Total time by player (hardmodes)](player-hardmode-times.svg)
 - [Total time by player (missions)](player-mission-times.svg)
 - [Total time by player (races)](player-race-times.svg)
 - [Total time by player (sublevels)](player-sublevel-times.svg)
 - [Total rank by player (bears)](player-bear-ranks.svg)
+- [Total rank by player (hardmodes)](player-hardmode-ranks.svg)
 - [Total rank by player (missions)](player-mission-ranks.svg)
 - [Total rank by player (races)](player-race-ranks.svg)
 - [Total rank by player (sublevels)](player-sublevel-ranks.svg)
 - [Total score by player](player-scores.svg)
 - [Total score by player (bears)](player-bear-scores.svg)
+- [Total score by player (hardmodes)](player-hardmode-scores.svg)
 - [Total score by player (missions)](player-mission-scores.svg)
 - [Total score by player (races)](player-race-scores.svg)
 - [Total score by player (sublevels)](player-sublevel-scores.svg)

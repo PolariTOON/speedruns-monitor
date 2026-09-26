@@ -1096,7 +1096,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-20</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-06-20</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-07-19</text>
 		</svg>
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">00:00.00</text>
@@ -1104,8 +1104,8 @@
 		<svg viewBox="0 0 80 20">
 			<text x="40" y="10" dx="0" dy="2" textLength="80" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">04:28.60</text>
 		</svg>
-		<svg viewBox="0 0 0 26860" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 26860) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 29 26860" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 26860) scale(1 -1)" style="--count: 2;">
 				<g style="--index: 0;">
 					<path d="M0,26860" tabindex="0">
 						<title>l_gdr5onk9-rkl3znrk-rn1g06dn.qj77o50q</title>
@@ -1114,8 +1114,19 @@
 					<path d="M0,26860L0,26860" tabindex="0">
 						<title>04:28.60 on 2026-06-20</title>
 					</path>
-					<line x1="0" y1="26860" x2="0" y2="26860"/>
+					<line x1="0" y1="26860" x2="29" y2="26860"/>
 					<line x1="0" y1="0" x2="0" y2="26860"/>
+				</g>
+				<g style="--index: 1;">
+					<path d="M29,6542" tabindex="0">
+						<title>l_xd0mnpjw-rkl3znrk-wley4prn.192xe54q</title>
+					</path>
+					<rect x="29" y="6542" width="0" height="0"/>
+					<path d="M29,6542L29,6542" tabindex="0">
+						<title>01:05.42 on 2026-07-19</title>
+					</path>
+					<line x1="0" y1="6542" x2="29" y2="6542"/>
+					<line x1="29" y1="0" x2="29" y2="26860"/>
 				</g>
 			</g>
 		</svg>

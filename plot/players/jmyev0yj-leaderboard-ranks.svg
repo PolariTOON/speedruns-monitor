@@ -1096,7 +1096,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-07-25</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-07-25</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-08-30</text>
 		</svg>
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
@@ -1104,14 +1104,19 @@
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">192</text>
 		</svg>
-		<svg viewBox="0 0 0 192" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 192) scale(1 -1)" style="--count: 1;">
+		<svg viewBox="0 0 36 192" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 192) scale(1 -1)" style="--count: 2;">
 				<g>
-					<rect x="0" y="0" width="0" height="192"/>
+					<rect x="0" y="0" width="36" height="192"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,192L0,192L0,82L0,82" tabindex="0">
+					<path d="M0,192L0,192L0,82L7,82L7,83L11,83L11,84L13,84L13,86L14,86L14,87L18,87L18,88L19,88L19,90L20,90L20,91L22,91L22,92L26,92L26,93L29,93L29,94L30,94L30,95L35,95L35,97L36,97" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
+					</path>
+				</g>
+				<g style="--index: 1;">
+					<path d="M0,152L8,152L8,98L20,98L20,99L22,99L22,101L24,101L24,102L25,102L25,103L29,103L29,104L31,104L31,106L34,106L34,107L35,107L35,108L36,108L36,109L36,109" tabindex="0">
+						<title>l_o9xo3rp9-9d8eewld-7896y468.81wp50oq</title>
 					</path>
 				</g>
 			</g>
