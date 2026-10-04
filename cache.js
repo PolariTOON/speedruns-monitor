@@ -1,5 +1,6 @@
 import {mkdir, writeFile} from "node:fs/promises";
 const dates = Object.create(null);
+const runs = Object.create(null);
 const players = Object.create(null);
 const playersById = Object.create(null);
 const playersByName = Object.create(null);
@@ -150,26 +151,20 @@ for (const [gameId, game] of Object.entries(games)) {
 						return `${firstCharacter}${lastCharacters}`;
 					}).join("\n\n") || null;
 					const reason = (run.status.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
-					const playerDateRun = {
+					const dateRun = {
 						href: status !== "rejected" ? gui : api,
 						time: time,
+						date: date,
+						player: playerId,
 						leaderboard: leaderboardId,
 						version: version != null && version !== "Pick one!" ? version : "?",
 						platform: platform,
 						status: status,
 						annotation: status !== "rejected" ? comment : reason,
 					};
-					playerDateRuns.push(playerDateRun);
-					const leaderboardDateRun = {
-						href: status !== "rejected" ? gui : api,
-						time: time,
-						player: playerId,
-						version: version != null && version !== "Pick one!" ? version : "?",
-						platform: platform,
-						status: status,
-						annotation: status !== "rejected" ? comment : reason,
-					};
-					leaderboardDateRuns.push(leaderboardDateRun);
+					runs[runId] ??= dateRun;
+					playerDateRuns.push(runId);
+					leaderboardDateRuns.push(runId);
 				}
 				console.log(`Got ${status} runs ${offset}-${offset + size - 1}`);
 				await new Promise((resolve) => {
@@ -187,8 +182,8 @@ for (const [gameId, game] of Object.entries(games)) {
 						throw new Error(response.statusText);
 					}
 					const {pagination, playerList, runList} = await response.json();
-					pages = pagination.pages;
-					const offset = (page - 1) * pagination.per;
+					pages = Number(pagination.pages);
+					const offset = (page - 1) * Number(pagination.per);
 					const size = runList.length;
 					if (size === 0) {
 						await new Promise((resolve) => {
@@ -205,8 +200,7 @@ for (const [gameId, game] of Object.entries(games)) {
 						players[playerId] ??= Object.create(null);
 					}
 					for (const run of runList) {
-						const timestamp = run.date;
-						const datetime = new Date(timestamp * 1000);
+						const datetime = new Date(run.performedAt);
 						const year = `${datetime.getUTCFullYear()}`.padStart(4, "0");
 						const month = `${datetime.getUTCMonth() + 1}`.padStart(2, "0");
 						const day = `${datetime.getUTCDate()}`.padStart(2, "0");
@@ -222,9 +216,9 @@ for (const [gameId, game] of Object.entries(games)) {
 						const runId = run.id;
 						const gui = `https://www.speedrun.com/${game}/run/${runId}`;
 						const api = `https://www.speedrun.com/api/v1/runs/${runId}`;
-						const minutes = (run.igt ?? run.time) != null ? `${(run.igt ?? run.time) / 60 | 0}`.padStart(2, "0") : null;
-						const seconds = (run.igt ?? run.time) != null ? `${(run.igt ?? run.time) % 60 | 0}`.padStart(2, "0") : null;
-						const centiseconds = (run.igt ?? run.time) != null ? `${(run.igt ?? run.time) * 100 % 100 | 0}`.padStart(2, "0") : null;
+						const minutes = (run.igt ?? run.time) != null ? `${Number((run.igt ?? run.time).slice(0, -1)) / 60 | 0}`.padStart(2, "0") : null;
+						const seconds = (run.igt ?? run.time) != null ? `${Number((run.igt ?? run.time).slice(0, -1)) % 60 | 0}`.padStart(2, "0") : null;
+						const centiseconds = (run.igt ?? run.time) != null ? `${Number((run.igt ?? run.time).slice(0, -1)) * 100 % 100 | 0}`.padStart(2, "0") : null;
 						const time = `${minutes ?? "--"}:${seconds ?? "--"}.${centiseconds ?? "--"}`;
 						const versionId = versionVariable != null ? run.valueIds.find((valueId) => {
 							return values[valueId].variableId === versionVariable.id;
@@ -261,26 +255,20 @@ for (const [gameId, game] of Object.entries(games)) {
 							return `${firstCharacter}${lastCharacters}`;
 						}).join("\n\n") || null;
 						const reason = (run.reason ?? "").replaceAll("\r\n", "\n").replaceAll(/^\n+|\n+$/g, "").replaceAll(/\n{2,}/g, "\n\n") || null;
-						const playerDateRun = {
+						const dateRun = {
 							href: status !== "rejected" ? gui : api,
 							time: time,
+							date: date,
+							player: playerId,
 							leaderboard: leaderboardId,
 							version: version != null && version !== "Pick one!" ? version : "?",
 							platform: platform,
 							status: status,
 							annotation: status !== "rejected" ? comment : reason,
 						};
-						playerDateRuns.push(playerDateRun);
-						const leaderboardDateRun = {
-							href: status !== "rejected" ? gui : api,
-							time: time,
-							player: playerId,
-							version: version != null && version !== "Pick one!" ? version : "?",
-							platform: platform,
-							status: status,
-							annotation: status !== "rejected" ? comment : reason,
-						};
-						leaderboardDateRuns.push(leaderboardDateRun);
+						runs[runId] ??= dateRun;
+						playerDateRuns.push(runId);
+						leaderboardDateRuns.push(runId);
 					}
 					console.log(`Got ${status} runs ${offset}-${offset + size - 1}`);
 					await new Promise((resolve) => {
@@ -295,26 +283,11 @@ for (const [gameId, game] of Object.entries(games)) {
 		throw error;
 	}
 }
-for (const playerDates of Object.values(players)) {
-	for (const dateRuns of Object.values(playerDates)) {
-		for (const run of dateRuns) {
-			if (run.annotation != null) {
-				run.annotation = run.annotation.replaceAll(/@[-.0-9A-Z_a-z]+/g, (mention) => {
-					return `@${playersByName[mention.slice(1)] ?? "814p2558"}`;
-				});
-			}
-		}
-	}
-}
-for (const leaderboardDates of Object.values(leaderboards)) {
-	for (const dateRuns of Object.values(leaderboardDates)) {
-		for (const run of dateRuns) {
-			if (run.annotation != null) {
-				run.annotation = run.annotation.replaceAll(/@[-.0-9A-Z_a-z]+/g, (mention) => {
-					return `@${playersByName[mention.slice(1)] ?? "814p2558"}`;
-				});
-			}
-		}
+for (const run of Object.values(runs)) {
+	if (run.annotation != null) {
+		run.annotation = run.annotation.replaceAll(/@[-.0-9A-Z_a-z]+/g, (mention) => {
+			return `@${playersByName[mention.slice(1)] ?? "814p2558"}`;
+		});
 	}
 }
 try {
@@ -576,6 +549,12 @@ function sortDates(dates) {
 	});
 	return dates;
 }
+function sortRuns(runs) {
+	sort(runs, (run) => {
+		return run[0];
+	});
+	return runs;
+}
 function sortDatePlatforms(datePlatforms) {
 	sort(datePlatforms, (datePlatform) => {
 		return datePlatform[0];
@@ -596,7 +575,7 @@ function sortPlayerDates(playerDates) {
 }
 function sortPlayerDateRuns(playerDateRuns) {
 	sort(playerDateRuns, (playerDateRun) => {
-		return playerDateRun.href;
+		return runs[playerDateRun].href;
 	});
 	return playerDateRuns;
 }
@@ -614,7 +593,7 @@ function sortLeaderboardDates(leaderboardDates) {
 }
 function sortLeaderboardDateRuns(leaderboardDateRuns) {
 	sort(leaderboardDateRuns, (leaderboardDateRun) => {
-		return leaderboardDateRun.href;
+		return runs[leaderboardDateRun].href;
 	});
 	return leaderboardDateRuns;
 }
@@ -624,6 +603,7 @@ const sortedDates = Object.fromEntries(sortDates(Object.entries(dates).map(([dat
 		Object.fromEntries(sortDatePlatforms(Object.entries(platforms))),
 	];
 })));
+const sortedRuns = Object.fromEntries(sortRuns(Object.entries(runs)));
 const sortedPlayers = Object.fromEntries(sortPlayers(Object.entries(players).filter(([player, dates]) => {
 	return Object.keys(dates).length !== 0;
 }).map(([player, dates]) => {
@@ -659,6 +639,7 @@ await mkdir("cache", {
 	recursive: true,
 });
 await writeFile(`cache/dates.json`, `${JSON.stringify(sortedDates, null, "\t")}\n`);
+await writeFile(`cache/runs.json`, `${JSON.stringify(sortedRuns, null, "\t")}\n`);
 await writeFile(`cache/players.json`, `${JSON.stringify(sortedPlayers, null, "\t")}\n`);
 await writeFile(`cache/players-by-id.json`, `${JSON.stringify(playersById, null, "\t")}\n`);
 await writeFile(`cache/players-by-name.json`, `${JSON.stringify(playersByName, null, "\t")}\n`);
@@ -674,6 +655,7 @@ await writeFile(`cache/readme.md`, `\
 # Cache
 
 - [Dates](dates.json)
+- [Runs](runs.json)
 - [Players](players.json)
 - [Leaderboards](leaderboards.json)
 - [Bears](bears.json)

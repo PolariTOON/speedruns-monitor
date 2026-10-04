@@ -2,6 +2,7 @@ import {writeFile} from "node:fs/promises";
 import bears from "./cache/bears.json" with {type: "json"};
 import hardmodes from "./cache/hardmodes.json" with {type: "json"};
 import sublevels from "./cache/sublevels.json" with {type: "json"};
+import runs from "./cache/runs.json" with {type: "json"};
 import leaderboards from "./cache/leaderboards.json" with {type: "json"};
 function computeNewTiers(oldTiers, leaderboards) {
 	const newTiers = Object.create(null);
@@ -16,10 +17,11 @@ function computeNewTiers(oldTiers, leaderboards) {
 		let minTime = null;
 		for (const dateRuns of Object.values(leaderboards[leaderboard])) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
-				const time = run.time;
+				const time = runDatum.time;
 				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
 					return Number(part);
 				});

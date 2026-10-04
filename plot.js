@@ -1,5 +1,6 @@
 import {mkdir, rm, writeFile} from "node:fs/promises";
 import {DOMParser} from "linkedom";
+import runs from "./cache/runs.json" with {type: "json"};
 import players from "./cache/players.json" with {type: "json"};
 import leaderboards from "./cache/leaderboards.json" with {type: "json"};
 import bears from "./cache/bears.json" with {type: "json"};
@@ -1388,15 +1389,16 @@ function plotSubmissionAndRunCounts(scope, title, data) {
 	for (const datumDates of Object.values(data)) {
 		for (const [date, dateRuns] of Object.entries(datumDates)) {
 			for (const run of dateRuns) {
+				const runDatum = runs[run];
 				const submissionsDates = newData.submissions ??= Object.create(null);
 				submissionsDates[date] ??= 0;
 				++submissionsDates[date];
-				if (run.status !== "rejected" || run.annotation == null || run.annotation !== "Automatically moved to the new individual level" && run.annotation !== "Automatically moved to the new category extensions") {
+				if (runDatum.status !== "rejected" || runDatum.annotation == null || runDatum.annotation !== "Automatically moved to the new individual level" && runDatum.annotation !== "Automatically moved to the new category extensions") {
 					const manualSubmissionsDates = newData.manualSubmissions ??= Object.create(null);
 					manualSubmissionsDates[date] ??= 0;
 					++manualSubmissionsDates[date];
 				}
-				if (run.status !== "verified") {
+				if (runDatum.status !== "verified") {
 					continue;
 				}
 				const runsDates = newData.runs ??= Object.create(null);
@@ -1413,7 +1415,8 @@ function plotRunCountByDatum(scope, title, data) {
 	for (const [datum, datumDates] of Object.entries(data)) {
 		for (const [date, dateRuns] of Object.entries(datumDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
 				const newDatumDates = newData[datum] ??= Object.create(null);
@@ -1432,10 +1435,11 @@ function plotKeyCountByDatum(scope, title, data, key) {
 		let currentSize = 0;
 		for (const [date, dateRuns] of Object.entries(datumDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
-				values.add(run[key]);
+				values.add(runDatum[key]);
 				const newDatumDates = newData[datum] ??= Object.create(null);
 				newDatumDates[date] ??= 0;
 				newDatumDates[date] += values.size - currentSize;
@@ -1450,17 +1454,18 @@ function plotTimeByDatumKey(scope, title, datumDates, key, times) {
 	const keyData = Object.create(null);
 	for (const [date, dateRuns] of Object.entries(datumDates)) {
 		for (const run of dateRuns) {
-			if (run.status !== "verified") {
+			const runDatum = runs[run];
+			if (runDatum.status !== "verified") {
 				continue;
 			}
-			const time = run.time;
+			const time = runDatum.time;
 			const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
 				return Number(part);
 			});
 			const currentTime = minutes * 6000 + seconds * 100 + centiseconds;
-			const minTime = run[key] in keyData ? keyData[run[key]][Object.keys(keyData[run[key]])[Object.keys(keyData[run[key]]).length - 1]] : null;
+			const minTime = runDatum[key] in keyData ? keyData[runDatum[key]][Object.keys(keyData[runDatum[key]])[Object.keys(keyData[runDatum[key]]).length - 1]] : null;
 			if (minTime == null || currentTime < minTime) {
-				const datumDates = keyData[run[key]] ??= Object.create(null);
+				const datumDates = keyData[runDatum[key]] ??= Object.create(null);
 				datumDates[date] ??= Number.POSITIVE_INFINITY;
 				datumDates[date] = Math.min(datumDates[date], currentTime);
 			}
@@ -1492,11 +1497,12 @@ function computeRankAndScoreByLeaderboardByPlayerAndByPlayerByLeaderboard(player
 		const scores = [];
 		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
-				const time = run.time;
-				const player = run.player;
+				const time = runDatum.time;
+				const player = runDatum.player;
 				let lowerTime = player in rankedPlayers ? times[player] : null;
 				if (lowerTime == null || time.length < lowerTime.length || time < lowerTime) {
 					const rank = lowerTime != null ? rankedPlayers[player][Object.keys(rankedPlayers[player])[Object.keys(rankedPlayers[player]).length - 1]] : ranks.push(null) - 1;
@@ -1548,10 +1554,11 @@ function computeRankAndScoreByLeaderboardByPlayerAndByPlayerByLeaderboard(player
 		const scoredLeaderboards = Object.create(null);
 		for (const dateRuns of Object.values(playerDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
-				const leaderboard = run.leaderboard;
+				const leaderboard = runDatum.leaderboard;
 				rankedLeaderboards[leaderboard] ??= newRankedLeaderboards[leaderboard][player];
 				scoredLeaderboards[leaderboard] ??= newScoredLeaderboards[leaderboard][player];
 			}
@@ -1578,11 +1585,12 @@ function plotRecordCountByPlayer(scope, title, leaderboards, tiers) {
 		let minPlayer = null;
 		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
-				const time = run.time;
-				const player = run.player;
+				const time = runDatum.time;
+				const player = runDatum.player;
 				if (minTime == null || time.length < minTime.length || time < minTime) {
 					if (minPlayer != null) {
 						const playerDates = players[minPlayer] ??= Object.create(null);
@@ -1610,10 +1618,11 @@ function plotRecordTimeByLeaderboard(scope, title, leaderboards, tiers) {
 		let minTime = null;
 		for (const [date, dateRuns] of Object.entries(leaderboardDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
-				const time = run.time;
+				const time = runDatum.time;
 				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
 					return Number(part);
 				});
@@ -1639,11 +1648,12 @@ function plotTotalTimeByPlayer(scope, title, players, tiers) {
 		const leaderboards = Object.create(null);
 		for (const [date, dateRuns] of Object.entries(playerDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified" || !(run.leaderboard in tiers)) {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified" || !(runDatum.leaderboard in tiers)) {
 					continue;
 				}
-				const time = run.time;
-				const leaderboard = run.leaderboard;
+				const time = runDatum.time;
+				const leaderboard = runDatum.leaderboard;
 				const [minutes, seconds, centiseconds] = time.split(/:|\./).map((part) => {
 					return Number(part);
 				});
@@ -1705,9 +1715,9 @@ function plotTotalRankOrScoreByPlayer(scope, title, players, reversed, tiers) {
 		let playerRank = 0;
 		const leaderboards = Object.create(null);
 		for (const [date, dateRuns] of Object.entries(sortedPlayerDates)) {
-			for (const run of dateRuns) {
-				const rank = run.rank;
-				const leaderboard = run.leaderboard;
+			for (const runDatum of dateRuns) {
+				const rank = runDatum.rank;
+				const leaderboard = runDatum.leaderboard;
 				const currentRank = rank;
 				const previousRank = leaderboard in leaderboards ? leaderboards[leaderboard] : null;
 				if (previousRank != null) {

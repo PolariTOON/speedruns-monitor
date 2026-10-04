@@ -1,6 +1,7 @@
 import {mkdir, writeFile} from "node:fs/promises";
 import {DOMParser} from "linkedom";
 import dates from "./cache/dates.json" with {type: "json"};
+import runs from "./cache/runs.json" with {type: "json"};
 import players from "./cache/players.json" with {type: "json"};
 import leaderboards from "./cache/leaderboards.json" with {type: "json"};
 const blocks = ["body", "table", "colgroup", "thead", "tbody", "tr", "td"];
@@ -783,18 +784,19 @@ function watch(scope, title, data) {
 				const td = document.createElement("td");
 				if (datumDates[date] != null) {
 					for (const run of datumDates[date]) {
+						const runDatum = runs[run];
 						const p = document.createElement("p");
 						const a = document.createElement("a");
-						a.setAttribute("href", run.href);
-						a.textContent = run.version;
-						if (run.platform != null) {
-							a.setAttribute("data-platform", run.platform);
+						a.setAttribute("href", runDatum.href);
+						a.textContent = runDatum.version;
+						if (runDatum.platform != null) {
+							a.setAttribute("data-platform", runDatum.platform);
 						}
-						if (run.status != null) {
-							a.setAttribute("data-status", run.status);
+						if (runDatum.status != null) {
+							a.setAttribute("data-status", runDatum.status);
 						}
-						if (run.annotation != null) {
-							a.setAttribute("data-annotation", run.annotation);
+						if (runDatum.annotation != null) {
+							a.setAttribute("data-annotation", runDatum.annotation);
 						}
 						p.append(a);
 						td.append(p);
@@ -829,7 +831,8 @@ function watchRuns(scope, title, data) {
 	for (const [datum, datumDates] of Object.entries(data)) {
 		for (const [date, dateRuns] of Object.entries(datumDates)) {
 			for (const run of dateRuns) {
-				if (run.status !== "verified") {
+				const runDatum = runs[run];
+				if (runDatum.status !== "verified") {
 					continue;
 				}
 				const newDatumDates = newData[datum] ??= Object.create(null);
