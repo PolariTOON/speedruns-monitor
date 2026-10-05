@@ -134,6 +134,15 @@ function watch(scope, title, data) {
 			body &gt; div &gt; p {
 				margin: 0;
 			}
+			button {
+				display: block;
+				padding: 10px;
+				border-radius: 0;
+				border: 0;
+				background: transparent;
+				color: inherit;
+				font: inherit;
+			}
 			label {
 				display: table;
 				border-collapse: separate;
@@ -153,6 +162,7 @@ function watch(scope, title, data) {
 				display: table-cell;
 				vertical-align: top;
 			}
+			button:is(:hover, :focus-within),
 			input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
 				text-decoration: underline;
 			}
@@ -467,15 +477,25 @@ function watch(scope, title, data) {
 					const body = document.querySelector("body");
 					const div = document.createElement("div");
 					const p = document.createElement("p");
+					const button = document.createElement("button");
+					button.textContent = "Load names";
+					p.append(button);
+					div.append(p);
+					body.prepend(div);
+					await new Promise((resolve) =&gt; {
+						button.addEventListener("click", () =&gt; {
+							resolve();
+						}, {
+							once: true,
+						});
+					});
 					const label = document.createElement("label");
 					const progress = document.createElement("progress");
 					label.append(progress);
 					const span = document.createElement("span");
 					span.textContent = "Loading names";
 					label.append(span);
-					p.append(label);
-					div.prepend(p);
-					body.prepend(div);
+					button.replaceWith(label);
 					let lock = false;
 					let session = null;
 					const broadcastChannel = new BroadcastChannel(sessionKey);

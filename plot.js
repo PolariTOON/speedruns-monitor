@@ -170,6 +170,15 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 		foreignObject &gt; div &gt; p {
 			margin: 0;
 		}
+		button {
+			display: block;
+			padding: 10px;
+			border-radius: 0;
+			border: 0;
+			background: transparent;
+			color: inherit;
+			font: inherit;
+		}
 		label {
 			display: table;
 			border-collapse: separate;
@@ -192,6 +201,7 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 			vertical-align: top;
 			direction: ltr;
 		}
+		button:is(:hover, :focus-within),
 		input[type="checkbox"]:not(:disabled):is(:hover, :focus-within) + span {
 			text-decoration: underline;
 		}
@@ -482,15 +492,25 @@ function plot(scope, title, data, cumulative, extended, timed, goals) {
 				const div = document.createElementNS("http://www.w3.org/1999/xhtml", "div");
 				div.dir = "ltr";
 				const p = document.createElementNS("http://www.w3.org/1999/xhtml", "p");
+				const button = document.createElementNS("http://www.w3.org/1999/xhtml", "button");
+				button.textContent = "Load names";
+				p.append(button);
+				div.append(p);
+				foreignObject.prepend(div);
+				await new Promise((resolve) =&gt; {
+					button.addEventListener("click", () =&gt; {
+						resolve();
+					}, {
+						once: true,
+					});
+				});
 				const label = document.createElementNS("http://www.w3.org/1999/xhtml", "label");
 				const progress = document.createElementNS("http://www.w3.org/1999/xhtml", "progress");
 				label.append(progress);
 				const span = document.createElementNS("http://www.w3.org/1999/xhtml", "span");
 				span.textContent = "Loading names";
 				label.append(span);
-				p.append(label);
-				div.append(p);
-				foreignObject.prepend(div);
+				button.replaceWith(label);
 				let lock = false;
 				let session = null;
 				const broadcastChannel = new BroadcastChannel(sessionKey);
