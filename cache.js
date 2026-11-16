@@ -82,6 +82,12 @@ for (const [gameId, game] of Object.entries(games)) {
 		for (const [verified, status] of Object.entries(statuses)) {
 			const slice = 200;
 			for (let offset = 0;; offset += slice) {
+				if (offset === 10000) {
+					await new Promise((resolve) => {
+						setTimeout(resolve, 800);
+					});
+					break;
+				}
 				const response = await fetch(`https://www.speedrun.com/api/v1/runs?game=${gameId}&status=${status}&orderby=date&direction=asc&embed=players&offset=${offset}&max=${slice}`);
 				if (!response.ok) {
 					throw new Error(response.statusText);

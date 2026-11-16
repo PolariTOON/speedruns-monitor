@@ -1116,7 +1116,7 @@
 			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-09-02</text>
 		</svg>
 		<svg viewBox="0 0 100 20">
-			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-09-29</text>
+			<text x="50" y="10" dx="0" dy="2" textLength="100" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">2026-10-31</text>
 		</svg>
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="10" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">0</text>
@@ -1124,19 +1124,24 @@
 		<svg viewBox="0 0 30 20">
 			<text x="15" y="10" dx="0" dy="2" textLength="30" lengthAdjust="spacingAndGlyphs" text-anchor="middle" dominant-baseline="middle">296</text>
 		</svg>
-		<svg viewBox="0 0 27 296" preserveAspectRatio="none" overflow="visible">
-			<g transform="translate(0 296) scale(1 -1)" style="--count: 2;">
+		<svg viewBox="0 0 59 296" preserveAspectRatio="none" overflow="visible">
+			<g transform="translate(0 296) scale(1 -1)" style="--count: 3;">
 				<g>
-					<rect x="0" y="0" width="27" height="296"/>
+					<rect x="0" y="0" width="59" height="296"/>
 				</g>
 				<g style="--index: 0;">
-					<path d="M0,296L0,296L0,52L4,52L4,53L16,53L16,55L27,55" tabindex="0">
+					<path d="M0,296L0,296L0,52L4,52L4,53L16,53L16,55L30,55L30,56L31,56L31,59L47,59L47,60L53,60L53,61L59,61L59,63L59,63" tabindex="0">
 						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.xqkjmxnl</title>
 					</path>
 				</g>
 				<g style="--index: 1;">
-					<path d="M0,89L3,89L3,38L4,38L4,39L5,39L5,40L8,40L8,41L12,41L12,42L24,42L24,43L27,43L27,44L27,44" tabindex="0">
+					<path d="M0,89L3,89L3,38L4,38L4,39L5,39L5,40L8,40L8,41L12,41L12,42L24,42L24,43L27,43L27,44L32,44L32,46L59,46" tabindex="0">
 						<title>l_o9xo3rp9-9d8eewld-7896y468.9qj0x8el</title>
+					</path>
+				</g>
+				<g style="--index: 2;">
+					<path d="M0,221L50,221L50,26L59,26" tabindex="0">
+						<title>l_r9gn1qpd-9d8eewld-0nwoqwkl.klrpy2jq</title>
 					</path>
 				</g>
 			</g>
